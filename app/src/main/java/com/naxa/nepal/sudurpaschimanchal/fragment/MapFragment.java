@@ -232,15 +232,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
         });
 
-        try {
-            districtLayer =new GeoJsonLayer(myMap, R.raw.sudur,
-                     getActivity().getApplicationContext());
-            districtLayer.addLayerToMap();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        setDistrictGeoJSON();
+
     }
 
     /**
@@ -382,16 +375,16 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     @Override
     public void onTaskCompleted(String response) {
         //feeding an Arraylist with PlacesTypes Object
-        if (new JsonParser().isPlacesTypeJsonValid(response)){
+        if (new JsonParser().isPlacesTypeJsonValid(response)) {
             //if it has valid response
             //assume it is importnat and replace the local data
-            districtEditor.putString(DISRICTPREF,response);
+            districtEditor.putString(DISRICTPREF, response);
             districtEditor.commit();
         }
 
-        if(!districtSharedPref.getString(DISRICTPREF, "").trim().isEmpty()){
+        if (!districtSharedPref.getString(DISRICTPREF, "").trim().isEmpty()) {
             //if district pref has data
-            String districtCache = districtSharedPref.getString(DISRICTPREF," ").trim();
+            String districtCache = districtSharedPref.getString(DISRICTPREF, " ").trim();
             String[] types = cleanPlacesTypesData(new JsonParser().placesTypeJSONParser(districtCache));
             //pass the cleaned data to spinner
 
@@ -409,29 +402,54 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     @Override
     public void onPlacesTaskCompleted(String response) {
 
-        if (new JsonParser().isPlacesTypeJsonValid(response)){
+        if (new JsonParser().isPlacesTypeJsonValid(response)) {
             //if it has valid response
             //assume it is importnat and replace the local data
-            placesEditor.putString(PLACESDATA,response);
+            placesEditor.putString(PLACESDATA, response);
             placesEditor.commit();
-            Log.e(TAG,"setting marker data in shared")       ;
+            Log.e(TAG, "setting marker data in shared");
         }
         //we have marker data now
         //feed marker arraylist to setMarkers
-        if(!placesSharedPref.getString(PLACESDATA, "").trim().isEmpty()){
+        if (!placesSharedPref.getString(PLACESDATA, "").trim().isEmpty()) {
             //if district pref has data
-            String placesCache = placesSharedPref.getString(PLACESDATA," ").trim();
+            String placesCache = placesSharedPref.getString(PLACESDATA, " ").trim();
             interestLocationList = new JsonParser().InterestLocationJSONParser(placesCache);
-            Log.e(TAG,"getting marker data in array");
+            Log.e(TAG, "getting marker data in array");
         }
 
         setSpinnerListener();
     }
 
+
+    private void setDistrictGeoJSON() {
+        //set district layer
+        try {
+            try {
+                districtLayer = new GeoJsonLayer(myMap, R.raw.sudur,
+                        getActivity().getApplicationContext());
+            } catch (JSONException e) {
+                Log.d(TAG, "Error ! while parsing GeoJSON raw file /n" + e);
+
+                e.printStackTrace();
+            }
+            districtLayer.addLayerToMap();
+        } catch (IOException e) {
+            Log.d(TAG, "Error ! While Applying GeoJSON to map /n" + e);
+            e.printStackTrace();
+
+        }
+
+    }
+
     private void setMarkers(ArrayList<InterestLocation> markersListFromServer, String typeHighligter) {
+
 
         if (markerFlag) {
             myMap.clear();
+            //set geoJson again
+            setDistrictGeoJSON();
+            Log.d(TAG, "Clearing all markers");
         }
 
         //TODO marker cluster
