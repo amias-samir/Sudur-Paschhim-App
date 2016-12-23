@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="@color/accent">
+
+        </RelativeLayout>
+
+        <ImageView
+
+            android:id="@+id/project_imageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/relative"
+            android:layout_toEndOf="@+id/relative" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignTop="@+id/project_imageView"
+            android:layout_toRightOf="@+id/project_imageView"
+            android:layout_toEndOf="@+id/project_imageView"
+            android:id="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:layout_margin="10dp"
+                android:textColor="#000000"
+                android:text="News Title"/>
+
+            <TextView
+                android:id="@+id/news_detail"
+                android:textSize="12dp"
+                android:textColor="#151515"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="detail"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 11:15 am"
+            android:textSize="10dp"
+            android:id="@+id/feed_time"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#737373"
+            android:layout_below="@+id/project_imageView"
+            android:layout_toRightOf="@+id/project_imageView"
+            android:layout_toEndOf="@+id/project_imageView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Date: Thursday, Oct 5, 2016"
+            android:id="@+id/feed_date"
+            android:textColor="#737373"
+            android:layout_alignBottom="@+id/feed_time"
+            android:layout_alignRight="@+id/linearLayout2"
+            android:layout_alignEnd="@+id/linearLayout2" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey" />
+
+</LinearLayout>

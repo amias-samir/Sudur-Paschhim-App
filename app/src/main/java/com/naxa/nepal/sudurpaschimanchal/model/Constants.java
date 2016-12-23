@@ -1,0 +1,16 @@
+package com.naxa.nepal.sudurpaschimanchal.model;
+
+/**
+ * Created by User on 9/26/2016.
+ */
+public class Constants {
+    public static String YOUTUBE_DEVELOPER_KEY = "AIzaSyCT_UL0lI6qa0UYcWUyAg9eTgmA3wNY1B8";
+    public  static  String GOOGLE_MAP_API_KEY= "AIzaSyAhVlgoGSmjbTKMWa3K2AeBACsAMw2iy1c";
+
+    public static String[] menuNepali = {"विकास आयोग बारेमा", "समाचार ", "सन्देसहरू  "};
+    public static String[] menuEnglish = {"परिचय ","विकास आयोग को बारेमा", "हाम्रो सुदूरपश्चिम ","सुझाब/सहयोग", "आफ्नो व्यवसाय सुचीकृत गर्नुहोस", "राजनीतिक अवस्था", "सामाजिक/आर्थिक तथ्यांक"};
+    public static String[] statusEnglish = {"सम्पन्न परियोजना","चालु परियोजना","भावि परियोजना"};
+    public static String[] menuLocalAttraction= {"धार्मिक स्थलहरू ", "सांस्कृतिक स्थलहरू", "ऐतिहासिक स्थलहरू", "प्राकृतिक स्थलहरू"};
+    public static String[] districtListEnglish = { "कैलाली", "आछाम", "बझांग", "बाजुरा", "कन्चनपुर", "डडेल्धुरा", "बैतडी", "दार्चुला", "डोटी"};
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Home"
+        android:id="@+id/nav_item_home"
+        android:icon="@drawable/ic_home"/>
+
+    <item android:title="Others">
+        <menu>
+            <item android:title="message"
+                android:id="@+id/nav_item_message"
+                android:icon="@drawable/inbox" />
+            <item android:title="News and Events"
+                android:id="@+id/nav_item_news_and_events"
+                android:icon="@drawable/newsfeed"/>
+        </menu>
+    </item>
+
+    <group android:id="@+id/group_settings_id">
+
+        <item android:title="Settings"
+            android:icon="@drawable/settings"
+            android:id="@+id/nav_item_settings"/>
+        <item android:title="About us"
+            android:icon="@drawable/help"
+            android:id="@+id/nav_item_about_us" />
+    </group>
+
+    <item android:title="all rights reserved © 2016 FWDC"> </item>
+
+
+</menu>
