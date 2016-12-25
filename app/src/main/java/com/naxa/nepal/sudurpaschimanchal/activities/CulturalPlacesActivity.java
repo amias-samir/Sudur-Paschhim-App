@@ -65,7 +65,7 @@ public class CulturalPlacesActivity extends AppCompatActivity {
         final String cheeseName = intent.getStringExtra(EXTRA_NAME);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("सांस्कृतिक स्थलहरू");
+        toolbar.setTitle("स्थानिय चाडपर्बहरू");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -186,7 +186,7 @@ public class CompletedProjectsFragment extends Fragment {
                     dev_status_id = c.getString("dev_status_id");
                     Log.e("DEV_STATUS", "" + dev_status_id.toString());
 
-                    if(dev_status_id.equals("1")){
+                    if(dev_status_id.equals("3")){
                         DevActivity_Pojo newData = new DevActivity_Pojo();
 //                newData.set(c.getString("dev_status_id"));
                         newData.setDev_title_en(c.getString("dev_title_en"));

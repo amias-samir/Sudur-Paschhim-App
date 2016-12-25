@@ -9,6 +9,7 @@ public class PolticalParties_List_Model {
 
     public String poltical_party_name_en;
     public String poltical_party_name_np;
+    public String poltical_party_seat;
 
 
     public String getPoltical_party_name_en() { return poltical_party_name_en; }
@@ -19,4 +20,12 @@ public class PolticalParties_List_Model {
 
     public String getThumbnail() { return mThumbnail; }
     public void setThumbnail(String thumbnail) { this.mThumbnail = thumbnail; }
+
+    public String getPoltical_party_seat() {
+        return poltical_party_seat;
+    }
+
+    public void setPoltical_party_seat(String poltical_party_seat) {
+        this.poltical_party_seat = poltical_party_seat;
+    }
 }

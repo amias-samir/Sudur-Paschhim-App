@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="#ffffff"
         android:layout_margin="5dp"
         android:layout_marginLeft="10dp">
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="Bajhang,"
             android:textSize="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
             android:textColor="#737373"
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="3dp"
             android:text="Bajhang"

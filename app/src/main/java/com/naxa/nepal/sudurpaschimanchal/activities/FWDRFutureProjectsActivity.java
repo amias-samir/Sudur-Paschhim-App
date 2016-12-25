@@ -192,7 +192,7 @@ public class FWDRFutureProjectsActivity extends AppCompatActivity {
                     Log.e("DEV_STATUS", "" + dev_status_id.toString());
                     Log.e("DEV_DIST", "" + district_id.toString());
 
-                    if(dev_status_id.equals("3" ) && district_id.equals(dist_id) ){
+                    if(dev_status_id.equals("1" ) && district_id.equals(dist_id) ){
                         DevActivity_Pojo newData = new DevActivity_Pojo();
                         Log.d(TAG, "jsonParse: if" );
 //                newData.set(c.getString("dev_status_id"));
@@ -214,7 +214,7 @@ public class FWDRFutureProjectsActivity extends AppCompatActivity {
 
                     }
 
-                    else if(dev_status_id.equals("3" ) && dist_id.equals("0") ){
+                    else if(dev_status_id.equals("1" ) && dist_id.equals("0") ){
                         DevActivity_Pojo newData = new DevActivity_Pojo();
                         Log.d(TAG, "jsonParse: else if" );
 //                newData.set(c.getString("dev_status_id"));

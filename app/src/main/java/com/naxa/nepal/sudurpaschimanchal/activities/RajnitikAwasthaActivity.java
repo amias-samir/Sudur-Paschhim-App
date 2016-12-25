@@ -1,8 +1,13 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,16 +27,33 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.Utils.ChartColor;
+import com.naxa.nepal.sudurpaschimanchal.connection.ConnectonDetector;
 import com.naxa.nepal.sudurpaschimanchal.fragment.PoliticalPartiesFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.PolticianListFragment;
+import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
 /**
- * Created by Susan on 10/27/2016.
+ * Created by Samir on 10/27/2016.
  */
-public class RajnitikAwasthaActivity  extends AppCompatActivity {
+public class RajnitikAwasthaActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -43,22 +66,22 @@ public class RajnitikAwasthaActivity  extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "cheese_name";
 
-    //=====================================Half pie chart ====================================//
-    protected String[] mMonths = new String[] {
-            "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
-    };
+    ArrayList<Entry> entries = new ArrayList<>();
+    ArrayList<String> labels = new ArrayList<String>();
 
-    protected String[] mParties = new String[] {
-            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
-            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
-            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
-            "Party Y", "Party Z"
-    };
+    public static final String MyPREFERENCES = "parties_chart_json";
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
+    private boolean setData;
+    String jsonToSend = null;
+    String party_name_np, rawseats;
+    Float seat;
 
-    protected Typeface mTfRegular;
-    protected Typeface mTfLight;
+    //Samir
+    ConnectivityManager connectivityManager;
+    NetworkInfo networkInfo;
 
-    //=================================end of half pie chart ==================================//
+    ConnectonDetector conectionDetector;
 
 
     @Override
@@ -77,55 +100,50 @@ public class RajnitikAwasthaActivity  extends AppCompatActivity {
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
+//connection detector
+        conectionDetector = new ConnectonDetector(this);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+
+        convertDataToJson();
+        createList();
 
         ScrollView scroll = (ScrollView) findViewById(R.id.scrollView);
         scroll.setFocusableInTouchMode(true);
         scroll.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
-
-        //=======================================================Half pie chart=========================================//
-
-//        mTfRegular = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
-//        mTfLight = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
-
-
-
-        //====================================================end of half pie chart oncreate=============================//
-
 
 
 //=================================Pie Chart Draw==============================//
 
         pieChart = (PieChart) findViewById(R.id.chart1);
 
-        pieChart.setCenterText(stat_name);
+        pieChart.setCenterText( "निर्वाचित\n सिट संख्या");
+        entries.add(new Entry(1f, 0));
+        entries.add(new Entry(9f, 1));
+        entries.add(new Entry(2f, 2));
+        entries.add(new Entry(9f, 3));
 
-        ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(75f, 0));
-        entries.add(new Entry(50f, 1));
-        entries.add(new Entry(55f, 2));
-        entries.add(new Entry(53f, 3));
-        entries.add(new Entry(25f, 4));
-        entries.add(new Entry(15f, 5));
-        entries.add(new Entry(25f, 6));
-        entries.add(new Entry(30f, 7));
-        entries.add(new Entry(25f, 8));
+//        entries.add(new Entry(25f, 4));
+//        entries.add(new Entry(15f, 5));
+//        entries.add(new Entry(25f, 6));
+//        entries.add(new Entry(30f, 7));
+//        entries.add(new Entry(25f, 8));
 
-        PieDataSet dataset = new PieDataSet(entries, stat_name);
-
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("एमाले");
-        labels.add("काँग्रेस");
+        PieDataSet dataset = new PieDataSet(entries,"");
         labels.add("माओवादी");
-        labels.add("फोरम");
-        labels.add("जनमोर्चा");
-        labels.add("माले");
-        labels.add("चुरे भावोर");
-        labels.add("राप्रपा");
-        labels.add("नेमकिपा");
+        labels.add("एमाले");
+        labels.add("फोरम लोकतान्त्रिक");
+        labels.add("काँग्रेस");
+
+//        labels.add("जनमोर्चा");
+//        labels.add("माले");
+//        labels.add("चुरे भावोर");
+//        labels.add("राप्रपा");
+//        labels.add("नेमकिपा");
 
         PieData data = new PieData(labels, dataset);
         dataset.setColors(ChartColor.COLORFUL_COLORS); //
-        pieChart.setDescription("विवरण");
+        pieChart.setDescription("निर्वाचित राजनीतिक पार्टीहरु");
         pieChart.setData(data);
 
         pieChart.animateY(2000);
@@ -148,10 +166,11 @@ public class RajnitikAwasthaActivity  extends AppCompatActivity {
         });
 
         TextView rajnitik_bibaran = (TextView) findViewById(R.id.textView_rajnitik_bibaran);
-        rajnitik_bibaran.setText("सुदूरपश्चिमका ९ जिल्लाको एकै प्रदेश हुनुपर्ने यदी त्यसो नभए आफ्नो पार्टीभित्र पनि संर्घष गरेर अघि बढ्ने पूर्वमन्त्री एवम् एकीकृत माओवादीका पोलिटव्युरो सदस्य लेखराज भटट्ले बताएका छन् ।");
+        rajnitik_bibaran.setText("सुदूरपश्चिम बिकाश क्षेत्रमा क्रियाशिल राजनीतिक पार्टीहरू र राजनीतिक व्यक्तिहरुको विवरण निम्न अनुसार छन् ।");
 
 
     }
+
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -159,7 +178,7 @@ public class RajnitikAwasthaActivity  extends AppCompatActivity {
 //                .getDefaultSharedPreferences(getActivity());
 
         adapter.addFragment(new PolticianListFragment(), "राजनीतिक \n व्यक्तिहरू");
-        adapter.addFragment(new PoliticalPartiesFragment(),"राजनीतिक \n पार्टीहरु");
+        adapter.addFragment(new PoliticalPartiesFragment(), "राजनीतिक \n पार्टीहरु");
         viewPager.setAdapter(adapter);
 //
 //        }
@@ -196,8 +215,155 @@ public class RajnitikAwasthaActivity  extends AppCompatActivity {
         }
     }
 
+    // data convert
+    public void convertDataToJson() {
+        //function in the activity that corresponds to the layout button
 
-    protected float getRandom(float range, float startsfrom) {
-        return (float) (Math.random() * range) + startsfrom;
+        try {
+
+            JSONObject header = new JSONObject();
+
+            header.put("token", "bf5d483811");
+            jsonToSend = header.toString();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void createList() {
+
+        PoticalPartiesListService restApi = new PoticalPartiesListService();
+        restApi.execute();
+    }
+
+    private class PoticalPartiesListService extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+
+            return out.toString();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text = "";
+
+            if (sharedpreferences.getString("parties_chart_json", "").trim().isEmpty()) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    text = POST(UrlClass.URL_PARTY_LIST);
+                    editor.putString("parties_chart_json", text);
+                    editor.commit();
+                } else {
+//                    try {
+//                        Snackbar.make(getCon, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+//                                .setAction("Retry", null).show();
+//                    } catch (NullPointerException e) {
+//                        e.printStackTrace();
+//                    }
+                }
+            } else {
+                text = sharedpreferences.getString("parties_chart_json", "");
+            }
+
+            try {
+                JSONObject jsonObj = new JSONObject(text);
+                data = jsonObj.getJSONArray("data");
+
+                Log.e("DATA", "" + data.toString());
+
+                for (int i = 0; i < data.length(); i++) {
+
+                    JSONObject c = data.getJSONObject(i);
+
+                    rawseats = c.getString("seats");
+                    party_name_np = c.getString("sudur_political_party_name_np");
+
+                    seat = Float.parseFloat(rawseats);
+
+                  //  entries.add(new Entry(seat,i));
+                  //  labels.add(party_name_np);
+
+//                    PolticalParties_List_Model newData = new PolticalParties_List_Model();
+//                    newData.poltical_party_name_en = c.getString("sudur_political_party_name_en");
+//                    newData.poltical_party_name_np = c.getString("sudur_political_party_name_np");
+//                    newData.mThumbnail = c.getString("photo");
+
+                }
+            } catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
+
+            return text.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            if (result != null) {
+//                swipeContainer.setRefreshing(false);
+            }
+
+        }
+
+        public String POST(String myurl) {
+
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
+
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return response;
+        }
+
     }
 }
