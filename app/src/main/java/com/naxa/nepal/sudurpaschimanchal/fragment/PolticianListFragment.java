@@ -121,6 +121,7 @@ public class PolticianListFragment extends Fragment {
         editor = sharedpreferences.edit();
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.NewsList);
+        recyclerView.setNestedScrollingEnabled(true);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);

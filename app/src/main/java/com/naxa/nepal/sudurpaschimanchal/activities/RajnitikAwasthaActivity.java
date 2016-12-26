@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -108,7 +109,7 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
         convertDataToJson();
         createList();
 
-        ScrollView scroll = (ScrollView) findViewById(R.id.scrollView);
+        NestedScrollView scroll = (NestedScrollView) findViewById(R.id.scrollView);
         scroll.setFocusableInTouchMode(true);
         scroll.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
 
