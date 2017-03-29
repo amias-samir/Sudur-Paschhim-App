@@ -30,7 +30,7 @@ import java.util.List;
 
 public class NaturalPlacesActivity extends AppCompatActivity {
 
-    private static final String TAG = "FWDRCultural";
+    private static final String TAG = "FWDRNatural";
     HamroSudurPaschimActivity hamro_sudur;
 
     public static String dist_id = "0";
@@ -46,27 +46,25 @@ public class NaturalPlacesActivity extends AppCompatActivity {
 
     LocalAttractionRecyclerAdapter ca;
     public static List<LocalAttractionModel> resultCur = new ArrayList<>();
-    public static List<String> listLocationNames = new ArrayList<>();
-    final String[] locationDistrictList = {""};
-
     public static List<LocalAttractionModel> filteredList = new ArrayList<>();
+    public static List<String> listLocationNames = new ArrayList<>();
+
 
     String text = null;
     JSONArray data = null;
 
     public static final String EXTRA_NAME = "cheese_name";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_natural_places);
+        setContentView(R.layout.activity_religious_places);
 
         Intent intent = getIntent();
         final String cheeseName = intent.getStringExtra(EXTRA_NAME);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("प्राकृतिक स्थलहरू");
+        toolbar.setTitle("प्राकृतिक सम्पदा");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -82,6 +80,7 @@ public class NaturalPlacesActivity extends AppCompatActivity {
         Log.e("district_id:  ", dist_id);
 
 
+
         sharedpreferences = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         recyclerView = (RecyclerView) findViewById(R.id.NewsList);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -90,12 +89,20 @@ public class NaturalPlacesActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        //        sharedpreferences = PreferenceManager
+//                .getDefaultSharedPreferences(getActivity());
+//        setData = sharedpreferences.getBoolean("SET_ENGLISH_ON", true);
+//
+//        if (setData) {
         mProgressDlg = new ProgressDialog(this);
         mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
         mProgressDlg.setIndeterminate(false);
         mProgressDlg.setCancelable(false);
         mProgressDlg.show();
         createList();
+
+
+//        setContentView(R.layout.activity_fwdr_completed_projects);
 
         final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
 
@@ -149,6 +156,7 @@ public class NaturalPlacesActivity extends AppCompatActivity {
 
 
     private void createList() {
+        listLocationNames.clear();
         resultCur.clear();
         jsonParse();
         mProgressDlg.dismiss();
@@ -158,7 +166,6 @@ public class NaturalPlacesActivity extends AppCompatActivity {
     public void jsonParse() {
 
         String place_type_id, district_id;
-//                district_name, place_name, place_name_test, district_name_test;
 
         JSONObject jsonObj = null;
         try {
@@ -179,8 +186,9 @@ public class NaturalPlacesActivity extends AppCompatActivity {
 
                     place_type_id = c.getString("place_type_id");
                     district_id = c.getString("district_id");
-//                    district_name = c.getString("district_name_np");
-//                    place_name = c.getString("place_name_np");
+
+                    Log.e("PLACE_TYPE",  place_type_id.toString());
+                    Log.e("ATTR_DIST",  district_id.toString());
 
                     if (place_type_id.equals("3") && district_id.equals(dist_id)) {
                         LocalAttractionModel newData = new LocalAttractionModel();
@@ -201,13 +209,8 @@ public class NaturalPlacesActivity extends AppCompatActivity {
 
                     } else if (place_type_id.equals("3") && dist_id.equals("0")) {
                         LocalAttractionModel newData = new LocalAttractionModel();
-                        Log.d(TAG, "jsonParse: else if");
+                        Log.d(TAG, "jsonParse: if");
 //                newData.set(c.getString("dev_status_id"));
-//                        place_name_test = c.getString("place_name_np");
-//                        district_name_test = c.getString("district_name_np");
-//
-//                        do {
-
                         newData.setPlace_title_en(c.getString("place_name_en"));
                         newData.setPlace_title_np(c.getString("place_name_np"));
                         newData.setPlace_desc_en(c.getString("place_desc_en"));
@@ -219,22 +222,13 @@ public class NaturalPlacesActivity extends AppCompatActivity {
                         newData.setmThumbnail(c.getString("large_photo_path"));
 
 
-
-//                        String distName = "," + c.getString("district_name_np");
-//                      locationDistrictList[0] = locationDistrictList[0] + " " + distName ;
-//                        String location = locationDistrictList[0];
-
-                                Boolean doesNotContainLocation = !listLocationNames.contains(c.getString("place_name_np"));
+                        Boolean doesNotContainLocation = !listLocationNames.contains(c.getString("place_name_np"));
                         if (doesNotContainLocation) {
 //                            newData.setDistrict_name_np(location);
                             resultCur.add(newData);
                         }
-
-
                         listLocationNames.add(c.getString("place_name_np"));
                         Log.e("POJO", "" + newData.toString());
-
-//                       } while (place_name.equals(place_name_test) && !district_name.equals(district_name_test));
 
 
                     }
@@ -255,6 +249,4 @@ public class NaturalPlacesActivity extends AppCompatActivity {
 
     }
 }
-
-
 

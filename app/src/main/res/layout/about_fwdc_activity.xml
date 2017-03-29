@@ -44,9 +44,9 @@
                 <ImageView
                     android:id="@+id/backdrop"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="210dp"
                     android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@drawable/bajhang"
                     app:layout_collapseMode="parallax" />
 

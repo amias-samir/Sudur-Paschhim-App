@@ -53,6 +53,8 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class IntroductionActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
+    private static final String TAG = "IntroductionActivity";
+
     private SwipeRefreshLayout swipeContainer;
 
     private View coordinatorLayoutView;
@@ -146,11 +148,13 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
                     editor.clear();
                     editor.commit();
 
+
+                    finish();
+                    startActivity(getIntent());
                     convertDataToJson();
                     ApiCall apiCall = new ApiCall();
                     apiCall.execute();
-                    finish();
-                    startActivity(getIntent());
+                    slider_image();
 
                     if (apiCall.equals(null)) {
 
@@ -173,6 +177,12 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
                 android.R.color.holo_red_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_green_light);
+        slider_image();
+
+    }
+
+
+    public void slider_image (){
 
         try {
             mDemoSlider = (SliderLayout) findViewById(R.id.slider);
@@ -195,15 +205,15 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
 //                    .setScaleType(BaseSliderView.ScaleType.Fit)
 //                    .setOnSliderClickListener(this);
                 //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra",name);
+                textSliderView.bundle(new Bundle());
+                textSliderView.getBundle()
+                        .putString("extra",name);
                 mDemoSlider.addSlider(textSliderView);
             }
 
             mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
             mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+            mDemoSlider.setCustomAnimation(new DescriptionAnimation());
             mDemoSlider.cancelLongPress();
             mDemoSlider.setDuration(4000);
             mDemoSlider.addOnPageChangeListener(this);
@@ -300,20 +310,20 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            if (setData) {
-                mProgressDlg = new ProgressDialog(IntroductionActivity.this);
-                mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
-                mProgressDlg.setIndeterminate(false);
-                mProgressDlg.show();
-
-            } else {
-
-                mProgressDlg = new ProgressDialog(IntroductionActivity.this);
-                mProgressDlg.setMessage("Loading please Wait...");
-                mProgressDlg.setIndeterminate(false);
-                mProgressDlg.show();
-
-            }
+//            if (setData) {
+//                mProgressDlg = new ProgressDialog(IntroductionActivity.this);
+//                mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
+//                mProgressDlg.setIndeterminate(false);
+//                mProgressDlg.show();
+//
+//            } else {
+//
+//                mProgressDlg = new ProgressDialog(IntroductionActivity.this);
+//                mProgressDlg.setMessage("Loading please Wait...");
+//                mProgressDlg.setIndeterminate(false);
+//                mProgressDlg.show();
+//
+//            }
         }
 
         @Override
@@ -369,6 +379,11 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
                     slider_4_desc = c.getString("img_4_desc_np");
                     slider_5_desc = c.getString("img_5_desc_np");
                     slider_6_desc = c.getString("img_6_desc_np");
+
+                    Log.e(TAG, "Slider Image Url"+ slider_1 );
+                    Log.e(TAG, "Slider Image Url"+ slider_6 );
+                    Log.e(TAG, "Slider Image Desc"+ slider_1_desc );
+                    Log.e(TAG, "Slider Image Desc"+ slider_6_desc );
 
 
 
