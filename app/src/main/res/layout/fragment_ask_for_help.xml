@@ -1,0 +1,158 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/snackbarPosition"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/PhotographSiteLable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50sp"
+                    android:layout_alignLeft="@+id/your_photo"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/your_photo"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Take Photo"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/nliveo_white"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/your_photo_btn"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_add_photo_red"
+                        android:src="@drawable/photo_button_pressed" />
+
+                    <ImageView
+                        android:id="@+id/your_photo"
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/edit_text_boarder_recg"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/ask_name_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Name"
+                        android:textColor="@color/nliveo_white" />
+
+                    <EditText
+                        android:id="@+id/u_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                    <TextView
+                        android:id="@+id/ask_address_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Address"
+                        android:textColor="@color/nliveo_white" />
+
+                    <EditText
+                        android:id="@+id/u_address"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                    <TextView
+                        android:id="@+id/ask_phone_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Phone"
+                        android:textColor="@color/nliveo_white" />
+
+                    <EditText
+                        android:id="@+id/u_contact"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone" />
+
+                    <TextView
+                        android:id="@+id/ask_message_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Message / Report"
+                        android:textColor="@color/nliveo_white" />
+
+
+                    <EditText
+                        android:id="@+id/u_message"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:lines="3" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/send_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/VatAmount4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/button_pressed"
+                    android:text="Submit"
+                    android:textColor="@color/nliveo_white" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

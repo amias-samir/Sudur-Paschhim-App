@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.naxa.nepal.sudurpaschimanchal">
+
+    <permission
+        android:name="com.naxa.nepal.sudurpaschimanchal.fragment.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Dark">
+        <activity
+            android:name=".activities.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value=".MainActivity" /> -->
+        </activity>
+        <activity
+            android:name=".activities.IntroductionActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AboutFWDCActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.MapPointActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.HamroSudurPaschimActivity"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AskForHelpActivity"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.YouTubeActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ReligiousPlacesActivity"
+            android:screenOrientation="portrait"
+            android:value=".HamroSudurPaschimActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AddYourBusinessActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.RajnitikAwasthaActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.DevelopmentProjectListActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCT_UL0lI6qa0UYcWUyAg9eTgmA3wNY1B8" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activities.ProjectDetailsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AboutFWDCActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NewsDetailsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.FWDRCompletedProjectsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.FWDROngoingProjectActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.FWDRFutureProjectsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AttractionDetailsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.HistoricalPlacesActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.CulturalPlacesActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NaturalPlacesActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HamroSudurPaschimActivity" />
+        </activity>
+        <activity
+            android:name=".activities.SocioEconomicActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.PieChartDetailsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SocioEconomicActivity" />
+        </activity>
+        <activity
+            android:name=".activities.BarChartDetailsActivity"
+            android:screenOrientation="landscape"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SocioEconomicActivity" />
+        </activity>
+        <activity
+            android:name=".activities.PrivacyPolicyActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".activities.AboutFWDCpdfDetailsWebActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AboutFWDCActivity" /></activity>
+    </application>
+
+</manifest>
