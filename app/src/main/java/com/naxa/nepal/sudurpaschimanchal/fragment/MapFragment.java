@@ -311,6 +311,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private String[] cleanPlacesTypesData(ArrayList<PlaceTypes> typesDetailsList) {
 
         ArrayList<String> bussinessCategoryList = new ArrayList<>();
+        bussinessCategoryList.add("सबै गन्तव्यहरू");
 
         for (int i = 0; i < typesDetailsList.size(); i++) {
             bussinessCategoryList.add(typesDetailsList.get(i).getNpName());
@@ -331,70 +332,14 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                //hack postion
-                int newPostion = position + 1;
 
-                switch (newPostion) {
-                    case 1:
-                        try {
-                            setMarkers(interestLocationList, "1");
-                        }catch (NullPointerException e){
-                         e.getStackTrace();
-                        }
-                        break;
-                    case 2:
-                        try {
-                            setMarkers(interestLocationList, "2");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 3:
-                        try {
-                            setMarkers(interestLocationList, "3");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 4:
-                        try {
-                            setMarkers(interestLocationList, "4");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 5:
-                        try {
-                            setMarkers(interestLocationList, "5");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 6:
-                        try {
-                            setMarkers(interestLocationList, "6");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 7:
-                        try {
-                            setMarkers(interestLocationList, "7");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    case 8:
-                        try {
-                            setMarkers(interestLocationList, "8");
-                        }catch (NullPointerException e){
-                            e.getStackTrace();
-                        }
-                        break;
-                    default:
-                        Toast.makeText(getActivity().getApplicationContext(), "केही जानकारी भेटिएन ।", Toast.LENGTH_SHORT).show();
-                        break;
+
+                try {
+                    setMarkers(interestLocationList, String.valueOf(position));
+                } catch (NullPointerException e) {
+                    e.getStackTrace();
                 }
+
             }
 
             @Override
@@ -450,6 +395,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             Log.e(TAG, "getting marker data in array");
         }
 
+        //showing all markers when the location data is loaded
+        setMarkers(interestLocationList,"0");
         setSpinnerListener();
     }
 
@@ -477,6 +424,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private void setMarkers(ArrayList<InterestLocation> markersListFromServer, String typeHighligter) {
 
 
+        Log.d("Lactating"," Selected place type "+typeHighligter);
+
         if (markerFlag) {
             myMap.clear();
             //set geoJson again
@@ -499,6 +448,15 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             markerList = new ArrayList<>();
 
             if (typeHighligter.equals(curInterestLocation.getType())) {
+                Marker marker = myMap.addMarker(options);
+                marker.showInfoWindow();
+                markerList.add(marker);
+                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+                options.alpha(3);
+            }
+
+            //add all places to the array
+            if (typeHighligter.equals("0")){
                 Marker marker = myMap.addMarker(options);
                 marker.showInfoWindow();
                 markerList.add(marker);
