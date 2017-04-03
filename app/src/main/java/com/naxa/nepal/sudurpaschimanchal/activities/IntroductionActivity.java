@@ -74,8 +74,8 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
     //Here boundary is density form now
     TextView introTitle, introDes, introDesTitle, introPopulation, introArea, introDensity;
 
-    public static String slider_1, slider_2, slider_3, slider_4, slider_5, slider_6;
-    String slider_1_desc, slider_2_desc, slider_3_desc, slider_4_desc, slider_5_desc, slider_6_desc;
+   public static String slider_1, slider_2, slider_3, slider_4, slider_5, slider_6;
+   public static String slider_1_desc, slider_2_desc, slider_3_desc, slider_4_desc, slider_5_desc, slider_6_desc;
 
     public IntroductionActivity() {
         // Required empty public constructor
@@ -116,6 +116,7 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
                 convertDataToJson();
                 ApiCall apiCall = new ApiCall();
                 apiCall.execute();
+                slider_image();
 
             } else {
                 coordinatorLayoutView = findViewById(R.id.main_content);
@@ -127,6 +128,7 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
             convertDataToJson();
             ApiCall apiCall = new ApiCall();
             apiCall.execute();
+            slider_image();
         }
 
 
@@ -136,6 +138,7 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
         introPopulation = (TextView) findViewById(R.id.population_nametv);
         introArea = (TextView) findViewById(R.id.area_nametv);
         introDensity = (TextView) findViewById(R.id.density_nametv);
+        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
 
         //Susan
         //Swipe Refresh Action
@@ -185,10 +188,10 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
     public void slider_image (){
 
         try {
-            mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+            Log.e(TAG, "slider_image: /n "+slider_1 +"/n"+slider_2 +" /n "+slider_3 +"/n"+slider_4 );
+            Log.e(TAG, "slider_image_desc: /n "+slider_1_desc +"/n"+slider_2_desc +" /n "+slider_3_desc +"/n"+slider_4_desc );
 
-            HashMap<String, String> url_maps = new HashMap<String, String>();
-
+            HashMap<String,String> url_maps = new HashMap<String, String>();
             url_maps.put(slider_1_desc, slider_1);
             url_maps.put(slider_2_desc, slider_2);
             url_maps.put(slider_3_desc, slider_3);
@@ -196,18 +199,20 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
             url_maps.put(slider_5_desc, slider_5);
             url_maps.put(slider_6_desc, slider_6);
 
-            for (String name : url_maps.keySet()) {
+            for(String name : url_maps.keySet()){
                 TextSliderView textSliderView = new TextSliderView(this);
                 // initialize a SliderLayout
                 textSliderView
-//                    .description(name)
-                        .image(url_maps.get(name));
-//                    .setScaleType(BaseSliderView.ScaleType.Fit)
-//                    .setOnSliderClickListener(this);
+                        .description(name)
+                        .image(url_maps.get(name))
+                        .setScaleType(BaseSliderView.ScaleType.Fit)
+                        .setOnSliderClickListener(this);
+
                 //add your extra information
                 textSliderView.bundle(new Bundle());
                 textSliderView.getBundle()
                         .putString("extra",name);
+
                 mDemoSlider.addSlider(textSliderView);
             }
 
@@ -235,7 +240,7 @@ public class IntroductionActivity extends AppCompatActivity implements BaseSlide
 
     @Override
     public void onSliderClick(BaseSliderView slider) {
-        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
     }
 
     @Override
