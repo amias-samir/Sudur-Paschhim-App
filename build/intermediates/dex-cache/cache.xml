@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\at.blogc\expandabletextview\1.0.3\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ef04608d24a0788c83950359e7755d4d0c03c558">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\at.blogc-expandabletextview-1.0.3_e336504b9b43a8c444c57c7bacba10bf2c390830.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.5\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -27,6 +36,15 @@
         revision="24.0.2"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_332b6fba4fdb784b54242f935b969fce0fcfb3c7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.6\b036abbb61656165da99cf44898e4b9123687e65\MPAndroidChart-v2.1.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b036abbb61656165da99cf44898e4b9123687e65">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.6_158587e447dc57516fad38aee9f7a8153b41c9a7.jar" />
     </item>
     <item
         is-multidex="false"
@@ -57,24 +75,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.6\b036abbb61656165da99cf44898e4b9123687e65\MPAndroidChart-v2.1.6.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b036abbb61656165da99cf44898e4b9123687e65">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.6_8daab39a266cd3076646d5d76421c1f1ea387672.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\library-2.4.0_e96cbee1accd49beab6c8d023a43e7c97af1971f.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\customtabs\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -99,15 +99,6 @@
         revision="24.0.2"
         sha1="4a36600281a648769411ef642c331851732bf29e">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.6.1_34583a0494c952733e4115f0032d723b59c29983.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\picasso-2.3.2_46aa061555b5221376839f04f6ee8056592bb902.jar" />
     </item>
     <item
         is-multidex="false"
@@ -147,12 +138,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\library-2.4.0_aec04b55a6741339329bc5ce9aa41087008fd3a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_6553f14f9c6203e881c1aafcc81ce8b7502bab91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\glide-3.7.0_171bc3f4eead630e0919cb0a4a2cdd672227aad6.jar" />
     </item>
     <item
         is-multidex="false"
@@ -171,6 +180,15 @@
         revision="24.0.2"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_bb354ba756a2370a81f54ce4b204ad56e8aa9619.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\picasso-2.3.2_120636e4513724f1d0d2204af668ac0c5559090c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -225,15 +243,6 @@
         revision="24.0.2"
         sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-9.6.1_96cc9e71ca88a2420799684fea5db698ef64df13.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\glide-3.7.0_3a5a594aea5265762a3d702d45f22ac1884e261c.jar" />
     </item>
     <item
         is-multidex="false"

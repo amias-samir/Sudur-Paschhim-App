@@ -37,6 +37,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -66,7 +68,10 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import at.blogc.android.views.ExpandableTextView;
+
 public class AboutFWDCActivity extends AppCompatActivity {
+    private static final String TAG = "AboutFWDCActivity";
     private SwipeRefreshLayout swipeContainer;
 
     private View coordinatorLayoutView;
@@ -88,8 +93,10 @@ public class AboutFWDCActivity extends AppCompatActivity {
     private boolean setData;
     String jsonToSend = null;
 
-    TextView tvTitle, tvDesc;
+    TextView tvTitle;
     ImageView ivImageView;
+
+    ExpandableTextView tvDesc ;
 
 
     private TabLayout tabLayout;
@@ -117,8 +124,72 @@ public class AboutFWDCActivity extends AppCompatActivity {
         networkInfo = connectivityManager.getActiveNetworkInfo();
 
         tvTitle = (TextView) findViewById(R.id.textView_label_about_fwdc);
-        tvDesc = (TextView) findViewById(R.id.textView_about_fwdc);
+        tvDesc = (ExpandableTextView) findViewById(R.id.textView_about_fwdc);
         ivImageView = (ImageView) findViewById(R.id.backdrop);
+        final Button buttonToggle = (Button) this.findViewById(R.id.button_toggle);
+//        =========================================== expandable text view ========================================//
+// set animation duration via code, but preferable in your layout files by using the animation_duration attribute
+        tvDesc.setAnimationDuration(750L);
+
+        // set interpolators for both expanding and collapsing animations
+        tvDesc.setInterpolator(new OvershootInterpolator());
+
+        // or set them separately
+        tvDesc.setExpandInterpolator(new OvershootInterpolator());
+        tvDesc.setCollapseInterpolator(new OvershootInterpolator());
+
+        // toggle the ExpandableTextView
+        buttonToggle.setOnClickListener(new View.OnClickListener()
+        {
+            @SuppressWarnings("ConstantConditions")
+            @Override
+            public void onClick(final View v)
+            {
+                tvDesc.toggle();
+                buttonToggle.setText(tvDesc.isExpanded() ? R.string.collapse : R.string.expand);
+            }
+        });
+
+        // but, you can also do the checks yourself
+        buttonToggle.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(final View v)
+            {
+                if (tvDesc.isExpanded())
+                {
+                    tvDesc.collapse();
+                    buttonToggle.setText(R.string.expand);
+                }
+                else
+                {
+                    tvDesc.expand();
+                    buttonToggle.setText(R.string.collapse);
+                }
+            }
+        });
+
+        // listen for expand / collapse events
+        tvDesc.setOnExpandListener(new ExpandableTextView.OnExpandListener()
+        {
+            @Override
+            public void onExpand(final ExpandableTextView view)
+            {
+                Log.d(TAG, "ExpandableTextView expanded");
+            }
+
+            @Override
+            public void onCollapse(final ExpandableTextView view)
+            {
+                Log.d(TAG, "ExpandableTextView collapsed");
+            }
+        });
+
+//        =========================================== ends of expandable text view ==================================//
+
+
+
+
 
         //SharedPreferences-DEV_ACTIVITIES
         sharedpreferences = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);

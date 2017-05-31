@@ -140,8 +140,9 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
                 ApiCall apiCall = new ApiCall();
                 apiCall.execute();
 
+
+                //=============local attraction PLACES APICALL==================//
                 convertDataToJson();
-                //=============RELIGIOUS PLACES APICALL==================//
                 AttrractionApiCall attractionapiCall = new AttrractionApiCall();
                 attractionapiCall.execute();
 

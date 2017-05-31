@@ -5,7 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
@@ -38,7 +40,9 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(postUrl);
-        webView.setHorizontalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(true);
+//        progressBar.setVisibility(View.GONE);
     }
 }

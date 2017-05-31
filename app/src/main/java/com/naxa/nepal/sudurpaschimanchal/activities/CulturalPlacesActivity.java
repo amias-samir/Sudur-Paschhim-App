@@ -47,6 +47,8 @@ public class CulturalPlacesActivity extends AppCompatActivity {
     LocalAttractionRecyclerAdapter ca;
     public static List<LocalAttractionModel> resultCur = new ArrayList<>();
     public static List<LocalAttractionModel> filteredList = new ArrayList<>();
+    public static List<String> listLocationNames = new ArrayList<>();
+
 
     String text = null;
     JSONArray data = null;
@@ -156,6 +158,7 @@ public class CulturalPlacesActivity extends AppCompatActivity {
 
 
     private void createList() {
+        listLocationNames.clear();
         resultCur.clear();
         jsonParse();
         mProgressDlg.dismiss();
@@ -220,9 +223,13 @@ public class CulturalPlacesActivity extends AppCompatActivity {
                         newData.setDistrict_name_np(c.getString("district_name_np"));
                         newData.setmThumbnail(c.getString("large_photo_path"));
 
-                        resultCur.add(newData);
+                        Boolean doesNotContainLocation = !listLocationNames.contains(c.getString("place_name_np"));
+                        if (doesNotContainLocation) {
+//                            newData.setDistrict_name_np(location);
+                            resultCur.add(newData);
+                        }
+                        listLocationNames.add(c.getString("place_name_np"));
                         Log.e("POJO", "" + newData.toString());
-
 
                     }
                 }
