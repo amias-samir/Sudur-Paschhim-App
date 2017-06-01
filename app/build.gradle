@@ -25,6 +25,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    // volley
+    //    expandable textview
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:design:24.2.1'
@@ -38,11 +40,9 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
-    // volley
     compile 'com.android.volley:volley:1.0.0'
-    testCompile 'junit:junit:4.12'
-    compile 'com.google.maps.android:android-maps-utils:0.4+'
+    compile 'com.google.maps.android:android-maps-utils:0.4.+'
     compile 'com.android.support:customtabs:24.2.1'
-//    expandable textview
     compile 'at.blogc:expandabletextview:1.0.3'
+    testCompile 'junit:junit:4.12'
 }

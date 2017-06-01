@@ -15,7 +15,7 @@ import com.naxa.nepal.sudurpaschimanchal.model.SosioEconomicStatModel;
 import java.util.List;
 
 /**
- * Created by User on 11/21/2016.
+ * Created by Samir on 11/21/2016.
  */
 
 public class SocioEconomicStatRecyclerAdapter extends RecyclerView.Adapter<SocioEconomicStatRecyclerAdapter.ContactViewHolder> {

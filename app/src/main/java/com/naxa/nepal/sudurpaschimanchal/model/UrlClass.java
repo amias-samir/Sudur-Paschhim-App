@@ -20,4 +20,5 @@ public class UrlClass {
     public static final String URL_SUDURPASCHHIM_DEV_ACT = "http://naxa.com.np/sudurapi/alldevact";
     public static final String URL_SUDURPASCHHIM_LOCAL_ATTR = "http://naxa.com.np/sudurapi/placeslistdist";
     public static final String URL_SOCIO_ECONOMIC = "http://naxa.com.np/sudurapi/socioEcoList";
+    public static final String URL_NAGARPALIKA_BUDGET = "http://naxa.com.np/sudurapi/sudurDistrict";
 }

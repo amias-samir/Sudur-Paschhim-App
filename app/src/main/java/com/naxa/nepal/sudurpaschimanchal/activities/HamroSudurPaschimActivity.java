@@ -33,6 +33,7 @@ import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.fragment.CompletedProjectsFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.DevStatusSudurPaschhimFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.LocalAttractionFragment;
+import com.naxa.nepal.sudurpaschimanchal.fragment.NagarpalikaFragment;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -63,9 +64,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
     ProgressDialog mProgressDlg;
     public static final String MyPREFERENCES = "hamro_sudurpaschhim";
     public static final String MyPREFERENCES1 = "sudur_attract";
+    public static final String NagarPalikaPREFERENCES1 = "nagar_budget";
 
-    SharedPreferences sharedpreferences, sharedpreferences1;
-    SharedPreferences.Editor editor, editor1;
+    SharedPreferences sharedpreferences, sharedpreferences1, nagarpalikasharedpreferences;
+    SharedPreferences.Editor editor, editor1, nagarpalikaeditor;
     private boolean setData;
     String jsonToSend = null;
 
@@ -73,6 +75,18 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+
+    public FragmentRefreshListener getFragmentRefreshListener() {
+        return fragmentRefreshListener;
+    }
+
+    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+        this.fragmentRefreshListener = fragmentRefreshListener;
+    }
+
+    private FragmentRefreshListener fragmentRefreshListener;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +114,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
         //SharedPreferences-DEV_ACTIVITIES
         sharedpreferences1 = this.getSharedPreferences(MyPREFERENCES1, Context.MODE_PRIVATE);
         editor1 = sharedpreferences1.edit();
+        //SharedPreferences-Nagarpalika Budget
+        nagarpalikasharedpreferences = this.getSharedPreferences(NagarPalikaPREFERENCES1, Context.MODE_PRIVATE);
+        nagarpalikaeditor = nagarpalikasharedpreferences.edit();
+
 
         // Spinner element
         Spinner spinner = (Spinner) findViewById(R.id.district_list_spinner);
@@ -146,6 +164,11 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
                 AttrractionApiCall attractionapiCall = new AttrractionApiCall();
                 attractionapiCall.execute();
 
+                //   Nagarpalika Budget Api call
+                convertDataToJson();
+                NagarpalikaBudgetApiCall nagarpalikaBudgetApiCall = new NagarpalikaBudgetApiCall();
+                nagarpalikaBudgetApiCall.execute();
+
             } else {
                 coordinatorLayoutView = findViewById(R.id.main_content);
                 Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
@@ -163,6 +186,11 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
             //=============RELIGIOUS PLACES APICALL==================//
             AttrractionApiCall attractionapiCall = new AttrractionApiCall();
             attractionapiCall.execute();
+
+            //   Nagarpalika Budget Api call
+            convertDataToJson();
+            NagarpalikaBudgetApiCall nagarpalikaBudgetApiCall = new NagarpalikaBudgetApiCall();
+            nagarpalikaBudgetApiCall.execute();
         }
 
 
@@ -205,6 +233,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
                     convertDataToJson();
                     AttrractionApiCall attractionapiCall = new AttrractionApiCall();
                     attractionapiCall.execute();
+
+                    convertDataToJson();
+                    NagarpalikaBudgetApiCall nagarpalikaBudgetApiCall = new NagarpalikaBudgetApiCall();
+                    nagarpalikaBudgetApiCall.execute();
 
                     viewPager.clearFocus();
                     tabLayout.removeAllTabs();
@@ -269,9 +301,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        adapter.addFragment(new DevStatusSudurPaschhimFragment(), "बिकाश \n गतिविधिहरु");
         adapter.addFragment(new LocalAttractionFragment(), "स्थानिय \n आकर्षण");
+        adapter.addFragment(new NagarpalikaFragment(), "बजेट");
+        adapter.addFragment(new DevStatusSudurPaschhimFragment(), "बिकाश \n गतिविधिहरु");
+
         viewPager.setAdapter(adapter);
 
     }
@@ -353,6 +386,135 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
                 Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
                         .setAction("Retry", null).show();
             }
+        }
+
+        public String POST(String myurl) {
+
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
+
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return response;
+        }
+
+    }
+
+    public class NagarpalikaBudgetApiCall extends AsyncTask<String, Void, String> {
+        JSONArray data1 = null;
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+
+            return out.toString();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text1 = "";
+
+            try {
+                if (nagarpalikasharedpreferences.getString("nagar_budget", "").trim().isEmpty()) {
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        text1 = POST(UrlClass.URL_NAGARPALIKA_BUDGET);
+
+                        Log.e("nagar_budget", "" + text1.toString());
+                        nagarpalikaeditor.putString("nagar_budget", text1);
+                        nagarpalikaeditor.commit();
+                    } else {
+                        coordinatorLayoutView = findViewById(R.id.main_content);
+                        Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+                                .setAction("Retry", null).show();
+                    }
+
+                } else {
+
+                    text1 = sharedpreferences1.getString("nagar_budget", "");
+                    Log.e("nagar_budget", "" + text1.toString());
+                }
+
+            } catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
+
+            return text1.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            //Log.e("ONPOSTEXECUTE", "ONPOST");
+//            if (mProgressDlg!= null && mProgressDlg.isShowing()){
+//                mProgressDlg.dismiss();
+//            }
+//            if (swipeContainer != null && swipeContainer.isRefreshing() ){
+//                swipeContainer.setRefreshing(false);
+//            }
+            if (result != null) {
+
+                //Success
+
+            }
+//            else {
+//                coordinatorLayoutView = findViewById(R.id.main_content);
+//                Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+//                        .setAction("Retry", null).show();
+//            }
+
         }
 
         public String POST(String myurl) {
@@ -563,6 +725,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
         } else if (item == "सबै जिल्ला") {
             dist_spinner_id = "0";
         }
+
+        if(getFragmentRefreshListener()!=null){
+            getFragmentRefreshListener().onRefresh();
+        }
     }
 
     @Override
@@ -597,5 +763,10 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
             return mFragmentTitleList.get(position);
         }
     }
+
+    public interface FragmentRefreshListener{
+        void onRefresh();
+    }
+
 
 }
