@@ -41,7 +41,7 @@ public class NagarpalikaFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     ImageView imageView;
 
-    String district_id_fromactivity ;
+    String district_id_fromactivity = "0" ;
 
     NagarpalikaBudget_Adapter ca;
     public static List<NagarpalikaBudget_Model> resultCur = new ArrayList<>();
@@ -88,12 +88,13 @@ public class NagarpalikaFragment extends Fragment {
             @Override
             public void onRefresh() {
 
+                Log.e("NagarFragment", "onCreateView: districtID ::: "+ district_id_fromactivity );
+                district_id_fromactivity = HamroSudurPaschimActivity.dist_spinner_id;
                 // Refresh Your Fragment
                 createList();
 
-                district_id_fromactivity = HamroSudurPaschimActivity.dist_spinner_id;
 
-                Log.e("NagarFragment", "onCreateView: districtID ::: "+ district_id_fromactivity );
+
 
             }
         });
@@ -130,7 +131,7 @@ public class NagarpalikaFragment extends Fragment {
                     district_id = c.getString("district_id");
                     Log.e("Nagar List", "" + district_id.toString());
 
-                    if(district_id.equals("0")){
+                    if(district_id_fromactivity.equals("0")){
                         NagarpalikaBudget_Model newData = new NagarpalikaBudget_Model();
 //                newData.set(c.getString("dev_status_id"));
                         newData.setDistrict_id(c.getString("district_id"));
