@@ -5,13 +5,36 @@
     android:background="@color/accent"
     >
 
-    <ProgressBar
-        android:id="@+id/splash_progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <!--<ProgressBar-->
+        <!--android:id="@+id/splash_progress_bar"-->
+        <!--style="?android:attr/progressBarStyleHorizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:indeterminate="false" />-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:indeterminate="false" />
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:id="@+id/firstBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:visibility="gone"
+            android:progressTint="@color/primary_dark"
+            android:secondaryProgressTint="@color/primary"
+            />
+        <ProgressBar
+            android:layout_below="@id/firstBar"
+            android:id="@+id/secondBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="wrap_content"

@@ -16,10 +16,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" />
     </list>
     <ignored path="SudurPaschimanchal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,24 +56,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NagarpalikaFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java">
+      <file leaf-file-name="SplashScreenActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-608">
-              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state relative-caret-position="261">
+              <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
               <folding>
-                <element signature="e#2684#3095#0" expanded="true" />
-                <element signature="e#3094#3095#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#10830#12149#0" expanded="true" />
+                <element signature="method#convertDataToJson#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#AboutFWDCApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#IntroApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#SocioEconomicService#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#SudurDevApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#NagarpalikaBudgetApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#AttrractionApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#PoticalPartiesListService#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="class#PoticianListService#0;class#SplashScreenActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="onDistrictSelectRefreshNagarpalikaBudget.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Interface/onDistrictSelectRefreshNagarpalikaBudget.java">
+      <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="92">
+              <caret line="461" column="39" selection-start-line="461" selection-start-column="39" selection-end-line="461" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlacesTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Tasks/PlacesTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splash_activity.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NagarpalikaFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -79,16 +136,34 @@
       <file leaf-file-name="HamroSudurPaschimActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="730" column="9" selection-start-line="730" selection-start-column="9" selection-end-line="730" selection-end-column="9" />
+            <state relative-caret-position="4165">
+              <caret line="439" column="28" selection-start-line="439" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
               <folding>
-                <element signature="e#2886#2887#0" expanded="true" />
-                <element signature="e#2932#2933#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#8123#8124#0" expanded="false" />
+                <element signature="e#8194#8195#0" expanded="false" />
+                <element signature="e#9860#9861#0" expanded="false" />
+                <element signature="e#9955#9956#0" expanded="false" />
                 <element signature="method#convertDataToJson#0;class#HamroSudurPaschimActivity#0" expanded="false" />
                 <element signature="class#ApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+                <element signature="e#13359#13360#0" expanded="false" />
+                <element signature="e#13403#13404#0" expanded="false" />
+                <element signature="class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
                 <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+                <element signature="e#17489#17490#0" expanded="false" />
+                <element signature="e#17533#17534#0" expanded="false" />
                 <element signature="class#AttrractionApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+                <element signature="e#22099#22100#0" expanded="false" />
+                <element signature="e#22143#22144#0" expanded="false" />
                 <element signature="class#ViewPagerAdapter#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+                <element signature="e#27245#27246#0" expanded="false" />
+                <element signature="e#27283#27284#0" expanded="false" />
+                <element signature="e#27350#27351#0" expanded="false" />
+                <element signature="e#27408#27409#0" expanded="false" />
+                <element signature="e#27459#27460#0" expanded="false" />
+                <element signature="e#27510#27511#0" expanded="false" />
+                <element signature="e#27748#27749#0" expanded="false" />
+                <element signature="e#27811#27812#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1914,9 +1989,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/AboutFWDCActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/JsonDownloadService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/about_fwdc_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/CompletedProjectsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/SocioEconomicStatRecyclerAdapter.java" />
@@ -1928,6 +2001,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_nagarpalika.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" />
       </list>
     </option>
   </component>
@@ -1962,7 +2037,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1971,133 +2047,10 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sudurpaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sudurpaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sudurpaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Interface" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SudurPaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sudurpaschimanchal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2452,7 +2405,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27133107" sideWeight="0.5091047" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3993174" sideWeight="0.4908953" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.093856655" sideWeight="0.4908953" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32671756" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2531,20 +2484,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/PrivacyPolicyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/Grid_Local_Attraction_Adapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/PolticalParties_List_Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -2687,37 +2626,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Tasks/DistrictTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5287">
-          <caret line="367" column="0" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3663#3664#0" expanded="false" />
-            <element signature="e#3695#3696#0" expanded="false" />
-            <element signature="e#6856#6857#0" expanded="false" />
-            <element signature="e#6938#6939#0" expanded="false" />
-            <element signature="e#7898#7899#0" expanded="false" />
-            <element signature="e#7942#7943#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2728,69 +2640,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="e#2104#2787#0" expanded="false" />
-            <element signature="e#4815#5044#0" expanded="false" />
-            <element signature="e#5062#6344#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bikash_aayog_barema.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bikash_aayog.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bayalpata_hospital_completed1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bajhang1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bajhang.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/add_your_office.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/api_himal.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bikash_aayog_barema.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bikash_aayog.png" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bayalpata_hospital_completed1.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bajhang1.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bajhang.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/add_your_office.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/api_himal.jpg" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/female_cadidate.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/envisoned_projects.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/envisoned_projects.jpg" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_message_icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/construction_img_default.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/construction_img_default.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -2798,35 +2669,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="359" column="39" selection-start-line="359" selection-start-column="39" selection-end-line="359" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#7369#11346#0" expanded="false" />
-            <element signature="e#11345#11346#0" expanded="false" />
-            <element signature="method#convertDataToJson#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#AboutFWDCApiCall#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#IntroApiCall#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#SocioEconomicService#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#SudurDevApiCall#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#SudurDevApiCall#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#AttrractionApiCall#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#PoticalPartiesListService#0;class#SplashScreenActivity#0" expanded="false" />
-            <element signature="class#PoticianListService#0;class#SplashScreenActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2846,10 +2688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding>
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2857,7 +2695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2865,7 +2702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2873,7 +2709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2884,7 +2719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="18" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2903,7 +2737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2914,7 +2747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2940,14 +2772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Interface/onDistrictSelectRefreshNagarpalikaBudget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/NagarpalikaBudget_Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -2958,29 +2782,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Interface/onDistrictSelectRefreshNagarpalikaBudget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="730" column="9" selection-start-line="730" selection-start-column="9" selection-end-line="730" selection-end-column="9" />
+        <state relative-caret-position="4165">
+          <caret line="439" column="28" selection-start-line="439" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
           <folding>
-            <element signature="e#2886#2887#0" expanded="true" />
-            <element signature="e#2932#2933#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#8123#8124#0" expanded="false" />
+            <element signature="e#8194#8195#0" expanded="false" />
+            <element signature="e#9860#9861#0" expanded="false" />
+            <element signature="e#9955#9956#0" expanded="false" />
             <element signature="method#convertDataToJson#0;class#HamroSudurPaschimActivity#0" expanded="false" />
             <element signature="class#ApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+            <element signature="e#13359#13360#0" expanded="false" />
+            <element signature="e#13403#13404#0" expanded="false" />
+            <element signature="class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
             <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+            <element signature="e#17489#17490#0" expanded="false" />
+            <element signature="e#17533#17534#0" expanded="false" />
             <element signature="class#AttrractionApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+            <element signature="e#22099#22100#0" expanded="false" />
+            <element signature="e#22143#22144#0" expanded="false" />
             <element signature="class#ViewPagerAdapter#0;class#HamroSudurPaschimActivity#0" expanded="false" />
+            <element signature="e#27245#27246#0" expanded="false" />
+            <element signature="e#27283#27284#0" expanded="false" />
+            <element signature="e#27350#27351#0" expanded="false" />
+            <element signature="e#27408#27409#0" expanded="false" />
+            <element signature="e#27459#27460#0" expanded="false" />
+            <element signature="e#27510#27511#0" expanded="false" />
+            <element signature="e#27748#27749#0" expanded="false" />
+            <element signature="e#27811#27812#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-24/data/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11169">
+          <caret line="657" column="46" selection-start-line="657" selection-start-column="20" selection-end-line="657" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Tasks/PlacesTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="461" column="39" selection-start-line="461" selection-start-column="39" selection-end-line="461" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-608">
+        <state relative-caret-position="306">
           <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
           <folding>
-            <element signature="e#2684#3095#0" expanded="true" />
-            <element signature="e#3094#3095#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10830#12149#0" expanded="true" />
+            <element signature="method#convertDataToJson#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#AboutFWDCApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#IntroApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#SocioEconomicService#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#SudurDevApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#NagarpalikaBudgetApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#AttrractionApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#PoticalPartiesListService#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="class#PoticianListService#0;class#SplashScreenActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
