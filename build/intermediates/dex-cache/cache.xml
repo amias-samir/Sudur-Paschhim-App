@@ -21,15 +21,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.5\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.daimajia.slider-library-1.1.5_89237d3a5957c1a1339f76d102b174aa2a7a5310.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -57,30 +48,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_46a702a61092592a54d30463e445e3b9aaf9b54c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.6.1_7df686197397132b8506612382f57d86751b9214.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\customtabs\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7a84af748a39002a40b5d0c1eb2cd9a13c9370ec">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-24.2.1_cbc8d2d09990b576060177b445a578871e39037f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,39 +66,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="4a36600281a648769411ef642c331851732bf29e">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.6.1_34583a0494c952733e4115f0032d723b59c29983.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_f7f3a218d4a7a301c2d5c0aeaa95711df511130a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_990f290e85679bb699d5b5dcc6ddae953177b33c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.6.1_a56a85559a6ace271b042c35f103e27faac3eec9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -138,39 +84,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\library-2.4.0_aec04b55a6741339329bc5ce9aa41087008fd3a5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_6553f14f9c6203e881c1aafcc81ce8b7502bab91.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\glide-3.7.0_171bc3f4eead630e0919cb0a4a2cdd672227aad6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_5b0f58e76aea0e3c6e7699ad9dfe72033f6d94f1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -189,33 +108,6 @@
         revision="24.0.2"
         sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\picasso-2.3.2_120636e4513724f1d0d2204af668ac0c5559090c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_83f4e886faaf1efa1a8a6a815e10eb368b1540df.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_93dd27009f5af3ec347f1c0113e5490de77e12d1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_1a150ad67806a5022305d5f365a5a6af219d2ab6.jar" />
     </item>
     <item
         is-multidex="false"
@@ -264,24 +156,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_8dff17ccffe6642fe7c9c0deaba7059aa424f3dc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.6.1_bfdcc52977d0d6815ca09139c8c78b59881dd4e4.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.6.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -315,6 +189,132 @@
         revision="24.0.2"
         sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-9.6.1_7d88bd77279df3ec5552ebe3ed22d8e84802ea75.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.daimajia.slider-library-1.1.5_89237d3a5957c1a1339f76d102b174aa2a7a5310.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_46a702a61092592a54d30463e445e3b9aaf9b54c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\customtabs\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7a84af748a39002a40b5d0c1eb2cd9a13c9370ec">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-24.2.1_cbc8d2d09990b576060177b445a578871e39037f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.6.1_34583a0494c952733e4115f0032d723b59c29983.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_990f290e85679bb699d5b5dcc6ddae953177b33c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.6.1_a56a85559a6ace271b042c35f103e27faac3eec9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\library-2.4.0_aec04b55a6741339329bc5ce9aa41087008fd3a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_6553f14f9c6203e881c1aafcc81ce8b7502bab91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_5b0f58e76aea0e3c6e7699ad9dfe72033f6d94f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_83f4e886faaf1efa1a8a6a815e10eb368b1540df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_93dd27009f5af3ec347f1c0113e5490de77e12d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_1a150ad67806a5022305d5f365a5a6af219d2ab6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_8dff17ccffe6642fe7c9c0deaba7059aa424f3dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.6.1_bfdcc52977d0d6815ca09139c8c78b59881dd4e4.jar" />
     </item>
 
 </items>

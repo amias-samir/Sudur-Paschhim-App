@@ -345,7 +345,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 //            mProgressDlg.dismiss();
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 //Success
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
@@ -469,7 +469,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
-            if (result != null) {
+            if (result != null && !result.equals("")) {
 //                //Success
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
@@ -583,7 +583,7 @@ public class SplashScreenActivity extends Activity {
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -684,7 +684,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -797,7 +797,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 //Success
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
@@ -905,7 +905,7 @@ public class SplashScreenActivity extends Activity {
         protected void onPostExecute(String result) {
 
             //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if (result != null) {
+            if (result != null && !result.equals("")) {
 
                 //Success
                 downloadCount ++ ;
@@ -1022,7 +1022,7 @@ public class SplashScreenActivity extends Activity {
         protected void onPostExecute(String result) {
 
             //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if (result != null) {
+            if (result != null && !result.equals("")) {
 
                 //Success
                 downloadCount ++ ;
@@ -1131,7 +1131,7 @@ public class SplashScreenActivity extends Activity {
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
 
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 downloadCount ++ ;
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
@@ -1236,7 +1236,7 @@ public class SplashScreenActivity extends Activity {
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if (result != null) {
+            if (result != null && !result.equals("")) {
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value

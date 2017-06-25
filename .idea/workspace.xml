@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="S" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -16,13 +17,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Hamro Sudurpaschhim.apk" afterPath="$PROJECT_DIR$/app/Hamro Sudurpaschhim.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/HomeList_Adapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/HomeList_Adapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/HomeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/transparent_black_gradient_shape.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/transparent_black_gradient_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="SudurPaschimanchal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,16 +67,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SplashScreenActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SplashScreenActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
+            <state relative-caret-position="130">
+              <caret line="1192" column="78" selection-start-line="1192" selection-start-column="78" selection-end-line="1192" selection-end-column="78" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#10830#12149#0" expanded="true" />
-                <element signature="method#convertDataToJson#0;class#SplashScreenActivity#0" expanded="false" />
                 <element signature="class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+                <element signature="method#onPostExecute#0;class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
                 <element signature="class#AboutFWDCApiCall#0;class#SplashScreenActivity#0" expanded="false" />
                 <element signature="class#IntroApiCall#0;class#SplashScreenActivity#0" expanded="false" />
                 <element signature="class#SocioEconomicService#0;class#SplashScreenActivity#0" expanded="false" />
@@ -80,91 +89,108 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
+      <file leaf-file-name="HomeList_Adapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/HomeList_Adapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="461" column="39" selection-start-line="461" selection-start-column="39" selection-end-line="461" selection-end-column="39" />
+            <state relative-caret-position="374">
+              <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlacesTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Tasks/PlacesTask.java">
+      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="202" column="18" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="splash_activity.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="142" selection-start-line="10" selection-start-column="142" selection-end-line="10" selection-end-column="142" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_news_details.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            <state relative-caret-position="765">
+              <caret line="101" column="54" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
+              <folding>
+                <element signature="e#997#3325#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transparent_black_gradient_shape.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/transparent_black_gradient_shape.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <file leaf-file-name="PoliticalPartiesFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PoliticalPartiesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NagarpalikaFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HamroSudurPaschimActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4165">
-              <caret line="439" column="28" selection-start-line="439" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
+            <state relative-caret-position="3383">
+              <caret line="241" column="44" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#8123#8124#0" expanded="false" />
-                <element signature="e#8194#8195#0" expanded="false" />
-                <element signature="e#9860#9861#0" expanded="false" />
-                <element signature="e#9955#9956#0" expanded="false" />
-                <element signature="method#convertDataToJson#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="class#ApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="e#13359#13360#0" expanded="false" />
-                <element signature="e#13403#13404#0" expanded="false" />
-                <element signature="class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="e#17489#17490#0" expanded="false" />
-                <element signature="e#17533#17534#0" expanded="false" />
-                <element signature="class#AttrractionApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="e#22099#22100#0" expanded="false" />
-                <element signature="e#22143#22144#0" expanded="false" />
-                <element signature="class#ViewPagerAdapter#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-                <element signature="e#27245#27246#0" expanded="false" />
-                <element signature="e#27283#27284#0" expanded="false" />
-                <element signature="e#27350#27351#0" expanded="false" />
-                <element signature="e#27408#27409#0" expanded="false" />
-                <element signature="e#27459#27460#0" expanded="false" />
-                <element signature="e#27510#27511#0" expanded="false" />
-                <element signature="e#27748#27749#0" expanded="false" />
-                <element signature="e#27811#27812#0" expanded="false" />
+                <element signature="e#4584#4585#0" expanded="false" />
+                <element signature="e#4627#4628#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PolticianListFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PolticianListFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="144" column="13" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsAndEventsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NewsAndEventsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="115" column="60" selection-start-line="115" selection-start-column="60" selection-end-line="115" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#4928#4929#0" expanded="false" />
+                <element signature="e#4971#4972#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_news_and_events.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_news_and_events.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1746,7 +1772,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal" value="4452752239474" />
+        <entry key="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal" value="4452852061959" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1975,7 +2001,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_dev_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NewsAndEventsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/NaturalPlacesActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_attraction_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_project_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_grid.xml" />
@@ -1985,7 +2010,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/PrivacyPolicyActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/CulturalPlacesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/AboutFWDCActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/JsonDownloadService.java" />
@@ -2002,14 +2026,21 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NagarpalikaFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/transparent_black_gradient_shape.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/HomeList_Adapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/Constants.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -2037,7 +2068,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -2049,8 +2079,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2064,6 +2095,8 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="com.developerphil.adbidea.selecteddevices" value="T8DQRW4T99999999" />
+    <property name="SearchEverywhereHistoryKey" value="Con&#9;PSI&#9;JAVA://com.naxa.nepal.sudurpaschimanchal.model.Constants&#10;Home&#9;PSI&#9;JAVA://com.naxa.nepal.sudurpaschimanchal.fragment.HomeFragment&#10;Spla&#9;FILE&#9;file://C:/Users/user/AndroidStudioProjects/SudurPaschimanchal/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java&#10;new&#9;PSI&#9;JAVA://com.naxa.nepal.sudurpaschimanchal.fragment.NewsAndEventsFragment" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2396,7 +2429,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2404,18 +2437,16 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27133107" sideWeight="0.5091047" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.093856655" sideWeight="0.4908953" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32671756" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62286687" sideWeight="0.51221377" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31911263" sideWeight="0.48778626" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24809161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810319" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900763" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2427,6 +2458,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3260212" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2484,145 +2517,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/PolticalParties_List_Adapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/AboutFWDC_Project_List_Adapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/NaturalPlacesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3332">
-          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="230" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4215#4216#0" expanded="false" />
-            <element signature="e#4258#4259#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/LocalAttractionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/CulturalPlacesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="179" column="36" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4220#4221#0" expanded="false" />
-            <element signature="e#4263#4264#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/AttractionDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_attraction_details.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/JsonDownloadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/IntroductionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="292" column="4" selection-start-line="292" selection-start-column="4" selection-end-line="466" selection-end-column="5" />
-          <folding>
-            <element signature="class#ApiCall#0;class#IntroductionActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SocioEconomicActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="296" column="2" selection-start-line="296" selection-start-column="2" selection-end-line="444" selection-end-column="5" />
-          <folding>
-            <element signature="class#SocioEconomicService#0;class#SocioEconomicActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/RajnitikAwasthaActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="199" column="45" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PoliticalPartiesFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="215" column="2" selection-start-line="215" selection-start-column="2" selection-end-line="338" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PolticianListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3196">
-          <caret line="232" column="78" selection-start-line="232" selection-start-column="78" selection-end-line="232" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#5454#5455#0" expanded="false" />
-            <element signature="e#5497#5498#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2666,9 +2564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2722,14 +2617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/UrlClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="22" column="98" selection-start-line="22" selection-start-column="98" selection-end-line="22" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_nagarpalika_budget.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2754,10 +2641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="216" column="2" selection-start-line="216" selection-start-column="2" selection-end-line="222" selection-end-column="5" />
-          <folding>
-            <element signature="method#jsonParse#0;class#CompletedProjectsFragment#0" expanded="false" />
-            <element signature="method#fillTable#0;class#CompletedProjectsFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2768,7 +2651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2776,9 +2658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2791,35 +2670,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/HamroSudurPaschimActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4165">
+        <state relative-caret-position="4131">
           <caret line="439" column="28" selection-start-line="439" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#8123#8124#0" expanded="false" />
-            <element signature="e#8194#8195#0" expanded="false" />
-            <element signature="e#9860#9861#0" expanded="false" />
-            <element signature="e#9955#9956#0" expanded="false" />
-            <element signature="method#convertDataToJson#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="class#ApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="e#13359#13360#0" expanded="false" />
-            <element signature="e#13403#13404#0" expanded="false" />
-            <element signature="class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="method#getASCIIContentFromEntity#0;class#NagarpalikaBudgetApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="e#17489#17490#0" expanded="false" />
-            <element signature="e#17533#17534#0" expanded="false" />
-            <element signature="class#AttrractionApiCall#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="e#22099#22100#0" expanded="false" />
-            <element signature="e#22143#22144#0" expanded="false" />
-            <element signature="class#ViewPagerAdapter#0;class#HamroSudurPaschimActivity#0" expanded="false" />
-            <element signature="e#27245#27246#0" expanded="false" />
-            <element signature="e#27283#27284#0" expanded="false" />
-            <element signature="e#27350#27351#0" expanded="false" />
-            <element signature="e#27408#27409#0" expanded="false" />
-            <element signature="e#27459#27460#0" expanded="false" />
-            <element signature="e#27510#27511#0" expanded="false" />
-            <element signature="e#27748#27749#0" expanded="false" />
-            <element signature="e#27811#27812#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2827,7 +2679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11169">
           <caret line="657" column="46" selection-start-line="657" selection-start-column="20" selection-end-line="657" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2835,7 +2686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2844,25 +2694,15 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
+        <state relative-caret-position="561">
           <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/Tasks/PlacesTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
+        <state relative-caret-position="136">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="461" column="39" selection-start-line="461" selection-start-column="39" selection-end-line="461" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2874,15 +2714,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/MapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5814">
+          <caret line="398" column="0" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/UrlClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/24.2.1/design-24.2.1-sources.jar!/android/support/design/widget/CollapsingToolbarLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="134" column="58" selection-start-line="134" selection-start-column="58" selection-end-line="134" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/NewsDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/NewsAndEventsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="115" column="60" selection-start-line="115" selection-start-column="60" selection-end-line="115" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4928#4929#0" expanded="false" />
+            <element signature="e#4971#4972#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_news_and_events.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_news_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="101" column="54" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
+          <folding>
+            <element signature="e#997#3325#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/transparent_black_gradient_shape.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PoliticalPartiesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="241" column="44" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4584#4585#0" expanded="false" />
+            <element signature="e#4627#4628#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/PolticianListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="144" column="13" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/activities/SplashScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
+        <state relative-caret-position="130">
+          <caret line="1192" column="78" selection-start-line="1192" selection-start-column="78" selection-end-line="1192" selection-end-column="78" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10830#12149#0" expanded="true" />
-            <element signature="method#convertDataToJson#0;class#SplashScreenActivity#0" expanded="false" />
             <element signature="class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
+            <element signature="method#onPostExecute#0;class#FWDCDEVApiCall#0;class#SplashScreenActivity#0" expanded="false" />
             <element signature="class#AboutFWDCApiCall#0;class#SplashScreenActivity#0" expanded="false" />
             <element signature="class#IntroApiCall#0;class#SplashScreenActivity#0" expanded="false" />
             <element signature="class#SocioEconomicService#0;class#SplashScreenActivity#0" expanded="false" />
@@ -2893,6 +2865,30 @@
             <element signature="class#PoticalPartiesListService#0;class#SplashScreenActivity#0" expanded="false" />
             <element signature="class#PoticianListService#0;class#SplashScreenActivity#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/adapter/HomeList_Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/fragment/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="202" column="18" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/naxa/nepal/sudurpaschimanchal/model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="142" selection-start-line="10" selection-start-column="142" selection-end-line="10" selection-end-column="142" />
+          <folding />
         </state>
       </provider>
     </entry>

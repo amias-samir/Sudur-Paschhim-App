@@ -188,21 +188,24 @@ public class HomeFragment extends Fragment {
                 startActivity(intent3);
                 break;
             case 3:
-                Intent intent4 = new Intent(getActivity(), AskForHelpActivity.class);
-                startActivity(intent4);
-                break;
-            case 4:
-                Intent intent5 = new Intent(getActivity(), AddYourBusinessActivity.class);
-                startActivity(intent5);
-                break;
-            case 5:
-                Intent intent6 = new Intent(getActivity(), RajnitikAwasthaActivity.class);
-                startActivity(intent6);
-                break;
-            case 6:
                 Intent intent7 = new Intent(getActivity(), SocioEconomicActivity.class);
                 startActivity(intent7);
                 break;
+            case 4:
+                Intent intent6 = new Intent(getActivity(), RajnitikAwasthaActivity.class);
+                startActivity(intent6);
+                break;
+
+            case 5:
+                Intent intent5 = new Intent(getActivity(), AddYourBusinessActivity.class);
+                startActivity(intent5);
+                break;
+            case 6:
+                Intent intent4 = new Intent(getActivity(), AskForHelpActivity.class);
+                startActivity(intent4);
+                break;
+
+
         }
 
         if (mFragment != null) {

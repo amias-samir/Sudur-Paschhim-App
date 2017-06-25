@@ -69,23 +69,29 @@ public class HomeList_Adapter extends RecyclerView.Adapter<HomeList_Adapter.View
 
         species = new Home_List_Model();
         species.setName(titleGrid[3]);
-        species.setThumbnail(R.drawable.help_image);
+        species.setThumbnail(R.drawable.socio_economic);
         mItems.add(species);
 
         species = new Home_List_Model();
         species.setName(titleGrid[4]);
-        species.setThumbnail(R.drawable.add_your_office);
-        mItems.add(species);
-
-        species = new Home_List_Model();
-        species.setName(titleGrid[5]);
         species.setThumbnail(R.drawable.rajnititik_awastha_logo);
         mItems.add(species);
 
         species = new Home_List_Model();
-        species.setName(titleGrid[6]);
-        species.setThumbnail(R.drawable.socio_economic);
+        species.setName(titleGrid[5]);
+        species.setThumbnail(R.drawable.add_your_office);
         mItems.add(species);
+
+        species = new Home_List_Model();
+        species.setName(titleGrid[6]);
+        species.setThumbnail(R.drawable.help_image);
+        mItems.add(species);
+
+
+
+
+
+
     }
 
     @Override
