@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import com.naxa.nepal.sudurpaschimanchal.activities.AskForHelpActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionUpdateActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.SocioEconomicActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.GridSpacingItemDecorator;
 import com.naxa.nepal.sudurpaschimanchal.adapter.HomeList_Adapter;
@@ -176,7 +177,7 @@ public class HomeFragment extends Fragment {
         FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
         switch (position) {
             case 0:
-                Intent intent1 = new Intent(getActivity(), IntroductionActivity.class);
+                Intent intent1 = new Intent(getActivity(), IntroductionUpdateActivity.class);
                 startActivity(intent1);
                 break;
             case 1:

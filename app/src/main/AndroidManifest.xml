@@ -238,6 +238,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity android:name=".activities.AboutFWDCpdfDetailsWebActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
@@ -245,9 +246,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
+
         <activity
             android:name=".activities.NameListOfRepresentative"
             android:screenOrientation="portrait">
+        </activity>
+
+
+        <activity
+            android:name=".activities.IntroductionUpdateActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.IntroductionRegionActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.IntroductionUpdateActivity" />
+        </activity>
+        <activity
+            android:name=".activities.IntroductionDevelopmentActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.IntroductionUpdateActivity" />
         </activity>
     </application>
 
