@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_20dea6baaf438d464921f0198edf8fadb1b29ae3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -21,12 +30,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_85676adec3033dcb0720a55ac8d84355ee15a88a.jar" />
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.1.0_a9d51ba6f74dc19e71b428c42064d3fa54418341.jar" />
     </item>
     <item
         is-multidex="false"
@@ -36,6 +45,24 @@
         revision="24.0.2"
         sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
         <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.6.0_59e9f8c66eb19f7c8d539983a0ac552d02828612.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.0_afafe54c99f414bd5a5a0b106e93e9e3a4586335.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="73591df4ec047e55db9415034d1dfab617fa9f3c">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-25.1.0_e19b4efafed4ce8b481ee7c0e6f4e00da78461ff.jar" />
     </item>
     <item
         is-multidex="false"
@@ -57,33 +84,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/customtabs/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7a84af748a39002a40b5d0c1eb2cd9a13c9370ec">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-24.2.1_8954a30576d0e258d02e6376d3e8838f2acc3e90.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_dbe591ae8c9a87d54614f32f652cc9802c624a1a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.2.1_413e807ef7f35d593e497c372a8b20971b7fd53e.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -102,12 +102,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_caf019836f7fe158adce6b69cc2112b017795bbb.jar" />
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_5fae01f17409d9cc0a85c4a0fb4bf8fc83298208.jar" />
     </item>
     <item
         is-multidex="false"
@@ -117,6 +117,15 @@
         revision="24.0.2"
         sha1="4a36600281a648769411ef642c331851732bf29e">
         <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.6.1_d70e5bac9c443b5802f9b3b93ffd77b31615dde6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.0_4dafa189c7a9b89df4a986284feadf71bf648cc4.jar" />
     </item>
     <item
         is-multidex="false"
@@ -147,30 +156,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_dce9c5068b9436ff4297de44cd37c47508d8077a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_43aad9ec4b52a518658cc3c8f5485b0a0e060d40.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_6f398b9544fa28522e99ff3c2e2938051a4c24be.jar" />
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.0_f4124623574dcaf683a7ac6a11691682b36ac6f7.jar" />
     </item>
     <item
         is-multidex="false"
@@ -183,21 +174,30 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_120c9085e16dc0eb35d0b31d0e8661f7506cbf8b.jar" />
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.1.0_6ba3e808baf63e016cde436cdb10c266d436766e.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_d506e7bd609c95e655ce1852b8239608d68462b9.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_9ef97afaae48ebc3ba2c8a65841b28fe034a8178.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_17fb57f495ada4784a8f1dd0be5b743b210b119c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -219,21 +219,21 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-25.1.0_008216a1372e96f72a1b295d7f1fcc170c696e69.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
         <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-9.6.1_5a41104ff8f98ad3878852b034b0d979934a4328.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_fcd4944943e98bc9d14e0fed2fca65266a31b51f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -273,48 +273,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_abff225588c0b72a2800f02fcfe1424d0fab6c44.jar" />
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_de2987a04804bc68cefd72ac20f6d68a383acdc2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_0bf4ddaaab853a3ea04cfe749a1cbb898ff1d9b8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a451b38b890d99b9fae2083bc48ea9f2f92a4dfa.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_413fe8e7a2232e26a5646c2b66763071b128b538.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_90819360dbacc4c05f49c3c7fb1d725ddb729ce1.jar" />
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_b810ba1de28d94681ed84de7a14a54f547fc7c70.jar" />
     </item>
     <item
         is-multidex="false"

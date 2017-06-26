@@ -302,8 +302,8 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new LocalAttractionFragment(), "स्थानिय \n आकर्षण");
-        adapter.addFragment(new NagarpalikaFragment(), "बजेट");
-        adapter.addFragment(new DevStatusSudurPaschhimFragment(), "बिकाश \n गतिविधिहरु");
+//        adapter.addFragment(new NagarpalikaFragment(), "बजेट");
+//        adapter.addFragment(new DevStatusSudurPaschhimFragment(), "बिकाश \n गतिविधिहरु");
 
         viewPager.setAdapter(adapter);
 

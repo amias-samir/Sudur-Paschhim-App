@@ -27,7 +27,7 @@ public class NagarpalikaActivity extends AppCompatActivity {
     HamroSudurPaschimActivity.FragmentRefreshListener fragmentRefreshListener;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.fragment_container_nagarpalik)
+    @BindView(R.id.fragment_container)
     FrameLayout fragmentContainerNagarpalik;
 
 
@@ -56,7 +56,7 @@ public class NagarpalikaActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             Fragment newFragment = new NagarpalikaFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.add(R.id.fragment_container_nagarpalik, newFragment, "id").commit();
+            ft.add(R.id.fragment_container, newFragment, "id").commit();
         }
     }
 }
