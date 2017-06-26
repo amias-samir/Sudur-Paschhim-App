@@ -245,11 +245,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:value=".activities.AboutFWDCActivity" /></activity>
 
         <activity android:name=".activities.NagarpalikaActivity"
             android:exported="true"
 =======
+=======
+>>>>>>> feature_update_samir
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
 
@@ -261,17 +264,23 @@
 
         <activity
             android:name=".activities.IntroductionUpdateActivity"
+<<<<<<< HEAD
+>>>>>>> feature_update_samir
+=======
 >>>>>>> feature_update_samir
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:value=".activities.BikashGatibitiActivity" /></activity>
 
         <activity android:name=".activities.DistrictProgramActivity"
             android:exported="true"
 =======
+=======
+>>>>>>> feature_update_samir
                 android:value=".MainActivity" />
         </activity>
 
@@ -285,13 +294,21 @@
         </activity>
         <activity
             android:name=".activities.IntroductionDevelopmentActivity"
+<<<<<<< HEAD
+>>>>>>> feature_update_samir
+=======
 >>>>>>> feature_update_samir
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:value=".activities.BikashGatibitiActivity" /></activity>
+=======
+                android:value=".activities.IntroductionUpdateActivity" />
+        </activity>
+>>>>>>> feature_update_samir
 =======
                 android:value=".activities.IntroductionUpdateActivity" />
         </activity>

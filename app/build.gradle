@@ -7,9 +7,15 @@ android {
         applicationId "com.naxa.nepal.sudurpaschimanchal"
         minSdkVersion 15
 <<<<<<< HEAD
+<<<<<<< HEAD
         targetSdkVersion 25
         versionCode 6
         versionName "1.6"
+=======
+        targetSdkVersion 24
+        versionCode 7
+        versionName "1.7"
+>>>>>>> feature_update_samir
 =======
         targetSdkVersion 24
         versionCode 7
