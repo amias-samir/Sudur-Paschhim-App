@@ -43,4 +43,6 @@
     <color name="ask_for_help_button_color">#ff23729a</color>
     <color name="colorPrimary">#03A9F4</color>
     <color name="light_balck">#616161</color>
+    <color name="grey">#e9e8e8</color>
+
 </resources>

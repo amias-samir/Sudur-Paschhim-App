@@ -39,12 +39,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.adapter.ExpandableListAdapter;
 import com.naxa.nepal.sudurpaschimanchal.fragment.CompletedProjectsFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.FutureProjectsFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.OnGoingProjectsFragment;
@@ -64,6 +68,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -73,6 +78,16 @@ import at.blogc.android.views.ExpandableTextView;
 public class AboutFWDCActivity extends AppCompatActivity {
     private static final String TAG = "AboutFWDCActivity";
     private SwipeRefreshLayout swipeContainer;
+
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
+    List<String> mission = new ArrayList<String>();
+    List<String> vision = new ArrayList<String>();
+    List<String> objective = new ArrayList<String>();
+    List<String> main_works = new ArrayList<String>();
+    List<String> gathan_aadesh = new ArrayList<String>();
 
     private View coordinatorLayoutView;
 
@@ -117,6 +132,9 @@ public class AboutFWDCActivity extends AppCompatActivity {
         final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_back_icon);
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
         //Susan
         //Check internet connection
@@ -307,6 +325,40 @@ public class AboutFWDCActivity extends AppCompatActivity {
         ScrollView scroll = (ScrollView) findViewById(R.id.scrollView);
         scroll.setFocusableInTouchMode(true);
         scroll.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+
+        // preparing list data
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+                if(groupPosition == 2 ){
+                    switch (childPosition){
+                        case 1 :
+                            Toast.makeText(getApplicationContext(),groupPosition + ","+childPosition+":"+"१. घरेलु तथा साना उधोग विभागको संगठन तालिका", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 2 :
+                            Toast.makeText(getApplicationContext(),"२. प्रमुख उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 3 :
+                            Toast.makeText(getApplicationContext(),"३. उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+
+                }
+
+                return false;
+            }
+        });
     }
 
     // data convert
@@ -642,6 +694,53 @@ public class AboutFWDCActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
+    /*
+   * Preparing the list data
+   */
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("ध्येय ");
+        listDataHeader.add("लक्ष्य ");
+        listDataHeader.add("उधेश्य");
+        listDataHeader.add("मुख्य कार्यहरु");
+        listDataHeader.add("गठन आदेश");
+
+        mission.add(getString(R.string.mission));
+        vision.add(getString(R.string.vision));
+        objective.add(getString(R.string.objective));
+        objective.add(getString(R.string.objective1));
+        objective.add(getString(R.string.objective2));
+        main_works.add(getString(R.string.main_works));
+        main_works.add(getString(R.string.main_works1));
+        main_works.add(getString(R.string.main_works2));
+        main_works.add(getString(R.string.main_works3));
+        main_works.add(getString(R.string.main_works4));
+        main_works.add(getString(R.string.main_works5));
+        main_works.add(getString(R.string.main_works6));
+        main_works.add(getString(R.string.main_works7));
+        main_works.add(getString(R.string.main_works8));
+        main_works.add(getString(R.string.main_works9));
+        main_works.add(getString(R.string.main_works10));
+        main_works.add(getString(R.string.main_works11));
+
+        gathan_aadesh.add("  २. प्रमुख उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका");
+
+
+
+        listDataChild.put(listDataHeader.get(0), mission); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), vision);
+        listDataChild.put(listDataHeader.get(2), objective);
+        listDataChild.put(listDataHeader.get(3), main_works);
+        listDataChild.put(listDataHeader.get(4), gathan_aadesh);
+
+
+
+    }
+
 }
 
 
