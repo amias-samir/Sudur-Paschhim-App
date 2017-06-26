@@ -5,7 +5,7 @@ package com.naxa.nepal.sudurpaschimanchal.model;
  */
 public class UrlClass {
 
-    public static String YOUTUBE_VIDEOS_LINK = "http://naxa.com.np/sudurapi/sudurVideos";
+        public static String YOUTUBE_VIDEOS_LINK = "http://naxa.com.np/sudurapi/sudurVideos";
     public static String URL_DISTRICT_LIST = "http://naxa.com.np/sudurapi/districtslist";
     public static String URL_PLACES_TYPE_LIST = "http://naxa.com.np/sudurapi/placestypelist";
     public static String URL_DEV_ACTIVITIES = "http://naxa.com.np/sudurapi/devact";

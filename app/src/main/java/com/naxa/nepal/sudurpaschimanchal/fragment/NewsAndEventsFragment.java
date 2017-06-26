@@ -79,7 +79,7 @@ public class NewsAndEventsFragment extends Fragment {
     public static List<NewsAndEventsModel> filteredList = new ArrayList<>();
     public static final String MyPREFERENCES = "news_and_events_data";
     SharedPreferences sharedpreferences;
-    SharedPreferences.Editor editor ;
+    SharedPreferences.Editor editor;
 
     private boolean setData;
     String jsonToSend = null;
@@ -295,19 +295,25 @@ public class NewsAndEventsFragment extends Fragment {
             // TODO Auto-generated method stub
             String text = "";
 
-            if (sharedpreferences.getString("news_and_events_data", "").trim().isEmpty()) {
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    text = POST(UrlClass.URL_NEWS_AND_EVENTS);
+            if (networkInfo != null && networkInfo.isConnected()) {
+                text = POST(UrlClass.URL_NEWS_AND_EVENTS);
+                Boolean isValidAPIResposne = isValidNewsResponse(text);
+
+                if (isValidAPIResposne) {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.remove("news_and_events_data");
                     editor.putString("news_and_events_data", text);
-                    editor.commit();
-                } else {
-                    //Snackbar.make(getView(), "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                         //   .setAction("Retry", null).show();
+                    editor.apply();
                 }
+
+
             } else {
-                text = sharedpreferences.getString("news_and_events_data", "");
+                //Snackbar.make(getView(), "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+                //   .setAction("Retry", null).show();
             }
+
+            text = sharedpreferences.getString("news_and_events_data", "");
+
             Log.e("DATA", "" + text.toString());
 
 
@@ -333,10 +339,8 @@ public class NewsAndEventsFragment extends Fragment {
                     newData.news_desc_np = c.getString("sudur_news_desc");
                     newData.setmThumbnail(c.getString("news_image_thumb"));
 
-                    //clean date time from sever
-                    fixDate(c.getString("sudur_news_date"));
-                    newData.news_date_np = date;
-                    newData.news_time_np = time;
+                    newData.news_date_np = c.getString("sudur_news_date");
+
 
 //                    newData.mThumbnail = c.getString("video_img");
 
@@ -351,25 +355,32 @@ public class NewsAndEventsFragment extends Fragment {
         }
 
 
-        private void fixDate(String rawDateTime) {
-            String[] dtparts = rawDateTime.split(" ");
-            date = dtparts[0];
-
-            String badTime = dtparts[1];
-
-
-            DateFormat f1 = new SimpleDateFormat("HH:mm:ss");
+        private boolean isValidNewsResponse(String response) {
             try {
-                Date d = f1.parse(badTime);
-                DateFormat f2 = new SimpleDateFormat("h:mma");
-                time = f2.format(d).toLowerCase();
-            } catch (ParseException e) {
+                return checkIfNewsAPIGaveValidRes(response);
+            } catch (JSONException e) {
                 e.printStackTrace();
+                return false;
+            }
+        }
+
+        private boolean checkIfNewsAPIGaveValidRes(String text) throws JSONException {
+
+            if (text == null || text.length() == 0) {
+                return false;
             }
 
-            Log.d("Samir", date);
+            int status = new JSONObject(text).getInt("status");
+            if (status == 200) {
+                return true;
+            }
+
+            return false;
 
         }
+
+
+
 
 
         @Override
@@ -434,6 +445,9 @@ public class NewsAndEventsFragment extends Fragment {
     public void fillTable() {
 
         filteredList = resultCur;
+
+
+
         ca = new NewsAndEvents_List_Adapter(getActivity(), filteredList);
         recyclerView.setAdapter(ca);
 
