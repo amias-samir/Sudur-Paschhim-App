@@ -19,6 +19,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -238,81 +245,28 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity android:name=".activities.AboutFWDCpdfDetailsWebActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:value=".activities.AboutFWDCActivity" /></activity>
 
         <activity android:name=".activities.NagarpalikaActivity"
             android:exported="true"
-=======
-=======
->>>>>>> feature_update_samir
-                android:value=".activities.AboutFWDCActivity" />
-        </activity>
-
-        <activity
-            android:name=".activities.NameListOfRepresentative"
-            android:screenOrientation="portrait">
-        </activity>
-
-
-        <activity
-            android:name=".activities.IntroductionUpdateActivity"
-<<<<<<< HEAD
->>>>>>> feature_update_samir
-=======
->>>>>>> feature_update_samir
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:value=".activities.BikashGatibitiActivity" /></activity>
 
         <activity android:name=".activities.DistrictProgramActivity"
             android:exported="true"
-=======
-=======
->>>>>>> feature_update_samir
-                android:value=".MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".activities.IntroductionRegionActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.IntroductionUpdateActivity" />
-        </activity>
-        <activity
-            android:name=".activities.IntroductionDevelopmentActivity"
-<<<<<<< HEAD
->>>>>>> feature_update_samir
-=======
->>>>>>> feature_update_samir
-            android:screenOrientation="portrait"
-            android:value=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:value=".activities.BikashGatibitiActivity" /></activity>
-=======
-                android:value=".activities.IntroductionUpdateActivity" />
-        </activity>
->>>>>>> feature_update_samir
-=======
-                android:value=".activities.IntroductionUpdateActivity" />
-        </activity>
->>>>>>> feature_update_samir
     </application>
 
 </manifest>
