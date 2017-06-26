@@ -243,7 +243,12 @@
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.AboutFWDCActivity" /></activity>
+                android:value=".activities.AboutFWDCActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NameListOfRepresentative"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
