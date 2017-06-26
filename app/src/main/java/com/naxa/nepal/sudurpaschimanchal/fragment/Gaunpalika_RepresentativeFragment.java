@@ -74,7 +74,7 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
     public static List<Local_Level_Representative_Model> resultCur = new ArrayList<>();
     public static List<Local_Level_Representative_Model> filteredList = new ArrayList<>();
 
-    public static final String MyPREFERENCES = "PolticianData";
+    public static final String MyPREFERENCES = "gaunpalika_representative";
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     String jsonToSend = null;
@@ -103,7 +103,7 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        if (sharedpreferences.getString("PolticianData", "").trim().isEmpty()) {
+        if (sharedpreferences.getString("gaunpalika_representative", "").trim().isEmpty()) {
             if (networkInfo != null && networkInfo.isConnected()) {
 
                 mProgressDlg = new ProgressDialog(getActivity());
@@ -205,18 +205,13 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
     // data convert
     public void convertDataToJson() {
         //function in the activity that corresponds to the layout button
-
         try {
-
             JSONObject header = new JSONObject();
-
             header.put("token", "bf5d483811");
             jsonToSend = header.toString();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     private void createList() {
@@ -250,13 +245,11 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
             String text = "";
-
-
-            if (sharedpreferences.getString("PolticianData", "").trim().isEmpty()) {
+            if (sharedpreferences.getString("gaunpalika_representative", "").trim().isEmpty()) {
                 if (networkInfo != null && networkInfo.isConnected()) {
 
                     text = POST(UrlClass.URL_POLTICIAN_LIST);
-                    editor.putString("PolticianData", text);
+                    editor.putString("gaunpalika_representative", text);
                     editor.commit();
                 } else {
                     try {
@@ -267,18 +260,15 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
                     }
                 }
             } else {
-                text = sharedpreferences.getString("PolticianData", "");
+                text = sharedpreferences.getString("gaunpalika_representative", "");
             }
 
             try {
                 JSONObject jsonObj = new JSONObject(text);
                 data = jsonObj.getJSONArray("data");
-
                 Log.e("DATA", "" + data.toString());
 
-
                 for (int i = 0; i < data.length(); i++) {
-
                     JSONObject c = data.getJSONObject(i);
 
 //                    Poltician_List_Model newData = new Poltician_List_Model();
@@ -306,7 +296,6 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
             return text.toString();
         }
 
-
         @Override
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
@@ -318,7 +307,6 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
                 fillTable();
                 swipeContainer.setRefreshing(false);
             }
-
         }
 
         public String POST(String myurl) {
