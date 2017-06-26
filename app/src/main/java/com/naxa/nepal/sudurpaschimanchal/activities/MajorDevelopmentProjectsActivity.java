@@ -1,9 +1,11 @@
-package com.naxa.nepal.sudurpaschimanchal.fragment;
+package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -11,24 +13,21 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentative;
-import com.naxa.nepal.sudurpaschimanchal.adapter.DistrictList_Adapter;
-import com.naxa.nepal.sudurpaschimanchal.adapter.LocalLevelRepresentative_Adapter;
-import com.naxa.nepal.sudurpaschimanchal.model.District;
-import com.naxa.nepal.sudurpaschimanchal.model.Local_Level_Representative_Model;
+import com.naxa.nepal.sudurpaschimanchal.adapter.MajorDevelopment_List_Adapter;
+import com.naxa.nepal.sudurpaschimanchal.model.NewsAndEventsModel;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -44,7 +43,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -53,77 +56,56 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by susan on 6/26/2017.
  */
 
-public class Nagarpalika_RepresentativeFragment extends Fragment {
+public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
 
     //Susan
-    View view;
+    private SwipeRefreshLayout swipeContainer;
 
     //Susan
     ConnectivityManager connectivityManager;
     NetworkInfo networkInfo;
 
-    //Susan
-    private SwipeRefreshLayout swipeContainer;
-
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
-
     ProgressDialog mProgressDlg;
 
-    LocalLevelRepresentative_Adapter ca;
-    public static List<Local_Level_Representative_Model> resultCur = new ArrayList<>();
-    public static List<Local_Level_Representative_Model> filteredList = new ArrayList<>();
-
-    public static final String MyPREFERENCES = "nagarpalika_representative";
+    MajorDevelopment_List_Adapter ca;
+    public static List<NewsAndEventsModel> resultCur = new ArrayList<>();
+    public static List<NewsAndEventsModel> filteredList = new ArrayList<>();
+    public static final String MyPREFERENCES = "major_development_projects";
     SharedPreferences sharedpreferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor ;
+
+    private boolean setData;
     String jsonToSend = null;
+    private String date, time;
 
-    public Nagarpalika_RepresentativeFragment() {
-        // Required empty public constructor
-    }
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.local_chief_member_fragment, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.major_development_projects);
 
-        sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        editor = sharedpreferences.edit();
+        initializeUI();
 
         //Susan
         //Check internet connection
-        connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.NewsList);
-        linearLayoutManager = new LinearLayoutManager(getActivity());
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+
+        recyclerView = (RecyclerView) findViewById(R.id.NewsList);
+        linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        if (sharedpreferences.getString("nagarpalika_representative", "").trim().isEmpty()) {
-            if (networkInfo != null && networkInfo.isConnected()) {
+        createList();
+        convertDataToJson();
 
-                mProgressDlg = new ProgressDialog(getActivity());
-                mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
-                mProgressDlg.setIndeterminate(false);
-                //  mProgressDlg.setCancelable(false);
-                mProgressDlg.show();
-                convertDataToJson();
-                createList();
-
-            } else {
-                Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
-            }
-        }
-        else {
-            convertDataToJson();
-            createList();
-        }
-
-        final GestureDetector mGestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
+        final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
 
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
@@ -138,12 +120,15 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
                 View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+//                    Drawer.closeDrawers();
                     int position = recyclerView.getChildPosition(child);
+                    Intent intent = new Intent(MajorDevelopmentProjectsActivity.this, NewsDetailsActivity.class);
 
-//                    Intent intent = new Intent(getActivity(), NameListOfRepresentative.class);
-//                    intent.putExtra("district_np", resultCur.get(position).get_name_np());
-//                    startActivity(intent);
-
+                    intent.putExtra("news_title_np", resultCur.get(position).news_title_np);
+                    intent.putExtra("news_desc_np", resultCur.get(position).news_desc_np);
+                    intent.putExtra("news_date_np", resultCur.get(position).news_date_np);
+                    intent.putExtra("news_image", resultCur.get(position).mThumbnail);
+                    startActivity(intent);
                     return true;
                 }
                 return false;
@@ -158,28 +143,22 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
             }
         });
 
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         //Swipe Refresh Action
-        swipeContainer = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipeContainer);
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainerNews);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
                 if (networkInfo != null && networkInfo.isConnected()) {
+
                     editor.clear();
                     editor.commit();
 
-                    convertDataToJson();
                     refreshContent();
                     swipeContainer.setRefreshing(false);
                 } else {
-                    Snackbar.make(view, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+                    Snackbar.make(swipeContainer, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
                             .setAction("Retry", null).show();
                     swipeContainer.setRefreshing(false);
                 }
@@ -198,16 +177,27 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
         fillTable();
     }
 
+    private void initializeUI(){
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("स्तिनिय तहका प्रतिनिधि");
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_back_icon);
+        upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+    }
+
     // data convert
     public void convertDataToJson() {
         //function in the activity that corresponds to the layout button
-
         try {
             JSONObject header = new JSONObject();
-
             header.put("token", "bf5d483811");
             jsonToSend = header.toString();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -215,11 +205,27 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
 
     private void createList() {
         resultCur.clear();
-        NagarpalikaAPI restApi = new NagarpalikaAPI();
+
+//        if (setData) {
+//        mProgressDlg = new ProgressDialog(getActivity());
+//        mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
+//        mProgressDlg.setIndeterminate(false);
+//        mProgressDlg.show();
+        MajorDevelopmentAPI restApi = new MajorDevelopmentAPI();
         restApi.execute();
+
+//        } else {
+//
+//            mProgressDlg = new ProgressDialog(getActivity());
+//            mProgressDlg.setMessage("Loading please Wait...");
+//            mProgressDlg.setIndeterminate(false);
+//            mProgressDlg.show();
+//            PoticianListService restApi = new PoticianListService();
+//            restApi.execute();
+//        }
     }
 
-    private class NagarpalikaAPI extends AsyncTask<String, Void, String> {
+    private class MajorDevelopmentAPI extends AsyncTask<String, Void, String> {
         JSONArray data = null;
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
@@ -235,7 +241,6 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
                 if (n > 0)
                     out.append(new String(b, 0, n));
             }
-
             return out.toString();
         }
 
@@ -243,49 +248,45 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
             String text = "";
-            if (sharedpreferences.getString("nagarpalika_representative", "").trim().isEmpty()) {
-                if (networkInfo != null && networkInfo.isConnected()) {
 
-                    text = POST(UrlClass.URL_POLTICIAN_LIST);
-                    editor.putString("nagarpalika_representative", text);
+            if (sharedpreferences.getString("major_development_projects", "").trim().isEmpty()) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    text = POST(UrlClass.URL_NEWS_AND_EVENTS);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("major_development_projects", text);
                     editor.commit();
                 } else {
-                    try {
-                        Snackbar.make(view, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                                .setAction("Retry", null).show();
-                    } catch (NullPointerException e) {
-                        e.printStackTrace();
-                    }
+                    //Snackbar.make(getView(), "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+                    //   .setAction("Retry", null).show();
                 }
             } else {
-                text = sharedpreferences.getString("nagarpalika_representative", "");
+                text = sharedpreferences.getString("major_development_projects", "");
             }
+            Log.e("DATA", "" + text.toString());
 
+            JSONArray list;
+            String txtDisp = null;
+            ArrayList<String> question = new ArrayList<>();
             try {
+
                 JSONObject jsonObj = new JSONObject(text);
                 data = jsonObj.getJSONArray("data");
                 Log.e("DATA", "" + data.toString());
-
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject c = data.getJSONObject(i);
+                    NewsAndEventsModel newData = new NewsAndEventsModel();
+                    newData.news_title_np = c.getString("sudur_news_title");
+                    newData.news_desc_np = c.getString("sudur_news_desc");
+                    newData.setmThumbnail(c.getString("news_image_thumb"));
 
-//                    Poltician_List_Model newData = new Poltician_List_Model();
-//                    newData.poltician_name_en = c.getString("candidate_name_en");
-//                    newData.poltician_name_np = c.getString("candidate_name_np");
-//
-//                    newData.poltical_party_name_en = c.getString("sudur_political_party_name_en");
-//                    newData.poltical_party_name_np = c.getString("sudur_political_party_name_np");
-//
-//                    newData.poltician_contact_no_en = c.getString("candidate_phone_en");
-//                    newData.poltician_contact_no_np = c.getString("candidate_phone_en");
-//
-//                    newData.poltician_election_area_en = c.getString("candidate_election_area_en");
-//                    newData.poltician_election_area_np = c.getString("candidate_election_area_np");
-//
-//                    newData.mThumbnail = c.getString("photo");
+                    //clean date time from sever
+                    fixDate(c.getString("sudur_news_date"));
+                    newData.news_date_np = date;
+                    newData.news_time_np = time;
 
-//                    resultCur.add(newData);
+//                    newData.mThumbnail = c.getString("video_img");
 
+                    resultCur.add(newData);
                 }
             } catch (Exception e) {
                 return e.getLocalizedMessage();
@@ -294,13 +295,26 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
             return text.toString();
         }
 
+        private void fixDate(String rawDateTime) {
+            String[] dtparts = rawDateTime.split(" ");
+            date = dtparts[0];
+            String badTime = dtparts[1];
+            DateFormat f1 = new SimpleDateFormat("HH:mm:ss");
+            try {
+                Date d = f1.parse(badTime);
+                DateFormat f2 = new SimpleDateFormat("h:mma");
+                time = f2.format(d).toLowerCase();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Log.d("Samir", date);
+        }
+
         @Override
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if ((mProgressDlg != null) && mProgressDlg.isShowing()) {
-                mProgressDlg.dismiss();
-            }
+//            mProgressDlg.dismiss();
             if (result != null) {
                 fillTable();
                 swipeContainer.setRefreshing(false);
@@ -341,43 +355,17 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
                     }
                 } else {
                     response = "";
-
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             return response;
         }
     }
 
-//    private void createList() {
-//        District districtListModel = new District("", "", "कैलाली");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "आछाम");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "बझांग");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "बाजुरा");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "कन्चनपुर");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "डडेल्धुरा");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "बैतडी");
-//        resultCur.add(districtListModel);
-//        districtListModel = new District("", "", "दार्चुला");
-//        resultCur.add(districtListModel);
-//        districtListModel= new District("", "", "डोटी");
-//        resultCur.add(districtListModel);
-//        fillTable();
-//
-//    }
-
     public void fillTable() {
         filteredList = resultCur;
-        ca = new LocalLevelRepresentative_Adapter(getActivity(), filteredList);
+        ca = new MajorDevelopment_List_Adapter(this, filteredList);
         recyclerView.setAdapter(ca);
-        ca.notifyDataSetChanged();
     }
 }
