@@ -55,7 +55,7 @@ public class IntroductionUpdateActivity extends AppCompatActivity implements Vie
                 break;
 
             case (R.id.introduction_bikash_aayog):
-                Intent devIntent = new Intent(IntroductionUpdateActivity.this, IntroductionDevelopmentActivity.class);
+                Intent devIntent = new Intent(IntroductionUpdateActivity.this, AboutFWDCActivity.class);
                 startActivity(devIntent);
                 break;
         }
