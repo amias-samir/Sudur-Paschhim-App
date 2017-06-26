@@ -6,15 +6,16 @@
     >
 
     <!--<ProgressBar-->
-        <!--android:id="@+id/splash_progress_bar"-->
-        <!--style="?android:attr/progressBarStyleHorizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:indeterminate="false" />-->
+    <!--android:id="@+id/splash_progress_bar"-->
+    <!--style="?android:attr/progressBarStyleHorizontal"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:indeterminate="false" />-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/top_layout">
         <ProgressBar
             android:id="@+id/firstBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -33,7 +34,17 @@
             android:visibility="gone"
             android:layout_centerHorizontal="true"
             />
+
     </RelativeLayout>
+
+    <ProgressBar
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/top_layout"
+        style="?android:attr/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        />
 
 
     <RelativeLayout
@@ -119,14 +130,14 @@
         android:layout_alignParentStart="true"
         android:id="@+id/relativeLayout">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="65dp"
-        android:id="@+id/imageView"
-        android:background="@drawable/fwdc_nep_new"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/fwdc_nep_new"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

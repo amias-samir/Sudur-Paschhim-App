@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import com.naxa.nepal.sudurpaschimanchal.activities.AskForHelpActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionUpdateActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.SocioEconomicActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.GridSpacingItemDecorator;
 import com.naxa.nepal.sudurpaschimanchal.adapter.HomeList_Adapter;
@@ -176,7 +177,7 @@ public class HomeFragment extends Fragment {
         FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
         switch (position) {
             case 0:
-                Intent intent1 = new Intent(getActivity(), IntroductionActivity.class);
+                Intent intent1 = new Intent(getActivity(), IntroductionUpdateActivity.class);
                 startActivity(intent1);
                 break;
             case 1:
@@ -188,21 +189,24 @@ public class HomeFragment extends Fragment {
                 startActivity(intent3);
                 break;
             case 3:
-                Intent intent4 = new Intent(getActivity(), AskForHelpActivity.class);
-                startActivity(intent4);
-                break;
-            case 4:
-                Intent intent5 = new Intent(getActivity(), AddYourBusinessActivity.class);
-                startActivity(intent5);
-                break;
-            case 5:
-                Intent intent6 = new Intent(getActivity(), RajnitikAwasthaActivity.class);
-                startActivity(intent6);
-                break;
-            case 6:
                 Intent intent7 = new Intent(getActivity(), SocioEconomicActivity.class);
                 startActivity(intent7);
                 break;
+            case 4:
+                Intent intent6 = new Intent(getActivity(), RajnitikAwasthaActivity.class);
+                startActivity(intent6);
+                break;
+
+            case 5:
+                Intent intent5 = new Intent(getActivity(), AddYourBusinessActivity.class);
+                startActivity(intent5);
+                break;
+            case 6:
+                Intent intent4 = new Intent(getActivity(), AskForHelpActivity.class);
+                startActivity(intent4);
+                break;
+
+
         }
 
         if (mFragment != null) {

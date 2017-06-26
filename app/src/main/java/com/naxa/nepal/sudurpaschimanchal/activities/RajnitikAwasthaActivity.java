@@ -30,6 +30,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.Utils.ChartColor;
 import com.naxa.nepal.sudurpaschimanchal.connection.ConnectonDetector;
+import com.naxa.nepal.sudurpaschimanchal.fragment.Local_LevelRepresentativeFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.PoliticalPartiesFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.PolticianListFragment;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
@@ -199,7 +200,9 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
 
         adapter.addFragment(new PolticianListFragment(), "राजनीतिक \n व्यक्तिहरू");
         adapter.addFragment(new PoliticalPartiesFragment(), "राजनीतिक \n पार्टीहरु");
+        adapter.addFragment(new Local_LevelRepresentativeFragment(), "स्तिनिय तहका \n प्रतिनिधि");
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(3);
 //
 //        }
 
