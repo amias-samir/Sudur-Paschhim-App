@@ -3,318 +3,327 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\libs\YouTubeAndroidPlayerApi.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi_3e06a4a419868f317fad72acbc7ed63fe69c068a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\at.blogc\expandabletextview\1.0.3\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ef04608d24a0788c83950359e7755d4d0c03c558">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\at.blogc-expandabletextview-1.0.3_e336504b9b43a8c444c57c7bacba10bf2c390830.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.5\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.daimajia.slider-library-1.1.5_89237d3a5957c1a1339f76d102b174aa2a7a5310.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_332b6fba4fdb784b54242f935b969fce0fcfb3c7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.6\b036abbb61656165da99cf44898e4b9123687e65\MPAndroidChart-v2.1.6.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b036abbb61656165da99cf44898e4b9123687e65">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.6_158587e447dc57516fad38aee9f7a8153b41c9a7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_1b079e4f28b21787fcd8d106a5a6e2850b0e73e1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_46a702a61092592a54d30463e445e3b9aaf9b54c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.6.1_7df686197397132b8506612382f57d86751b9214.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\customtabs\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7a84af748a39002a40b5d0c1eb2cd9a13c9370ec">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-24.2.1_cbc8d2d09990b576060177b445a578871e39037f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.maps.android-android-maps-utils-0.4.4_4796547588a5590d17f57e4a710fc8601dcd68d3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="4a36600281a648769411ef642c331851732bf29e">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.6.1_34583a0494c952733e4115f0032d723b59c29983.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_f7f3a218d4a7a301c2d5c0aeaa95711df511130a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_990f290e85679bb699d5b5dcc6ddae953177b33c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.6.1_a56a85559a6ace271b042c35f103e27faac3eec9.jar" />
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.6.1_41390fbe362a36825f2ce3c1e7512b22698d2f45.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_0103f83adf5d37a9d29f1aa525ed237be18f660e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\library-2.4.0_aec04b55a6741339329bc5ce9aa41087008fd3a5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_6553f14f9c6203e881c1aafcc81ce8b7502bab91.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\glide-3.7.0_171bc3f4eead630e0919cb0a4a2cdd672227aad6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_5b0f58e76aea0e3c6e7699ad9dfe72033f6d94f1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_bb354ba756a2370a81f54ce4b204ad56e8aa9619.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\picasso-2.3.2_120636e4513724f1d0d2204af668ac0c5559090c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_83f4e886faaf1efa1a8a6a815e10eb368b1540df.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_93dd27009f5af3ec347f1c0113e5490de77e12d1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_1a150ad67806a5022305d5f365a5a6af219d2ab6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_6793bbbf662494904f5d2651c2e4b268d0920abf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_17e30d5958d5284b11590e14cf1494a364d7fc9e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-9.6.1_96cc9e71ca88a2420799684fea5db698ef64df13.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_beff6b7a3d5bcb7a67090607617d152bc5d26b46.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_2abf512f30c795bd54d307db35879d57a63a733c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_8dff17ccffe6642fe7c9c0deaba7059aa424f3dc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.6.1_bfdcc52977d0d6815ca09139c8c78b59881dd4e4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.6.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-9.6.1_5a1cc77d95080d94c8559d89fd24aca109a2723f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_4480ae063f66f3f8bae632bb63ef90f5d87075b3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-24.2.1_3ae1d4a710987e4d886dff4bdfdc6c6aa2e33dd1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.1\jars\classes.jar"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
-        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschimanchal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-9.6.1_7d88bd77279df3ec5552ebe3ed22d8e84802ea75.jar" />
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.6.1_511c224f8ced519401d8106611be47b20162e781.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_85676adec3033dcb0720a55ac8d84355ee15a88a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.6.0_59e9f8c66eb19f7c8d539983a0ac552d02828612.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-9.6.1_74143da74733b3c5eb14c96efb6a48c825176390.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.6.0_e1366a1d52e04c274b483c7971023bf8bc4c205f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/customtabs/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7a84af748a39002a40b5d0c1eb2cd9a13c9370ec">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-24.2.1_8954a30576d0e258d02e6376d3e8838f2acc3e90.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_dbe591ae8c9a87d54614f32f652cc9802c624a1a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.2.1_413e807ef7f35d593e497c372a8b20971b7fd53e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.6.1_8bb98be41ccbb9d7f04ebdc52a6ac5c1a51a8d97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/library-2.4.0_b7cba58948ceaef9a38fb417502d4afbb2990336.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_caf019836f7fe158adce6b69cc2112b017795bbb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.6.1_d70e5bac9c443b5802f9b3b93ffd77b31615dde6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.maps.android-android-maps-utils-0.4.4_a904e4c22ba037a16d6147321e755785af360dac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.daimajia.slider-library-1.1.5_9015b6911c8a131b4fce800bfb0af298a3fd83b2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_bfab938ed46b0c5dc4df9a815b74f95afca11fe1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_dce9c5068b9436ff4297de44cd37c47508d8077a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_43aad9ec4b52a518658cc3c8f5485b0a0e060d40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_6f398b9544fa28522e99ff3c2e2938051a4c24be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.6.1_cdbdf65c6eb80e0b1a621f11f320180875b73a85.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_120c9085e16dc0eb35d0b31d0e8661f7506cbf8b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_d506e7bd609c95e655ce1852b8239608d68462b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/picasso-2.3.2_97245d07ffc2945c674b0e2832d2a34b1b440a01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/glide-3.7.0_392d74c2bcb8fd03cb3bedcd74df0b991b3cd5e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-9.6.1_5a41104ff8f98ad3878852b034b0d979934a4328.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_fcd4944943e98bc9d14e0fed2fca65266a31b51f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_cc14f791cb6b78c944ef1f4e7b9db8e81cf05f33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.6/b036abbb61656165da99cf44898e4b9123687e65/MPAndroidChart-v2.1.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b036abbb61656165da99cf44898e4b9123687e65">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.1.6_21787cd70794dd68cf7a3084eb6a395388b5f765.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi_6ae39af253749f009fc557dd268ed041d122df6a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.volley-volley-1.0.0_8de7a483aaaf4158f7288e92f850e1b2e3ebb113.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_abff225588c0b72a2800f02fcfe1424d0fab6c44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_0bf4ddaaab853a3ea04cfe749a1cbb898ff1d9b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a451b38b890d99b9fae2083bc48ea9f2f92a4dfa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_413fe8e7a2232e26a5646c2b66763071b128b538.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_90819360dbacc4c05f49c3c7fb1d725ddb729ce1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/exploded-aar/at.blogc/expandabletextview/1.0.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ef04608d24a0788c83950359e7755d4d0c03c558">
+        <dex dex="/home/nishon/AndroidStudioProjects/Hamro Sudur/app/build/intermediates/pre-dexed/debug/at.blogc-expandabletextview-1.0.3_e6ab8238c0807d26caad2f4414c817445a2ee169.jar" />
     </item>
 
 </items>

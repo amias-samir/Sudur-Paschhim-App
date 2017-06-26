@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.HamroSudurPaschimActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.NagarpalikaActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.DevActivityRecyclerViewAdapter;
 import com.naxa.nepal.sudurpaschimanchal.adapter.NagarpalikaBudget_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.model.DevActivity_Pojo;
@@ -83,7 +84,7 @@ public class NagarpalikaFragment extends Fragment {
 
         createList();
 
-        ((HamroSudurPaschimActivity)getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener()
+        ((NagarpalikaActivity)getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener()
         {
             @Override
             public void onRefresh() {
