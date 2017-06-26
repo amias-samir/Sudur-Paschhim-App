@@ -232,6 +232,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
         });
 
+        showSudurOffice();
         setDistrictGeoJSON();
 
     }
@@ -311,6 +312,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private String[] cleanPlacesTypesData(ArrayList<PlaceTypes> typesDetailsList) {
 
         ArrayList<String> bussinessCategoryList = new ArrayList<>();
+
         bussinessCategoryList.add("सबै गन्तव्यहरू");
 
         for (int i = 0; i < typesDetailsList.size(); i++) {
@@ -331,7 +333,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         placesTypesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
 
 
                 try {
@@ -395,9 +396,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             Log.e(TAG, "getting marker data in array");
         }
 
-        //showing all markers when the location data is loaded
-        setMarkers(interestLocationList,"0");
+
         setSpinnerListener();
+    }
+
+    private void showSudurOffice() {
+
+        MarkerOptions sudurOfficeMarker;
+        LatLng sudurOfficeLatLan = new LatLng(29.241776, 80.9376628);
+        sudurOfficeMarker = new MarkerOptions().position(sudurOfficeLatLan).flat(true);
+        sudurOfficeMarker.title("सुदूर पश्चिम बिकास आयोग");
+        Marker marker = myMap.addMarker(sudurOfficeMarker);
+
+        marker.showInfoWindow();
     }
 
 
@@ -424,8 +435,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private void setMarkers(ArrayList<InterestLocation> markersListFromServer, String typeHighligter) {
 
 
-        Log.d("Lactating"," Selected place type "+typeHighligter);
-
         if (markerFlag) {
             myMap.clear();
             //set geoJson again
@@ -449,14 +458,14 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
             if (typeHighligter.equals(curInterestLocation.getType())) {
                 Marker marker = myMap.addMarker(options);
-                marker.showInfoWindow();
+
                 markerList.add(marker);
                 options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
                 options.alpha(3);
             }
 
             //add all places to the array
-            if (typeHighligter.equals("0")){
+            if (typeHighligter.equals("0")) {
                 Marker marker = myMap.addMarker(options);
                 marker.showInfoWindow();
                 markerList.add(marker);
