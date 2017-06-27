@@ -122,13 +122,12 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
 //                    Drawer.closeDrawers();
                     int position = recyclerView.getChildPosition(child);
-//                    Intent intent = new Intent(MajorDevelopmentProjectsActivity.this, NewsDetailsActivity.class);
-//
-//                    intent.putExtra("news_title_np", resultCur.get(position).news_title_np);
-//                    intent.putExtra("news_desc_np", resultCur.get(position).news_desc_np);
-//                    intent.putExtra("news_date_np", resultCur.get(position).news_date_np);
-//                    intent.putExtra("news_image", resultCur.get(position).mThumbnail);
-//                    startActivity(intent);
+                    Intent intent = new Intent(MajorDevelopmentProjectsActivity.this, MajorProjectDetailsActivity.class);
+                    intent.putExtra("project_title_np", resultCur.get(position).news_title_en);
+                    intent.putExtra("project_desc_np", resultCur.get(position).news_desc_en);
+//                    intent.putExtra("news_date_np", resultCur.get(position).news_date_en);
+                    intent.putExtra("project_image", resultCur.get(position).mThumbnail);
+                    startActivity(intent);
                     return true;
                 }
                 return false;
@@ -275,9 +274,9 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject c = data.getJSONObject(i);
                     NewsAndEventsModel newData = new NewsAndEventsModel();
-                    newData.setNews_title_en(c.getString("title"));
-                    newData.setNews_desc_en(c.getString("description"));
-                    newData.setmThumbnail(c.getString("img_url"));
+                    newData.news_title_en = c.getString("title");
+                    newData.news_desc_en = (c.getString("description"));
+                    newData.mThumbnail = (c.getString("img_url"));
 
                     //clean date time from sever
 //                    fixDate(c.getString("sudur_news_date"));

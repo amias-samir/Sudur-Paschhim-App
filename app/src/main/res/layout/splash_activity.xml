@@ -37,14 +37,7 @@
 
     </RelativeLayout>
 
-    <ProgressBar
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/top_layout"
-        style="?android:attr/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        />
+
 
 
     <RelativeLayout
@@ -119,6 +112,14 @@
             android:text="सुन्दर सुदूरपश्चिम समृद्ध सुदूरपश्चिम"
             android:textColor="@color/white"
             android:textSize="20dp" />
+        <ProgressBar
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/textView4"
+            style="?android:attr/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
     </RelativeLayout>
 
     <RelativeLayout

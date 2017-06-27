@@ -79,33 +79,33 @@
                 android:text="Read more..."/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/feed_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11:15 am"
-            android:textSize="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#737373"
-            android:layout_below="@+id/project_imageView_thumb"
-            android:layout_toRightOf="@+id/project_imageView_thumb"
-            android:layout_toEndOf="@+id/project_imageView_thumb" />
+        <!--<TextView-->
+            <!--android:id="@+id/feed_time"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="11:15 am"-->
+            <!--android:textSize="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:textColor="#737373"-->
+            <!--android:layout_below="@+id/project_imageView_thumb"-->
+            <!--android:layout_toRightOf="@+id/project_imageView_thumb"-->
+            <!--android:layout_toEndOf="@+id/project_imageView_thumb" />-->
 
-        <TextView
-            android:id="@+id/feed_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Thursday, Oct 5, 2016"
-            android:textColor="#737373"
-            android:layout_alignBottom="@+id/feed_time"
-            android:layout_alignRight="@+id/linearLayout2"
-            android:layout_alignEnd="@+id/linearLayout2" />
+        <!--<TextView-->
+            <!--android:id="@+id/feed_date"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="Thursday, Oct 5, 2016"-->
+            <!--android:textColor="#737373"-->
+            <!--android:layout_alignBottom="@+id/feed_time"-->
+            <!--android:layout_alignRight="@+id/linearLayout2"-->
+            <!--android:layout_alignEnd="@+id/linearLayout2" />-->
 
     </RelativeLayout>
 
