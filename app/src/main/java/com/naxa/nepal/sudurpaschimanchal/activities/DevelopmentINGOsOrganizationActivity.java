@@ -245,7 +245,7 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
 
             if (sharedpreferences.getString("development_ingo_ngo", "").trim().isEmpty()) {
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    text = POST(UrlClass.URL_NEWS_AND_EVENTS);
+                    text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("development_ingo_ngo", text);
                     editor.commit();
@@ -269,9 +269,12 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject c = data.getJSONObject(i);
                     INGO_NGO_Model newData = new INGO_NGO_Model();
-                    newData.setName(c.getString("sudur_news_title"));
-                    newData.setEmail(c.getString("sudur_news_desc"));
-//                    newData.mThumbnail = c.getString("video_img");
+                    newData.setName(c.getString("s_name"));
+                    newData.setWork(c.getString("s_work"));
+                    newData.setDesc(c.getString("s_desc"));
+                    newData.setType(c.getString("type"));
+//                    newData.setEmail(c.getString("email"));
+//                    newData.setmThumbnail(c.getString("image"));
 
                     resultCur.add(newData);
                 }

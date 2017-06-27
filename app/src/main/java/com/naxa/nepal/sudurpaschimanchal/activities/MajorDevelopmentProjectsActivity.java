@@ -251,7 +251,7 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
 
             if (sharedpreferences.getString("major_development_projects", "").trim().isEmpty()) {
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    text = POST(UrlClass.URL_NEWS_AND_EVENTS);
+                    text = POST(UrlClass.URL_MAJOR_DEVELOPMENT);
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("major_development_projects", text);
                     editor.commit();
@@ -275,16 +275,14 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject c = data.getJSONObject(i);
                     NewsAndEventsModel newData = new NewsAndEventsModel();
-                    newData.news_title_np = c.getString("sudur_news_title");
-                    newData.news_desc_np = c.getString("sudur_news_desc");
-                    newData.setmThumbnail(c.getString("news_image_thumb"));
+                    newData.news_title_np = c.getString("title");
+                    newData.news_desc_np = c.getString("description");
+                    newData.setmThumbnail(c.getString("img_url"));
 
                     //clean date time from sever
-                    fixDate(c.getString("sudur_news_date"));
-                    newData.news_date_np = date;
-                    newData.news_time_np = time;
-
-//                    newData.mThumbnail = c.getString("video_img");
+//                    fixDate(c.getString("sudur_news_date"));
+//                    newData.news_date_np = date;
+//                    newData.news_time_np = time;
 
                     resultCur.add(newData);
                 }
