@@ -50,7 +50,7 @@ public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<Gaunp
 //            contactViewHolder.rDistrict.setText(ci.getDi());
         contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
 //            contactViewHolder.rContact.setText(ci.get_number());
-        contactViewHolder.thumbImage.setImageResource(flag[i]);
+//        contactViewHolder.thumbImage.setImageResource(flag[i]);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<Gaunp
 
         public ContactViewHolder(View v) {
             super(v);
-            thumbImage = (ImageView) v.findViewById(R.id.img_thumbnail);
+//            thumbImage = (ImageView) v.findViewById(R.id.img_thumbnail);
             rName = (TextView) v.findViewById(R.id.textView_representative);
 //            rDistrict = (TextView) v.findViewById(R.id.textView_district);
             rPalikaName = (TextView) v.findViewById(R.id.textView_palika_name);

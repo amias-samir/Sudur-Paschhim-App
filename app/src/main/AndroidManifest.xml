@@ -317,7 +317,12 @@
         <activity
             android:name=".activities.NameListOfRepresentativeActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.RajnitikAwasthaActivity" />
+        </activity>
+
         <activity
             android:name=".activities.MajorDevelopmentProjectsActivity"
             android:exported="true"
