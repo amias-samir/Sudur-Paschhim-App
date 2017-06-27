@@ -179,7 +179,7 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
 
     private void initializeUI(){
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("स्तिनिय तहका प्रतिनिधि");
+        toolbar.setTitle("मुख्य विकास परियोजनाहरु");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

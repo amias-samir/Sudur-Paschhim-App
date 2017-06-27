@@ -253,6 +253,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
+
         <activity
             android:name=".activities.NagarpalikaActivity"
             android:exported="true"
@@ -262,6 +263,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" />
         </activity>
+
         <activity
             android:name=".activities.DistrictProgramActivity"
             android:exported="true"
@@ -269,8 +271,17 @@
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
+
                 android:value=".activities.BikashGatibitiActivity" />
         </activity>
+
+
+        <activity
+            android:name=".activities.BikashGatibitiActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".activities.IntroductionUpdateActivity"
             android:exported="true"
@@ -280,14 +291,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".activities.IntroductionRegionActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:value=".MainActivity">
+            android:value=".activities.IntroductionUpdateActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.IntroductionUpdateActivity" />
+                android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".activities.IntroductionDevelopmentActivity"
             android:exported="true"
@@ -297,20 +311,40 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.IntroductionUpdateActivity" />
         </activity>
+
+
         <activity
             android:name=".activities.NameListOfRepresentativeActivity"
             android:exported="true"
             android:screenOrientation="portrait"></activity>
-
         <activity
             android:name=".activities.MajorDevelopmentProjectsActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BikashGatibitiActivity" />
 
+        </activity>
         <activity
             android:name=".activities.DevelopmentINGOsOrganizationActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BikashGatibitiActivity" />
+        </activity>
+
+
+        <activity
+            android:name=".activities.NGODetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BikashGatibitiActivity" />
+        </activity>
 
         <activity android:name=".activities.GathanAadeshPdfActivity"
             android:screenOrientation="portrait"
@@ -319,6 +353,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
+
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -36,7 +35,7 @@ public class IntroductionUpdateActivity extends AppCompatActivity implements Vie
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
         flIntroductionRegion = (FrameLayout) findViewById(R.id.introduction_bikash_kshetra);
-        flIntroductionDevelopment = (FrameLayout) findViewById(R.id.introduction_bikash_aayog);
+        flIntroductionDevelopment = (FrameLayout) findViewById(R.id.frame_layout_main_dev_projects);
 
         flIntroductionRegion.setOnClickListener(this);
         flIntroductionDevelopment.setOnClickListener(this);
@@ -54,7 +53,7 @@ public class IntroductionUpdateActivity extends AppCompatActivity implements Vie
                 startActivity(regionIntent);
                 break;
 
-            case (R.id.introduction_bikash_aayog):
+            case (R.id.frame_layout_main_dev_projects):
                 Intent devIntent = new Intent(IntroductionUpdateActivity.this, AboutFWDCActivity.class);
                 startActivity(devIntent);
                 break;

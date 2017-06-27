@@ -13,6 +13,12 @@ public class Local_Level_Representative_Model {
     public String _palika_name_np;
     public String _number;
 
+    public Local_Level_Representative_Model(String _name_en, String _palika_name_en, String _number) {
+        this._name_en = _name_en;
+        this._palika_name_en = _palika_name_en;
+        this._number = _number;
+    }
+
     public String getmThumbnail() {
         return mThumbnail;
     }

@@ -17,7 +17,9 @@
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="#B6B6B6"
             card_view:cardCornerRadius="0dp"
-            card_view:cardElevation="6dp"></android.support.v7.widget.CardView>
+            card_view:cardElevation="6dp">
+
+        </android.support.v7.widget.CardView>
 
         <ImageView
             android:id="@+id/project_imageView_thumb"
@@ -60,7 +62,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:maxLines="2"
-                    android:text="Email: "
+                    android:text="Website: "
                     android:textColor="#151515"
                     android:textSize="12dp" />
 
@@ -68,7 +70,6 @@
                     android:id="@+id/org_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:maxLines="2"
                     android:text=""
