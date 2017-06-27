@@ -24,6 +24,13 @@ public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<Gaunp
     private List<Local_Level_Representative_Model> colorList;
     Context context;
 
+    private int[] flag = {
+            R.drawable.flag_1
+            , R.drawable.flag_2
+            , R.drawable.flag_3
+            , R.drawable.flag_4
+    };
+
     public GaunpalikaRepresentative_Adapter(Context context, List<Local_Level_Representative_Model> cList) {
         this.colorList = cList;
         this.context = context;
@@ -39,10 +46,11 @@ public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<Gaunp
         Local_Level_Representative_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
-            contactViewHolder.rName.setText(ci.get_name_en());
+        contactViewHolder.rName.setText(ci.get_name_en());
 //            contactViewHolder.rDistrict.setText(ci.getDi());
-            contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
+        contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
 //            contactViewHolder.rContact.setText(ci.get_number());
+        contactViewHolder.thumbImage.setImageResource(flag[i]);
     }
 
     @Override
@@ -57,6 +65,7 @@ public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<Gaunp
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         protected TextView rName, rDistrict, rPalikaName, rContact;
         private ImageView thumbImage;
+
         public ContactViewHolder(View v) {
             super(v);
             thumbImage = (ImageView) v.findViewById(R.id.img_thumbnail);
