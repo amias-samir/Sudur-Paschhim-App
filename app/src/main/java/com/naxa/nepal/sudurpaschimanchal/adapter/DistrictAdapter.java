@@ -49,7 +49,7 @@ public class DistrictAdapter extends
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Triggers click upwards to the adapter on click
+
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
@@ -82,28 +82,24 @@ public class DistrictAdapter extends
     }
 
 
-    // Usually involves inflating a layout from XML and returning the holder
     @Override
     public DistrictAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        // Inflate the custom layout
         View contactView = inflater.inflate(R.layout.district_items, parent, false);
 
-        // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
 
 
-    // Define listener member variable
     private OnItemClickListener listener;
-    // Define the listener interface
+
     public interface OnItemClickListener {
         void onItemClick(View itemView, int position);
     }
-    // Define the method that allows the parent activity or fragment to define the listener
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }

@@ -1,6 +1,7 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.adapter.DistrictAdapter;
@@ -44,8 +46,8 @@ public class NagarBudgetDistrict extends AppCompatActivity {
     ArrayList<District> ListWithUniqueDistrict;
 
 
-
     ArrayList<District> districts;
+    private DistrictAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,10 +55,11 @@ public class NagarBudgetDistrict extends AppCompatActivity {
         setContentView(R.layout.district_budget_nagar_activity);
         ButterKnife.bind(this);
         setToolbar();
-        setupRecycleView();
+
 
         ListWithUniqueDistrictString = new ArrayList<>();
         ListWithUniqueDistrict = new ArrayList<>();
+        districts = new ArrayList<>();
 
         try {
             populateDistrictListAsync();
@@ -75,7 +78,7 @@ public class NagarBudgetDistrict extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject(text);
         final JSONArray data = jsonObject.getJSONArray("data");
 
-        Runnable runnable = new Runnable()  {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < data.length(); i++) {
@@ -84,10 +87,14 @@ public class NagarBudgetDistrict extends AppCompatActivity {
                         String EngDistrictName = row.getString("district_name_en");
                         String NepDistrictName = row.getString("district_name_np");
                         Boolean listDoesNotCotainDistict = !ListWithUniqueDistrictString.contains(EngDistrictName);
-                        if(listDoesNotCotainDistict){
-                            District district = new District(String.valueOf(i),EngDistrictName,NepDistrictName);
+                        if (listDoesNotCotainDistict) {
+                            District district = new District(String.valueOf(i), EngDistrictName, NepDistrictName);
                             ListWithUniqueDistrictString.add(district.getEnName());
                             ListWithUniqueDistrict.add(district);
+
+
+
+
                         }
 
                     } catch (JSONException e) {
@@ -96,6 +103,12 @@ public class NagarBudgetDistrict extends AppCompatActivity {
                     }
 
                 }
+
+
+                setupRecycleView();
+
+
+
             }
         };
         new Thread(runnable).start();
@@ -103,13 +116,15 @@ public class NagarBudgetDistrict extends AppCompatActivity {
 
     private void setupRecycleView() {
 
-        DistrictAdapter adapter = new DistrictAdapter(this, districts);
+        adapter = new DistrictAdapter(this, ListWithUniqueDistrict);
         rvDistrictBudgetNagarActivity.setAdapter(adapter);
         rvDistrictBudgetNagarActivity.setLayoutManager(new LinearLayoutManager(this));
         adapter.setOnItemClickListener(new DistrictAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                String name = districts.get(position).getEnName();
+                String name = ListWithUniqueDistrict.get(position).getEnName();
+
+                startActivity(new Intent(NagarBudgetDistrict.this,NagarBudgetActivity.class));
 
             }
         });
