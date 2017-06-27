@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 
@@ -39,6 +39,9 @@ public class BikashGatibitiActivity extends AppCompatActivity {
     FrameLayout frameLayoutDevAgencies;
     @BindView(R.id.scrollView)
     ScrollView scrollView;
+    private float posx;
+    private float posy = 0;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,36 +71,27 @@ public class BikashGatibitiActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putFloat("x", scrollView.getX());
-        savedInstanceState.putFloat("y", scrollView.getY());
+        savedInstanceState.putInt("x", (int) scrollView.getX());
+        savedInstanceState.putInt("x", (int) scrollView.getY());
 
     }
 
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
 
-
-
+        final int x = savedInstanceState.getInt("x");
+        final int y = savedInstanceState.getInt("y");
+        if (x != 0 && y != 0)
+            scrollView.post(new Runnable() {
+                public void run() {
+                    scrollView.scrollTo(x, y);
+                }
+            });
+        super.onRestoreInstanceState(savedInstanceState, persistentState);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
 
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        float posx = savedInstanceState.getFloat("x");
-        float posy = savedInstanceState.getFloat("x");
-
-
-
-    }
 
     @OnClick({R.id.frame_layout_introduction_bikash_kshetra, R.id.frame_layout_district_program, R.id.frame_layout_local_budget, R.id.frame_layout_dev_agencies})
     public void onViewClicked(View view) {
@@ -109,16 +103,18 @@ public class BikashGatibitiActivity extends AppCompatActivity {
             case R.id.frame_layout_district_program:
 
                 startActivity(new Intent(this, DistrictProgramActivity.class));
+
                 break;
             case R.id.frame_layout_local_budget:
                 startActivity(new Intent(this, NagarpalikaActivity.class));
                 break;
             case R.id.frame_layout_dev_agencies:
                 startActivity(new Intent(this, DevelopmentINGOsOrganizationActivity.class));
-
                 break;
         }
     }
+
+
 }
 
 
