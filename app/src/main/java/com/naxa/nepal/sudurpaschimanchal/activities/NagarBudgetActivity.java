@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * @email nishon.tan@gmail.com
  */
 
-public class NagarpalikaActivity extends AppCompatActivity {
+public class NagarBudgetActivity extends AppCompatActivity {
 
     HamroSudurPaschimActivity.FragmentRefreshListener fragmentRefreshListener;
     @BindView(R.id.toolbar)

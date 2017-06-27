@@ -106,7 +106,7 @@ public class BikashGatibitiActivity extends AppCompatActivity {
 
                 break;
             case R.id.frame_layout_local_budget:
-                startActivity(new Intent(this, NagarpalikaActivity.class));
+                startActivity(new Intent(this, NagarBudgetActivity.class));
                 break;
             case R.id.frame_layout_dev_agencies:
                 startActivity(new Intent(this, DevelopmentINGOsOrganizationActivity.class));

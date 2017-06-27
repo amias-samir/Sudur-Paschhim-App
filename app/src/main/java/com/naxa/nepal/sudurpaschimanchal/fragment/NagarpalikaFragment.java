@@ -1,7 +1,6 @@
 package com.naxa.nepal.sudurpaschimanchal.fragment;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,10 +15,8 @@ import android.widget.ImageView;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.HamroSudurPaschimActivity;
-import com.naxa.nepal.sudurpaschimanchal.activities.NagarpalikaActivity;
-import com.naxa.nepal.sudurpaschimanchal.adapter.DevActivityRecyclerViewAdapter;
+import com.naxa.nepal.sudurpaschimanchal.activities.NagarBudgetActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.NagarpalikaBudget_Adapter;
-import com.naxa.nepal.sudurpaschimanchal.model.DevActivity_Pojo;
 import com.naxa.nepal.sudurpaschimanchal.model.NagarpalikaBudget_Model;
 
 import org.json.JSONArray;
@@ -84,7 +81,7 @@ public class NagarpalikaFragment extends Fragment {
 
         createList();
 
-        ((NagarpalikaActivity)getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener()
+        ((NagarBudgetActivity)getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener()
         {
             @Override
             public void onRefresh() {

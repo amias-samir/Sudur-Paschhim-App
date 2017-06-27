@@ -1,5 +1,7 @@
 package com.naxa.nepal.sudurpaschimanchal.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by nishon.tan on 11/3/2016.
  */
@@ -38,5 +40,15 @@ public class District {
         this.enName = enName;
         this.npName = npName;
 
+    }
+
+    public static ArrayList<District> createdistrictsList(int numContacts) {
+        ArrayList<District> contacts = new ArrayList<District>();
+
+        for (int i = 1; i <= numContacts; i++) {
+            contacts.add(new District("District ", " District", "" + i));
+        }
+
+        return contacts;
     }
 }

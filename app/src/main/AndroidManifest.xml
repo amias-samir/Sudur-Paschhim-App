@@ -255,10 +255,21 @@
         </activity>
 
         <activity
-            android:name=".activities.NagarpalikaActivity"
-            android:exported="true"
+            android:name=".activities.NagarBudgetActivity"
+           
             android:screenOrientation="portrait"
             android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.NagarBudgetDistrict" />
+        </activity>
+
+
+
+        <activity
+            android:name=".activities.NagarBudgetDistrict"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" />
@@ -266,7 +277,7 @@
 
         <activity
             android:name=".activities.DistrictProgramActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
@@ -278,13 +289,13 @@
 
         <activity
             android:name=".activities.BikashGatibitiActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait" />
 
 
         <activity
             android:name=".activities.IntroductionUpdateActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
@@ -294,7 +305,7 @@
 
         <activity
             android:name=".activities.IntroductionRegionActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait"
             android:value=".activities.IntroductionUpdateActivity">
             <meta-data
@@ -304,7 +315,7 @@
 
         <activity
             android:name=".activities.IntroductionDevelopmentActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
@@ -315,11 +326,11 @@
 
         <activity
             android:name=".activities.NameListOfRepresentativeActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"></activity>
+           
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.MajorDevelopmentProjectsActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -328,7 +339,7 @@
         </activity>
         <activity
             android:name=".activities.DevelopmentINGOsOrganizationActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait">
 
             <meta-data
@@ -339,12 +350,16 @@
 
         <activity
             android:name=".activities.NGODetailsActivity"
-            android:exported="true"
+           
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" />
         </activity>
+
+
+
+
 
     </application>
 
