@@ -84,6 +84,12 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("सदरमुकाम", "दिपायल, डोटी");
         albumList.add(a);
 
+        a = new IntroductionRegionModel("अक्षांश","८०.०५८६-८०.८०८१");
+        albumList.add(a);
+
+        a = new IntroductionRegionModel("देशान्तर", "२८.३९४५-३०.२४७२");
+        albumList.add(a);
+
         a = new IntroductionRegionModel("शिक्षित जनसंख्या", "१४,९२,८१८");
         albumList.add(a);
 

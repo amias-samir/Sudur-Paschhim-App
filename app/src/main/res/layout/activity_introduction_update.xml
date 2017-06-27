@@ -24,7 +24,7 @@
             <!--bikash kshetra-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="230dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_margin="@dimen/card_margin">
 
@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="180dp"
+                        android:layout_marginTop="170dp"
                         android:layout_marginLeft="@dimen/activity_horizontal_margin"
                         android:layout_marginRight="@dimen/activity_horizontal_margin"
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -50,7 +50,8 @@
                         android:textColor="@color/white"
                         android:textSize="18dp"
                         android:gravity="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:maxLines="2"/>
 
                 </FrameLayout>
 
@@ -59,7 +60,7 @@
             <!--bikash aayog-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="230dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginLeft="@dimen/card_margin"
                 android:layout_marginRight="@dimen/card_margin"
@@ -79,7 +80,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="180dp"
+                        android:layout_marginTop="170dp"
                         android:layout_marginLeft="@dimen/activity_horizontal_margin"
                         android:layout_marginRight="@dimen/activity_horizontal_margin"
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -87,7 +88,8 @@
                         android:textColor="@color/white"
                         android:textSize="18dp"
                         android:gravity="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:maxLines="2"/>
 
                 </FrameLayout>
 

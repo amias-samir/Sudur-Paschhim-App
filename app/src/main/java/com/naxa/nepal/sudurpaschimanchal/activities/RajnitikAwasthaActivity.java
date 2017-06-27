@@ -200,7 +200,7 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
 
         adapter.addFragment(new PolticianListFragment(), "राजनीतिक \n व्यक्तिहरू");
         adapter.addFragment(new PoliticalPartiesFragment(), "राजनीतिक \n पार्टीहरु");
-        adapter.addFragment(new Local_LevelRepresentativeFragment(), "स्तिनिय तहका \n प्रतिनिधि");
+        adapter.addFragment(new Local_LevelRepresentativeFragment(), "स्थानिय तहका \n प्रतिनिधिहरु");
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);
 //
