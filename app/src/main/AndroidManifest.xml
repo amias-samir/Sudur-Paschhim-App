@@ -268,6 +268,33 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" /></activity>
 
+
+
+        <activity android:name=".activities.IntroductionUpdateActivity"
+        android:exported="true"
+        android:screenOrientation="portrait"
+        android:value=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" /></activity>
+
+        <activity android:name=".activities.IntroductionRegionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:value=".activities.IntroductionUpdateActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" /></activity>
+
+        <activity android:name=".activities.IntroductionDevelopmentActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.IntroductionUpdateActivity" /></activity>
+
+
         <activity android:name=".activities.NameListOfRepresentativeActivity"
             android:exported="true"
             android:screenOrientation="portrait">
