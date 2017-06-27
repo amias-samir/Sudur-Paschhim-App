@@ -17,6 +17,7 @@ package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -341,16 +342,12 @@ public class AboutFWDCActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                if(groupPosition == 2 ){
+                if(groupPosition == 4 ){
                     switch (childPosition){
-                        case 1 :
-                            Toast.makeText(getApplicationContext(),groupPosition + ","+childPosition+":"+"१. घरेलु तथा साना उधोग विभागको संगठन तालिका", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 2 :
-                            Toast.makeText(getApplicationContext(),"२. प्रमुख उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 3 :
-                            Toast.makeText(getApplicationContext(),"३. उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका", Toast.LENGTH_SHORT).show();
+                        case 0 :
+                            Toast.makeText(getApplicationContext(),groupPosition + ","+childPosition+":"+"गठन आदेश", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(AboutFWDCActivity.this, GathanAadeshPdfActivity.class);
+                            startActivity(intent);
                             break;
                     }
 
@@ -727,7 +724,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
         main_works.add(getString(R.string.main_works10));
         main_works.add(getString(R.string.main_works11));
 
-        gathan_aadesh.add("  २. प्रमुख उधोग अधिकृत कार्यालय प्रमुख भएको कार्यालयको संगठन तालिका");
+        gathan_aadesh.add(" गठन आदेश पि.डी.एफ हेर्नको लागि यहाँ क्लिक गर्नुहोस");
 
 
 

@@ -111,6 +111,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschhim\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_56cb9135bf1bd704eeaa78bb7e1de36312cfdd96.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\.gradle\wrapper\dists\gradle-3.3-all\wrapper\dists\gradle-2.14.1-all\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
         jumboMode="false"
         optimize="true"
@@ -234,6 +243,15 @@
         revision="24.0.2"
         sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
         <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschhim\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-9.6.1_3b4b9ef59b9536664e263356d6935e02397d1a0a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AndroidStudioProjects\SudurPaschhim\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\user\AndroidStudioProjects\SudurPaschhim\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.2_09d6f4a4d182bfa1407126a87b0cf620fd723195.jar" />
     </item>
     <item
         is-multidex="false"
