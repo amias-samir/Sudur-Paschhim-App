@@ -39,9 +39,9 @@ public class LocalLevelRepresentative_Adapter extends RecyclerView.Adapter<Local
         Local_Level_Representative_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
-            contactViewHolder.rName.setText(ci.get_name_np());
+            contactViewHolder.rName.setText(ci.get_name_en());
 //            contactViewHolder.rDistrict.setText(ci.getDi());
-            contactViewHolder.rPalikaName.setText(ci.get_palika_name_np());
+            contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
 //            contactViewHolder.rContact.setText(ci.get_number());
     }
 
