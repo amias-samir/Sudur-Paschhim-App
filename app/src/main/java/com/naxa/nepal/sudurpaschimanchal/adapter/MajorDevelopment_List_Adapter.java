@@ -49,12 +49,12 @@ public class MajorDevelopment_List_Adapter extends RecyclerView.Adapter<MajorDev
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
 
-        contactViewHolder.tvNewsTitle.setText(ci.news_title_np);
-        contactViewHolder.tvNewsDesc.setText(ci.news_desc_np);
-        contactViewHolder.tvNewsDate.setText(ci.news_time_np);
-        contactViewHolder.tvNewsTime.setText(ci.news_date_np);
+        contactViewHolder.tvNewsTitle.setText(ci.getNews_title_en());
+        contactViewHolder.tvNewsDesc.setText(ci.getNews_desc_en());
+//        contactViewHolder.tvNewsDate.setText(ci.news_time_np);
+//        contactViewHolder.tvNewsTime.setText(ci.news_date_np);
 
-        String Img_Thumb_Url = ci.mThumbnail;
+        String Img_Thumb_Url = ci.getmThumbnail();
 
         if(Img_Thumb_Url != null) {
             Glide.with(context)

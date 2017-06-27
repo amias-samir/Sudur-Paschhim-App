@@ -118,11 +118,11 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
 //                    Drawer.closeDrawers();
                     int position = recyclerView.getChildPosition(child);
-                    Intent intent = new Intent(DevelopmentINGOsOrganizationActivity.this, NewsDetailsActivity.class);
-
-                    intent.putExtra("news_title_np", resultCur.get(position).getName());
-                    intent.putExtra("news_desc_np", resultCur.get(position).getEmail());
-                    startActivity(intent);
+//                    Intent intent = new Intent(DevelopmentINGOsOrganizationActivity.this, NewsDetailsActivity.class);
+//
+//                    intent.putExtra("news_title_np", resultCur.get(position).getName());
+//                    intent.putExtra("news_desc_np", resultCur.get(position).getEmail());
+//                    startActivity(intent);
                     return true;
                 }
                 return false;

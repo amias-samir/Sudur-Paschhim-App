@@ -268,7 +268,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" /></activity>
 
-        <activity android:name=".activities.NameListOfRepresentative"
+        <activity android:name=".activities.NameListOfRepresentativeActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>

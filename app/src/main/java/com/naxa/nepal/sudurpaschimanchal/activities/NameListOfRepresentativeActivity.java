@@ -29,7 +29,7 @@ import java.util.List;
  * Created by susan on 6/26/2017.
  */
 
-public class NameListOfRepresentative extends AppCompatActivity{
+public class NameListOfRepresentativeActivity extends AppCompatActivity{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;

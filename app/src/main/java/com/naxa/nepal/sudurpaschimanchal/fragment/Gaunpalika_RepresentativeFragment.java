@@ -2,7 +2,6 @@ package com.naxa.nepal.sudurpaschimanchal.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -24,12 +23,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentative;
-import com.naxa.nepal.sudurpaschimanchal.adapter.DistrictList_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.adapter.LocalLevelRepresentative_Adapter;
-import com.naxa.nepal.sudurpaschimanchal.model.District;
 import com.naxa.nepal.sudurpaschimanchal.model.Local_Level_Representative_Model;
-import com.naxa.nepal.sudurpaschimanchal.model.Poltician_List_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -140,7 +135,7 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
                     int position = recyclerView.getChildPosition(child);
 
-//                    Intent intent = new Intent(getActivity(), NameListOfRepresentative.class);
+//                    Intent intent = new Intent(getActivity(), NameListOfRepresentativeActivity.class);
 //                    intent.putExtra("district_np", resultCur.get(position).get_name_np());
 //                    startActivity(intent);
 
