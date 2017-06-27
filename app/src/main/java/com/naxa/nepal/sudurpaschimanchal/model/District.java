@@ -1,5 +1,7 @@
 package com.naxa.nepal.sudurpaschimanchal.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by nishon.tan on 11/3/2016.
  */

@@ -254,7 +254,7 @@
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
         <activity
-            android:name=".activities.NagarpalikaActivity"
+            android:name=".activities.NagarBudgetDistrict"
             android:exported="true"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
@@ -262,6 +262,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" />
         </activity>
+
+        <activity
+            android:name=".activities.NagarBudgetActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.NagarBudgetDistrict" />
+        </activity>
+
+
         <activity
             android:name=".activities.DistrictProgramActivity"
             android:exported="true"
