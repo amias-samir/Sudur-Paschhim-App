@@ -71,7 +71,7 @@
                     android:src="@drawable/bikash_aayog_foto"
                     android:scaleType="fitXY"/>
                 <FrameLayout
-                    android:id="@+id/introduction_bikash_aayog"
+                    android:id="@+id/frame_layout_main_dev_projects"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/transparent_black_gradient_shape">

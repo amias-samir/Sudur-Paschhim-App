@@ -245,28 +245,41 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".activities.AboutFWDCpdfDetailsWebActivity"
+        <activity
+            android:name=".activities.AboutFWDCpdfDetailsWebActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.AboutFWDCActivity" /></activity>
+                android:value=".activities.AboutFWDCActivity" />
+        </activity>
 
-        <activity android:name=".activities.NagarpalikaActivity"
+        <activity
+            android:name=".activities.NagarpalikaActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.BikashGatibitiActivity" /></activity>
+                android:value=".activities.BikashGatibitiActivity" />
+        </activity>
 
-        <activity android:name=".activities.DistrictProgramActivity"
+        <activity
+            android:name=".activities.DistrictProgramActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.BikashGatibitiActivity" /></activity>
+                android:value=".activities.BikashGatibitiActivity" />
+        </activity>
+
+
+        <activity
+            android:name=".activities.BikashGatibitiActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

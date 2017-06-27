@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.naxa.nepal.sudurpaschimanchal.activities.AskForHelpActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.BikashGatibitiActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionUpdateActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.SocioEconomicActivity;
@@ -181,7 +182,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent1);
                 break;
             case 1:
-                Intent intent2 = new Intent(getActivity(), AboutFWDCActivity.class);
+                Intent intent2 = new Intent(getActivity(), BikashGatibitiActivity.class);
                 startActivity(intent2);
                 break;
             case 2:
