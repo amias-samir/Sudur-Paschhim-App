@@ -25,6 +25,8 @@ import android.view.View;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.adapter.NGO_INGO_DevelopmentList_Adapter;
+import com.naxa.nepal.sudurpaschimanchal.fragment.Nagarpalika_RepresentativeFragment;
+import com.naxa.nepal.sudurpaschimanchal.model.District;
 import com.naxa.nepal.sudurpaschimanchal.model.INGO_NGO_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
@@ -99,7 +101,6 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(linearLayoutManager);
 
         createList();
-        convertDataToJson();
 
         final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
 
@@ -118,11 +119,12 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
 //                    Drawer.closeDrawers();
                     int position = recyclerView.getChildPosition(child);
-//                    Intent intent = new Intent(DevelopmentINGOsOrganizationActivity.this, NewsDetailsActivity.class);
-//
-//                    intent.putExtra("news_title_np", resultCur.get(position).getName());
-//                    intent.putExtra("news_desc_np", resultCur.get(position).getEmail());
-//                    startActivity(intent);
+                    Intent intent = new Intent(DevelopmentINGOsOrganizationActivity.this, NGODetailsActivity.class);
+
+                    intent.putExtra("title_np", resultCur.get(position).getName());
+                    intent.putExtra("desc_np", resultCur.get(position).getDesc());
+                    intent.putExtra("email_np", resultCur.get(position).getEmail());
+                    startActivity(intent);
                     return true;
                 }
                 return false;
@@ -136,34 +138,19 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
             }
         });
+    }
 
-        //Swipe Refresh Action
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainerNews);
-        // Setup refresh listener which triggers new data loading
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-                if (networkInfo != null && networkInfo.isConnected()) {
-
-                    editor.clear();
-                    editor.commit();
-
-                    refreshContent();
-                    swipeContainer.setRefreshing(false);
-                } else {
-                    Snackbar.make(swipeContainer, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                            .setAction("Retry", null).show();
-                    swipeContainer.setRefreshing(false);
-                }
-            }
-        });
-
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(
-                android.R.color.holo_red_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_green_light);
+    private void createList() {
+        resultCur.clear();
+        INGO_NGO_Model districtListModel = new INGO_NGO_Model("USAID", "The United States Agency for International Development (USAID) is the United States Government agency which is primarily responsible for administering civilian foreign aid.\n" +
+                "\n" +
+                "President John F. Kennedy created USAID from its predecessor agencies in 1961 by executive order. USAID's programs are authorized by the Congress in the Foreign Assistance Act,[4] which the Congress supplements through directions in annual funding appropriation acts and other legislation. Although it is technically an independent agency, USAID operates subject to the foreign policy guidance of the President, Secretary of State, and the National Security Council.[5] USAID operates in Africa, Asia, Latin America, the Middle East, and Eastern Europe.", "https://www.usaid.gov/");
+        resultCur.add(districtListModel);
+        districtListModel = new INGO_NGO_Model("WWF", "WWF started working in Nepal from 1967 when it launched a rhino conservation program in Chitwan. To keep up with the evolving face of conservation and environmental movement, WWF Nepal’s focus progressed from its localized efforts in conservation of single species in 1960s, integrated conservation and development approach in 1990s, to a new horizon of landscape level conservation encompassing national, regional and global scales of complexity in early 2000s. WWF Nepal is focused in the Terai Arc Landscape (TAL) and Sacred Himalayan Landscape (SHL), including Koshi river Basin, and Chitwan Annapurna Landscape (CHAL) under the USAID-funded Hariyo Ban program. WWF Nepal works to conserve flagship and priority key species, forests, freshwater, and to mitigate the pervasive threat of climate change to communities, species and their habitats.", "http://www.wwfnepal.org/");
+        resultCur.add(districtListModel);
+        districtListModel = new INGO_NGO_Model("United Mission to Nepal", "United Mission to Nepal (UMN) strives to address root causes of poverty as it serves the people of Nepal in the name and spirit of Jesus Christ. Established in 1954, UMN is a cooperative effort between the people of Nepal and a large number of Christian organisations from nearly 20 countries on 4 continents. Multicultural teams of Nepali nationals and volunteer expatriate staff work alongside local organisations in less developed areas of the country, building partnerships that lead to healthy, strong and empowered individuals, families, and communities.", "http://www.umn.org.np/page/about-umn");
+        resultCur.add(districtListModel);
+        fillTable();
     }
 
     private void initializeUI(){
@@ -178,179 +165,6 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-    }
-
-    private void refreshContent() {
-        createList();
-        fillTable();
-    }
-
-    // data convert
-    public void convertDataToJson() {
-        //function in the activity that corresponds to the layout button
-        try {
-            JSONObject header = new JSONObject();
-            header.put("token", "bf5d483811");
-            jsonToSend = header.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void createList() {
-        resultCur.clear();
-
-//        if (setData) {
-//        mProgressDlg = new ProgressDialog(getActivity());
-//        mProgressDlg.setMessage("कृपया पर्खनुहोस्...");
-//        mProgressDlg.setIndeterminate(false);
-//        mProgressDlg.show();
-        DevelopmentINGOAPI restApi = new DevelopmentINGOAPI();
-        restApi.execute();
-
-//        } else {
-//
-//            mProgressDlg = new ProgressDialog(getActivity());
-//            mProgressDlg.setMessage("Loading please Wait...");
-//            mProgressDlg.setIndeterminate(false);
-//            mProgressDlg.show();
-//            PoticianListService restApi = new PoticianListService();
-//            restApi.execute();
-//        }
-    }
-
-    private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
-        JSONArray data = null;
-
-        protected String getASCIIContentFromEntity(HttpURLConnection entity)
-                throws IllegalStateException, IOException {
-            InputStream in = (InputStream) entity.getContent();
-
-            StringBuffer out = new StringBuffer();
-            int n = 1;
-            while (n > 0) {
-                byte[] b = new byte[4096];
-                n = in.read(b);
-
-                if (n > 0)
-                    out.append(new String(b, 0, n));
-            }
-            return out.toString();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            String text = "";
-
-            if (sharedpreferences.getString("development_ingo_ngo", "").trim().isEmpty()) {
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
-                    SharedPreferences.Editor editor = sharedpreferences.edit();
-                    editor.putString("development_ingo_ngo", text);
-                    editor.commit();
-                } else {
-                    //Snackbar.make(getView(), "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                    //   .setAction("Retry", null).show();
-                }
-            } else {
-                text = sharedpreferences.getString("development_ingo_ngo", "");
-            }
-            Log.e("DATA", "" + text.toString());
-
-            JSONArray list;
-            String txtDisp = null;
-            ArrayList<String> question = new ArrayList<>();
-            try {
-
-                JSONObject jsonObj = new JSONObject(text);
-                data = jsonObj.getJSONArray("data");
-                Log.e("DATA", "" + data.toString());
-                for (int i = 0; i < data.length(); i++) {
-                    JSONObject c = data.getJSONObject(i);
-                    INGO_NGO_Model newData = new INGO_NGO_Model();
-                    newData.setName(c.getString("s_name"));
-                    newData.setWork(c.getString("s_work"));
-                    newData.setDesc(c.getString("s_desc"));
-                    newData.setType(c.getString("type"));
-//                    newData.setEmail(c.getString("email"));
-//                    newData.setmThumbnail(c.getString("image"));
-
-                    resultCur.add(newData);
-                }
-            } catch (Exception e) {
-                return e.getLocalizedMessage();
-            }
-
-            return text.toString();
-        }
-
-        private void fixDate(String rawDateTime) {
-            String[] dtparts = rawDateTime.split(" ");
-            date = dtparts[0];
-            String badTime = dtparts[1];
-            DateFormat f1 = new SimpleDateFormat("HH:mm:ss");
-            try {
-                Date d = f1.parse(badTime);
-                DateFormat f2 = new SimpleDateFormat("h:mma");
-                time = f2.format(d).toLowerCase();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            Log.d("Samir", date);
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            // TODO Auto-generated method stub
-            //Log.e("ONPOSTEXECUTE", "ONPOST");
-//            mProgressDlg.dismiss();
-            if (result != null) {
-                fillTable();
-                swipeContainer.setRefreshing(false);
-            }
-        }
-
-        public String POST(String myurl) {
-
-            URL url;
-            String response = "";
-            try {
-                url = new URL(myurl);
-
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(15000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("data", jsonToSend);
-                String query = builder.build().getEncodedQuery();
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-                int responseCode = conn.getResponseCode();
-
-                if (responseCode == HttpsURLConnection.HTTP_OK) {
-                    String line;
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    while ((line = br.readLine()) != null) {
-                        response += line;
-                    }
-                } else {
-                    response = "";
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return response;
-        }
     }
 
     public void fillTable() {
