@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
@@ -40,8 +42,17 @@ public class GathanAadeshPdfActivity extends AppCompatActivity {
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(postUrl);
-        webView.setHorizontalScrollBarEnabled(false);
 
-        progressBar.setEnabled(false);
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onProgressChanged(WebView view, int progress) {
+                progressBar.setProgress(progress);
+                if (progress == 100) {
+                    progressBar.setVisibility(View.GONE);
+                    progressBar.setEnabled(false);
+                } else {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 }
