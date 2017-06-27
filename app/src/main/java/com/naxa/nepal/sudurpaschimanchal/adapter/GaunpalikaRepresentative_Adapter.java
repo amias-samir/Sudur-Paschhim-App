@@ -19,12 +19,12 @@ import java.util.List;
  * Created by susan on 6/26/2017.
  */
 
-public class LocalLevelRepresentative_Adapter extends RecyclerView.Adapter<LocalLevelRepresentative_Adapter.ContactViewHolder> {
+public class GaunpalikaRepresentative_Adapter extends RecyclerView.Adapter<GaunpalikaRepresentative_Adapter.ContactViewHolder> {
 
     private List<Local_Level_Representative_Model> colorList;
     Context context;
 
-    public LocalLevelRepresentative_Adapter(Context context, List<Local_Level_Representative_Model> cList) {
+    public GaunpalikaRepresentative_Adapter(Context context, List<Local_Level_Representative_Model> cList) {
         this.colorList = cList;
         this.context = context;
     }
@@ -35,7 +35,7 @@ public class LocalLevelRepresentative_Adapter extends RecyclerView.Adapter<Local
     }
 
     @Override
-    public void onBindViewHolder(LocalLevelRepresentative_Adapter.ContactViewHolder contactViewHolder, int i) {
+    public void onBindViewHolder(GaunpalikaRepresentative_Adapter.ContactViewHolder contactViewHolder, int i) {
         Local_Level_Representative_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
@@ -46,12 +46,12 @@ public class LocalLevelRepresentative_Adapter extends RecyclerView.Adapter<Local
     }
 
     @Override
-    public LocalLevelRepresentative_Adapter.ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public GaunpalikaRepresentative_Adapter.ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.gaupalika_representative_items, viewGroup, false);
 
-        return new LocalLevelRepresentative_Adapter.ContactViewHolder(itemView);
+        return new GaunpalikaRepresentative_Adapter.ContactViewHolder(itemView);
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {

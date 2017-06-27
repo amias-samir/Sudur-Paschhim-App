@@ -5,45 +5,24 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.adapter.LocalLevelRepresentative_Adapter;
+import com.naxa.nepal.sudurpaschimanchal.adapter.NagarpalikaRepresentative_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.model.Local_Level_Representative_Model;
-import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by susan on 6/26/2017.
@@ -66,7 +45,7 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
 
     ProgressDialog mProgressDlg;
 
-    LocalLevelRepresentative_Adapter ca;
+    NagarpalikaRepresentative_Adapter ca;
     public static List<Local_Level_Representative_Model> resultCur = new ArrayList<>();
     public static List<Local_Level_Representative_Model> filteredList = new ArrayList<>();
 
@@ -154,7 +133,7 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
 
     public void fillTable() {
         filteredList = resultCur;
-        ca = new LocalLevelRepresentative_Adapter(getActivity(), filteredList);
+        ca = new NagarpalikaRepresentative_Adapter(getActivity(), filteredList);
         recyclerView.setAdapter(ca);
         ca.notifyDataSetChanged();
     }
