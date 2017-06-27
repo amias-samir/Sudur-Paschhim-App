@@ -57,11 +57,10 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".activities.AboutFWDCActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".activities.AboutFWDCActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activities.IntroductionUpdateActivity" />
         </activity>
         <activity
             android:name=".activities.MapPointActivity"
