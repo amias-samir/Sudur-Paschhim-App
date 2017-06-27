@@ -69,38 +69,48 @@ public class IntroductionRegionActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        IntroductionRegionModel a = new IntroductionRegionModel("True Romance", "");
+//        IntroductionRegionModel a = new IntroductionRegionModel("True Romance", "");
+//        albumList.add(a);
+
+        IntroductionRegionModel a = new IntroductionRegionModel("जनसंख्या", "२५,५२,५१७");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("क्षेत्रफल", "१९.५३९ बर्ग कि.मी");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("जनघनत्व", "१३७ बर्ग कि.मी");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("सदरमुकाम", "दिपायल, डोटी");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("शिक्षित जनसंख्या", "१४,९२,८१८");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("जिल्ला", "९");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("गाउँपालिका", "५४");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("नगरपालिका", "३३");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("उप महानगरपालिका", "१");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("स्वास्थ्य संस्था", "४०७");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("Xscpae", "");
+        a = new IntroductionRegionModel("घरधुरी संख्या", "४,६९,७०३");
         albumList.add(a);
+
+        a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज)");
+        albumList.add(a);
+
+        a = new IntroductionRegionModel("आरक्षण क्षेत्र", "१ (शुक्लाफाट आरक्षण क्षत्र)");
+        albumList.add(a);
+
 
         adapter.notifyDataSetChanged();
     }

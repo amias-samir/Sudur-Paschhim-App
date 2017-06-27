@@ -5,7 +5,7 @@ package com.naxa.nepal.sudurpaschimanchal.model;
  */
 public class UrlClass {
 
-        public static String YOUTUBE_VIDEOS_LINK = "http://naxa.com.np/sudurapi/sudurVideos";
+    public static String YOUTUBE_VIDEOS_LINK = "http://naxa.com.np/sudurapi/sudurVideos";
     public static String URL_DISTRICT_LIST = "http://naxa.com.np/sudurapi/districtslist";
     public static String URL_PLACES_TYPE_LIST = "http://naxa.com.np/sudurapi/placestypelist";
     public static String URL_DEV_ACTIVITIES = "http://naxa.com.np/sudurapi/devact";
@@ -21,4 +21,6 @@ public class UrlClass {
     public static final String URL_SUDURPASCHHIM_LOCAL_ATTR = "http://naxa.com.np/sudurapi/placeslistdist";
     public static final String URL_SOCIO_ECONOMIC = "http://naxa.com.np/sudurapi/socioEcoList";
     public static final String URL_NAGARPALIKA_BUDGET = "http://naxa.com.np/sudurapi/sudurDistrict";
+    public static final String URL_MAJOR_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurBikas";
+    public static final String URL_INGO_NGO_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurSastha";
 }

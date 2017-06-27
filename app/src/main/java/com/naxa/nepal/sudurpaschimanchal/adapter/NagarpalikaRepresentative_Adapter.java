@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.model.INGO_NGO_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.Local_Level_Representative_Model;
 
 import java.util.List;
@@ -20,12 +19,12 @@ import java.util.List;
  * Created by susan on 6/26/2017.
  */
 
-public class NGO_INGO_DevelopmentList_Adapter extends RecyclerView.Adapter<NGO_INGO_DevelopmentList_Adapter.ContactViewHolder> {
+public class NagarpalikaRepresentative_Adapter extends RecyclerView.Adapter<NagarpalikaRepresentative_Adapter.ContactViewHolder> {
 
-    private List<INGO_NGO_Model> colorList;
+    private List<Local_Level_Representative_Model> colorList;
     Context context;
 
-    public NGO_INGO_DevelopmentList_Adapter(Context context, List<INGO_NGO_Model> cList) {
+    public NagarpalikaRepresentative_Adapter(Context context, List<Local_Level_Representative_Model> cList) {
         this.colorList = cList;
         this.context = context;
     }
@@ -36,34 +35,34 @@ public class NGO_INGO_DevelopmentList_Adapter extends RecyclerView.Adapter<NGO_I
     }
 
     @Override
-    public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
-        INGO_NGO_Model ci = colorList.get(i);
+    public void onBindViewHolder(NagarpalikaRepresentative_Adapter.ContactViewHolder contactViewHolder, int i) {
+        Local_Level_Representative_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
-            contactViewHolder.orgTitle.setText(ci.getName());
+            contactViewHolder.rName.setText(ci.get_name_en());
 //            contactViewHolder.rDistrict.setText(ci.getDi());
-            contactViewHolder.orgEmail.setText(ci.getEmail());
+            contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
 //            contactViewHolder.rContact.setText(ci.get_number());
     }
 
     @Override
-    public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public NagarpalikaRepresentative_Adapter.ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.ngo_ingo_items, viewGroup, false);
+                inflate(R.layout.nagarpalika_representative_items, viewGroup, false);
 
-        return new ContactViewHolder(itemView);
+        return new NagarpalikaRepresentative_Adapter.ContactViewHolder(itemView);
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
-        protected TextView orgTitle, orgEmail;
+        protected TextView rName, rDistrict, rPalikaName, rContact;
         private ImageView thumbImage;
         public ContactViewHolder(View v) {
             super(v);
             thumbImage = (ImageView) v.findViewById(R.id.img_thumbnail);
-            orgTitle = (TextView) v.findViewById(R.id.org_title);
+            rName = (TextView) v.findViewById(R.id.textView_representative);
 //            rDistrict = (TextView) v.findViewById(R.id.textView_district);
-            orgEmail = (TextView) v.findViewById(R.id.org_email);
+            rPalikaName = (TextView) v.findViewById(R.id.textView_palika_name);
 //            rContact = (TextView) v.findViewById(R.id.textView_contact);
         }
     }

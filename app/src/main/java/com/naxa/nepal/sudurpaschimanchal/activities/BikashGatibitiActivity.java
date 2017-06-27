@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 
@@ -35,6 +37,8 @@ public class BikashGatibitiActivity extends AppCompatActivity {
     FrameLayout frameLayoutLocalBudget;
     @BindView(R.id.frame_layout_dev_agencies)
     FrameLayout frameLayoutDevAgencies;
+    @BindView(R.id.scrollView)
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,10 +65,46 @@ public class BikashGatibitiActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putFloat("x", scrollView.getX());
+        savedInstanceState.putFloat("y", scrollView.getY());
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        float posx = savedInstanceState.getFloat("x");
+        float posy = savedInstanceState.getFloat("x");
+
+
+
+    }
+
     @OnClick({R.id.frame_layout_introduction_bikash_kshetra, R.id.frame_layout_district_program, R.id.frame_layout_local_budget, R.id.frame_layout_dev_agencies})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.frame_layout_introduction_bikash_kshetra:
+                startActivity(new Intent(this, MajorDevelopmentProjectsActivity.class));
+
                 break;
             case R.id.frame_layout_district_program:
 
@@ -74,6 +114,8 @@ public class BikashGatibitiActivity extends AppCompatActivity {
                 startActivity(new Intent(this, NagarpalikaActivity.class));
                 break;
             case R.id.frame_layout_dev_agencies:
+                startActivity(new Intent(this, DevelopmentINGOsOrganizationActivity.class));
+
                 break;
         }
     }
