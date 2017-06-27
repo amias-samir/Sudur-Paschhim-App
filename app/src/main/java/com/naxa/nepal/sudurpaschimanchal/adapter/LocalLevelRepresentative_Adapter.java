@@ -49,7 +49,7 @@ public class LocalLevelRepresentative_Adapter extends RecyclerView.Adapter<Local
     public LocalLevelRepresentative_Adapter.ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.local_level_representative_items, viewGroup, false);
+                inflate(R.layout.gaupalika_representative_items, viewGroup, false);
 
         return new LocalLevelRepresentative_Adapter.ContactViewHolder(itemView);
     }
