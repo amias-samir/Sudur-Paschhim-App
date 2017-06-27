@@ -41,14 +41,4 @@ public class District {
         this.npName = npName;
 
     }
-
-    public static ArrayList<District> createdistrictsList(int numContacts) {
-        ArrayList<District> contacts = new ArrayList<District>();
-
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new District("District ", " District", "" + i));
-        }
-
-        return contacts;
-    }
 }
