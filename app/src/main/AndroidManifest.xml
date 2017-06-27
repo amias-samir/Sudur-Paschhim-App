@@ -358,7 +358,13 @@
         </activity>
 
 
-
+        <activity android:name=".activities.GathanAadeshPdfActivity"
+            android:screenOrientation="portrait"
+            android:value=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AboutFWDCActivity" />
+        </activity>
 
 
     </application>
