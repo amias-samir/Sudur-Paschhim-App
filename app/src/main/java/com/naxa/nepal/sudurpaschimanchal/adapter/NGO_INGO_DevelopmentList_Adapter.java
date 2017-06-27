@@ -36,7 +36,7 @@ public class NGO_INGO_DevelopmentList_Adapter extends RecyclerView.Adapter<NGO_I
     }
 
     @Override
-    public void onBindViewHolder(NGO_INGO_DevelopmentList_Adapter.ContactViewHolder contactViewHolder, int i) {
+    public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
         INGO_NGO_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
@@ -47,12 +47,12 @@ public class NGO_INGO_DevelopmentList_Adapter extends RecyclerView.Adapter<NGO_I
     }
 
     @Override
-    public NGO_INGO_DevelopmentList_Adapter.ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.ngo_ingo_items, viewGroup, false);
 
-        return new NGO_INGO_DevelopmentList_Adapter.ContactViewHolder(itemView);
+        return new ContactViewHolder(itemView);
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {

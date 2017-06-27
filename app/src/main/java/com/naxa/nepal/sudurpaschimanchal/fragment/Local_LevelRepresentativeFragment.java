@@ -15,8 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentative;
-import com.naxa.nepal.sudurpaschimanchal.activities.ProjectDetailsActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentativeActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.DistrictList_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.model.District;
 import java.util.ArrayList;
@@ -79,7 +78,7 @@ public class Local_LevelRepresentativeFragment extends Fragment {
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
                     int position = recyclerView.getChildPosition(child);
 
-                    Intent intent = new Intent(getActivity(), NameListOfRepresentative.class);
+                    Intent intent = new Intent(getActivity(), NameListOfRepresentativeActivity.class);
                     intent.putExtra("district_np", resultCur.get(position).getNpName());
                     startActivity(intent);
 
