@@ -3,99 +3,104 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_fragment_fwdc_about"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scrollview_fragment_fwdc_about"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/backdrop"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
-                android:background="@drawable/transparent_black_gradient_shape"
-                app:layout_collapseMode="parallax"
-                android:visibility="gone"/>
 
-            <TextView
-                android:id="@+id/textView_label_about_fwdc"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="20dp"
-                android:text="बिकाश आयोग को बारेमा"
-                android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/nliveo_black"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
+                <ImageView
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:background="@drawable/transparent_black_gradient_shape"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:layout_collapseMode="parallax" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <at.blogc.android.views.ExpandableTextView
-                    android:id="@+id/textView_about_fwdc"
+                <TextView
+                    android:id="@+id/textView_label_about_fwdc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="बिकाश आयोग को बारेमा"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/nliveo_black"
-                    android:maxLines="5"
-                    android:ellipsize="end"
-                    app:animation_duration="750"/>
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/button_toggle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:text="@string/expand"
-                    android:layout_alignParentRight="true"
-                    android:background="#00ffffff"
-                    android:textColor="@color/primary_darker"
-                    android:layout_below="@id/textView_about_fwdc"/>
 
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/divider_gray"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_grey" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
-
-                <ExpandableListView
-                    android:nestedScrollingEnabled="true"
-                    android:id="@+id/lvExp"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/grey"
-                    />
+                    android:layout_height="wrap_content">
+
+                    <at.blogc.android.views.ExpandableTextView
+                        android:id="@+id/textView_about_fwdc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="5"
+                        android:textColor="@color/nliveo_black"
+                        app:animation_duration="750" />
+
+                    <Button
+                        android:id="@+id/button_toggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/textView_about_fwdc"
+                        android:background="#00ffffff"
+                        android:text="@string/expand"
+                        android:textColor="@color/primary_darker" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/divider_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <ExpandableListView
+                        android:id="@+id/lvExp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey"
+                        android:nestedScrollingEnabled="true" />
+                </LinearLayout>
+
+
             </LinearLayout>
-
-
-
-        </LinearLayout>
-    </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

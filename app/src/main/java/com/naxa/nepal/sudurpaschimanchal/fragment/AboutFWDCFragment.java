@@ -3,8 +3,14 @@ package com.naxa.nepal.sudurpaschimanchal.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,14 +27,26 @@ import com.bumptech.glide.Glide;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.GathanAadeshPdfActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.ExpandableListAdapter;
+import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import at.blogc.android.views.ExpandableTextView;
 
@@ -37,7 +56,7 @@ import at.blogc.android.views.ExpandableTextView;
  * @email nishon.tan@gmail.com
  */
 
-public class AboutFWDCFragment extends Fragment {
+public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     private static final String TAG = "AboutFWDCFragment";
@@ -50,6 +69,9 @@ public class AboutFWDCFragment extends Fragment {
     List<String> main_works = new ArrayList<String>();
     List<String> gathan_aadesh = new ArrayList<String>();
     ExpandableListAdapter listAdapter;
+    NestedScrollView scrollView;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     TextView tvTitle;
@@ -74,6 +96,7 @@ public class AboutFWDCFragment extends Fragment {
             Log.e("shit", " " + e.toString());
         }
         setExpListView();
+        setupSwipeToRefresh();
 
         return rootView;
     }
@@ -81,11 +104,26 @@ public class AboutFWDCFragment extends Fragment {
     private void initUI(View rootView) {
 
         expListView = (ExpandableListView) rootView.findViewById(R.id.lvExp);
-
         tvTitle = (TextView) rootView.findViewById(R.id.textView_label_about_fwdc);
         tvDesc = (ExpandableTextView) rootView.findViewById(R.id.textView_about_fwdc);
         ivImageView = (ImageView) rootView.findViewById(R.id.backdrop);
         buttonToggle = (Button) rootView.findViewById(R.id.button_toggle);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_fragment_fwdc_about);
+        scrollView = (NestedScrollView) rootView.findViewById(R.id.scrollview_fragment_fwdc_about);
+
+    }
+
+
+
+    private void setupSwipeToRefresh() {
+
+
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(
+                android.R.color.holo_red_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_green_light);
+
 
     }
 
@@ -178,10 +216,9 @@ public class AboutFWDCFragment extends Fragment {
         JSONObject jsonObject = jsonArray.getJSONObject(0);
 
 
-
         String fwdcDescTitle = jsonObject.getString("title_np");
         String fwdcDescDetail = jsonObject.getString("desc_np");
-        String fwdcPhoto= jsonObject.getString("office_photo");
+        String fwdcPhoto = jsonObject.getString("office_photo");
 
         Glide.with(getActivity().getApplicationContext())
                 .load(fwdcPhoto)
@@ -235,4 +272,174 @@ public class AboutFWDCFragment extends Fragment {
 
     }
 
+    @Override
+    public void onRefresh() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo != null && !networkInfo.isConnected()) {
+            showSnackMsg("ईन्टरनेट कनेक्सन छैन ।");
+            return;
+        }
+
+        AboutFWDCApiCall apiCall1 = new AboutFWDCApiCall();
+        apiCall1.execute();
+    }
+
+    private void showSnackMsg(String s) {
+//        Snackbar.make(vie, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+//                .setAction("Retry", null).show();
+
+        Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public class AboutFWDCApiCall extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
+
+
+        String fwdc_desc_en = null, fwdc_title_en = null, fwdc_desc_np = null, fwdc_title_np = null, office_img = "";
+
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+
+            return out.toString();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+
+            String text1 = "";
+
+
+            text1 = POST(UrlClass.URL_ABOUT_FWDC);
+
+
+            if (isValidNewsResponse(text1)) {
+
+
+
+            }
+
+
+            return text1;
+
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            swipeRefreshLayout.setRefreshing(false);
+
+
+        }
+    }
+
+    public String POST(String myurl) {
+
+        URL url;
+        String response = "";
+        try {
+            url = new URL(myurl);
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(15000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+
+
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("data", getJsonToSend());
+            String query = builder.build().getEncodedQuery();
+
+            writer.write(query);
+            writer.flush();
+            writer.close();
+            os.close();
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
+                String line;
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                while ((line = br.readLine()) != null) {
+                    response += line;
+                }
+            } else {
+                response = "";
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
+
+    public String getJsonToSend() {
+        //function in the activity that corresponds to the layout button
+
+        String jsonToSend = "";
+
+        try {
+            JSONObject header = new JSONObject();
+            header.put("token", "bf5d483811");
+            jsonToSend = header.toString();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        return jsonToSend;
+    }
+
+    private boolean isValidNewsResponse(String response) {
+        try {
+            return checkIfAPIGaveValidRes(response);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean checkIfAPIGaveValidRes(String text) throws JSONException {
+
+        if (text == null || text.length() == 0) {
+            return false;
+        }
+
+        int status = new JSONObject(text).getInt("status");
+        if (status == 200) {
+            return true;
+        }
+
+        return false;
+
+    }
 }

@@ -145,13 +145,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
                 mProgressDlg.setCancelable(false);
                 mProgressDlg.show();
                 //Susan
-                convertDataToJson();
-                ApiCall apiCall = new ApiCall();
-                apiCall.execute();
 
-                //Samir
-                //==============about fwdc call====================//
-                convertDataToJson();
                 AboutFWDCApiCall apiCall1 = new AboutFWDCApiCall();
                 apiCall1.execute();
 
@@ -246,7 +240,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
 
     // data convert
-    public void convertDataToJson() {
+    public String getJsonToSend() {
         //function in the activity that corresponds to the layout button
 
         try {
@@ -258,6 +252,8 @@ public class AboutFWDCActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
+        return jsonToSend;
     }
 
     private void setupViewPager(ViewPager viewPager) {
