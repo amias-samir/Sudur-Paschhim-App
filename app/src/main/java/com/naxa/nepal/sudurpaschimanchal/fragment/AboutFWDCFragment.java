@@ -1,6 +1,8 @@
 package com.naxa.nepal.sudurpaschimanchal.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,9 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.activities.AboutFWDCActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.GathanAadeshPdfActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.ExpandableListAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,6 +56,7 @@ public class AboutFWDCFragment extends Fragment {
 
     ExpandableTextView tvDesc;
     private Button buttonToggle;
+    private SharedPreferences.Editor editor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,6 +66,12 @@ public class AboutFWDCFragment extends Fragment {
 
         initUI(rootView);
         prepareListData();
+        try {
+            setFWDCDesc();
+        } catch (JSONException e) {
+
+            Log.e("shit", " " + e.toString());
+        }
         setExpListView();
 
         return rootView;
@@ -156,9 +168,24 @@ public class AboutFWDCFragment extends Fragment {
     }
 
 
-    /*
-* Preparing the list data
-*/
+    private void setFWDCDesc() throws JSONException {
+        SharedPreferences sharedpreferences;
+        sharedpreferences = getActivity().getSharedPreferences("fwdc_json", Context.MODE_PRIVATE);
+        String text = sharedpreferences.getString("fwdc_json", "");
+        JSONObject fwdcDescJSON = new JSONObject(text);
+        JSONArray jsonArray = fwdcDescJSON.getJSONArray("data");
+        JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+
+
+        String fwdcDescTitle = jsonObject.getString("title_np");
+        String fwdcDescDetail = jsonObject.getString("desc_np");
+
+        tvDesc.setText(fwdcDescDetail);
+        tvTitle.setText(fwdcDescTitle);
+    }
+
+
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
