@@ -17,6 +17,7 @@ import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.HamroSudurPaschimActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.NagarBudgetActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.NagarpalikaBudget_Adapter;
+import com.naxa.nepal.sudurpaschimanchal.model.District;
 import com.naxa.nepal.sudurpaschimanchal.model.NagarpalikaBudget_Model;
 
 import org.json.JSONArray;
@@ -39,7 +40,7 @@ public class NagarpalikaFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     ImageView imageView;
 
-    String district_id_fromactivity = "0" ;
+    String district_id_fromactivity = "0";
 
     NagarpalikaBudget_Adapter ca;
     public static List<NagarpalikaBudget_Model> resultCur = new ArrayList<>();
@@ -47,12 +48,19 @@ public class NagarpalikaFragment extends Fragment {
 
     String text = null;
     JSONArray data = null;
-
+    String districtToFilter = "all is well";
+    private List<District> FilteredBudgetWithCurrentDistrict;
 
 
     public NagarpalikaFragment() {
         // Required empty public constructor
 
+    }
+
+
+    public void setDistrictToFilter(String districtToFilter) {
+
+        this.districtToFilter = districtToFilter;
     }
 
 
@@ -63,9 +71,6 @@ public class NagarpalikaFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_nagarpalika, container, false);
-
-
-
 
 
 //        district_id_fromactivity = "2";
@@ -79,19 +84,25 @@ public class NagarpalikaFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        createList();
+        //   createList();
 
-        ((NagarBudgetActivity)getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener()
-        {
+
+        FilteredBudgetWithCurrentDistrict = new ArrayList<>();
+
+        try {
+            populateBudgetAsync(districtToFilter);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ((NagarBudgetActivity) getActivity()).setFragmentRefreshListener(new HamroSudurPaschimActivity.FragmentRefreshListener() {
             @Override
             public void onRefresh() {
 
-                Log.e("NagarFragment", "onCreateView: districtID ::: "+ district_id_fromactivity );
+                Log.e("NagarFragment", "onCreateView: districtID ::: " + district_id_fromactivity);
                 district_id_fromactivity = HamroSudurPaschimActivity.dist_spinner_id;
                 // Refresh Your Fragment
                 createList();
-
-
 
 
             }
@@ -100,13 +111,56 @@ public class NagarpalikaFragment extends Fragment {
         return rootView;
     }
 
-    private void createList() {
+    public void createList() {
         resultCur.clear();
         jsonParse();
         fillTable();
     }
 
-    public void jsonParse(){
+
+    private void populateBudgetAsync(final String distictNameEng) throws JSONException {
+        String text = sharedpreferences.getString("nagar_budget", "");
+        JSONObject nagarBugdgetJSON = new JSONObject(text);
+
+        final JSONArray data = nagarBugdgetJSON.getJSONArray("data");
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < data.length(); i++) {
+                    try {
+                        JSONObject row = data.getJSONObject(i);
+                        String EngDistrictName = row.getString("district_name_en");
+                        String NepDistrictName = row.getString("district_name_np");
+
+                        Boolean shouldThisDistBeAdded = EngDistrictName.equalsIgnoreCase(distictNameEng);
+
+                        if (shouldThisDistBeAdded) {
+                            District district = new District(String.valueOf(i), EngDistrictName, NepDistrictName);
+                            FilteredBudgetWithCurrentDistrict.add(district);
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+
+                Log.d("Aasish", FilteredBudgetWithCurrentDistrict.size() + " is the size");
+
+
+                //todo call recycle view here
+
+
+            }
+        };
+        new Thread(runnable).start();
+    }
+
+
+    public void jsonParse() {
 
         String district_id = null, dev_title_en = null, dev_title_np = null,
                 dev_desc_en = null, dev_desc_np = null, dev_contractor_en = null,
@@ -117,7 +171,7 @@ public class NagarpalikaFragment extends Fragment {
         try {
 
             text = sharedpreferences.getString("nagar_budget", "");
-            if (text!= null){
+            if (text != null) {
                 Log.e("NagarBudget_JSON", "" + text.toString());
                 jsonObj = new JSONObject(text);
 
@@ -129,7 +183,7 @@ public class NagarpalikaFragment extends Fragment {
                     district_id = c.getString("district_id");
                     Log.e("Nagar List", "" + district_id.toString());
 
-                    if(district_id_fromactivity.equals("0")){
+                    if (district_id_fromactivity.equals("0")) {
                         NagarpalikaBudget_Model newData = new NagarpalikaBudget_Model();
 //                newData.set(c.getString("dev_status_id"));
                         newData.setDistrict_id(c.getString("district_id"));
@@ -141,7 +195,7 @@ public class NagarpalikaFragment extends Fragment {
                         resultCur.add(newData);
                         Log.e("Nagarpalika Budget Model :", "" + newData.toString());
 
-                    } else if(district_id.equals(district_id_fromactivity)){
+                    } else if (district_id.equals(district_id_fromactivity)) {
                         NagarpalikaBudget_Model newData = new NagarpalikaBudget_Model();
 //                newData.set(c.getString("dev_status_id"));
                         newData.setDistrict_id(c.getString("district_id"));

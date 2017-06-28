@@ -93,8 +93,6 @@ public class NagarBudgetDistrict extends AppCompatActivity {
                             ListWithUniqueDistrict.add(district);
 
 
-
-
                         }
 
                     } catch (JSONException e) {
@@ -106,7 +104,6 @@ public class NagarBudgetDistrict extends AppCompatActivity {
 
 
                 setupRecycleView();
-
 
 
             }
@@ -122,9 +119,13 @@ public class NagarBudgetDistrict extends AppCompatActivity {
         adapter.setOnItemClickListener(new DistrictAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                String name = ListWithUniqueDistrict.get(position).getEnName();
+                String DistrictNameEng = ListWithUniqueDistrict.get(position).getEnName();
 
-                startActivity(new Intent(NagarBudgetDistrict.this,NagarBudgetActivity.class));
+                Intent toNagarBudgetAct = new Intent(NagarBudgetDistrict.this, NagarBudgetActivity.class);
+                toNagarBudgetAct.putExtra("EngDistrictName", DistrictNameEng);
+                startActivity(toNagarBudgetAct);
+
+
 
             }
         });
@@ -142,4 +143,10 @@ public class NagarBudgetDistrict extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
     }
+
+
+
+
 }
+
+

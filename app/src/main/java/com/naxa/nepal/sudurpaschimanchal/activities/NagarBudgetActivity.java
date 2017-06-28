@@ -1,5 +1,6 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,9 +10,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.fragment.NagarpalikaFragment;
+import com.naxa.nepal.sudurpaschimanchal.model.District;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,8 +44,6 @@ public class NagarBudgetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nagarpalika);
         ButterKnife.bind(this);
-
-
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -53,10 +54,20 @@ public class NagarBudgetActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
 
-        if (savedInstanceState == null) {
-            Fragment newFragment = new NagarpalikaFragment();
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+            String EngDistrictName = bundle.getString("EngDistrictName");
+            NagarpalikaFragment newFragment = new NagarpalikaFragment();
+            newFragment.setDistrictToFilter(EngDistrictName);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.fragment_container, newFragment, "id").commit();
+        }
+
+
+        if (bundle == null){
+            Toast.makeText(this, "Sorry, Your Request Could Not Be Full Filled", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,NagarBudgetDistrict.class));
         }
     }
 }
