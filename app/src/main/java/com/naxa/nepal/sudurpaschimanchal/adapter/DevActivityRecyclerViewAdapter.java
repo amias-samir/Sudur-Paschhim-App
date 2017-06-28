@@ -41,9 +41,10 @@ public class DevActivityRecyclerViewAdapter extends RecyclerView.Adapter<DevActi
 //
 //        if(setData){
             contactViewHolder.tvDevTitle.setText(ci.getDev_title_np());
-            contactViewHolder.tvContractor.setText(ci.getDev_contractor_np());
-            contactViewHolder.tvBudget.setText(ci.getDev_budget_np());
-            contactViewHolder.tvDistrict.setText(ci.getDistrict_name_np());
+            contactViewHolder.tvDesc.setText(ci.getDev_desc_np());
+//            contactViewHolder.tvContractor.setText(ci.getDev_contractor_np());
+//            contactViewHolder.tvBudget.setText(ci.getDev_budget_np());
+//            contactViewHolder.tvDistrict.setText(ci.getDistrict_name_np());
 //        }else{
 //            contactViewHolder.tvDevTitle.setText(ci.getDev_title_np());
 //            contactViewHolder.tvContractor.setText(ci.getDev_contractor_np());
@@ -79,15 +80,16 @@ public class DevActivityRecyclerViewAdapter extends RecyclerView.Adapter<DevActi
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
-        protected TextView tvDevTitle, tvContractor, tvBudget, tvDistrict;
+        protected TextView tvDevTitle, tvContractor, tvBudget, tvDistrict, tvDesc;
         protected ImageView imageView;
 
         public ContactViewHolder(View v) {
             super(v);
             tvDevTitle = (TextView) v.findViewById(R.id.dev_title);
-            tvContractor = (TextView) v.findViewById(R.id.tv_contractor);
-            tvBudget = (TextView) v.findViewById(R.id.tv_budget);
-            tvDistrict = (TextView) v.findViewById(R.id.tv_district);
+            tvDesc = (TextView) v.findViewById(R.id.tv_project_short_desc);
+//            tvContractor = (TextView) v.findViewById(R.id.tv_contractor);
+//            tvBudget = (TextView) v.findViewById(R.id.tv_budget);
+//            tvDistrict = (TextView) v.findViewById(R.id.tv_district);
             imageView = (ImageView) v.findViewById(R.id.project_imageView);
 
         }

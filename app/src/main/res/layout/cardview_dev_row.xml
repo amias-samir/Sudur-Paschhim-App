@@ -41,6 +41,21 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_project_short_desc"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dev_title"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/project_imageView"
+            android:layout_toRightOf="@+id/project_imageView"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textSize="10dp"
+            android:maxLines="3"/>
+
+
+        <TextView
             android:id="@+id/textView9"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
@@ -52,7 +67,8 @@
             android:text="ठेकेदारको नाम : "
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#000000"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_contractor"
@@ -66,7 +82,8 @@
             android:text="Small Text"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#5a5a5a"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -79,7 +96,8 @@
             android:text="बजेट : "
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#000000"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_budget"
@@ -92,7 +110,8 @@
             android:text="budget"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#5a5a5a"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -106,7 +125,8 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#000000"
             android:textSize="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_district"
@@ -120,7 +140,8 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#5a5a5a"
             android:textSize="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 

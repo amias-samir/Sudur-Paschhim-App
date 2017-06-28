@@ -103,8 +103,8 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/nepalesemoney"
-                    android:scaleType="center"/>
+                    android:src="@drawable/local_level_budget_img"
+                    android:scaleType="fitCenter"/>
                 <FrameLayout
                     android:id="@+id/frame_layout_local_budget"
                     android:layout_width="match_parent"
@@ -139,7 +139,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/envisoned_projects"
+                    android:src="@drawable/ngo_ingo_img"
                     android:scaleType="centerCrop"/>
                 <FrameLayout
                     android:id="@+id/frame_layout_dev_agencies"

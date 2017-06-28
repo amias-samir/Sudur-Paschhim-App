@@ -179,7 +179,7 @@ public class SplashScreenActivity extends Activity {
                         secondBar.setVisibility(View.GONE);
                         firstBar.setSecondaryProgress(downloadCount + 1);
 
-                            if (downloadCount <= 9) {
+//                            if (downloadCount <= 9) {
 
 
                                 //==============about fwdc dev call====================//
@@ -230,7 +230,7 @@ public class SplashScreenActivity extends Activity {
                         convertDataToJson();
                         PoticianListService poticianListService = new PoticianListService();
                         poticianListService.execute();
-                        }
+//                        }
 
                     } else {
 

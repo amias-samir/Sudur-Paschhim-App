@@ -9,10 +9,14 @@ public class INGO_NGO_Model {
     private String email;
     public  String mThumbnail;
 
-    public INGO_NGO_Model(String name, String desc, String email) {
-        this.name = name;
-        this.desc = desc;
-        this.email = email;
+//    public INGO_NGO_Model(String name, String desc, String email) {
+//        this.name = name;
+//        this.desc = desc;
+//        this.email = email;
+//    }
+
+    public INGO_NGO_Model() {
+
     }
 
     public String getId() {
