@@ -19,7 +19,6 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,7 +113,6 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
     }
 
 
-
     private void setupSwipeToRefresh() {
 
 
@@ -203,6 +201,16 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
                 return false;
             }
         });
+
+    }
+
+
+    private void saveFWDCAPIResponse(String text) {
+        SharedPreferences sharedpreferences;
+        sharedpreferences = getActivity().getSharedPreferences("fwdc_json", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedpreferences.edit();
+        edit.putString("fwdc_json", text);
+        edit.apply();
 
     }
 
@@ -334,9 +342,7 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
 
 
             if (isValidNewsResponse(text1)) {
-
-
-
+                saveFWDCAPIResponse(text1);
             }
 
 
