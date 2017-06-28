@@ -78,6 +78,9 @@ public class NagarBudgetDistrict extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject(text);
         final JSONArray data = jsonObject.getJSONArray("data");
 
+        ListWithUniqueDistrictString.clear();
+        ListWithUniqueDistrict.clear();
+
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
