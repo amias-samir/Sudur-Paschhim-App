@@ -40,7 +40,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
-
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -50,6 +49,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.adapter.ExpandableListAdapter;
+import com.naxa.nepal.sudurpaschimanchal.fragment.AboutFWDCFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.CompletedProjectsFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.FutureProjectsFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.OnGoingProjectsFragment;
@@ -112,7 +112,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
     TextView tvTitle;
     ImageView ivImageView;
 
-    ExpandableTextView tvDesc ;
+    ExpandableTextView tvDesc;
 
 
     private TabLayout tabLayout;
@@ -158,30 +158,23 @@ public class AboutFWDCActivity extends AppCompatActivity {
         tvDesc.setCollapseInterpolator(new OvershootInterpolator());
 
         // toggle the ExpandableTextView
-        buttonToggle.setOnClickListener(new View.OnClickListener()
-        {
+        buttonToggle.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("ConstantConditions")
             @Override
-            public void onClick(final View v)
-            {
+            public void onClick(final View v) {
                 tvDesc.toggle();
                 buttonToggle.setText(tvDesc.isExpanded() ? R.string.collapse : R.string.expand);
             }
         });
 
         // but, you can also do the checks yourself
-        buttonToggle.setOnClickListener(new View.OnClickListener()
-        {
+        buttonToggle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(final View v)
-            {
-                if (tvDesc.isExpanded())
-                {
+            public void onClick(final View v) {
+                if (tvDesc.isExpanded()) {
                     tvDesc.collapse();
                     buttonToggle.setText(R.string.expand);
-                }
-                else
-                {
+                } else {
                     tvDesc.expand();
                     buttonToggle.setText(R.string.collapse);
                 }
@@ -189,25 +182,19 @@ public class AboutFWDCActivity extends AppCompatActivity {
         });
 
         // listen for expand / collapse events
-        tvDesc.setOnExpandListener(new ExpandableTextView.OnExpandListener()
-        {
+        tvDesc.setOnExpandListener(new ExpandableTextView.OnExpandListener() {
             @Override
-            public void onExpand(final ExpandableTextView view)
-            {
+            public void onExpand(final ExpandableTextView view) {
                 Log.d(TAG, "ExpandableTextView expanded");
             }
 
             @Override
-            public void onCollapse(final ExpandableTextView view)
-            {
+            public void onCollapse(final ExpandableTextView view) {
                 Log.d(TAG, "ExpandableTextView collapsed");
             }
         });
 
 //        =========================================== ends of expandable text view ==================================//
-
-
-
 
 
         //SharedPreferences-DEV_ACTIVITIES
@@ -244,7 +231,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
                 Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
                         .setAction("Retry", null).show();
             }
-        }else {
+        } else {
 
             ApiCall apiCall = new ApiCall();
             apiCall.execute();
@@ -342,10 +329,10 @@ public class AboutFWDCActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                if(groupPosition == 4 ){
-                    switch (childPosition){
-                        case 0 :
-                            Toast.makeText(getApplicationContext(),groupPosition + ","+childPosition+":"+"गठन आदेश", Toast.LENGTH_SHORT).show();
+                if (groupPosition == 4) {
+                    switch (childPosition) {
+                        case 0:
+                            Toast.makeText(getApplicationContext(), groupPosition + "," + childPosition + ":" + "गठन आदेश", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(AboutFWDCActivity.this, GathanAadeshPdfActivity.class);
                             startActivity(intent);
                             break;
@@ -378,6 +365,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
+        adapter.addFragment(new AboutFWDCFragment(), "विकास आयोग \n  को बारेमा");
         adapter.addFragment(new CompletedProjectsFragment(), "सम्पन्न \n परियोजना ");
         adapter.addFragment(new OnGoingProjectsFragment(), "हुदैगरेका \n परियोजना ");
         adapter.addFragment(new FutureProjectsFragment(), "भावि \n परियोजना ");
@@ -581,7 +569,6 @@ public class AboutFWDCActivity extends AppCompatActivity {
                 }
 
 
-
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -597,7 +584,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
             if ((mProgressDlg != null) && mProgressDlg.isShowing()) {
                 mProgressDlg.dismiss();
             }
-            if(swipeContainer != null && swipeContainer.isRefreshing()){
+            if (swipeContainer != null && swipeContainer.isRefreshing()) {
                 swipeContainer.setRefreshing(false);
             }
             if (result != null) {
@@ -727,13 +714,11 @@ public class AboutFWDCActivity extends AppCompatActivity {
         gathan_aadesh.add(" गठन आदेश पि.डी.एफ हेर्नको लागि यहाँ क्लिक गर्नुहोस");
 
 
-
         listDataChild.put(listDataHeader.get(0), mission); // Header, Child data
         listDataChild.put(listDataHeader.get(1), vision);
         listDataChild.put(listDataHeader.get(2), objective);
         listDataChild.put(listDataHeader.get(3), main_works);
         listDataChild.put(listDataHeader.get(4), gathan_aadesh);
-
 
 
     }

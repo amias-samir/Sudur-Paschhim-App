@@ -57,6 +57,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.AboutFWDCActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
