@@ -35,6 +35,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.geojson.GeoJsonLayer;
@@ -211,13 +212,15 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         myMap.setPadding(0, 120, 0, 120);//to stop UI buttons to being overlapped and hidden
         myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
+
+
         //Initialize Google Play Services
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(getContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-                myMap.setMyLocationEnabled(true);
+                myMap.setMyLocationEnabled(false);
                 myMap.getUiSettings().setZoomControlsEnabled(true);
                 setSudurCamera();
             }
@@ -241,6 +244,13 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
      * Sets the camera on sudur when the map loads
      */
     private void setSudurCamera() {
+
+        final LatLngBounds SUDUR = new LatLngBounds(new LatLng(28.248326, 80.046272), new LatLng(30.771248, 82.296098));
+
+        myMap.setLatLngBoundsForCameraTarget(SUDUR);
+        myMap.setMinZoomPreference(8f);
+
+
         CameraPosition cameraPositon = CameraPosition.builder()
                 .target(mCenterLocation)
                 .zoom(8f)
@@ -250,11 +260,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         myMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPositon), null);
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            return;
-        }
-        myMap.setMyLocationEnabled(true);
         myMap.getUiSettings().setZoomControlsEnabled(true);
 
     }
