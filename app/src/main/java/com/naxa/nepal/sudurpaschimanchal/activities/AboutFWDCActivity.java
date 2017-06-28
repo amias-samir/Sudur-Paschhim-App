@@ -80,15 +80,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
     private static final String TAG = "AboutFWDCActivity";
     private SwipeRefreshLayout swipeContainer;
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
-    List<String> mission = new ArrayList<String>();
-    List<String> vision = new ArrayList<String>();
-    List<String> objective = new ArrayList<String>();
-    List<String> main_works = new ArrayList<String>();
-    List<String> gathan_aadesh = new ArrayList<String>();
+
 
     private View coordinatorLayoutView;
 
@@ -108,11 +100,6 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
     private boolean setData;
     String jsonToSend = null;
-
-    TextView tvTitle;
-    ImageView ivImageView;
-
-    ExpandableTextView tvDesc;
 
 
     private TabLayout tabLayout;
@@ -134,65 +121,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-        //Susan
-        //Check internet connection
-        connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        networkInfo = connectivityManager.getActiveNetworkInfo();
-
-        tvTitle = (TextView) findViewById(R.id.textView_label_about_fwdc);
-        tvDesc = (ExpandableTextView) findViewById(R.id.textView_about_fwdc);
-        ivImageView = (ImageView) findViewById(R.id.backdrop);
-        final Button buttonToggle = (Button) this.findViewById(R.id.button_toggle);
-//        =========================================== expandable text view ========================================//
-// set animation duration via code, but preferable in your layout files by using the animation_duration attribute
-        tvDesc.setAnimationDuration(750L);
-
-        // set interpolators for both expanding and collapsing animations
-        tvDesc.setInterpolator(new OvershootInterpolator());
-
-        // or set them separately
-        tvDesc.setExpandInterpolator(new OvershootInterpolator());
-        tvDesc.setCollapseInterpolator(new OvershootInterpolator());
-
-        // toggle the ExpandableTextView
-        buttonToggle.setOnClickListener(new View.OnClickListener() {
-            @SuppressWarnings("ConstantConditions")
-            @Override
-            public void onClick(final View v) {
-                tvDesc.toggle();
-                buttonToggle.setText(tvDesc.isExpanded() ? R.string.collapse : R.string.expand);
-            }
-        });
-
-        // but, you can also do the checks yourself
-        buttonToggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                if (tvDesc.isExpanded()) {
-                    tvDesc.collapse();
-                    buttonToggle.setText(R.string.expand);
-                } else {
-                    tvDesc.expand();
-                    buttonToggle.setText(R.string.collapse);
-                }
-            }
-        });
-
-        // listen for expand / collapse events
-        tvDesc.setOnExpandListener(new ExpandableTextView.OnExpandListener() {
-            @Override
-            public void onExpand(final ExpandableTextView view) {
-                Log.d(TAG, "ExpandableTextView expanded");
-            }
-
-            @Override
-            public void onCollapse(final ExpandableTextView view) {
-                Log.d(TAG, "ExpandableTextView collapsed");
-            }
-        });
 
 //        =========================================== ends of expandable text view ==================================//
 
@@ -255,104 +184,73 @@ public class AboutFWDCActivity extends AppCompatActivity {
             }
         });
 
-        //Swipe Refresh Action
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-        // Setup refresh listener which triggers new data loading
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    editor.clear();
-                    editor.commit();
-
-                    editor1.clear();
-                    editor1.commit();
-
-                    convertDataToJson();
-                    ApiCall apiCall = new ApiCall();
-                    apiCall.execute();
-
-                    //==============about fwdc call====================//
-                    convertDataToJson();
-                    AboutFWDCApiCall apiCall1 = new AboutFWDCApiCall();
-                    apiCall1.execute();
-
-                    viewPager.clearFocus();
-                    tabLayout.removeAllTabs();
-                    tabLayout.setupWithViewPager(viewPager);
-                    tabLayout.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            tabLayout.setupWithViewPager(viewPager);
-                        }
-                    });
-
-                    if (apiCall.equals(null)) {
-                        swipeContainer.setRefreshing(false);
-                        Log.d("DEBUG", "Fetch timeline error: ");
-                    }
-                } else {
-                    coordinatorLayoutView = findViewById(R.id.main_content);
-                    Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                            .setAction("Retry", null).show();
-                    swipeContainer.setRefreshing(false);
-                }
-
-                // Your code to refresh the list here.
-                // Make sure you call swipeContainer.setRefreshing(false)
-                // once the network request has completed successfully.
-            }
-        });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(
-                android.R.color.holo_red_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_green_light);
-
-
-        ScrollView scroll = (ScrollView) findViewById(R.id.scrollView);
-        scroll.setFocusableInTouchMode(true);
-        scroll.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
-
-        // preparing list data
-        prepareListData();
-
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-
-        // Listview on child click listener
-        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-
-                if (groupPosition == 4) {
-                    switch (childPosition) {
-                        case 0:
-                            Toast.makeText(getApplicationContext(), groupPosition + "," + childPosition + ":" + "गठन आदेश", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(AboutFWDCActivity.this, GathanAadeshPdfActivity.class);
-                            startActivity(intent);
-                            break;
-                    }
-
-                }
-
-                return false;
-            }
-        });
+//        //Swipe Refresh Action
+//        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+//        // Setup refresh listener which triggers new data loading
+//        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                if (networkInfo != null && networkInfo.isConnected()) {
+//                    editor.clear();
+//                    editor.commit();
+//
+//                    editor1.clear();
+//                    editor1.commit();
+//
+//                    convertDataToJson();
+//                    ApiCall apiCall = new ApiCall();
+//                    apiCall.execute();
+//
+//                    //==============about fwdc call====================//
+//                    convertDataToJson();
+//                    AboutFWDCApiCall apiCall1 = new AboutFWDCApiCall();
+//                    apiCall1.execute();
+//
+//                    viewPager.clearFocus();
+//                    tabLayout.removeAllTabs();
+//                    tabLayout.setupWithViewPager(viewPager);
+//                    tabLayout.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            tabLayout.setupWithViewPager(viewPager);
+//                        }
+//                    });
+//
+//                    if (apiCall.equals(null)) {
+//                        swipeContainer.setRefreshing(false);
+//                        Log.d("DEBUG", "Fetch timeline error: ");
+//                    }
+//                } else {
+//                    coordinatorLayoutView = findViewById(R.id.main_content);
+//                    Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+//                            .setAction("Retry", null).show();
+//                    swipeContainer.setRefreshing(false);
+//                }
+//
+//                // Your code to refresh the list here.
+//                // Make sure you call swipeContainer.setRefreshing(false)
+//                // once the network request has completed successfully.
+//            }
+//        });
+//        // Configure the refreshing colors
+//        swipeContainer.setColorSchemeResources(
+//                android.R.color.holo_red_light,
+//                android.R.color.holo_orange_light,
+//                android.R.color.holo_green_light);
+//
+//
+//
+//        // preparing list data
+//
     }
+
 
     // data convert
     public void convertDataToJson() {
         //function in the activity that corresponds to the layout button
 
         try {
-
             JSONObject header = new JSONObject();
-
             header.put("token", "bf5d483811");
             jsonToSend = header.toString();
 
@@ -364,7 +262,6 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
         adapter.addFragment(new AboutFWDCFragment(), "विकास आयोग \n  को बारेमा");
         adapter.addFragment(new CompletedProjectsFragment(), "सम्पन्न \n परियोजना ");
         adapter.addFragment(new OnGoingProjectsFragment(), "हुदैगरेका \n परियोजना ");
@@ -500,7 +397,6 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
     }
 
-    //About fwdc
     public class AboutFWDCApiCall extends AsyncTask<String, Void, String> {
         JSONArray data = null;
 
@@ -579,29 +475,10 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            // TODO Auto-generated method stub
-            //Log.e("ONPOSTEXECUTE", "ONPOST");
-            if ((mProgressDlg != null) && mProgressDlg.isShowing()) {
-                mProgressDlg.dismiss();
-            }
-            if (swipeContainer != null && swipeContainer.isRefreshing()) {
-                swipeContainer.setRefreshing(false);
-            }
-            if (result != null) {
-//                //Success
-                tvTitle.setText(fwdc_title_np);
-                tvDesc.setText(fwdc_desc_np);
-                Glide.with(getApplicationContext())
-                        .load(office_img)
-                        .thumbnail(0.5f)
-                        .override(200, 400)
-                        .into(ivImageView);
 
-//                swipeContainer.setRefreshing(false);
 
             }
         }
-
         public String POST(String myurl) {
 
             URL url;
@@ -647,7 +524,6 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
             return response;
         }
-
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -679,51 +555,9 @@ public class AboutFWDCActivity extends AppCompatActivity {
         }
     }
 
-    /*
-   * Preparing the list data
-   */
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
-
-        // Adding child data
-        listDataHeader.add("ध्येय ");
-        listDataHeader.add("लक्ष्य ");
-        listDataHeader.add("उधेश्य");
-        listDataHeader.add("मुख्य कार्यहरु");
-        listDataHeader.add("गठन आदेश");
-
-        mission.add(getString(R.string.mission));
-        vision.add(getString(R.string.vision));
-        objective.add(getString(R.string.objective));
-        objective.add(getString(R.string.objective1));
-        objective.add(getString(R.string.objective2));
-        main_works.add(getString(R.string.main_works));
-        main_works.add(getString(R.string.main_works1));
-        main_works.add(getString(R.string.main_works2));
-        main_works.add(getString(R.string.main_works3));
-        main_works.add(getString(R.string.main_works4));
-        main_works.add(getString(R.string.main_works5));
-        main_works.add(getString(R.string.main_works6));
-        main_works.add(getString(R.string.main_works7));
-        main_works.add(getString(R.string.main_works8));
-        main_works.add(getString(R.string.main_works9));
-        main_works.add(getString(R.string.main_works10));
-        main_works.add(getString(R.string.main_works11));
-
-        gathan_aadesh.add(" गठन आदेश पि.डी.एफ हेर्नको लागि यहाँ क्लिक गर्नुहोस");
 
 
-        listDataChild.put(listDataHeader.get(0), mission); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), vision);
-        listDataChild.put(listDataHeader.get(2), objective);
-        listDataChild.put(listDataHeader.get(3), main_works);
-        listDataChild.put(listDataHeader.get(4), gathan_aadesh);
 
-
-    }
-
-}
 
 
 

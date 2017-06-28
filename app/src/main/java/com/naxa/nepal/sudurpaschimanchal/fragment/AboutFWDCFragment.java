@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.GathanAadeshPdfActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.ExpandableListAdapter;
@@ -180,6 +181,13 @@ public class AboutFWDCFragment extends Fragment {
 
         String fwdcDescTitle = jsonObject.getString("title_np");
         String fwdcDescDetail = jsonObject.getString("desc_np");
+        String fwdcPhoto= jsonObject.getString("office_photo");
+
+        Glide.with(getActivity().getApplicationContext())
+                .load(fwdcPhoto)
+                .thumbnail(0.5f)
+                .override(200, 400)
+                .into(ivImageView);
 
         tvDesc.setText(fwdcDescDetail);
         tvTitle.setText(fwdcDescTitle);
