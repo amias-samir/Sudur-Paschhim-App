@@ -124,7 +124,7 @@ public class AboutFWDCActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AboutFWDCFragment(), "विकास आयोग \n  को बारेमा");
+        adapter.addFragment(new AboutFWDCFragment(), "परिचय");
         adapter.addFragment(new CompletedProjectsFragment(), "सम्पन्न \n परियोजना ");
         adapter.addFragment(new OnGoingProjectsFragment(), "हुदैगरेका \n परियोजना ");
         adapter.addFragment(new FutureProjectsFragment(), "भावि \n परियोजना ");
