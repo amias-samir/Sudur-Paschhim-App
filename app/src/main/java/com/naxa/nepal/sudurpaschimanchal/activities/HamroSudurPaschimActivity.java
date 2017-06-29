@@ -118,7 +118,7 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
         nagarpalikasharedpreferences = this.getSharedPreferences(NagarPalikaPREFERENCES1, Context.MODE_PRIVATE);
         nagarpalikaeditor = nagarpalikasharedpreferences.edit();
 
-
+/*
         // Spinner element
         Spinner spinner = (Spinner) findViewById(R.id.district_list_spinner);
         // Spinner click listener
@@ -143,7 +143,7 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
-
+*/
 
         if (sharedpreferences1.getString("sudur_attract", "").trim().isEmpty()) {
             if (networkInfo != null && networkInfo.isConnected()) {

@@ -36,49 +36,49 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="कृपया जिल्ला छान्नुहोस्"
-                    android:textColor="@color/nliveo_black"
-                    android:textSize="14dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="0dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:text="कृपया जिल्ला छान्नुहोस्"-->
+                    <!--android:textColor="@color/nliveo_black"-->
+                    <!--android:textSize="14dp" />-->
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="2dp"
-                    app:cardElevation="3dp">
+                <!--<android.support.v7.widget.CardView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="10dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--app:cardBackgroundColor="@color/white"-->
+                    <!--app:cardCornerRadius="2dp"-->
+                    <!--app:cardElevation="3dp">-->
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <!--<FrameLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content">-->
 
-                        <Spinner
-                            android:id="@+id/district_list_spinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="left"
-                            android:theme="@style/SpinnerDropDownItem" />
+                        <!--<Spinner-->
+                            <!--android:id="@+id/district_list_spinner"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:gravity="left"-->
+                            <!--android:theme="@style/SpinnerDropDownItem" />-->
 
-                    </FrameLayout>
+                    <!--</FrameLayout>-->
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+                <!--</android.support.v7.widget.CardView>-->
+            <!--</LinearLayout>-->
 
             <ImageView
                 android:layout_width="match_parent"
