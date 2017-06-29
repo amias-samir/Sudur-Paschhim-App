@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.ProjectDetailsActivity;
@@ -78,6 +79,7 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
 
     String text = null;
     JSONArray data = null;
+    private LinearLayout rootLayout;
 
     // TODO: Rename and change types and number of parameters
     public static CompletedProjectsFragment newInstance(String param1, String param2) {
@@ -107,6 +109,9 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_completed_projects, container, false);
+
+        rootLayout = (LinearLayout) rootView.findViewById(R.id.all_project_fragment_root);
+
 
         sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.NewsList);
@@ -268,6 +273,7 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+
         if (networkInfo != null && !networkInfo.isConnected()) {
             showSnackMsg("ईन्टरनेट कनेक्सन छैन ।");
             return;
@@ -279,10 +285,9 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
     }
 
     private void showSnackMsg(String s) {
-//        Snackbar.make(vie, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-//                .setAction("Retry", null).show();
+        Snackbar.make(rootLayout, s, Snackbar.LENGTH_LONG).show();
 
-        Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -324,7 +329,7 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
             text = POST(UrlClass.URL_DEV_ACTIVITIES);
 
 
-            Log.d("air",text + " is the text");
+            Log.d("air", text + " is the text");
 
             if (isValidResponse(text)) {
                 saveAPIResponse(text);

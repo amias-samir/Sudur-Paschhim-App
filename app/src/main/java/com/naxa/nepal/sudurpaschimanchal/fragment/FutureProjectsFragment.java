@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
@@ -67,6 +69,7 @@ public class FutureProjectsFragment extends Fragment implements SwipeRefreshLayo
 
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
+    LinearLayout rootLayout;
 
     DevActivityRecyclerViewAdapter ca;
     public static List<DevActivity_Pojo> resultCur = new ArrayList<>();
@@ -116,6 +119,8 @@ public class FutureProjectsFragment extends Fragment implements SwipeRefreshLayo
 
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_fragment_all_projects);
         setupSwipeToRefresh();
+
+        rootLayout = (LinearLayout) rootView.findViewById(R.id.all_project_fragment_root);
 
 
         //        sharedpreferences = PreferenceManager
@@ -278,6 +283,9 @@ public class FutureProjectsFragment extends Fragment implements SwipeRefreshLayo
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+
+
+
         if (networkInfo != null && !networkInfo.isConnected()) {
             showSnackMsg("ईन्टरनेट कनेक्सन छैन ।");
             return;
@@ -289,10 +297,9 @@ public class FutureProjectsFragment extends Fragment implements SwipeRefreshLayo
     }
 
     private void showSnackMsg(String s) {
-//        Snackbar.make(vie, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-//                .setAction("Retry", null).show();
+        Snackbar.make(rootLayout, s, Snackbar.LENGTH_LONG).show();
 
-        Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+
     }
 
     public class ApiCall extends AsyncTask<String, Void, String> {
