@@ -72,6 +72,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.HamroSudurPaschimActivity"
             android:value=".MainActivity">
             <meta-data
