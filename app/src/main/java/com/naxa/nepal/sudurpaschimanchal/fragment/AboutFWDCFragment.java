@@ -179,6 +179,8 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        expListView.setDividerHeight(5);
+
 
         // Listview on child click listener
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -190,7 +192,6 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
                 if (groupPosition == 4) {
                     switch (childPosition) {
                         case 0:
-                            Toast.makeText(getActivity().getApplicationContext(), groupPosition + "," + childPosition + ":" + "गठन आदेश", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(), GathanAadeshPdfActivity.class);
                             startActivity(intent);
                             break;
