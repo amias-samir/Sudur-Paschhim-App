@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,8 @@ public class VideoList_Adapter extends RecyclerView.Adapter<VideoList_Adapter.Co
         //}
 
         String img_url = ci.photos;
+        Log.d("SUSAN","Photos video: " + img_url);
         if (!img_url.equals("")|| img_url != null) {
-            img_url = "www";
             Glide.with(context)
                     .load(img_url)
                     .into(contactViewHolder.imageView);
