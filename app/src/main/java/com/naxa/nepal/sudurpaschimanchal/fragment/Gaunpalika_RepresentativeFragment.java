@@ -118,13 +118,13 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
     }
 
     private void createList() {
-        Local_Level_Representative_Model districtListModel = new Local_Level_Representative_Model("Susan Lama", "Indrasarowor Gaupalika", "9841563258");
+        Local_Level_Representative_Model districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Nishon Tandukar", "Nakhu Gaunpalika", "9874586958");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Samir Dangal", "Kharpi Gaunpalika", "98942563258");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Upen Oli", "Bardu Gaunpalika", "9851073265");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
         fillTable();
 
