@@ -331,7 +331,7 @@
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/button_pressed"
                         android:gravity="center"
-                        android:text="Submit"
+                        android:text="पठाउनुहोस्"
                         android:textColor="#ffffff" />
 
                 </RelativeLayout>
