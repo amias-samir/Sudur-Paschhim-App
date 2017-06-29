@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.ProjectDetailsActivity;
@@ -107,7 +110,7 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
 
         sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.NewsList);
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_fragment_completed_projects);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_fragment_all_projects);
 
 
         linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -260,8 +263,26 @@ public class CompletedProjectsFragment extends Fragment implements SwipeRefreshL
 
     @Override
     public void onRefresh() {
+
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo != null && !networkInfo.isConnected()) {
+            showSnackMsg("ईन्टरनेट कनेक्सन छैन ।");
+            return;
+        }
+
         ApiCall apiCall = new ApiCall();
         apiCall.execute();
+
+    }
+
+    private void showSnackMsg(String s) {
+//        Snackbar.make(vie, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
+//                .setAction("Retry", null).show();
+
+        Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
     }
 
 
