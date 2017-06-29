@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.naxa.nepal.sudurpaschimanchal.R;
 
 public class AttractionDetailsActivity extends AppCompatActivity {
@@ -38,7 +40,6 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         ImageView Place_Image = (ImageView) findViewById(R.id.backdrop);
 
 
-
         Intent i = getIntent();
         // Receiving the Data
         String title_np = i.getStringExtra("place_title_np");
@@ -56,22 +57,33 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         collapsingToolbar.setCollapsedTitleTextColor(getResources().getColor(R.color.accent));
 
 
-
         // Displaying Received data
         Place_Title.setText(title_np);
         Place_Desc.setText(desc_np);
-        Place_dist.setText(dist_np+", ");
+        Place_dist.setText(dist_np + ", ");
         Place_Address.setText(address_np);
 
 
-        if(place_image != null) {
+        if (place_image != null) {
             Glide.with(getApplicationContext())
-                    .load(place_image)
-                    .thumbnail(0.5f)
+                    .load(place_image).diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(Place_Image);
         }
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
 }
 

@@ -95,6 +95,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.ReligiousPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".HamroSudurPaschimActivity">
@@ -176,12 +177,11 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
+
             android:name=".activities.AttractionDetailsActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.HamroSudurPaschimActivity" />
+
         </activity>
         <activity
             android:name=".activities.HistoricalPlacesActivity"
