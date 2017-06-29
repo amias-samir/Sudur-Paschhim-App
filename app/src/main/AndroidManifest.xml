@@ -56,7 +56,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".activities.AboutFWDCActivity">
+        <activity
+            android:name=".activities.AboutFWDCActivity"
+            android:exported="true">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.IntroductionUpdateActivity" />
@@ -358,7 +361,8 @@
                 android:value=".activities.MajorDevelopmentProjectsActivity" />
         </activity>
 
-        <activity android:name=".activities.NgoIngoDetailsActivity"
+        <activity
+            android:name=".activities.NgoIngoDetailsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

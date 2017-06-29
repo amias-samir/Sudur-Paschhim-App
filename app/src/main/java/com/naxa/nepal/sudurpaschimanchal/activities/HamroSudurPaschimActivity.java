@@ -2,7 +2,6 @@ package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -27,13 +26,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.fragment.CompletedProjectsFragment;
-import com.naxa.nepal.sudurpaschimanchal.fragment.DevStatusSudurPaschhimFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.LocalAttractionFragment;
-import com.naxa.nepal.sudurpaschimanchal.fragment.NagarpalikaFragment;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -249,7 +245,7 @@ public class HamroSudurPaschimActivity extends AppCompatActivity implements Adap
                     });
 
                     //Nishon
-                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.completed_fragment);
+                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.all_project_fragment_root);
                     if (currentFragment instanceof CompletedProjectsFragment) {
                         Log.i("Nishon", "i am in");
 
