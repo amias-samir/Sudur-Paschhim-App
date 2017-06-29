@@ -211,9 +211,6 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
         SharedPreferences.Editor edit = sharedpreferences.edit();
         edit.putString("fwdc_json", text);
         edit.apply();
-
-
-
     }
 
 

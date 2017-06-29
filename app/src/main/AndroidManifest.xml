@@ -57,8 +57,9 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:exported="true"
-            android:name=".activities.AboutFWDCActivity">
+            android:name=".activities.AboutFWDCActivity"
+            android:exported="true">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.IntroductionUpdateActivity" />
@@ -262,7 +263,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.BikashGatibitiActivity" />
         </activity>
-
         <activity
             android:name=".activities.NagarBudgetActivity"
             android:exported="true"
@@ -272,8 +272,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.NagarBudgetDistrict" />
         </activity>
-
-
         <activity
             android:name=".activities.DistrictProgramActivity"
             android:exported="true"
@@ -323,7 +321,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.RajnitikAwasthaActivity" />
         </activity>
-
         <activity
             android:name=".activities.MajorDevelopmentProjectsActivity"
             android:exported="true"
@@ -356,11 +353,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AboutFWDCActivity" />
         </activity>
-        <activity android:name=".activities.MajorProjectDetailsActivity"
+        <activity
+            android:name=".activities.MajorProjectDetailsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MajorDevelopmentProjectsActivity" /></activity>
+                android:value=".activities.MajorDevelopmentProjectsActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.NgoIngoDetailsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DevelopmentINGOsOrganizationActivity" />
+
+        </activity>
     </application>
 
 </manifest>

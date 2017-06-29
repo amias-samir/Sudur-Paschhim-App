@@ -1,6 +1,7 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +11,13 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,6 +42,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
+
 /**
  * Created by Susan on 5/31/2016.
  */
@@ -51,6 +55,8 @@ public class SplashScreenActivity extends Activity {
     private ProgressBar firstBar = null;
     private ProgressBar secondBar = null;
     private int downloadCount = 0;
+
+    Context context = this;
 
     //    ===============================================================================================================//
 //  ============================  About FWDC =================================== //
@@ -179,7 +185,7 @@ public class SplashScreenActivity extends Activity {
                         secondBar.setVisibility(View.GONE);
                         firstBar.setSecondaryProgress(downloadCount + 1);
 
-                            if (downloadCount <= 9) {
+//                            if (downloadCount <= 9) {
 
 
                                 //==============about fwdc dev call====================//
@@ -230,7 +236,7 @@ public class SplashScreenActivity extends Activity {
                         convertDataToJson();
                         PoticianListService poticianListService = new PoticianListService();
                         poticianListService.execute();
-                        }
+//                        }
 
                     } else {
 
@@ -288,6 +294,8 @@ public class SplashScreenActivity extends Activity {
         }
 
     }
+
+
 
     //About fwdc dev
     public class FWDCDEVApiCall extends AsyncTask<String, Void, String> {
@@ -353,6 +361,9 @@ public class SplashScreenActivity extends Activity {
                 firstBar.setSecondaryProgress(downloadCount + 1);
 
             }
+//            else {
+//                restartActivity();
+//            }
 
         }
 
@@ -1245,6 +1256,8 @@ public class SplashScreenActivity extends Activity {
 
                 Log.e("ProgressBar", "end " + downloadCount);
 
+            }else {
+                restartActivity();
             }
 
         }
@@ -1303,5 +1316,40 @@ public class SplashScreenActivity extends Activity {
             startActivity(stuff);
         }
     }
+
+    public void restartActivity(){
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
+
+            final Dialog showDialog = new Dialog(context);
+            showDialog.setContentView(R.layout.restart_download_popup);
+            final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
+            final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
+
+            showDialog.setTitle("Connection Error");
+            showDialog.setCancelable(false);
+            showDialog.show();
+            showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            yes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialog.dismiss();
+                    Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
+                    startActivity(intent);
+//                                finish();
+                }
+            });
+
+            no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialog.dismiss();
+                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
 }

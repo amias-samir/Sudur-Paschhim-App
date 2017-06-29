@@ -170,17 +170,13 @@ public class AboutFWDCActivity extends AppCompatActivity {
             try {
                 if (sharedpreferences.getString("dev_activities", "").trim().isEmpty()) {
 
-                    if (networkInfo != null && networkInfo.isConnected()) {
+
 
                         text = POST(UrlClass.URL_DEV_ACTIVITIES);
                         Log.e("MAIN_JSON", "" + text.toString());
                         editor.putString("dev_activities", text);
                         editor.commit();
-                    } else {
-                        coordinatorLayoutView = findViewById(R.id.main_content);
-                        Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन । ", Snackbar.LENGTH_LONG)
-                                .setAction("Retry", null).show();
-                    }
+
 
 
                 } else {

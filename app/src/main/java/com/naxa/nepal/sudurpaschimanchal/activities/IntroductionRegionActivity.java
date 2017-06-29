@@ -96,13 +96,13 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("जिल्ला", "९");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("गाउँपालिका", "५४");
+        a = new IntroductionRegionModel("उप महानगरपालिका", "१");
         albumList.add(a);
 
         a = new IntroductionRegionModel("नगरपालिका", "३३");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("उप महानगरपालिका", "१");
+        a = new IntroductionRegionModel("गाउँपालिका", "५४");
         albumList.add(a);
 
         a = new IntroductionRegionModel("स्वास्थ्य संस्था", "४०७");
