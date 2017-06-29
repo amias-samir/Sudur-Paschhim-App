@@ -212,6 +212,8 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
         edit.putString("fwdc_json", text);
         edit.apply();
 
+
+
     }
 
 
@@ -290,8 +292,8 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
             return;
         }
 
-        AboutFWDCApiCall apiCall1 = new AboutFWDCApiCall();
-        apiCall1.execute();
+        AboutFWDCApiCall aboutFWDCApiCall = new AboutFWDCApiCall();
+        aboutFWDCApiCall.execute();
     }
 
     private void showSnackMsg(String s) {
@@ -343,6 +345,10 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
 
             if (isValidNewsResponse(text1)) {
                 saveFWDCAPIResponse(text1);
+
+
+
+
             }
 
 
@@ -353,6 +359,16 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
 
         @Override
         protected void onPostExecute(String result) {
+
+            if (isValidNewsResponse(result)){
+
+                try {
+                    setFWDCDesc();
+                } catch (JSONException e) {
+                    Log.e("shit", " " + e.toString());
+                }
+
+            }
 
             swipeRefreshLayout.setRefreshing(false);
 
