@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.naxa.nepal.sudurpaschimanchal.model.VideoList_Model;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.squareup.picasso.Picasso;
@@ -55,15 +56,14 @@ public class VideoList_Adapter extends RecyclerView.Adapter<VideoList_Adapter.Co
         //}
 
         String img_url = ci.photos;
-        if (img_url.equals("")) {
+        if (!img_url.equals("")|| img_url != null) {
             img_url = "www";
+            Glide.with(context)
+                    .load(img_url)
+                    .into(contactViewHolder.imageView);
+        }else {
+            contactViewHolder.imageView.setImageResource(R.drawable.ic_video);
         }
-        Picasso.with(context)
-                .load(img_url)
-                .placeholder(R.drawable.ic_video)
-                .resize(400, 280)
-                .into(contactViewHolder.imageView);
-
     }
 
     @Override
