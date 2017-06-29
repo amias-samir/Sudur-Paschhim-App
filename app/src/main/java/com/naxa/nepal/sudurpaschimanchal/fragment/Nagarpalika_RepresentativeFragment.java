@@ -119,13 +119,13 @@ public class Nagarpalika_RepresentativeFragment extends Fragment {
     }
 
     private void createList() {
-        Local_Level_Representative_Model districtListModel = new Local_Level_Representative_Model("Susan Lama", "Lalitpur Nagarpalika", "9841563258");
+        Local_Level_Representative_Model districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Nishon Tandukar", "Kathmandu Nagarpalika", "9874586958");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Samir Dangal", "Bhaktapur Nagarpalika", "98942563258");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
-        districtListModel = new Local_Level_Representative_Model("Upen Oli", "Bhaktapur Nagarpalika", "9851073265");
+        districtListModel = new Local_Level_Representative_Model("", "", "");
         resultCur.add(districtListModel);
         fillTable();
 

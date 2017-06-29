@@ -49,20 +49,20 @@ public class MajorDevelopment_List_Adapter extends RecyclerView.Adapter<MajorDev
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
 
-        contactViewHolder.tvNewsTitle.setText(ci.getNews_title_en());
-        contactViewHolder.tvNewsDesc.setText(ci.getNews_desc_en());
+        contactViewHolder.tvNewsTitle.setText(ci.getNews_title_np());
+//        contactViewHolder.tvNewsDesc.setText(ci.getNews_desc_en());
 //        contactViewHolder.tvNewsDate.setText(ci.news_time_np);
 //        contactViewHolder.tvNewsTime.setText(ci.news_date_np);
 
-        String Img_Thumb_Url = ci.getmThumbnail();
+//        String Img_Thumb_Url = ci.getmThumbnail();
 
-        if(Img_Thumb_Url != null) {
-            Glide.with(context)
-                    .load(Img_Thumb_Url)
-                    .thumbnail(0.5f)
-                    .override(60, 60)
-                    .into(contactViewHolder.imageViewThumb);
-        }
+//        if(Img_Thumb_Url != null) {
+//            Glide.with(context)
+//                    .load(Img_Thumb_Url)
+//                    .thumbnail(0.5f)
+//                    .override(60, 60)
+//                    .into(contactViewHolder.imageViewThumb);
+//        }
     }
 
     @Override
@@ -87,11 +87,11 @@ public class MajorDevelopment_List_Adapter extends RecyclerView.Adapter<MajorDev
         public ContactViewHolder(View v) {
             super(v);
             tvNewsTitle = (TextView) v.findViewById(R.id.news_title);
-            tvNewsDesc = (TextView) v.findViewById(R.id.news_detail);
-            tvNewsDate = (TextView) v.findViewById(R.id.feed_date);
-            tvNewsTime = (TextView) v.findViewById(R.id.feed_time);
+//            tvNewsDesc = (TextView) v.findViewById(R.id.news_detail);
+//            tvNewsDate = (TextView) v.findViewById(R.id.feed_date);
+//            tvNewsTime = (TextView) v.findViewById(R.id.feed_time);
 //            imageView = (ImageView) v.findViewById(R.id.project_imageView);
-            imageViewThumb = (ImageView) v.findViewById(R.id.project_imageView_thumb);
+//            imageViewThumb = (ImageView) v.findViewById(R.id.project_imageView_thumb);
         }
     }
 

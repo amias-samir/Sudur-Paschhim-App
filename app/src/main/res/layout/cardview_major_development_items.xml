@@ -6,9 +6,10 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_margin="10dp"
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="#ffffff">
 
         <android.support.v7.widget.CardView
@@ -19,19 +20,6 @@
             card_view:cardCornerRadius="0dp"
             card_view:cardBackgroundColor="@color/accent">
         </android.support.v7.widget.CardView>
-
-        <ImageView
-            android:id="@+id/project_imageView_thumb"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="12dp"
-            android:src="@drawable/newspaper"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="14dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/relative"
-            android:layout_toEndOf="@+id/relative" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,29 +42,18 @@
                 android:textColor="#000000"
                 android:text=""/>
 
-            <TextView
-                android:id="@+id/news_detail"
-                android:textSize="12dp"
-                android:textColor="#151515"
-                android:maxLines="2"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""/>
+            <!--<TextView-->
+                <!--android:id="@+id/news_detail"-->
+                <!--android:textSize="12dp"-->
+                <!--android:textColor="#151515"-->
+                <!--android:maxLines="2"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=""/>-->
 
-            <TextView
-                android:id="@+id/readmore"
-                android:textSize="12dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/primary_dark"
-                android:layout_gravity="right"
-                android:gravity="right"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Read more..."/>
         </LinearLayout>
 
         <!--<TextView-->

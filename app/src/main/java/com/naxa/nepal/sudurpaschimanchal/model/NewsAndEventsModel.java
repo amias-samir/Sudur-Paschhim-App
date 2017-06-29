@@ -20,9 +20,6 @@ public class NewsAndEventsModel {
     public String news_date_en;
     public String news_date_np;
 
-
-
-
     public String getNews_title_en() {
         return news_title_en;
     }
