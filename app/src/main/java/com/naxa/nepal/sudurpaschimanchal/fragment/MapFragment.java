@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -32,7 +33,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -213,7 +213,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
 
-
         //Initialize Google Play Services
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(getContext(),
@@ -240,12 +239,28 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
     }
 
+
+    private void delayBeforeMarkerReplaced(final int newPosition) {
+
+        setSudurCamera();
+
+        int ANIMATE_DELAY = 250;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setMarkers(interestLocationList, String.valueOf(newPosition));
+
+            }
+        }, ANIMATE_DELAY);
+    }
+
     /**
      * Sets the camera on sudur when the map loads
      */
     private void setSudurCamera() {
 
         final LatLngBounds SUDUR = new LatLngBounds(new LatLng(28.248326, 80.046272), new LatLng(30.771248, 82.296098));
+
 
         myMap.setLatLngBoundsForCameraTarget(SUDUR);
         myMap.setMinZoomPreference(8f);
@@ -319,6 +334,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         ArrayList<String> bussinessCategoryList = new ArrayList<>();
 
+        bussinessCategoryList.add("गन्तव्य छनौट गर्नुहोस् ");
         bussinessCategoryList.add("सबै गन्तव्यहरू");
 
         for (int i = 0; i < typesDetailsList.size(); i++) {
@@ -341,11 +357,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                try {
-                    setMarkers(interestLocationList, String.valueOf(position));
-                } catch (NullPointerException e) {
-                    e.getStackTrace();
-                }
+                int newPosition = position - 1;
+
+
+                delayBeforeMarkerReplaced(newPosition);
 
             }
 
@@ -443,12 +458,13 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         if (markerFlag) {
             myMap.clear();
+
             //set geoJson again
             setDistrictGeoJSON();
             Log.d(TAG, "Clearing all markers");
         }
 
-        //TODO marker cluster
+
         for (int i = 0; i < markersListFromServer.size(); i++) {
             markerFlag = true;
             InterestLocation curInterestLocation = markersListFromServer.get(i);
@@ -458,25 +474,17 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
             options = new MarkerOptions().position(latLag);
             options.title(curInterestLocation.getTitle());
-            options.snippet(curInterestLocation.getDesc());
+
 
             markerList = new ArrayList<>();
 
             if (typeHighligter.equals(curInterestLocation.getType())) {
                 Marker marker = myMap.addMarker(options);
-
                 markerList.add(marker);
-                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-                options.alpha(3);
-            }
-
-            //add all places to the array
-            if (typeHighligter.equals("0")) {
+            } else if (typeHighligter.equals("0")) {
                 Marker marker = myMap.addMarker(options);
                 marker.showInfoWindow();
                 markerList.add(marker);
-                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-                options.alpha(3);
             }
 
 
@@ -485,11 +493,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 public boolean onMarkerClick(Marker marker) {
                     marker.showInfoWindow();
 
-                    if (marker.getAlpha() == 1) {
-                        marker.setAlpha(1);
-                    } else {
-                        marker.setAlpha(3);
-                    }
 
                     myMap.getUiSettings().setMapToolbarEnabled(true);
                     myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(

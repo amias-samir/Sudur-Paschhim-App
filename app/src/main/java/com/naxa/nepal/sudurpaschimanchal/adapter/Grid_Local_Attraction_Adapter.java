@@ -16,9 +16,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.model.Constants;
 import com.naxa.nepal.sudurpaschimanchal.model.Home_List_Model;
-import com.naxa.nepal.sudurpaschimanchal.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,7 @@ public class Grid_Local_Attraction_Adapter extends RecyclerView.Adapter<Grid_Loc
             "#ffffff", "#ffffff",
             "#ffffff", "#ffffff",
             "#ffffff", "#ffffff"};
+    private int height,width;
 
     public Grid_Local_Attraction_Adapter(Context context, Activity activity) {
         super();
@@ -77,8 +78,12 @@ public class Grid_Local_Attraction_Adapter extends RecyclerView.Adapter<Grid_Loc
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cardview_grid, viewGroup, false);
+                .inflate(R.layout.cardview_grid_hamro_sudur, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
+
+
+
+
         return viewHolder;
     }
 
@@ -95,11 +100,12 @@ public class Grid_Local_Attraction_Adapter extends RecyclerView.Adapter<Grid_Loc
         int height = displaymetrics.heightPixels;
         int width = displaymetrics.widthPixels;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.height = (height - px) / 3; //height recycleviewer
+        params.height = (height - px) / 2; //height recycleviewer
 
         viewHolder.cardViewGridView.setLayoutParams(params);
         viewHolder.tvspecies.setText(nature.getName());
         viewHolder.imgThumbnail.setImageResource(nature.getThumbnail());
+//        viewHolder.cardViewGridView.getLayoutParams().height = height;
 //        viewHolder.cardViewGridView.setCardBackgroundColor(Color.parseColor(colorcode[i]));
     }
 
