@@ -63,7 +63,9 @@ public class VideoList_Adapter extends RecyclerView.Adapter<VideoList_Adapter.Co
                     .load(img_url)
                     .into(contactViewHolder.imageView);
         }else {
-            contactViewHolder.imageView.setImageResource(R.drawable.ic_video);
+            Glide.with(context)
+                    .load("https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg")
+                    .into(contactViewHolder.imageView);
         }
     }
 
