@@ -1,41 +1,31 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.Manifest;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.maps.android.geojson.GeoJsonLayer;
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.model.StaticListOfCoordinates;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -100,8 +90,7 @@ public class MapPointActivity extends FragmentActivity implements OnMapReadyCall
 //        mGoogleApiClient.connect();
 
         setSudurCamera();
-    }
-
+         }
 
 
     private void setSudurCamera() {
@@ -111,6 +100,13 @@ public class MapPointActivity extends FragmentActivity implements OnMapReadyCall
                 .bearing(0.0f)
                 .tilt(20f)
                 .build();
+
+
+        final LatLngBounds SUDUR = new LatLngBounds(new LatLng(28.248326, 80.046272), new LatLng(30.771248, 82.296098));
+
+
+        mMap.setLatLngBoundsForCameraTarget(SUDUR);
+        mMap.setMinZoomPreference(8f);
 
         mMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPositon), null);
@@ -128,6 +124,26 @@ public class MapPointActivity extends FragmentActivity implements OnMapReadyCall
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
     }
+
+
+    private void setDistrictGeoJSON() {
+        //set district layer
+        try {
+            GeoJsonLayer districtLayer;
+            try {
+                districtLayer = new GeoJsonLayer(mMap, R.raw.sudur,
+                        getApplicationContext());
+                districtLayer.addLayerToMap();
+
+            } catch (JSONException e) {
+            }
+
+        } catch (IOException e) {
+
+        }
+
+    }
+
 
     @Override
     public void onMapClick(LatLng latLng) {
@@ -149,7 +165,7 @@ public class MapPointActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                                //Add your data to bundle
+                //Add your data to bundle
 
 
                 lat = final_latitude;

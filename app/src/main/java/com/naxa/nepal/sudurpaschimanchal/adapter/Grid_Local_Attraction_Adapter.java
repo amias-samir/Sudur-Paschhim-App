@@ -78,11 +78,10 @@ public class Grid_Local_Attraction_Adapter extends RecyclerView.Adapter<Grid_Loc
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cardview_grid, viewGroup, false);
+                .inflate(R.layout.cardview_grid_hamro_sudur, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
 
-//        height = viewGroup.getMeasuredHeight() / 3;
-//        width = viewGroup.getMeasuredWidth() / 3;
+
 
 
         return viewHolder;
@@ -101,7 +100,7 @@ public class Grid_Local_Attraction_Adapter extends RecyclerView.Adapter<Grid_Loc
         int height = displaymetrics.heightPixels;
         int width = displaymetrics.widthPixels;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.height = (height - px) / 3; //height recycleviewer
+        params.height = (height - px) / 2; //height recycleviewer
 
         viewHolder.cardViewGridView.setLayoutParams(params);
         viewHolder.tvspecies.setText(nature.getName());
