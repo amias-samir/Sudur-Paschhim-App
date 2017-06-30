@@ -373,29 +373,38 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
     @Override
     public void onTaskCompleted(String response) {
-        //feeding an Arraylist with PlacesTypes Object
-        if (new JsonParser().isPlacesTypeJsonValid(response)) {
-            //if it has valid response
-            //assume it is importnat and replace the local data
-            districtEditor.putString(DISRICTPREF, response);
-            districtEditor.commit();
+
+
+        try {
+
+
+            //feeding an Arraylist with PlacesTypes Object
+            if (new JsonParser().isPlacesTypeJsonValid(response)) {
+                //if it has valid response
+                //assume it is importnat and replace the local data
+                districtEditor.putString(DISRICTPREF, response);
+                districtEditor.commit();
+            }
+
+            if (!districtSharedPref.getString(DISRICTPREF, "").trim().isEmpty()) {
+                //if district pref has data
+                String districtCache = districtSharedPref.getString(DISRICTPREF, " ").trim();
+                String[] types = cleanPlacesTypesData(new JsonParser().placesTypeJSONParser(districtCache));
+                //pass the cleaned data to spinner
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.my_spinner_style, types);
+                placesTypesSpinner.setAdapter(adapter);
+
+                //execute places task
+                PlacesTask placesTask = new PlacesTask(MapFragment.this);
+                //this to set delegate/listener back to this class
+                //execute the async task
+                placesTask.execute();
+            }
+        } catch (Exception e) {
+
         }
 
-        if (!districtSharedPref.getString(DISRICTPREF, "").trim().isEmpty()) {
-            //if district pref has data
-            String districtCache = districtSharedPref.getString(DISRICTPREF, " ").trim();
-            String[] types = cleanPlacesTypesData(new JsonParser().placesTypeJSONParser(districtCache));
-            //pass the cleaned data to spinner
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.my_spinner_style, types);
-            placesTypesSpinner.setAdapter(adapter);
-
-            //execute places task
-            PlacesTask placesTask = new PlacesTask(MapFragment.this);
-            //this to set delegate/listener back to this class
-            //execute the async task
-            placesTask.execute();
-        }
     }
 
     @Override
