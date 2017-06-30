@@ -179,7 +179,7 @@ public class AboutFWDCFragment extends Fragment implements SwipeRefreshLayout.On
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
-        expListView.setDividerHeight(5);
+        expListView.setDividerHeight(15);
 
 
         // Listview on child click listener

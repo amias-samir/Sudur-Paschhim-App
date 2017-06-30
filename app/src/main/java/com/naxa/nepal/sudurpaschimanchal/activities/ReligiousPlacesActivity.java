@@ -183,8 +183,8 @@ public class ReligiousPlacesActivity extends AppCompatActivity {
                     place_type_id = c.getString("place_type_id");
                     district_id = c.getString("district_id");
 
-                    Log.e("PLACE_TYPE",  place_type_id.toString());
-                    Log.e("ATTR_DIST",  district_id.toString());
+                    Log.e("PLACE_TYPE", place_type_id.toString());
+                    Log.e("ATTR_DIST", district_id.toString());
 
                     if (place_type_id.equals("1") && district_id.equals(dist_id)) {
                         LocalAttractionModel newData = new LocalAttractionModel();
@@ -207,14 +207,34 @@ public class ReligiousPlacesActivity extends AppCompatActivity {
                         LocalAttractionModel newData = new LocalAttractionModel();
                         Log.d(TAG, "jsonParse: if");
 //                newData.set(c.getString("dev_status_id"));
+
+
+                        String address_np = c.getString("place_address_np");
+                        String dist_np = c.getString("district_name_np");
+
+                        if (address_np == null || address_np.trim().length() == 0 || address_np.contains("null")) {
+                            address_np = "ठेगाना: उपलब्ध छैन";
+                        } else {
+                            address_np = "ठेगाना: " + c.getString("place_address_np");
+                        }
+
+                        if (dist_np == null || dist_np.trim().length() == 0 || address_np.contains("null")) {
+                            dist_np = "जिल्ला: उपलब्ध छैन";
+
+                        } else {
+                            dist_np = "जिल्ला: " + c.getString("district_name_np");
+                        }
+
+
+
                         newData.setPlace_title_en(c.getString("place_name_en"));
                         newData.setPlace_title_np(c.getString("place_name_np"));
                         newData.setPlace_desc_en(c.getString("place_desc_en"));
                         newData.setPlaece_desc_np(c.getString("place_desc_np"));
                         newData.setAddress_name_en(c.getString("place_address_en"));
-                        newData.setAddress_name_np(c.getString("place_address_np"));
+                        newData.setAddress_name_np(address_np);
                         newData.setDistrict_name_en(c.getString("district_name_en"));
-                        newData.setDistrict_name_np(c.getString("district_name_np"));
+                        newData.setDistrict_name_np(dist_np);
                         newData.setmThumbnail(c.getString("large_photo_path"));
 
                         resultCur.add(newData);

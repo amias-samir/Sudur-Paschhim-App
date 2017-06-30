@@ -45,7 +45,13 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         String title_np = i.getStringExtra("place_title_np");
         String desc_np = i.getStringExtra("plaece_desc_np");
         String dist_np = i.getStringExtra("project_district_np");
-        String address_np = i.getStringExtra("address_name_np");
+        String address_np;
+
+
+
+        address_np = i.getStringExtra("address_name_np");
+        dist_np = i.getStringExtra("project_district_np");
+
 
         String place_image = i.getStringExtra("place_image");
 
@@ -60,7 +66,7 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         // Displaying Received data
         Place_Title.setText(title_np);
         Place_Desc.setText(desc_np);
-        Place_dist.setText(dist_np + ", ");
+        Place_dist.setText(dist_np);
         Place_Address.setText(address_np);
 
 
