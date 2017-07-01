@@ -22,8 +22,13 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.naxa.nepal.sudurpaschimanchal.Interface.OnDistrictTaskCompleted;
+import com.naxa.nepal.sudurpaschimanchal.Interface.OnPlacesTaskCompleted;
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.Tasks.DistrictTask;
+import com.naxa.nepal.sudurpaschimanchal.Tasks.PlacesTask;
+import com.naxa.nepal.sudurpaschimanchal.fragment.MapFragment;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -70,17 +75,17 @@ public class SplashScreenActivity extends Activity {
     String jsonToSend = null;
 //===========================================  end of fwdc=====================================//
 
-//    =================================== Introduction ============================================//
-        public static final String IntroPREFERENCES = "intro_json";
-            SharedPreferences introsharedpreferences;
-            SharedPreferences.Editor introeditor;
+    //    =================================== Introduction ============================================//
+    public static final String IntroPREFERENCES = "intro_json";
+    SharedPreferences introsharedpreferences;
+    SharedPreferences.Editor introeditor;
 
 //    ================================== end of introduction =======================================//
 
-//================================================Socio Economic ===================================//
+    //================================================Socio Economic ===================================//
     public static final String SocioPREFERENCES = "socio_economic";
-        SharedPreferences sociosharedpreferences;
-        SharedPreferences.Editor socioeditor;
+    SharedPreferences sociosharedpreferences;
+    SharedPreferences.Editor socioeditor;
 //    =================================== end of socio economic=====================================//
 
 //    ================================== hamro sudur paschhim =========================================//
@@ -93,14 +98,14 @@ public class SplashScreenActivity extends Activity {
     SharedPreferences.Editor sudurdeveditor, sudurattracteditor, nagarpalikaeditor;
 //    ==================================== end of hamro sudur paschhim =================================//
 
-//   ====================================== poltical parties and poltician =================================//
-        public static final String PolticianPREFERENCES = "PolticianData";
-            SharedPreferences polticiansharedpreferences;
-            SharedPreferences.Editor polticianeditor;
+    //   ====================================== poltical parties and poltician =================================//
+    public static final String PolticianPREFERENCES = "PolticianData";
+    SharedPreferences polticiansharedpreferences;
+    SharedPreferences.Editor polticianeditor;
 
-        public static final String PartiesPREFERENCES = "poltical_parties_json";
-            SharedPreferences partiessharedpreferences;
-            SharedPreferences.Editor partieseditor;
+    public static final String PartiesPREFERENCES = "poltical_parties_json";
+    SharedPreferences partiessharedpreferences;
+    SharedPreferences.Editor partieseditor;
 //    ================================== end of poltical prties and poltician ================================//
 
 //========================================================================================================================//
@@ -118,15 +123,15 @@ public class SplashScreenActivity extends Activity {
 
 
         textView3 = (TextView) findViewById(R.id.textView3);
-        Typeface face3= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face3 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView3.setTypeface(face3);
 
         textView4 = (TextView) findViewById(R.id.textView4);
-        Typeface face4= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face4 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView4.setTypeface(face4);
 
-        firstBar = (ProgressBar)findViewById(R.id.firstBar);
-        secondBar = (ProgressBar)findViewById(R.id.secondBar);
+        firstBar = (ProgressBar) findViewById(R.id.firstBar);
+        secondBar = (ProgressBar) findViewById(R.id.secondBar);
 //================================== shared preferences initialization ==============================================//
 
         //SharedPreferences-DEV_ACTIVITIES
@@ -166,116 +171,134 @@ public class SplashScreenActivity extends Activity {
         partieseditor = partiessharedpreferences.edit();
 
 
-
 //======================================================== end of shared preferences initialization ========================//
-                try {
+        try {
 
-                    RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
-                    Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-                    relativeLayout.startAnimation(relativeAnim);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
+            Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+            relativeLayout.startAnimation(relativeAnim);
 
-                    TextView textView3 = (TextView) findViewById(R.id.textView3);
-                    Animation textViewAnimate3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_slow);
-                    textView3.startAnimation(textViewAnimate3);
+            TextView textView3 = (TextView) findViewById(R.id.textView3);
+            Animation textViewAnimate3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_slow);
+            textView3.startAnimation(textViewAnimate3);
 
 
-                    if (networkInfo != null && networkInfo.isConnected()) {
-                        firstBar.setVisibility(View.VISIBLE);
-                        firstBar.setMax(9);
-                        secondBar.setVisibility(View.GONE);
-                        firstBar.setSecondaryProgress(downloadCount + 1);
+            if (networkInfo != null && networkInfo.isConnected()) {
+                firstBar.setVisibility(View.VISIBLE);
+                firstBar.setMax(9);
+                secondBar.setVisibility(View.GONE);
+                firstBar.setSecondaryProgress(downloadCount + 1);
 
 //                            if (downloadCount <= 9) {
 
 
-                                //==============about fwdc dev call====================//
-                        convertDataToJson();
-                        FWDCDEVApiCall fwdcdevApiCall = new FWDCDEVApiCall();
-                        fwdcdevApiCall.execute();
+                //==============about fwdc dev call====================//
+                convertDataToJson();
+                FWDCDEVApiCall fwdcdevApiCall = new FWDCDEVApiCall();
+                fwdcdevApiCall.execute();
+
+
+                //==============about fwdc call====================//
+                convertDataToJson();
+                AboutFWDCApiCall aboutFWDCApiCall = new AboutFWDCApiCall();
+                aboutFWDCApiCall.execute();
+
+
+                //=========== introduction Api call ==============//
+                convertDataToJson();
+                IntroApiCall introapiCall = new IntroApiCall();
+                introapiCall.execute();
+
+                //socio economc status
+                convertDataToJson();
+                SocioEconomicService restApi = new SocioEconomicService();
+                restApi.execute();
+
+                //============= Sudur DEVELOPEMENT ACTIVITIES APICALL==================//
+                convertDataToJson();
+                SudurDevApiCall sudurDevApiCall = new SudurDevApiCall();
+                sudurDevApiCall.execute();
+
+                //=============local attraction PLACES APICALL==================//
+                convertDataToJson();
+                AttrractionApiCall attractionapiCall = new AttrractionApiCall();
+                attractionapiCall.execute();
+
+                //   Nagarpalika Budget Api call
+                convertDataToJson();
+                NagarpalikaBudgetApiCall nagarpalikaBudgetApiCall = new NagarpalikaBudgetApiCall();
+                nagarpalikaBudgetApiCall.execute();
+
+
+                //==================Poltical parties ===================//
+                convertDataToJson();
+                PoticalPartiesListService poticalPartiesListService = new PoticalPartiesListService();
+                poticalPartiesListService.execute();
+
+                //================= polticial list ========================//
+                convertDataToJson();
+                PoticianListService poticianListService = new PoticianListService();
+                poticianListService.execute();
 
 
 
-                        //==============about fwdc call====================//
-                        convertDataToJson();
-                        AboutFWDCApiCall aboutFWDCApiCall = new AboutFWDCApiCall();
-                        aboutFWDCApiCall.execute();
-
-
-                        //=========== introduction Api call ==============//
-                        convertDataToJson();
-                        IntroApiCall introapiCall = new IntroApiCall();
-                        introapiCall.execute();
-
-                        //socio economc status
-                        convertDataToJson();
-                        SocioEconomicService restApi = new SocioEconomicService();
-                        restApi.execute();
-
-                        //============= Sudur DEVELOPEMENT ACTIVITIES APICALL==================//
-                        convertDataToJson();
-                        SudurDevApiCall sudurDevApiCall = new SudurDevApiCall();
-                        sudurDevApiCall.execute();
-
-                        //=============local attraction PLACES APICALL==================//
-                        convertDataToJson();
-                        AttrractionApiCall attractionapiCall = new AttrractionApiCall();
-                        attractionapiCall.execute();
-
-                        //   Nagarpalika Budget Api call
-                        convertDataToJson();
-                        NagarpalikaBudgetApiCall nagarpalikaBudgetApiCall = new NagarpalikaBudgetApiCall();
-                        nagarpalikaBudgetApiCall.execute();
-
-
-                        //==================Poltical parties ===================//
-                        convertDataToJson();
-                        PoticalPartiesListService poticalPartiesListService = new PoticalPartiesListService();
-                        poticalPartiesListService.execute();
-
-                        //================= polticial list ========================//
-                        convertDataToJson();
-                        PoticianListService poticianListService = new PoticianListService();
-                        poticianListService.execute();
-//                        }
-
-                    } else {
-
-                        Thread pause = new Thread() {
-                            public void run() {
-                                try {
-
-                                    RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
-                                    Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-                                    relativeLayout.startAnimation(relativeAnim);
-
-                                    TextView textView3 = (TextView) findViewById(R.id.textView3);
-                                    Animation textViewAnimate3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_slow);
-                                    textView3.startAnimation(textViewAnimate3);
-
-                                    sleep(3000);
-                                    finish();
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    Intent stuff = new Intent(SplashScreenActivity.this,MainActivity.class);
-                                    startActivity(stuff);
-                                }
-                                finish();
-                            }
-                        };
-                        pause.start();
+                DistrictTask districtTask = new DistrictTask(new OnDistrictTaskCompleted() {
+                    @Override
+                    public void onTaskCompleted(String response) {
 
                     }
+                });
+
+                districtTask.execute();
+
+                PlacesTask placesTask = new PlacesTask(new OnPlacesTaskCompleted() {
+                    @Override
+                    public void onPlacesTaskCompleted(String response) {
+
+                    }
+                });
+
+                placesTask.execute();
 
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
+//                        }
+
+            } else {
+
+                Thread pause = new Thread() {
+                    public void run() {
+                        try {
+
+                            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
+                            Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+                            relativeLayout.startAnimation(relativeAnim);
+
+                            TextView textView3 = (TextView) findViewById(R.id.textView3);
+                            Animation textViewAnimate3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_slow);
+                            textView3.startAnimation(textViewAnimate3);
+
+                            sleep(3000);
+                            finish();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } finally {
+                            Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
+                            startActivity(stuff);
+                        }
+                        finish();
+                    }
+                };
+                pause.start();
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
-
-
 
 
     // data convert
@@ -294,7 +317,6 @@ public class SplashScreenActivity extends Activity {
         }
 
     }
-
 
 
     //About fwdc dev
@@ -334,10 +356,10 @@ public class SplashScreenActivity extends Activity {
             String text = "";
 
             try {
-                        text = POST(UrlClass.URL_DEV_ACTIVITIES);
-                        Log.e("FWDCDEV ACTIVITIES", "Splash" + text.toString());
-                        fwdcdeveditor.putString("dev_activities", text);
-                        fwdcdeveditor.commit();
+                text = POST(UrlClass.URL_DEV_ACTIVITIES);
+                Log.e("FWDCDEV ACTIVITIES", "Splash" + text.toString());
+                fwdcdeveditor.putString("dev_activities", text);
+                fwdcdeveditor.commit();
 
 
             } catch (Exception e) {
@@ -355,7 +377,7 @@ public class SplashScreenActivity extends Activity {
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -460,11 +482,10 @@ public class SplashScreenActivity extends Activity {
             String text1 = "";
 
             try {
-                        text1 = POST(UrlClass.URL_ABOUT_FWDC);
-                        Log.e("ABOUT FWDC ", "Splash" + text1.toString());
-                        aboutfwdceditor.putString("fwdc_json", text1);
-                        aboutfwdceditor.commit();
-
+                text1 = POST(UrlClass.URL_ABOUT_FWDC);
+                Log.e("ABOUT FWDC ", "Splash" + text1.toString());
+                aboutfwdceditor.putString("fwdc_json", text1);
+                aboutfwdceditor.commit();
 
 
             } catch (Exception e) {
@@ -482,7 +503,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
 //                //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -576,10 +597,10 @@ public class SplashScreenActivity extends Activity {
 //            introeditor.clear();
             try {
 
-                        text = POST(UrlClass.URL_INTRODUCTION);
-                        Log.e("INTRODUCTION FWDC :", "Splash" + text.toString());
-                        introeditor.putString("intro_json", text);
-                        introeditor.commit();
+                text = POST(UrlClass.URL_INTRODUCTION);
+                Log.e("INTRODUCTION FWDC :", "Splash" + text.toString());
+                introeditor.putString("intro_json", text);
+                introeditor.commit();
 
 
             } catch (Exception e) {
@@ -595,7 +616,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -676,15 +697,15 @@ public class SplashScreenActivity extends Activity {
             String text = "";
 
             try {
-                    text = POST(UrlClass.URL_SOCIO_ECONOMIC);
+                text = POST(UrlClass.URL_SOCIO_ECONOMIC);
                 Log.e("FWDC SOCIO ECONOMIC :  ", "Splash" + text.toString());
                 socioeditor.putString("socio_economic", text);
-                    socioeditor.commit();
+                socioeditor.commit();
 
 
-        } catch (Exception e) {
-            return e.getLocalizedMessage();
-        }
+            } catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
 
             return text;
         }
@@ -696,7 +717,7 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -788,12 +809,12 @@ public class SplashScreenActivity extends Activity {
             String text = "";
 
             try {
-                        text = POST(UrlClass.URL_SUDURPASCHHIM_DEV_ACT);
+                text = POST(UrlClass.URL_SUDURPASCHHIM_DEV_ACT);
 
-                        Log.e("SUDURPASCHHIM DEV : ", "Splash" + text.toString());
+                Log.e("SUDURPASCHHIM DEV : ", "Splash" + text.toString());
 
-                        sudurdeveditor.putString("hamro_sudurpaschhim", text);
-                        sudurdeveditor.commit();
+                sudurdeveditor.putString("hamro_sudurpaschhim", text);
+                sudurdeveditor.commit();
 
 
             } catch (Exception e) {
@@ -810,7 +831,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -898,11 +919,11 @@ public class SplashScreenActivity extends Activity {
             String text1 = "";
 
             try {
-                        text1 = POST(UrlClass.URL_NAGARPALIKA_BUDGET);
+                text1 = POST(UrlClass.URL_NAGARPALIKA_BUDGET);
 
-                        Log.e("nagar_budget", "Splash" + text1.toString());
-                        nagarpalikaeditor.putString("nagar_budget", text1);
-                        nagarpalikaeditor.commit();
+                Log.e("nagar_budget", "Splash" + text1.toString());
+                nagarpalikaeditor.putString("nagar_budget", text1);
+                nagarpalikaeditor.commit();
 
 
             } catch (Exception e) {
@@ -919,7 +940,7 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1015,11 +1036,11 @@ public class SplashScreenActivity extends Activity {
             String text1 = "";
 
             try {
-                        text1 = POST(UrlClass.URL_SUDURPASCHHIM_LOCAL_ATTR);
+                text1 = POST(UrlClass.URL_SUDURPASCHHIM_LOCAL_ATTR);
 
-                        Log.e("SUDUR LOCAL ATTRACTION", "Splash" + text1.toString());
-                        sudurattracteditor.putString("sudur_attract", text1);
-                        sudurattracteditor.commit();
+                Log.e("SUDUR LOCAL ATTRACTION", "Splash" + text1.toString());
+                sudurattracteditor.putString("sudur_attract", text1);
+                sudurattracteditor.commit();
 
 
             } catch (Exception e) {
@@ -1036,11 +1057,10 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
-
 
 
             }
@@ -1124,11 +1144,10 @@ public class SplashScreenActivity extends Activity {
 
             try {
 
-                    text = POST(UrlClass.URL_PARTY_LIST);
+                text = POST(UrlClass.URL_PARTY_LIST);
                 Log.e("POLTICAL PARTIES ", "Splash" + text.toString());
                 partieseditor.putString("poltical_parties_json", text);
-                    partieseditor.commit();
-
+                partieseditor.commit();
 
 
             } catch (Exception e) {
@@ -1143,8 +1162,8 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
 
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
-                downloadCount ++ ;
+                downloadCount++;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1227,12 +1246,10 @@ public class SplashScreenActivity extends Activity {
             String text = "";
 
             try {
-                    text = POST(UrlClass.URL_POLTICIAN_LIST);
+                text = POST(UrlClass.URL_POLTICIAN_LIST);
                 Log.e("POLTICIAN LIST :  ", "Splash" + text.toString());
                 polticianeditor.putString("PolticianData", text);
-                    polticianeditor.commit();
-
-
+                polticianeditor.commit();
 
 
             } catch (Exception e) {
@@ -1248,7 +1265,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1256,7 +1273,7 @@ public class SplashScreenActivity extends Activity {
 
                 Log.e("ProgressBar", "end " + downloadCount);
 
-            }else {
+            } else {
                 restartActivity();
             }
 
@@ -1309,47 +1326,46 @@ public class SplashScreenActivity extends Activity {
     }
 
 
-
-    public  void  startMainActivity (int count){
-        if(count == 10){
+    public void startMainActivity(int count) {
+        if (count == 10) {
             Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
             startActivity(stuff);
         }
     }
 
-    public void restartActivity(){
+    public void restartActivity() {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;
 
-            final Dialog showDialog = new Dialog(context);
-            showDialog.setContentView(R.layout.restart_download_popup);
-            final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
-            final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
+        final Dialog showDialog = new Dialog(context);
+        showDialog.setContentView(R.layout.restart_download_popup);
+        final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
+        final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
 
-            showDialog.setTitle("Connection Error");
-            showDialog.setCancelable(false);
-            showDialog.show();
-            showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+        showDialog.setTitle("Connection Error");
+        showDialog.setCancelable(false);
+        showDialog.show();
+        showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-            yes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showDialog.dismiss();
-                    Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
-                    startActivity(intent);
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog.dismiss();
+                Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
+                startActivity(intent);
 //                                finish();
-                }
-            });
+            }
+        });
 
-            no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showDialog.dismiss();
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog.dismiss();
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 }
