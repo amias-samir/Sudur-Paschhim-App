@@ -38,7 +38,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Retry"
             android:id="@+id/buttonYes"
             android:textColor="#ffffff"
@@ -52,7 +52,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Skip"
             android:textColor="#ffffff"
             android:id="@+id/buttonNo"
