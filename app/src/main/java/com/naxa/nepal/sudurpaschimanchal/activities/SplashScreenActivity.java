@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.model.INGO_NGO_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -39,6 +40,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -103,6 +109,11 @@ public class SplashScreenActivity extends Activity {
             SharedPreferences.Editor partieseditor;
 //    ================================== end of poltical prties and poltician ================================//
 
+//=========================================NGO/INGO ==========================================================//
+public static final String NgoIngoPREFERENCES = "development_ingo_ngo";
+    SharedPreferences ngosharedpreferences;
+    SharedPreferences.Editor ngoeditor ;
+
 //========================================================================================================================//
 
     TextView textView1, textView2, textView3, textView4;
@@ -165,6 +176,9 @@ public class SplashScreenActivity extends Activity {
         partiessharedpreferences = this.getSharedPreferences(PartiesPREFERENCES, Context.MODE_PRIVATE);
         partieseditor = partiessharedpreferences.edit();
 
+        // NGO/INGO
+        ngosharedpreferences = this.getSharedPreferences(NgoIngoPREFERENCES, Context.MODE_PRIVATE);
+        ngoeditor = ngosharedpreferences.edit();
 
 
 //======================================================== end of shared preferences initialization ========================//
@@ -236,6 +250,13 @@ public class SplashScreenActivity extends Activity {
                         convertDataToJson();
                         PoticianListService poticianListService = new PoticianListService();
                         poticianListService.execute();
+
+
+                        //====================NGO/INGO=================================//
+                        convertDataToJson();
+                        DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
+                        ngoIngoApi.execute();
+
 //                        }
 
                     } else {
@@ -1252,13 +1273,14 @@ public class SplashScreenActivity extends Activity {
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
-                startMainActivity(downloadCount);
+//                startMainActivity(downloadCount);
 
-                Log.e("ProgressBar", "end " + downloadCount);
+//                Log.e("ProgressBar", "end " + downloadCount);
 
-            }else {
-                restartActivity();
             }
+//            else {
+//                restartActivity();
+//            }
 
         }
 
@@ -1309,9 +1331,110 @@ public class SplashScreenActivity extends Activity {
     }
 
 
+    //  NGO/INGO
+    private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+            return out.toString();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text = "";
+
+            try {
+                    text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
+                    ngoeditor = ngosharedpreferences.edit();
+                    ngoeditor.putString("development_ingo_ngo", text);
+                Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
+                ngoeditor.commit();
+                }
+             catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
+
+            return text.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            //Log.e("ONPOSTEXECUTE", "ONPOST");
+//            mProgressDlg.dismiss();
+            if (result != null && !result.equals("")) {
+                downloadCount ++ ;
+                firstBar.setProgress(downloadCount);
+                //Set the second progress bar value
+//                firstBar.setSecondaryProgress(downloadCount + 1);
+                startMainActivity(downloadCount);
+
+                Log.e("ProgressBar", "end " + downloadCount);
+
+            }else {
+                restartActivity();
+            }
+        }
+
+        public String POST(String myurl) {
+
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+        }
+    }
+
+
 
     public  void  startMainActivity (int count){
-        if(count == 10){
+        if(count == 11){
             Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
             startActivity(stuff);
         }
