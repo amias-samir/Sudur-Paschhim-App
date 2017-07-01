@@ -22,13 +22,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.naxa.nepal.sudurpaschimanchal.Interface.OnDistrictTaskCompleted;
-import com.naxa.nepal.sudurpaschimanchal.Interface.OnPlacesTaskCompleted;
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.Tasks.DistrictTask;
-import com.naxa.nepal.sudurpaschimanchal.Tasks.PlacesTask;
-import com.naxa.nepal.sudurpaschimanchal.fragment.MapFragment;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -46,6 +41,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
+
+<<<<<<<HEAD
+        =======
+        >>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
 
 
 /**
@@ -107,6 +106,11 @@ public class SplashScreenActivity extends Activity {
     SharedPreferences partiessharedpreferences;
     SharedPreferences.Editor partieseditor;
 //    ================================== end of poltical prties and poltician ================================//
+
+    //=========================================NGO/INGO ==========================================================//
+    public static final String NgoIngoPREFERENCES = "development_ingo_ngo";
+    SharedPreferences ngosharedpreferences;
+    SharedPreferences.Editor ngoeditor;
 
 //========================================================================================================================//
 
@@ -170,6 +174,9 @@ public class SplashScreenActivity extends Activity {
         partiessharedpreferences = this.getSharedPreferences(PartiesPREFERENCES, Context.MODE_PRIVATE);
         partieseditor = partiessharedpreferences.edit();
 
+        // NGO/INGO
+        ngosharedpreferences = this.getSharedPreferences(NgoIngoPREFERENCES, Context.MODE_PRIVATE);
+        ngoeditor = ngosharedpreferences.edit();
 
 //======================================================== end of shared preferences initialization ========================//
         try {
@@ -241,9 +248,18 @@ public class SplashScreenActivity extends Activity {
                 poticianListService.execute();
 
 
+                //================= polticial list ========================//
+                convertDataToJson();
+                PoticianListService poticianListService = new PoticianListService();
+                poticianListService.execute();
 
 
+                //====================NGO/INGO=================================//
+                convertDataToJson();
+                DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
+                ngoIngoApi.execute();
 
+//                        }
 
 
 //                        }
@@ -1252,13 +1268,19 @@ public class SplashScreenActivity extends Activity {
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
-                startMainActivity(downloadCount);
+//                startMainActivity(downloadCount);
 
-                Log.e("ProgressBar", "end " + downloadCount);
+//                Log.e("ProgressBar", "end " + downloadCount);
 
+<<<<<<<HEAD
             } else {
                 restartActivity();
+=======
+>>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
             }
+//            else {
+//                restartActivity();
+//            }
 
         }
 
@@ -1309,46 +1331,152 @@ public class SplashScreenActivity extends Activity {
     }
 
 
+<<<<<<<HEAD
+
     public void startMainActivity(int count) {
         if (count == 10) {
-            Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
-            startActivity(stuff);
+=======
+            //  NGO/INGO
+            private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
+                JSONArray data = null;
+
+                protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                        throws IllegalStateException, IOException {
+                    InputStream in = (InputStream) entity.getContent();
+
+                    StringBuffer out = new StringBuffer();
+                    int n = 1;
+                    while (n > 0) {
+                        byte[] b = new byte[4096];
+                        n = in.read(b);
+
+                        if (n > 0)
+                            out.append(new String(b, 0, n));
+                    }
+                    return out.toString();
+                }
+
+                @Override
+                protected String doInBackground(String... params) {
+                    // TODO Auto-generated method stub
+                    String text = "";
+
+                    try {
+                        text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
+                        ngoeditor = ngosharedpreferences.edit();
+                        ngoeditor.putString("development_ingo_ngo", text);
+                        Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
+                        ngoeditor.commit();
+                    } catch (Exception e) {
+                        return e.getLocalizedMessage();
+                    }
+
+                    return text.toString();
+                }
+
+                @Override
+                protected void onPostExecute(String result) {
+                    // TODO Auto-generated method stub
+                    //Log.e("ONPOSTEXECUTE", "ONPOST");
+//            mProgressDlg.dismiss();
+                    if (result != null && !result.equals("")) {
+                        downloadCount++;
+                        firstBar.setProgress(downloadCount);
+                        //Set the second progress bar value
+//                firstBar.setSecondaryProgress(downloadCount + 1);
+                        startMainActivity(downloadCount);
+
+                        Log.e("ProgressBar", "end " + downloadCount);
+
+                    } else {
+                        restartActivity();
+                    }
+                }
+
+                public String POST(String myurl) {
+
+                    URL url;
+                    String response = "";
+                    try {
+                        url = new URL(myurl);
+
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setReadTimeout(15000);
+                        conn.setConnectTimeout(15000);
+                        conn.setRequestMethod("POST");
+                        conn.setDoInput(true);
+                        conn.setDoOutput(true);
+
+                        OutputStream os = conn.getOutputStream();
+                        BufferedWriter writer = new BufferedWriter(
+                                new OutputStreamWriter(os, "UTF-8"));
+                        Uri.Builder builder = new Uri.Builder()
+                                .appendQueryParameter("data", jsonToSend);
+                        String query = builder.build().getEncodedQuery();
+                        writer.write(query);
+                        writer.flush();
+                        writer.close();
+                        os.close();
+                        int responseCode = conn.getResponseCode();
+
+                        if (responseCode == HttpsURLConnection.HTTP_OK) {
+                            String line;
+                            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                            while ((line = br.readLine()) != null) {
+                                response += line;
+                            }
+                        } else {
+                            response = "";
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return response;
+                }
+            }
+
+
+        public void startMainActivity ( int count){
+            if (count == 11) {
+>>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
+                Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(stuff);
+            }
         }
-    }
 
-    public void restartActivity() {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
+        public void restartActivity () {
+            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+            int width = metrics.widthPixels;
+            int height = metrics.heightPixels;
 
-        final Dialog showDialog = new Dialog(context);
-        showDialog.setContentView(R.layout.restart_download_popup);
-        final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
-        final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
+            final Dialog showDialog = new Dialog(context);
+            showDialog.setContentView(R.layout.restart_download_popup);
+            final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
+            final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
 
-        showDialog.setTitle("Connection Error");
-        showDialog.setCancelable(false);
-        showDialog.show();
-        showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+            showDialog.setTitle("Connection Error");
+            showDialog.setCancelable(false);
+            showDialog.show();
+            showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog.dismiss();
-                Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
-                startActivity(intent);
+            yes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialog.dismiss();
+                    Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
+                    startActivity(intent);
 //                                finish();
-            }
-        });
+                }
+            });
 
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog.dismiss();
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+            no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialog.dismiss();
+                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
     }
-
-}
