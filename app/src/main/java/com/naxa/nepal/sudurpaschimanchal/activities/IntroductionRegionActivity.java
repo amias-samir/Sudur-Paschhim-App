@@ -84,10 +84,10 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("सदरमुकाम", "दिपायल, डोटी");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("अक्षांश","२८.३९४५-३०.२४७२");
+        a = new IntroductionRegionModel("अक्षांश","२८.३९४५-३०.२४७२ डिग्री");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("देशान्तर","८०.०५८६-८०.८०८१");
+        a = new IntroductionRegionModel("देशान्तर","८०.०५८६-८०.८०८१ डिग्री");
         albumList.add(a);
 
         a = new IntroductionRegionModel("शिक्षित जनसंख्या", "१४,९२,८१८");
@@ -114,7 +114,7 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज)");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("आरक्षण क्षेत्र", "१ (शुक्लाफाट आरक्षण क्षत्र)");
+        a = new IntroductionRegionModel("आरक्षण क्षेत्र", "१ (शुक्लाफाट आरक्षण क्षेत्र)");
         albumList.add(a);
 
 

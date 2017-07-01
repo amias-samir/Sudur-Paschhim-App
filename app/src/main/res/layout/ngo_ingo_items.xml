@@ -8,13 +8,13 @@
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:background="#ffffff">
 
         <android.support.v7.widget.CardView
             android:id="@+id/relative"
             android:layout_width="10dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             card_view:cardBackgroundColor="#B6B6B6"
             card_view:cardCornerRadius="0dp"
             card_view:cardElevation="6dp">
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:maxLines="1"
-                    android:text="Website: "
+                    android:text="Email: "
                     android:textColor="#151515"
                     android:textSize="12dp" />
 

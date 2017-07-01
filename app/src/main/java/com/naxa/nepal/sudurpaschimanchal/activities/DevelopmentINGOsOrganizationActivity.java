@@ -171,7 +171,7 @@ public class DevelopmentINGOsOrganizationActivity extends AppCompatActivity{
 
     private void initializeUI(){
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("स्तिनिय तहका प्रतिनिधि");
+        toolbar.setTitle("विकास साझेदार सस्था");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -47,7 +47,7 @@ public class DistrictProgramActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("जिल्लामा कार्यक्रम");
+        getSupportActionBar().setTitle("जिल्ला स्थित कार्यक्रम");
         final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_back_icon);
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);

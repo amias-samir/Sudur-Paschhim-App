@@ -20,9 +20,9 @@
             android:id="@+id/firstBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
             android:visibility="gone"
-            android:progressTint="@color/primary_dark"
+            android:progressTint="@color/white"
             android:secondaryProgressTint="@color/primary"
             />
         <ProgressBar
@@ -119,7 +119,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
-            />
+            android:progressBackgroundTint="@color/primary_dark" />
     </RelativeLayout>
 
     <RelativeLayout

@@ -87,8 +87,9 @@ public class BarChartDetailsActivity extends AppCompatActivity {
         Bardataset.setColors(ChartColor.COLORFUL_COLORS);
 
         chart.setData(BARDATA);
-
+        chart.setDescription("विवरण");
         chart.animateY(3000);
+
 
 
 
