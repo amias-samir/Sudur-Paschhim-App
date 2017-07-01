@@ -242,23 +242,6 @@ public class SplashScreenActivity extends Activity {
 
 
 
-                DistrictTask districtTask = new DistrictTask(new OnDistrictTaskCompleted() {
-                    @Override
-                    public void onTaskCompleted(String response) {
-
-                    }
-                });
-
-                districtTask.execute();
-
-                PlacesTask placesTask = new PlacesTask(new OnPlacesTaskCompleted() {
-                    @Override
-                    public void onPlacesTaskCompleted(String response) {
-
-                    }
-                });
-
-                placesTask.execute();
 
 
 
