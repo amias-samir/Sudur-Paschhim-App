@@ -2,25 +2,19 @@ package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,35 +22,15 @@ import android.view.View;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.adapter.MajorDevelopment_List_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.model.NewsAndEventsModel;
-import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by susan on 6/26/2017.
  */
 
-public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
+public class MajorDevelopmentProjectsActivity extends AppCompatActivity {
 
     //Susan
     private SwipeRefreshLayout swipeContainer;
@@ -74,7 +48,7 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
     public static List<NewsAndEventsModel> filteredList = new ArrayList<>();
     public static final String MyPREFERENCES = "major_development_projects";
     SharedPreferences sharedpreferences;
-    SharedPreferences.Editor editor ;
+    SharedPreferences.Editor editor;
 
     private boolean setData;
     String jsonToSend = null;
@@ -176,7 +150,7 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
         fillTable();
     }
 
-    private void initializeUI(){
+    private void initializeUI() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("मुख्य विकास परियोजनाहरु");
         setSupportActionBar(toolbar);
@@ -191,143 +165,51 @@ public class MajorDevelopmentProjectsActivity extends AppCompatActivity{
     }
 
     private void createList() {
+
+
         resultCur.clear();
 
+
         NewsAndEventsModel newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("धनगढी – खुटिया – दिपायल – चैनपुर – ताक्लाकोट द्रुतमार्गको निर्माण सम्पन्न");
+        newsAndEventsModel.setNews_title_np("पश्चिम सेती जलविद्युत आयोजना");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("महाकाली लोकमार्गको निर्माण सम्पन्न");
+        newsAndEventsModel.setNews_title_np("पन्चेश्वर बहुउद्देश्यिय आयोजना");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("सेती लोकमार्ग निर्माण सम्पन्न");
+        newsAndEventsModel.setNews_title_np("रानी जमरा सिंचाई आयोजना");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("मध्य पहाडी लोकमार्गको सेती – महाकाली खण्डको निर्माण तथा स्तरोन्नती ");
+        newsAndEventsModel.setNews_title_np("सेती लोकमार्ग");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("हुलाकी लोकमार्गको सेती – महाकाली खण्डको निर्माण तथा स्तरोन्नती");
+        newsAndEventsModel.setNews_title_np("मध्य पहाडि लोकमार्ग सुदूरपश्चिम खण्ड");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("महेन्द्रनगर – दैजी – जोगबुडा – डडेल्धुरा सडक निर्माण सम्पन्न");
+        newsAndEventsModel.setNews_title_np("महाकालिको चार लेनको पुल");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("पूर्बपश्चिम लोकमार्गको गड्डाचौकी – चिसापानी खण्ड ८ लेनको बनाउने");
+        newsAndEventsModel.setNews_title_np("दोधारा चाँदनी सुख्खा बन्दरगाह");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("धनगढी विमानस्थललाइ क्षेत्रीय अन्तराष्ट्रिय विमानस्थलको रूपमा विकास र बिस्तार ");
+        newsAndEventsModel.setNews_title_np("क्षला औद्योगिक क्षेत्र");
         resultCur.add(newsAndEventsModel);
 
         newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("कोल्टी, चैनपुर र गोकुलेश्वर विमानस्थलको स्तरोन्नती, विकास र संचालन");
+        newsAndEventsModel.setNews_title_np("हुलाकी मार्ग (सुदूरपश्चिम खण्ड)");
         resultCur.add(newsAndEventsModel);
 
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("पश्चिम सेती जलविद्युत आयोजना निर्माण");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("पंचेश्वर बहु उद्देश्यीय जलविद्युत आयोजना निर्माण ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("सेती – कर्णाली बहु उद्देश्यीय जलाशययुक्त आयोजना निर्माण ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("चमेलिया, बुढीगंगा, कालंगा, लगायत निर्माणाधीन जलविद्युत आयोजना निर्माण सम्पन्न");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("तिब्बतको कैलाश मानसरोवर र यस क्षेत्रका चार धाम ९गोदावरी, परशुराम, मल्लिकार्जुन र बैजनाथ तथा सात शक्तिपीठहरु ९उग्रतारा, शैलेश्वरी, बडिमालिका, त्रिपुरासुन्दरी, निन्ग्लाशैनी, डीलाशैनी, मेलौली० हरु जोड्ने धार्मिक पर्यटकीय मार्ग निर्माण र स्तरोन्नती गर्ने");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("खप्तड राष्ट्रिय निकुन्जको मध्यवर्ती क्षेत्रमा पर्यटकीय चक्रपथ निर्माण");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("९ वटै जिल्लाका उपयुक्त पर्यटकीय स्थलहरुमा केवलकार लगायत अन्य पर्यटकीय पूर्वाधार स्थापना ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("कर्णाली चिसापानी देखि ब्रह्मदेवसम्मको चुरे क्षेत्रलाई संरक्षण र विकास गरी जंगल सफारी, हाइकिंग लगायत पर्यटकीय गतिबिधी संचालन");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("धनगढी, ताक्लाकोट, र दोधारा चाँदनीमा अत्याधुनिक भन्सार सुबिधा सहित ब्यबस्थित ब्यापार नाका स्थापना र संचालन");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("महाकाली नदीमा  दोधारा चाँदनी क्षेत्रमा सुक्खा बन्दरगाह सहित चार लेनको पक्कि पूल र पंचेश्वर, झुलाघांट र दार्चुलामा पक्कि पूल निर्माण ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("डडेल्धुरामा अत्याधुनिक र सुबिधा सम्पन्न रंगशाला र क्रिकेट मैदान निर्माण ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("कैलालीको गेटामा दशरथ चन्द स्वास्थ्य बिज्ञान प्रतिष्ठान तथा शिक्षण अस्पताल निर्माण ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("सुदूरपश्चिम बिश्वबिद्यालयको विकास, बिस्तार र स्तरोन्नती, सीपमुलक र रोजगार मैत्री प्राबिधिक र ब्यबसायिक अध्ययन केन्द्रहरुको स्थापना ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("नौ वटै जिल्ला सदरमुकामहरुमा बिशेषज्ञ सेवा सहितको सुबिधा सम्पन्न अस्पताल र ट्रमा सेन्टर निर्माण");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("कन्चनपुरको बेद्कोट नगरपालिकामा बृहद औद्योगिक क्षेत्र स्थापना र संचालन, कृषी यन्त्र, औजार, मलखाद, बिउ बिजन, बिषादी लगायत कृषी जन्य उद्योग स्थापनामा बिशेष छूटको ब्यबस्था");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("दिपायल र टीकापुरमा कृषि अध्ययन तथा अनुसन्धान संस्थान स्थापना");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("अछाममा पशुबिज्ञान अध्ययन तथा अनुसन्धान संस्थान स्थापना");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("डडेल्धुरामा बन बिज्ञान अध्ययन संथानको स्थापना ");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("बैतडी जिल्लामा रहेका फलाम लगायत खानी संचालन, अन्य क्षेत्रमा खानी तथा खनीज पदार्थको उपलब्धता सम्बन्धी अनुसन्धान");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("बझांग जिल्लामा जडीबुटी संकलन, प्रशोधन तथा आयुर्वेद अध्ययन केन्द्रको स्थापना");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("दार्चुलामा बृहद घरेलु गलैंचा उद्योग स्थापना");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("सुदूरपश्चिम क्षेत्रको बिस्तृत भूउपयोग योजना तयारी तथा कार्यान्वयन");
-        resultCur.add(newsAndEventsModel);
-
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("उच्च पहाडी र हिमाली स्थानमा छरिएर रहेका, अन्य जोखिमयुक्त स्थानमा रहेका तथा विभिन्न विपद तथा विकास निर्माणको कारणले बिस्थापित भएका ब्यक्तीहरुको लागी एकीकृत बस्ती र सुरक्षित आवाशीय क्षेत्रको विकास");
-        resultCur.add(newsAndEventsModel);
-
-        //33
-        newsAndEventsModel = new NewsAndEventsModel();
-        newsAndEventsModel.setNews_title_np("सामाजिक आर्थिक रूपमा पिछडिएका विभिन्न बर्ग, क्षेत्र, समुदायका ब्यक्तीहरुको जीविकोपार्जन सहज बनाउन विभिन्न लक्षित कार्यक्रमहरु ");
-        resultCur.add(newsAndEventsModel);
 
         fillTable();
     }
+
     public void fillTable() {
         filteredList = resultCur;
         ca = new MajorDevelopment_List_Adapter(this, filteredList);
