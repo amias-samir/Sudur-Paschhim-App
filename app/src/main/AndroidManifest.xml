@@ -364,6 +364,14 @@
         </activity>
 
         <activity
+            android:name=".activities.ProposedDevelopmentProjectsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MajorDevelopmentProjectsActivity" />
+        </activity>
+
+        <activity
             android:name=".activities.NgoIngoDetailsActivity"
             android:screenOrientation="portrait">
             <meta-data

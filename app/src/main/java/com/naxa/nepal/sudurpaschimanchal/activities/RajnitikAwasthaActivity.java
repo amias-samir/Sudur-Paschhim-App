@@ -131,10 +131,10 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
         pieChart = (PieChart) findViewById(R.id.chart1);
 
         pieChart.setCenterText( "निर्वाचित\n सिट संख्या");
-        entries.add(new Entry(1f, 0));
-        entries.add(new Entry(9f, 1));
-        entries.add(new Entry(2f, 2));
-        entries.add(new Entry(9f, 3));
+        entries.add(new Entry(1, 0));
+        entries.add(new Entry(7, 1));
+        entries.add(new Entry(2, 2));
+        entries.add(new Entry(9, 3));
 
 
         PieDataSet dataset = new PieDataSet(entries,"");
@@ -149,7 +149,7 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
         dataset.setColors(ChartColor.COLORFUL_COLORS); //
         pieChart.setDescription("निर्वाचित राजनीतिक पार्टीहरु");
         pieChart.setData(data);
-
+        pieChart.isDrawRoundedSlicesEnabled();
         pieChart.animateY(2000);
 
         pieChart.saveToGallery("/sd/mychart.jpg", 85); // 85 is the quality of the image
