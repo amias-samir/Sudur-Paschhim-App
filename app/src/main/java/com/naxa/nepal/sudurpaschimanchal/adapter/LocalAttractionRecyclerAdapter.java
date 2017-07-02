@@ -47,12 +47,12 @@ public class LocalAttractionRecyclerAdapter extends RecyclerView.Adapter<LocalAt
 //        if(setData){
         contactViewHolder.tvPlaceTitle.setText(ci.place_title_np);
         contactViewHolder.tvPlaceDesc.setText(ci.plaece_desc_np);
-        contactViewHolder.tvPlaceDist.setText(ci.district_name_np +",");
+        contactViewHolder.tvPlaceDist.setText(ci.district_name_np);
         contactViewHolder.tvPlaceAddress.setText(ci.address_name_np);
 
         String Img_Thumb_Url = ci.mThumbnail;
 
-        if(Img_Thumb_Url != null) {
+        if (Img_Thumb_Url != null) {
             Glide.with(context)
                     .load(Img_Thumb_Url)
                     .thumbnail(0.5f)

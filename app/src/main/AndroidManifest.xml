@@ -201,6 +201,7 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.NaturalPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
