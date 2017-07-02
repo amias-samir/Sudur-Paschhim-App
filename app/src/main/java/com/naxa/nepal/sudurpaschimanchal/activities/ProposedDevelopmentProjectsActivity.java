@@ -152,7 +152,7 @@ public class ProposedDevelopmentProjectsActivity extends AppCompatActivity{
 
     private void initializeUI(){
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("मुख्य विकास परियोजनाहरु");
+        toolbar.setTitle("प्रस्तावित विकास परियोजनाहरु");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

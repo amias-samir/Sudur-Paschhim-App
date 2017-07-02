@@ -17,10 +17,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.fragment.Gaunpalika_RepresentativeFragment;
-import com.naxa.nepal.sudurpaschimanchal.fragment.Local_LevelRepresentativeFragment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.Nagarpalika_RepresentativeFragment;
-import com.naxa.nepal.sudurpaschimanchal.fragment.PoliticalPartiesFragment;
-import com.naxa.nepal.sudurpaschimanchal.fragment.PolticianListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +26,7 @@ import java.util.List;
  * Created by susan on 6/26/2017.
  */
 
-public class NameListOfRepresentativeActivity extends AppCompatActivity{
+public class NameListOfRepresentativeActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -59,9 +56,9 @@ public class NameListOfRepresentativeActivity extends AppCompatActivity{
         });
     }
 
-    private void initializeUI(){
+    private void initializeUI() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("स्तिनिय तहका प्रतिनिधि");
+        toolbar.setTitle("स्थानिय तहका प्रतिनिधि");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
