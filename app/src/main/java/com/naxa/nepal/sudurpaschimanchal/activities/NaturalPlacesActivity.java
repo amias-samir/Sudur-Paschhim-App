@@ -222,22 +222,26 @@ public class NaturalPlacesActivity extends AppCompatActivity {
                         String address_np = c.getString("place_address_np");
                         String dist_np = c.getString("district_name_np");
 
+
                         if (address_np == null || address_np.trim().length() == 0 || address_np.contains("null")) {
-                            address_np = "ठेगाना: उपलब्ध छैन";
+                            address_np = "";
                         } else {
-                            address_np = "ठेगाना: " + c.getString("place_address_np");
+                            address_np = "," +c.getString("place_address_np");
                         }
 
                         if (dist_np == null || dist_np.trim().length() == 0 || address_np.contains("null")) {
-                            dist_np = "जिल्ला: उपलब्ध छैन";
+                            dist_np = "";
 
                         } else {
-                            dist_np = "जिल्ला: " + c.getString("district_name_np");
+                            dist_np =  c.getString("district_name_np");
                         }
 
+                        String address = "ठेगाना: "+dist_np+address_np;
 
-                        newData.setDistrict_name_np(dist_np);
-                        newData.setAddress_name_np(address_np);
+                        newData.setAddress_name_np("");
+
+                        newData.setDistrict_name_np(address);
+
 
 
                         Boolean doesNotContainLocation = !listLocationNames.contains(c.getString("place_name_np"));
