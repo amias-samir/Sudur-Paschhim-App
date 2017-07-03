@@ -108,7 +108,7 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("घरधुरी संख्या", "४,६९,७०३");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज) \n२ (शुक्लाफाट आरक्षण क्षेत्र)");
+        a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज) \n  २ (शुक्लाफाट आरक्षण क्षेत्र)");
         albumList.add(a);
 
 

@@ -137,6 +137,11 @@ public class RajnitikAwasthaActivity extends AppCompatActivity {
         entries.add(new Entry(9, 3));
 
 
+
+
+
+
+
         PieDataSet dataset = new PieDataSet(entries,"");
         labels.add("माओवादी");
         labels.add("एमाले");
