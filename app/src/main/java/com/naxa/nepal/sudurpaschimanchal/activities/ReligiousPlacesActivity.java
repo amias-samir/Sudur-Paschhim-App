@@ -128,6 +128,8 @@ public class ReligiousPlacesActivity extends AppCompatActivity {
                     intent.putExtra("project_district_np", resultCur.get(position).district_name_np);
                     intent.putExtra("address_name_np", resultCur.get(position).address_name_np);
                     intent.putExtra("place_image", resultCur.get(position).mThumbnail);
+                    intent.putExtra("place_lat", resultCur.get(position).getPlace_lat());
+                    intent.putExtra("place_lon", resultCur.get(position).getPlace_lon());
 
                     startActivity(intent);
 
@@ -199,6 +201,8 @@ public class ReligiousPlacesActivity extends AppCompatActivity {
                         newData.setDistrict_name_en(c.getString("district_name_en"));
                         newData.setDistrict_name_np(c.getString("district_name_np"));
                         newData.setmThumbnail(c.getString("large_photo_path"));
+                        newData.setPlace_lat(c.getString("place_lat"));
+                        newData.setPlace_lon(c.getString("place_lon"));
 
                         resultCur.add(newData);
                         Log.e("POJO", "" + newData.toString());
@@ -241,6 +245,8 @@ public class ReligiousPlacesActivity extends AppCompatActivity {
                         newData.setAddress_name_en(c.getString("place_address_en"));
                         newData.setDistrict_name_en(c.getString("district_name_en"));
                         newData.setmThumbnail(c.getString("large_photo_path"));
+                        newData.setPlace_lat(c.getString("place_lat"));
+                        newData.setPlace_lon(c.getString("place_lon"));
 
                         resultCur.add(newData);
                         Log.e("POJO", "" + newData.toString());

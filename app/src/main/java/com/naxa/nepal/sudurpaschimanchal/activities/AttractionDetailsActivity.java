@@ -52,6 +52,9 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         // Receiving the Data
         String title_np = i.getStringExtra("place_title_np");
         String desc_np = i.getStringExtra("plaece_desc_np");
+        final String lat = i.getStringExtra("place_lat");
+        final String lon = i.getStringExtra("place_lon");
+
         String dist_np = i.getStringExtra("project_district_np");
         String address_np;
 
@@ -88,7 +91,7 @@ public class AttractionDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("http://maps.google.com/maps?daddr=20.5666,45.345"));
+                        Uri.parse("http://maps.google.com/maps?daddr=" + lat + "," + lon));
                 startActivity(intent);
             }
         });

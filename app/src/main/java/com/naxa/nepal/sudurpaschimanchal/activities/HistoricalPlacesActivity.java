@@ -129,6 +129,8 @@ public class HistoricalPlacesActivity extends AppCompatActivity {
                     intent.putExtra("project_district_np", resultCur.get(position).district_name_np);
                     intent.putExtra("address_name_np", resultCur.get(position).address_name_np);
                     intent.putExtra("place_image", resultCur.get(position).mThumbnail);
+                    intent.putExtra("place_lat", resultCur.get(position).getPlace_lat());
+                    intent.putExtra("place_lon", resultCur.get(position).getPlace_lon());
 
                     startActivity(intent);
 
@@ -187,8 +189,8 @@ public class HistoricalPlacesActivity extends AppCompatActivity {
                     place_type_id = c.getString("place_type_id");
                     district_id = c.getString("district_id");
 
-                    Log.e("PLACE_TYPE",  place_type_id.toString());
-                    Log.e("ATTR_DIST",  district_id.toString());
+                    Log.e("PLACE_TYPE", place_type_id.toString());
+                    Log.e("ATTR_DIST", district_id.toString());
 
                     if (place_type_id.equals("2") && district_id.equals(dist_id)) {
                         LocalAttractionModel newData = new LocalAttractionModel();
@@ -203,6 +205,8 @@ public class HistoricalPlacesActivity extends AppCompatActivity {
                         newData.setDistrict_name_en(c.getString("district_name_en"));
                         newData.setDistrict_name_np(c.getString("district_name_np"));
                         newData.setmThumbnail(c.getString("large_photo_path"));
+                        newData.setPlace_lat(c.getString("place_lat"));
+                        newData.setPlace_lon(c.getString("place_lon"));
 
                         resultCur.add(newData);
                         Log.e("POJO", "" + newData.toString());
@@ -218,7 +222,8 @@ public class HistoricalPlacesActivity extends AppCompatActivity {
                         newData.setAddress_name_en(c.getString("place_address_en"));
                         newData.setDistrict_name_en(c.getString("district_name_en"));
                         newData.setmThumbnail(c.getString("large_photo_path"));
-
+                        newData.setPlace_lat(c.getString("place_lat"));
+                        newData.setPlace_lon(c.getString("place_lon"));
 
 
                         String address_np = c.getString("place_address_np");
@@ -228,27 +233,24 @@ public class HistoricalPlacesActivity extends AppCompatActivity {
                         if (address_np == null || address_np.trim().length() == 0 || address_np.contains("null")) {
                             address_np = "";
                         } else {
-                            address_np = "," +c.getString("place_address_np");
+                            address_np = "," + c.getString("place_address_np");
                         }
 
                         if (dist_np == null || dist_np.trim().length() == 0 || address_np.contains("null")) {
                             dist_np = "";
 
                         } else {
-                            dist_np =  c.getString("district_name_np");
+                            dist_np = c.getString("district_name_np");
                         }
 
-                        String address = "ठेगाना: "+dist_np+address_np;
+                        String address = "ठेगाना: " + dist_np + address_np;
 
                         newData.setAddress_name_np("");
 
                         newData.setDistrict_name_np(address);
 
 
-
-
                         resultCur.add(newData);
-
 
 
                     }

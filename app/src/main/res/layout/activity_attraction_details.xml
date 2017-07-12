@@ -40,7 +40,6 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
-
             <ImageView
                 android:id="@+id/backdrop"
                 android:layout_width="match_parent"
@@ -48,7 +47,6 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
-
 
 
             <ImageView
@@ -80,63 +78,65 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/nliveo_white">
+                android:background="@color/nliveo_white"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/attraction_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Info"
                     android:layout_marginTop="20dp"
-                    android:textColor="@color/nliveo_black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                    android:text="Info"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/nliveo_black" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/attraction_dist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bajhang"
-                    android:textColor="@color/nliveo_black"/>
-                <TextView
-                    android:id="@+id/attraction_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Address"
-                    android:layout_toRightOf="@+id/attraction_dist"
-                    android:layout_toEndOf="@+id/attraction_dist"
-                    android:textColor="@color/nliveo_black"/>
+
+                    <TextView
+                        android:id="@+id/attraction_dist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bajhang"
+                        android:textColor="@color/nliveo_black" />
+
+                    <TextView
+                        android:id="@+id/attraction_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/attraction_dist"
+                        android:layout_toRightOf="@+id/attraction_dist"
+                        android:text="Address"
+                        android:textColor="@color/nliveo_black" />
                 </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/divider_grey"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    android:background="@color/divider_grey" />
 
 
                 <TextView
                     android:id="@+id/attraction_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nliveo_black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/cheese_ipsum" />
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/cheese_ipsum"
+                    android:textColor="@color/nliveo_black" />
 
             </LinearLayout>
 
@@ -146,13 +146,14 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        app:layout_behavior="com.naxa.nepal.sudurpaschimanchal.Utils.ScrollAwareFABBehavior"
         android:id="@+id/fab_direction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_directions_white_24dp" />
+        android:src="@drawable/ic_directions_white_24dp"
+
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|right|end" />
 
 
 </android.support.design.widget.CoordinatorLayout>
