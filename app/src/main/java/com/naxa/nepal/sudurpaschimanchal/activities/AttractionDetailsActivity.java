@@ -1,11 +1,14 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,8 @@ import com.naxa.nepal.sudurpaschimanchal.R;
 public class AttractionDetailsActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "cheese_name";
+    private FloatingActionButton FABrouteToAttraction;
+
 //    Context context;
 
     @Override
@@ -37,6 +42,9 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         TextView Place_dist = (TextView) findViewById(R.id.attraction_dist);
         TextView Place_Address = (TextView) findViewById(R.id.attraction_address);
 
+        FABrouteToAttraction = (FloatingActionButton) findViewById(R.id.fab_direction);
+
+
         ImageView Place_Image = (ImageView) findViewById(R.id.backdrop);
 
 
@@ -46,7 +54,6 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         String desc_np = i.getStringExtra("plaece_desc_np");
         String dist_np = i.getStringExtra("project_district_np");
         String address_np;
-
 
 
         address_np = i.getStringExtra("address_name_np");
@@ -75,6 +82,16 @@ public class AttractionDetailsActivity extends AppCompatActivity {
                     .load(place_image).diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(Place_Image);
         }
+
+
+        FABrouteToAttraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?daddr=20.5666,45.345"));
+                startActivity(intent);
+            }
+        });
 
     }
 
