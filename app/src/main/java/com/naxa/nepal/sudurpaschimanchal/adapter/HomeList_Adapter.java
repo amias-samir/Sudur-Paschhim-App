@@ -79,7 +79,7 @@ public class HomeList_Adapter extends RecyclerView.Adapter<HomeList_Adapter.View
 
         species = new Home_List_Model();
         species.setName(titleGrid[5]);
-        species.setThumbnail(R.drawable.add_your_office);
+        species.setThumbnail(R.drawable.fwdc_map_marker);
         mItems.add(species);
 
         species = new Home_List_Model();

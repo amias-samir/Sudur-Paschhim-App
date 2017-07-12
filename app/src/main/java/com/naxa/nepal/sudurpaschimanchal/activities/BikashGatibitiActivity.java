@@ -37,6 +37,8 @@ public class BikashGatibitiActivity extends AppCompatActivity {
     FrameLayout frameLayoutLocalBudget;
     @BindView(R.id.frame_layout_dev_agencies)
     FrameLayout frameLayoutDevAgencies;
+    @BindView(R.id.frame_layout_proposed_development_projects)
+    FrameLayout frameLayoutProposed;
     @BindView(R.id.scrollView)
     ScrollView scrollView;
     private float posx;
@@ -91,19 +93,19 @@ public class BikashGatibitiActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState, persistentState);
     }
 
-
-
-    @OnClick({R.id.frame_layout_introduction_bikash_kshetra, R.id.frame_layout_district_program, R.id.frame_layout_local_budget, R.id.frame_layout_dev_agencies})
+    @OnClick({R.id.frame_layout_introduction_bikash_kshetra, R.id.frame_layout_proposed_development_projects, R.id.frame_layout_district_program, R.id.frame_layout_local_budget, R.id.frame_layout_dev_agencies})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.frame_layout_introduction_bikash_kshetra:
                 startActivity(new Intent(this, MajorDevelopmentProjectsActivity.class));
 
                 break;
+            case R.id.frame_layout_proposed_development_projects:
+                startActivity(new Intent(this, ProposedDevelopmentProjectsActivity.class));
+
+                break;
             case R.id.frame_layout_district_program:
-
                 startActivity(new Intent(this, DistrictProgramActivity.class));
-
                 break;
             case R.id.frame_layout_local_budget:
                 startActivity(new Intent(this, NagarBudgetDistrict.class));

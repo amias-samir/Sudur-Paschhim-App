@@ -192,6 +192,7 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.CulturalPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
@@ -200,6 +201,7 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.NaturalPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
@@ -356,6 +358,14 @@
         </activity>
         <activity
             android:name=".activities.MajorProjectDetailsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MajorDevelopmentProjectsActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.ProposedDevelopmentProjectsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

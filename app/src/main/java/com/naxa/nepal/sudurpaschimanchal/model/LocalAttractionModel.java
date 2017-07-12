@@ -16,7 +16,24 @@ public class LocalAttractionModel {
     public String district_name_np;
     public String address_name_en;
     public String address_name_np;
+    public String place_lat;
+    public String place_lon;
 
+    public String getPlace_lat() {
+        return place_lat;
+    }
+
+    public void setPlace_lat(String place_lat) {
+        this.place_lat = place_lat;
+    }
+
+    public String getPlace_lon() {
+        return place_lon;
+    }
+
+    public void setPlace_lon(String place_lon) {
+        this.place_lon = place_lon;
+    }
 
     public String getPlace_type_id() { return place_type_id; }
     public void setPlace_type_id(String place_type_id) {

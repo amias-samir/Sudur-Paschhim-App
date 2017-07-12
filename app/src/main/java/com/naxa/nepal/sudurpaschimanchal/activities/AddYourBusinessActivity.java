@@ -118,6 +118,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
     Button sendBtn;
     private String addBussinessSendJSON;
+    private String bussinessType;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -174,6 +175,8 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                     business_address = etBusinessAddress.getText().toString();
                     business_description = etBusinessDesc.getText().toString();
 
+                    bussinessType = bussinesCategorySpinner.getSelectedItem().toString();
+
                     if (!validate()) {
 //                        onSignupFailed();
                         return;
@@ -186,8 +189,15 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                         mProgressDlg.setCancelable(false);
                         mProgressDlg.show();
 
+
+
+
+
                         convertDataToJsonFinal();
                         sendDatToserver();
+
+                        Log.d("Ghost",addBussinessSendJSON);
+
                     } else {
                         final View coordinatorLayoutView = findViewById(R.id.activity_add_your_business);
                         Snackbar.make(coordinatorLayoutView, "ईन्टरनेट कनेक्सन छैन ।", Snackbar.LENGTH_LONG)
@@ -204,7 +214,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
         //Susan
         try {
-            //First checking if the app is already having the permission
+            //First checking if the app is already having the permissHion
             if (isPermissionAllowed()) {
                 //If permission is already having then showing the toast
 //                Toast.makeText(AddYourBusinessActivity.this, "You already have the permission", Toast.LENGTH_LONG).show();
@@ -423,7 +433,10 @@ public class AddYourBusinessActivity extends AppCompatActivity {
         String[] types = new String[bussinessCategoryList.size()];
         bussinessCategoryList.toArray(types);
 
-        return types;
+
+        String[] mockTypes = new String[]{"होटल व्यवसाय", "खुद्रा व्यापार", "होलसेल पसल", "औषधि व्यवसाय", " स्वास्थ्य केन्द्र", "शैक्षिक संस्था", "परामर्श सेवा केन्द्र", "निर्माण व्यवसाय कार्यालय"};
+
+        return mockTypes;
     }
 
     //called after the data is downloaded
@@ -462,7 +475,9 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.jet));
                     //
-                    spinnerBusiness_Id = position + 1;
+                    // spinnerBusiness_Id = position + 1;
+                    //mocking
+                    spinnerBusiness_Id = 1;
 
                     Log.e("SpinBisId: ", String.valueOf(position + 1));
                 }

@@ -1,6 +1,5 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
-import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -33,7 +32,7 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_introduction_region);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("बिकाश क्षेत्र को परिचय");
+        toolbar.setTitle("विकास क्षेत्र को परिचय");
         setSupportActionBar(toolbar);
 
         toolbar.setTitleTextColor(getResources().getColor(R.color.accent));
@@ -43,7 +42,6 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_back_icon);
         upArrow.setColorFilter(getResources().getColor(R.color.accent), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
-
 
 
         recyclerView = (RecyclerView) findViewById(R.id.itemList);
@@ -59,7 +57,6 @@ public class IntroductionRegionActivity extends AppCompatActivity {
 
 
         prepareAlbums();
-
 
 
     }
@@ -84,10 +81,10 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("सदरमुकाम", "दिपायल, डोटी");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("अक्षांश","२८.३९४५-३०.२४७२ डिग्री");
+        a = new IntroductionRegionModel("अक्षांश", "२८.३९४५-३०.२४७२ डिग्री");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("देशान्तर","८०.०५८६-८०.८०८१ डिग्री");
+        a = new IntroductionRegionModel("देशान्तर", "८०.०५८६-८०.८०८१ डिग्री");
         albumList.add(a);
 
         a = new IntroductionRegionModel("शिक्षित जनसंख्या", "१४,९२,८१८");
@@ -111,10 +108,7 @@ public class IntroductionRegionActivity extends AppCompatActivity {
         a = new IntroductionRegionModel("घरधुरी संख्या", "४,६९,७०३");
         albumList.add(a);
 
-        a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज)");
-        albumList.add(a);
-
-        a = new IntroductionRegionModel("आरक्षण क्षेत्र", "१ (शुक्लाफाट आरक्षण क्षेत्र)");
+        a = new IntroductionRegionModel("राष्ट्रिय निकुन्ज", "१ (खप्तड राष्ट्रिय निकुन्ज) \n  २ (शुक्लाफाट आरक्षण क्षेत्र)");
         albumList.add(a);
 
 
