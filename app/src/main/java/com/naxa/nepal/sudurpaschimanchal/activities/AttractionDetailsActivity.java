@@ -20,6 +20,8 @@ public class AttractionDetailsActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "cheese_name";
     private FloatingActionButton FABrouteToAttraction;
+    private String lat;
+    private String lon;
 
 //    Context context;
 
@@ -52,8 +54,9 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         // Receiving the Data
         String title_np = i.getStringExtra("place_title_np");
         String desc_np = i.getStringExtra("plaece_desc_np");
-        final String lat = i.getStringExtra("place_lat");
-        final String lon = i.getStringExtra("place_lon");
+        lat = i.getStringExtra("place_lat");
+        lon = i.getStringExtra("place_lon");
+
 
         String dist_np = i.getStringExtra("project_district_np");
         String address_np;
@@ -87,6 +90,8 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         }
 
 
+        HideFABIfNoLocation();
+
         FABrouteToAttraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +100,24 @@ public class AttractionDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+
+    private void HideFABIfNoLocation() {
+        boolean hideFAB = false;
+
+        if (lat == null || lat.trim().length() == 0) {
+            hideFAB = true;
+        }
+
+        if (lon == null || lon.trim().length() == 0) {
+            hideFAB = true;
+        }
+
+        if (hideFAB) {
+            FABrouteToAttraction.setVisibility(View.GONE);
+        }
 
     }
 
