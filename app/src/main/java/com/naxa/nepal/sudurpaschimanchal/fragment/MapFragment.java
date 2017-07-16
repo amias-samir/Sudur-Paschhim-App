@@ -237,6 +237,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         showSudurOffice();
         setDistrictGeoJSON();
 
+        myMap.setMyLocationEnabled(true);
     }
 
 
