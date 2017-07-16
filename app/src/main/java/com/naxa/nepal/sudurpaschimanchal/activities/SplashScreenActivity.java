@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.model.INGO_NGO_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -39,12 +40,13 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
-
-<<<<<<<HEAD
-        =======
-        >>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
 
 
 /**
@@ -110,7 +112,7 @@ public class SplashScreenActivity extends Activity {
     //=========================================NGO/INGO ==========================================================//
     public static final String NgoIngoPREFERENCES = "development_ingo_ngo";
     SharedPreferences ngosharedpreferences;
-    SharedPreferences.Editor ngoeditor;
+    SharedPreferences.Editor ngoeditor ;
 
 //========================================================================================================================//
 
@@ -127,15 +129,15 @@ public class SplashScreenActivity extends Activity {
 
 
         textView3 = (TextView) findViewById(R.id.textView3);
-        Typeface face3 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face3= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView3.setTypeface(face3);
 
         textView4 = (TextView) findViewById(R.id.textView4);
-        Typeface face4 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face4= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView4.setTypeface(face4);
 
-        firstBar = (ProgressBar) findViewById(R.id.firstBar);
-        secondBar = (ProgressBar) findViewById(R.id.secondBar);
+        firstBar = (ProgressBar)findViewById(R.id.firstBar);
+        secondBar = (ProgressBar)findViewById(R.id.secondBar);
 //================================== shared preferences initialization ==============================================//
 
         //SharedPreferences-DEV_ACTIVITIES
@@ -178,10 +180,11 @@ public class SplashScreenActivity extends Activity {
         ngosharedpreferences = this.getSharedPreferences(NgoIngoPREFERENCES, Context.MODE_PRIVATE);
         ngoeditor = ngosharedpreferences.edit();
 
+
 //======================================================== end of shared preferences initialization ========================//
         try {
 
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
+            RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
             Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
             relativeLayout.startAnimation(relativeAnim);
 
@@ -203,6 +206,7 @@ public class SplashScreenActivity extends Activity {
                 convertDataToJson();
                 FWDCDEVApiCall fwdcdevApiCall = new FWDCDEVApiCall();
                 fwdcdevApiCall.execute();
+
 
 
                 //==============about fwdc call====================//
@@ -248,19 +252,10 @@ public class SplashScreenActivity extends Activity {
                 poticianListService.execute();
 
 
-                //================= polticial list ========================//
-                convertDataToJson();
-                PoticianListService poticianListService = new PoticianListService();
-                poticianListService.execute();
-
-
                 //====================NGO/INGO=================================//
                 convertDataToJson();
                 DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
                 ngoIngoApi.execute();
-
-//                        }
-
 
 //                        }
 
@@ -270,7 +265,7 @@ public class SplashScreenActivity extends Activity {
                     public void run() {
                         try {
 
-                            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
+                            RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
                             Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
                             relativeLayout.startAnimation(relativeAnim);
 
@@ -283,7 +278,7 @@ public class SplashScreenActivity extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } finally {
-                            Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
+                            Intent stuff = new Intent(SplashScreenActivity.this,MainActivity.class);
                             startActivity(stuff);
                         }
                         finish();
@@ -294,10 +289,14 @@ public class SplashScreenActivity extends Activity {
             }
 
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
 
 
     // data convert
@@ -316,6 +315,7 @@ public class SplashScreenActivity extends Activity {
         }
 
     }
+
 
 
     //About fwdc dev
@@ -376,7 +376,7 @@ public class SplashScreenActivity extends Activity {
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -487,6 +487,7 @@ public class SplashScreenActivity extends Activity {
                 aboutfwdceditor.commit();
 
 
+
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -502,7 +503,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
 //                //Success
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -615,7 +616,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -716,7 +717,7 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
             if (result != null && !result.equals("")) {
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -830,7 +831,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -939,7 +940,7 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1056,10 +1057,11 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
+
 
 
             }
@@ -1149,6 +1151,7 @@ public class SplashScreenActivity extends Activity {
                 partieseditor.commit();
 
 
+
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -1161,8 +1164,8 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
 
             if (result != null && !result.equals("")) {
-                downloadCount++;
-                downloadCount++;
+                downloadCount ++ ;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1251,6 +1254,8 @@ public class SplashScreenActivity extends Activity {
                 polticianeditor.commit();
 
 
+
+
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -1264,7 +1269,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount++;
+                downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1272,11 +1277,6 @@ public class SplashScreenActivity extends Activity {
 
 //                Log.e("ProgressBar", "end " + downloadCount);
 
-<<<<<<<HEAD
-            } else {
-                restartActivity();
-=======
->>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
             }
 //            else {
 //                restartActivity();
@@ -1331,152 +1331,148 @@ public class SplashScreenActivity extends Activity {
     }
 
 
-<<<<<<<HEAD
+    //  NGO/INGO
+    private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
 
-    public void startMainActivity(int count) {
-        if (count == 10) {
-=======
-            //  NGO/INGO
-            private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
-                JSONArray data = null;
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
 
-                protected String getASCIIContentFromEntity(HttpURLConnection entity)
-                        throws IllegalStateException, IOException {
-                    InputStream in = (InputStream) entity.getContent();
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
 
-                    StringBuffer out = new StringBuffer();
-                    int n = 1;
-                    while (n > 0) {
-                        byte[] b = new byte[4096];
-                        n = in.read(b);
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+            return out.toString();
+        }
 
-                        if (n > 0)
-                            out.append(new String(b, 0, n));
-                    }
-                    return out.toString();
-                }
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text = "";
 
-                @Override
-                protected String doInBackground(String... params) {
-                    // TODO Auto-generated method stub
-                    String text = "";
+            try {
+                text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
+                ngoeditor = ngosharedpreferences.edit();
+                ngoeditor.putString("development_ingo_ngo", text);
+                Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
+                ngoeditor.commit();
+            }
+            catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
 
-                    try {
-                        text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
-                        ngoeditor = ngosharedpreferences.edit();
-                        ngoeditor.putString("development_ingo_ngo", text);
-                        Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
-                        ngoeditor.commit();
-                    } catch (Exception e) {
-                        return e.getLocalizedMessage();
-                    }
+            return text.toString();
+        }
 
-                    return text.toString();
-                }
-
-                @Override
-                protected void onPostExecute(String result) {
-                    // TODO Auto-generated method stub
-                    //Log.e("ONPOSTEXECUTE", "ONPOST");
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            //Log.e("ONPOSTEXECUTE", "ONPOST");
 //            mProgressDlg.dismiss();
-                    if (result != null && !result.equals("")) {
-                        downloadCount++;
-                        firstBar.setProgress(downloadCount);
-                        //Set the second progress bar value
+            if (result != null && !result.equals("")) {
+                downloadCount ++ ;
+                firstBar.setProgress(downloadCount);
+                //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
-                        startMainActivity(downloadCount);
+                startMainActivity(downloadCount);
 
-                        Log.e("ProgressBar", "end " + downloadCount);
+                Log.e("ProgressBar", "end " + downloadCount);
 
-                    } else {
-                        restartActivity();
-                    }
-                }
-
-                public String POST(String myurl) {
-
-                    URL url;
-                    String response = "";
-                    try {
-                        url = new URL(myurl);
-
-                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                        conn.setReadTimeout(15000);
-                        conn.setConnectTimeout(15000);
-                        conn.setRequestMethod("POST");
-                        conn.setDoInput(true);
-                        conn.setDoOutput(true);
-
-                        OutputStream os = conn.getOutputStream();
-                        BufferedWriter writer = new BufferedWriter(
-                                new OutputStreamWriter(os, "UTF-8"));
-                        Uri.Builder builder = new Uri.Builder()
-                                .appendQueryParameter("data", jsonToSend);
-                        String query = builder.build().getEncodedQuery();
-                        writer.write(query);
-                        writer.flush();
-                        writer.close();
-                        os.close();
-                        int responseCode = conn.getResponseCode();
-
-                        if (responseCode == HttpsURLConnection.HTTP_OK) {
-                            String line;
-                            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                            while ((line = br.readLine()) != null) {
-                                response += line;
-                            }
-                        } else {
-                            response = "";
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return response;
-                }
-            }
-
-
-        public void startMainActivity ( int count){
-            if (count == 11) {
->>>>>>>de31e80ab7bb3766110dbfe00ffb68e4d343da62
-                Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
-                startActivity(stuff);
+            }else {
+                restartActivity();
             }
         }
 
-        public void restartActivity () {
-            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-            int width = metrics.widthPixels;
-            int height = metrics.heightPixels;
+        public String POST(String myurl) {
 
-            final Dialog showDialog = new Dialog(context);
-            showDialog.setContentView(R.layout.restart_download_popup);
-            final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
-            final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
 
-            showDialog.setTitle("Connection Error");
-            showDialog.setCancelable(false);
-            showDialog.show();
-            showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
 
-            yes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showDialog.dismiss();
-                    Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
-                    startActivity(intent);
-//                                finish();
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
                 }
-            });
-
-            no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showDialog.dismiss();
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
         }
-
     }
+
+
+
+    public  void  startMainActivity (int count){
+        if(count == 11){
+            Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
+            startActivity(stuff);
+        }
+    }
+
+    public void restartActivity(){
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
+
+        final Dialog showDialog = new Dialog(context);
+        showDialog.setContentView(R.layout.restart_download_popup);
+        final Button yes = (Button) showDialog.findViewById(R.id.buttonYes);
+        final Button no = (Button) showDialog.findViewById(R.id.buttonNo);
+
+        showDialog.setTitle("Connection Error");
+        showDialog.setCancelable(false);
+        showDialog.show();
+        showDialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog.dismiss();
+                Intent intent = new Intent(SplashScreenActivity.this, SplashScreenActivity.class);
+                startActivity(intent);
+//                                finish();
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog.dismiss();
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+}

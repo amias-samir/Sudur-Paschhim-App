@@ -190,13 +190,10 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                         mProgressDlg.show();
 
 
-
-
-
                         convertDataToJsonFinal();
                         sendDatToserver();
 
-                        Log.d("Ghost",addBussinessSendJSON);
+                        Log.d("Ghost", addBussinessSendJSON);
 
                     } else {
                         final View coordinatorLayoutView = findViewById(R.id.activity_add_your_business);
@@ -763,6 +760,9 @@ public class AddYourBusinessActivity extends AppCompatActivity {
             header.put("place_desc_en", business_description);
             header.put("message_photo", encodedImage);
             addBussinessSendJSON = header.toString();
+
+
+            Log.e("Ghost", encodedImage);
 
         } catch (JSONException e) {
             e.printStackTrace();
