@@ -194,7 +194,6 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
-            android:exported="true"
             android:name=".activities.CulturalPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">

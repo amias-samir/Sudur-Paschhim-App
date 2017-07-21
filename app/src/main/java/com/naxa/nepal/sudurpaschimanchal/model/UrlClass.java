@@ -23,4 +23,5 @@ public class UrlClass {
     public static final String URL_NAGARPALIKA_BUDGET = "http://naxa.com.np/sudurapi/sudurDistrict";
     public static final String URL_MAJOR_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurBikas";
     public static final String URL_INGO_NGO_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurSastha";
+
 }
