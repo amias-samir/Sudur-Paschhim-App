@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.model.INGO_NGO_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
 import org.json.JSONArray;
@@ -40,11 +39,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -96,7 +90,7 @@ public class SplashScreenActivity extends Activity {
     public static final String NagarPalikaPREFERENCES1 = "nagar_budget";
 
     SharedPreferences sudurdevsharedpreferences, sudurattractsharedpreferences, nagarpalikasharedpreferences;
-    SharedPreferences.Editor sudurdeveditor, sudurattracteditor, nagarpalikaeditor;
+    SharedPreferences.Editor sudurdeveditor, sudurattracteditor, nagarbudgeteditor;
 //    ==================================== end of hamro sudur paschhim =================================//
 
     //   ====================================== poltical parties and poltician =================================//
@@ -113,6 +107,20 @@ public class SplashScreenActivity extends Activity {
     public static final String NgoIngoPREFERENCES = "development_ingo_ngo";
     SharedPreferences ngosharedpreferences;
     SharedPreferences.Editor ngoeditor ;
+//=========================================end of NGO/INGO ==========================================================//
+
+
+    //========================================= Gaupalika Representative ==============================================//
+    public static final String gaunPREFERENCES = "gaunpalika_representative";
+    SharedPreferences gaunsharedpreferences;
+    SharedPreferences.Editor gauneditor;
+    //========================================= end of gaupalika representative ========================================//
+
+    //========================================= Nagarpalika Representative ==============================================//
+    public static final String nagarPREFERENCES = "nagarpalika_representative";
+    SharedPreferences magarsharedpreferences;
+    SharedPreferences.Editor nagareditor;
+    //========================================= end of gaupalika representative ========================================//
 
 //========================================================================================================================//
 
@@ -166,7 +174,7 @@ public class SplashScreenActivity extends Activity {
 
         //SharedPreferences-sudur paschhim Nagarpalika Budget
         nagarpalikasharedpreferences = this.getSharedPreferences(NagarPalikaPREFERENCES1, Context.MODE_PRIVATE);
-        nagarpalikaeditor = nagarpalikasharedpreferences.edit();
+        nagarbudgeteditor = nagarpalikasharedpreferences.edit();
 
         // poltician list
         polticiansharedpreferences = this.getSharedPreferences(PolticianPREFERENCES, Context.MODE_PRIVATE);
@@ -179,6 +187,14 @@ public class SplashScreenActivity extends Activity {
         // NGO/INGO
         ngosharedpreferences = this.getSharedPreferences(NgoIngoPREFERENCES, Context.MODE_PRIVATE);
         ngoeditor = ngosharedpreferences.edit();
+
+        // gaunpalika representative
+        gaunsharedpreferences = this.getSharedPreferences(gaunPREFERENCES, Context.MODE_PRIVATE);
+        gauneditor = gaunsharedpreferences.edit();
+
+        // Nagarpalika Representative
+        nagarpalikasharedpreferences = this.getSharedPreferences(nagarPREFERENCES, Context.MODE_PRIVATE);
+        nagareditor = nagarpalikasharedpreferences.edit();
 
 
 //======================================================== end of shared preferences initialization ========================//
@@ -195,7 +211,7 @@ public class SplashScreenActivity extends Activity {
 
             if (networkInfo != null && networkInfo.isConnected()) {
                 firstBar.setVisibility(View.VISIBLE);
-                firstBar.setMax(9);
+                firstBar.setMax(12);
                 secondBar.setVisibility(View.GONE);
                 firstBar.setSecondaryProgress(downloadCount + 1);
 
@@ -251,11 +267,21 @@ public class SplashScreenActivity extends Activity {
                 PoticianListService poticianListService = new PoticianListService();
                 poticianListService.execute();
 
+                //================= polticial list ========================//
+                convertDataToJson();
+                GaunRepresentativeListService gaunRepresentativeListService = new GaunRepresentativeListService();
+                gaunRepresentativeListService.execute();
+
+                //================= polticial list ========================//
+                convertDataToJson();
+                NagarRepresentativeListService nagarRepresentativeListService = new NagarRepresentativeListService();
+                nagarRepresentativeListService.execute();
 
                 //====================NGO/INGO=================================//
                 convertDataToJson();
                 DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
                 ngoIngoApi.execute();
+
 
 //                        }
 
@@ -922,8 +948,8 @@ public class SplashScreenActivity extends Activity {
                 text1 = POST(UrlClass.URL_NAGARPALIKA_BUDGET);
 
                 Log.e("nagar_budget", "Splash" + text1.toString());
-                nagarpalikaeditor.putString("nagar_budget", text1);
-                nagarpalikaeditor.commit();
+                nagarbudgeteditor.putString("nagar_budget", text1);
+                nagarbudgeteditor.commit();
 
 
             } catch (Exception e) {
@@ -1272,7 +1298,226 @@ public class SplashScreenActivity extends Activity {
                 downloadCount ++ ;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
-//                firstBar.setSecondaryProgress(downloadCount + 1);
+                firstBar.setSecondaryProgress(downloadCount + 1);
+//                startMainActivity(downloadCount);
+
+//                Log.e("ProgressBar", "end " + downloadCount);
+
+            }
+//            else {
+//                restartActivity();
+//            }
+
+        }
+
+        public String POST(String myurl) {
+
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return response;
+        }
+
+    }
+
+
+    // NagarPalika representative list
+    private class NagarRepresentativeListService extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+
+            return out.toString();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text = "";
+
+            try {
+                text = POST(UrlClass.URL_NAGARPALIKA_REPRESENTATIVE);
+                Log.e("Nagar Represent LIST: ","Splash" + text.toString());
+                nagareditor.putString("nagarpalika_representative", text);
+                nagareditor.commit();
+
+
+
+
+            } catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
+
+            return text;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            //Log.e("ONPOSTEXECUTE", "ONPOST");
+            if (result != null && !result.equals("")) {
+                downloadCount ++ ;
+                firstBar.setProgress(downloadCount);
+                //Set the second progress bar value
+                firstBar.setSecondaryProgress(downloadCount + 1);
+//                startMainActivity(downloadCount);
+
+//                Log.e("ProgressBar", "end " + downloadCount);
+
+            }
+//            else {
+//                restartActivity();
+//            }
+
+        }
+
+        public String POST(String myurl) {
+
+            URL url;
+            String response = "";
+            try {
+                url = new URL(myurl);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("data", jsonToSend);
+                String query = builder.build().getEncodedQuery();
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    String line;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while ((line = br.readLine()) != null) {
+                        response += line;
+                    }
+                } else {
+                    response = "";
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return response;
+        }
+
+    }
+
+    // Gaunpalika representative list
+    private class GaunRepresentativeListService extends AsyncTask<String, Void, String> {
+        JSONArray data = null;
+
+        protected String getASCIIContentFromEntity(HttpURLConnection entity)
+                throws IllegalStateException, IOException {
+            InputStream in = (InputStream) entity.getContent();
+
+            StringBuffer out = new StringBuffer();
+            int n = 1;
+            while (n > 0) {
+                byte[] b = new byte[4096];
+                n = in.read(b);
+
+                if (n > 0)
+                    out.append(new String(b, 0, n));
+            }
+
+            return out.toString();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            String text = "";
+
+            try {
+                text = POST(UrlClass.URL_GAUNPALIKA_REPRESENTATIVE);
+                Log.e("Gaun Represent LIST: ","Splash" + text.toString());
+                gauneditor.putString("gaunpalika_representative", text);
+                gauneditor.commit();
+
+
+
+
+            } catch (Exception e) {
+                return e.getLocalizedMessage();
+            }
+
+            return text;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            //Log.e("ONPOSTEXECUTE", "ONPOST");
+            if (result != null && !result.equals("")) {
+                downloadCount ++ ;
+                firstBar.setProgress(downloadCount);
+                //Set the second progress bar value
+                firstBar.setSecondaryProgress(downloadCount + 1);
 //                startMainActivity(downloadCount);
 
 //                Log.e("ProgressBar", "end " + downloadCount);
@@ -1433,8 +1678,11 @@ public class SplashScreenActivity extends Activity {
 
 
 
+
+
+
     public  void  startMainActivity (int count){
-        if(count == 11){
+        if(count == 13){
             Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
             startActivity(stuff);
         }

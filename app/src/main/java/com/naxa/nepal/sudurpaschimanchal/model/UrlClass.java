@@ -24,4 +24,8 @@ public class UrlClass {
     public static final String URL_MAJOR_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurBikas";
     public static final String URL_INGO_NGO_DEVELOPMENT = "http://naxa.com.np/sudurapi/sudurSastha";
 
+    public static final String URL_NAGARPALIKA_REPRESENTATIVE = "http://naxa.com.np/sudurapi/sudurNagarhead";
+    public static final String URL_GAUNPALIKA_REPRESENTATIVE = "http://naxa.com.np/sudurapi/sudurGauhead";
+
+
 }

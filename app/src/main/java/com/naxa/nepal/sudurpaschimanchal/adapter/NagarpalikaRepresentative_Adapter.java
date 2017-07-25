@@ -46,10 +46,10 @@ public class NagarpalikaRepresentative_Adapter extends RecyclerView.Adapter<Naga
         Local_Level_Representative_Model ci = colorList.get(i);
         final SharedPreferences wmbPreference = PreferenceManager
                 .getDefaultSharedPreferences(context);
-        contactViewHolder.rName.setText(ci.get_name_en());
-//            contactViewHolder.rDistrict.setText(ci.getDi());
-        contactViewHolder.rPalikaName.setText(ci.get_palika_name_en());
-//            contactViewHolder.rContact.setText(ci.get_number());
+        contactViewHolder.rNameHead.setText(": " + ci.get_palika_head_name_np());
+        contactViewHolder.rPalikaNameHead.setText(": " + ci.get_palika_name_np());
+        contactViewHolder.rNameSubHead.setText(": " + ci.get_palika_subhead_name_np());
+        contactViewHolder.rPalikaNameSubHead.setText(": " + ci.get_palika_name_np());
 //        contactViewHolder.thumbImage.setImageResource(flag[i]);
     }
 
@@ -63,15 +63,19 @@ public class NagarpalikaRepresentative_Adapter extends RecyclerView.Adapter<Naga
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
-        protected TextView rName, rDistrict, rPalikaName, rContact;
+        protected TextView rNameHead, rNameSubHead, rPalikaNameHead, rPalikaNameSubHead, rPalikaPostHead, rPalikaPostSubHead;
         private ImageView thumbImage;
 
         public ContactViewHolder(View v) {
             super(v);
 //            thumbImage = (ImageView) v.findViewById(R.id.img_thumbnail);
-            rName = (TextView) v.findViewById(R.id.textView_representative);
-//            rDistrict = (TextView) v.findViewById(R.id.textView_district);
-            rPalikaName = (TextView) v.findViewById(R.id.textView_palika_name);
+            rNameHead = (TextView) v.findViewById(R.id.textView_representative_headname);
+            rPalikaNameHead = (TextView) v.findViewById(R.id.textView_palika_name_head);
+            rPalikaPostHead = (TextView) v.findViewById(R.id.textView_head_post);
+
+            rNameSubHead = (TextView) v.findViewById(R.id.textView_representative_subhead_name);
+            rPalikaNameSubHead = (TextView) v.findViewById(R.id.textView_palika_name_subhead);
+            rPalikaPostSubHead = (TextView) v.findViewById(R.id.textView_subhead_post);
 //            rContact = (TextView) v.findViewById(R.id.textView_contact);
         }
     }

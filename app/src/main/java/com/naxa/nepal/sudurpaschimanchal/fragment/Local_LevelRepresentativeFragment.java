@@ -81,6 +81,7 @@ public class Local_LevelRepresentativeFragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), NameListOfRepresentativeActivity.class);
                     intent.putExtra("district_np", resultCur.get(position).getNpName());
+
                     startActivity(intent);
 
                     return true;

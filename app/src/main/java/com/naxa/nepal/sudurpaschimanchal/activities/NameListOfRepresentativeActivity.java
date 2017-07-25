@@ -1,6 +1,7 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.fragment.Gaunpalika_RepresentativeFragment;
+import com.naxa.nepal.sudurpaschimanchal.fragment.JillaSamanwoyeSamitiFrgment;
 import com.naxa.nepal.sudurpaschimanchal.fragment.Nagarpalika_RepresentativeFragment;
 
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ public class NameListOfRepresentativeActivity extends AppCompatActivity {
 
     ConnectivityManager connectivityManager;
     NetworkInfo networkInfo;
+
+    public static String district_name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,6 +74,10 @@ public class NameListOfRepresentativeActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        Intent intent = getIntent();
+        district_name = intent.getStringExtra("district_np");
+
     }
 
     //method to setup View Pager
@@ -77,8 +85,9 @@ public class NameListOfRepresentativeActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Nagarpalika_RepresentativeFragment(), "नगरपालिका \n प्रतिनिधिहरु");
         adapter.addFragment(new Gaunpalika_RepresentativeFragment(), "गाउँपालिका \n प्रतिनिधिहरु");
+        adapter.addFragment(new JillaSamanwoyeSamitiFrgment(), "जिल्ला समन्वय \n समिति");
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(3);
     }
 
     //View Pager Adapter Class extends Fragment Pager Adapter
