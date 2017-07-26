@@ -17,6 +17,11 @@ public class Local_Level_Representative_Model {
     public String _palika_head_name_np;
     public String _palika_subhead_name_en;
     public String _palika_subhead_name_np;
+    public String _head_contact_no_en;
+    public String _head_contact_no_np;
+    public String _subhead_contact_no_en;
+    public String _subhead_contact_no_np;
+
 
     public Local_Level_Representative_Model(){
 
@@ -110,4 +115,37 @@ public class Local_Level_Representative_Model {
     public void set_palika_subhead_name_np(String _palika_subhead_name_np) {
         this._palika_subhead_name_np = _palika_subhead_name_np;
     }
+
+    public String get_head_contact_no_en() {
+        return _head_contact_no_en;
+    }
+
+    public void set_head_contact_no_en(String _head_contact_no_en) {
+        this._head_contact_no_en = _head_contact_no_en;
+    }
+
+    public String get_head_contact_no_np() {
+        return _head_contact_no_np;
+    }
+
+    public void set_head_contact_no_np(String _head_contact_no_np) {
+        this._head_contact_no_np = _head_contact_no_np;
+    }
+
+    public String get_subhead_contact_no_en() {
+        return _subhead_contact_no_en;
+    }
+
+    public void set_subhead_contact_no_en(String _subhead_contact_no_en) {
+        this._subhead_contact_no_en = _subhead_contact_no_en;
+    }
+
+    public String get_subhead_contact_no_np() {
+        return _subhead_contact_no_np;
+    }
+
+    public void set_subhead_contact_no_np(String _subhead_contact_no_np) {
+        this._subhead_contact_no_np = _subhead_contact_no_np;
+    }
+
 }

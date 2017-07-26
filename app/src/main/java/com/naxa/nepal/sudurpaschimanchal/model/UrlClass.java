@@ -26,6 +26,8 @@ public class UrlClass {
 
     public static final String URL_NAGARPALIKA_REPRESENTATIVE = "http://naxa.com.np/sudurapi/sudurNagarhead";
     public static final String URL_GAUNPALIKA_REPRESENTATIVE = "http://naxa.com.np/sudurapi/sudurGauhead";
+    public static final String URL_JILLA_SAMANWAYE_SAMITI = "http://naxa.com.np/sudurapi/sudurDistricthead";
+
 
 
 }

@@ -1686,6 +1686,9 @@ public class SplashScreenActivity extends Activity {
             Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
             startActivity(stuff);
         }
+        else {
+            restartActivity();
+        }
     }
 
     public void restartActivity(){
