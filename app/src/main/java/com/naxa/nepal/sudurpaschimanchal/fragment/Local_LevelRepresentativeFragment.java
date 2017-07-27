@@ -15,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.naxa.nepal.sudurpaschimanchal.R;
-import com.naxa.nepal.sudurpaschimanchal.activities.DevelopmentINGOsOrganizationActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentativeActivity;
 import com.naxa.nepal.sudurpaschimanchal.adapter.DistrictList_Adapter;
 import com.naxa.nepal.sudurpaschimanchal.model.District;
@@ -60,6 +59,7 @@ public class Local_LevelRepresentativeFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        filteredList.clear();
         createList();
 
         final GestureDetector mGestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
