@@ -118,7 +118,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
     Button sendBtn;
     private String addBussinessSendJSON;
-    private String bussinessType;
+    private String bussinessType,districtName;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -140,8 +140,8 @@ public class AddYourBusinessActivity extends AppCompatActivity {
         intiInstances();
 
         //get spinner data
-        SpinnerPopulatorTask spinnerPopulatorTask = new SpinnerPopulatorTask();
-        spinnerPopulatorTask.execute();
+//        SpinnerPopulatorTask spinnerPopulatorTask = new SpinnerPopulatorTask();
+//        spinnerPopulatorTask.execute();
 
         sharedpreferences = getApplicationContext().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
@@ -176,6 +176,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                     business_description = etBusinessDesc.getText().toString();
 
                     bussinessType = bussinesCategorySpinner.getSelectedItem().toString();
+                    districtName = districtSpinner.getSelectedItem().toString();
 
                     if (!validate()) {
 //                        onSignupFailed();
@@ -186,7 +187,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                         mProgressDlg = new ProgressDialog(AddYourBusinessActivity.this);
                         mProgressDlg.setMessage("कृपया पर्खनुहोस...");
                         mProgressDlg.setIndeterminate(false);
-                        mProgressDlg.setCancelable(false);
+                        mProgressDlg.setCancelable(true);
                         mProgressDlg.show();
 
 
@@ -411,158 +412,158 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
     }
 
-    private String[] cleanDistictData() {
-        for (int i = 0; i < districtDetailsList.size(); i++) {
-            districtList.add(districtDetailsList.get(i).getNpName());
-        }
-
-        String[] district = new String[districtList.size()];
-        districtList.toArray(district);
-
-        return district;
-    }
-
-    private String[] cleanPlacesTypesData() {
-        for (int i = 0; i < typesDetailsList.size(); i++) {
-            bussinessCategoryList.add(typesDetailsList.get(i).getNpName());
-        }
-
-        String[] types = new String[bussinessCategoryList.size()];
-        bussinessCategoryList.toArray(types);
-
-
-        String[] mockTypes = new String[]{"होटल व्यवसाय", "खुद्रा व्यापार", "होलसेल पसल", "औषधि व्यवसाय", " स्वास्थ्य केन्द्र", "शैक्षिक संस्था", "परामर्श सेवा केन्द्र", "निर्माण व्यवसाय कार्यालय"};
-
-        return mockTypes;
-    }
-
-    //called after the data is downloaded
-    private void setSpinnerData() {
-        Log.d("Nishon", districtList.size() + "");
-        if (districtList != null) {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_spinner_style, cleanDistictData());
-            districtSpinner.setAdapter(adapter);
-
-
-            // Spinner click listener
-            districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.jet));
-                    //
-                    spinnerDist_Id = position + 1;
-
-                    Log.e("SpiDistId: ", String.valueOf(position + 1));
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-
-        if (typesDetailsList != null) {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_spinner_style, cleanPlacesTypesData());
-            bussinesCategorySpinner.setAdapter(adapter);
-            // Spinner click listener
-            bussinesCategorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.jet));
-                    //
-                    // spinnerBusiness_Id = position + 1;
-                    //mocking
-                    spinnerBusiness_Id = 1;
-
-                    Log.e("SpinBisId: ", String.valueOf(position + 1));
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-        }
-    }
-
-
-    public void districtJsonParser(String rawJSON) {
-        Log.d(TAG, "Populating places  types spinner " + !districtSharedPref.getString(DISTRICTDATA, "").trim().isEmpty());
-        JSONArray dataArray = null;
-        try {
-            JSONObject jsonObj = new JSONObject(rawJSON);
-            dataArray = jsonObj.getJSONArray("data");
-
-            if (dataArray.getJSONObject(0).has("district_id")) {
-                //if data is valid put it
-                districtEditor.putString(DISTRICTDATA, rawJSON);
-                districtEditor.commit();
-            }
-        } catch (Exception e) {
-            Log.e(TAG, " passing district response" + e.toString());
-        }
-        try {
-            if (!districtSharedPref.getString(DISTRICTDATA, "").trim().isEmpty()) {
-                String districtCache = districtSharedPref.getString(DISTRICTDATA, "").trim();
-                Log.d(TAG, districtCache);
-                JSONObject districtObj = new JSONObject(districtCache);
-                dataArray = districtObj.getJSONArray("data");
-                for (int i = 0; i < dataArray.length(); i++) {
-                    JSONObject data = dataArray.getJSONObject(i);
-                    District district = new District(data.getString("district_id"), data.getString("district_name_en"), data.getString("district_name_np"));
-                    districtDetailsList.add(district);
-                }
-            }
-        } catch (Exception e) {
-            Log.e("Nishon", e.toString());
-        }
-    }
-
-    public void placesTypeJSONParser(String rawJSON) {
-
-        try {
-            JSONObject jsonObj = new JSONObject(rawJSON);
-            JSONArray dataArray = jsonObj.getJSONArray("data");
-
-            if (dataArray.getJSONObject(0).has("place_type_id")) {
-                //if data is valid put it
-
-
-                placesTypeEditor.putString(PLACESTYPES, rawJSON);
-                placesTypeEditor.commit();
-            }
-        } catch (Exception e) {
-            Log.e(TAG, e.toString());
-        }
-
-        if (!placesTypeSharedPref.getString(PLACESTYPES, "").trim().isEmpty()) {
-
-            String districtCache = placesTypeSharedPref.getString(PLACESTYPES, "").trim();
-
-
-            try {
-
-                JSONObject jsonObj = new JSONObject(districtCache);
-                JSONArray dataArray = null;
-                dataArray = jsonObj.getJSONArray("data");
-
-
-                for (int i = 0; i < dataArray.length(); i++) {
-
-                    JSONObject data = dataArray.getJSONObject(i);
-
-                    PlaceTypes placeTypes = new PlaceTypes(data.getString("place_type_id"), data.getString("place_type_name_en"), data.getString("place_type_name_np"));
-                    typesDetailsList.add(placeTypes);
-
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    private String[] cleanDistictData() {
+//        for (int i = 0; i < districtDetailsList.size(); i++) {
+//            districtList.add(districtDetailsList.get(i).getNpName());
+//        }
+//
+//        String[] district = new String[districtList.size()];
+//        districtList.toArray(district);
+//
+//        return district;
+//    }
+//
+//    private String[] cleanPlacesTypesData() {
+//        for (int i = 0; i < typesDetailsList.size(); i++) {
+//            bussinessCategoryList.add(typesDetailsList.get(i).getNpName());
+//        }
+//
+//        String[] types = new String[bussinessCategoryList.size()];
+//        bussinessCategoryList.toArray(types);
+//
+//
+//        String[] mockTypes = new String[]{"होटल व्यवसाय", "खुद्रा व्यापार", "होलसेल पसल", "औषधि व्यवसाय", " स्वास्थ्य केन्द्र", "शैक्षिक संस्था", "परामर्श सेवा केन्द्र", "निर्माण व्यवसाय कार्यालय"};
+//
+//        return mockTypes;
+//    }
+//
+//    //called after the data is downloaded
+//    private void setSpinnerData() {
+//        Log.d("Nishon", districtList.size() + "");
+//        if (districtList != null) {
+//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_spinner_style, cleanDistictData());
+//            districtSpinner.setAdapter(adapter);
+//
+//
+//            // Spinner click listener
+//            districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.jet));
+//                    //
+//                    spinnerDist_Id = position + 1;
+//
+//                    Log.e("SpiDistId: ", String.valueOf(position + 1));
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> parent) {
+//
+//                }
+//            });
+//
+//        }
+//
+//        if (typesDetailsList != null) {
+//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_spinner_style, cleanPlacesTypesData());
+//            bussinesCategorySpinner.setAdapter(adapter);
+//            // Spinner click listener
+//            bussinesCategorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.jet));
+//                    //
+//                    // spinnerBusiness_Id = position + 1;
+//                    //mocking
+//                    spinnerBusiness_Id = 1;
+//
+//                    Log.e("SpinBisId: ", String.valueOf(position + 1));
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> parent) {
+//
+//                }
+//            });
+//        }
+//    }
+//
+//
+//    public void districtJsonParser(String rawJSON) {
+//        Log.d(TAG, "Populating places  types spinner " + !districtSharedPref.getString(DISTRICTDATA, "").trim().isEmpty());
+//        JSONArray dataArray = null;
+//        try {
+//            JSONObject jsonObj = new JSONObject(rawJSON);
+//            dataArray = jsonObj.getJSONArray("data");
+//
+//            if (dataArray.getJSONObject(0).has("district_id")) {
+//                //if data is valid put it
+//                districtEditor.putString(DISTRICTDATA, rawJSON);
+//                districtEditor.commit();
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, " passing district response" + e.toString());
+//        }
+//        try {
+//            if (!districtSharedPref.getString(DISTRICTDATA, "").trim().isEmpty()) {
+//                String districtCache = districtSharedPref.getString(DISTRICTDATA, "").trim();
+//                Log.d(TAG, districtCache);
+//                JSONObject districtObj = new JSONObject(districtCache);
+//                dataArray = districtObj.getJSONArray("data");
+//                for (int i = 0; i < dataArray.length(); i++) {
+//                    JSONObject data = dataArray.getJSONObject(i);
+//                    District district = new District(data.getString("district_id"), data.getString("district_name_en"), data.getString("district_name_np"));
+//                    districtDetailsList.add(district);
+//                }
+//            }
+//        } catch (Exception e) {
+//            Log.e("Nishon", e.toString());
+//        }
+//    }
+//
+//    public void placesTypeJSONParser(String rawJSON) {
+//
+//        try {
+//            JSONObject jsonObj = new JSONObject(rawJSON);
+//            JSONArray dataArray = jsonObj.getJSONArray("data");
+//
+//            if (dataArray.getJSONObject(0).has("place_type_id")) {
+//                //if data is valid put it
+//
+//
+//                placesTypeEditor.putString(PLACESTYPES, rawJSON);
+//                placesTypeEditor.commit();
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, e.toString());
+//        }
+//
+//        if (!placesTypeSharedPref.getString(PLACESTYPES, "").trim().isEmpty()) {
+//
+//            String districtCache = placesTypeSharedPref.getString(PLACESTYPES, "").trim();
+//
+//
+//            try {
+//
+//                JSONObject jsonObj = new JSONObject(districtCache);
+//                JSONArray dataArray = null;
+//                dataArray = jsonObj.getJSONArray("data");
+//
+//
+//                for (int i = 0; i < dataArray.length(); i++) {
+//
+//                    JSONObject data = dataArray.getJSONObject(i);
+//
+//                    PlaceTypes placeTypes = new PlaceTypes(data.getString("place_type_id"), data.getString("place_type_name_en"), data.getString("place_type_name_np"));
+//                    typesDetailsList.add(placeTypes);
+//
+//                }
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
 
     public void convertDataToJson() {
@@ -579,167 +580,167 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
     }
 
-    public class SpinnerPopulatorTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            formDownloadProgress = new ProgressDialog(AddYourBusinessActivity.this);
-            formDownloadProgress.setMessage("कृपया पर्खनुहोस्...");
-            formDownloadProgress.setIndeterminate(false);
-            formDownloadProgress.show();
-
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            String text = null;
-            text = POST(UrlClass.URL_DISTRICT_LIST);
-
-            Log.e("MAIN_JSON", "" + text.toString());
-
-            return text.toString();
-        }
-
-
-        private void showLog(String msg) {
-            Log.d(TAG, msg);
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-
-            if (result.isEmpty()) {
-                districtJsonParser("");
-            } else {
-                districtJsonParser(result);
-            }
-
-            PlacesTypesSpinnerTask placesTypesSpinnerTask = new PlacesTypesSpinnerTask();
-            placesTypesSpinnerTask.execute();
-
-        }
-
-        public String POST(String myurl) {
-
-            URL url;
-            String response = "";
-            try {
-                url = new URL(myurl);
-
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(15000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-
-                convertDataToJson();
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("data", jsonToSend);
-                String query = builder.build().getEncodedQuery();
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-                int responseCode = conn.getResponseCode();
-
-                if (responseCode == HttpsURLConnection.HTTP_OK) {
-                    String line;
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    while ((line = br.readLine()) != null) {
-                        response += line;
-                    }
-                } else {
-                    response = "";
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            Log.e("Nishon", " resposnce returned " + response);
-            return response;
-        }
-    }
-
-    public class PlacesTypesSpinnerTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            String text = null;
-            text = POST(UrlClass.URL_PLACES_TYPE_LIST);
-            Log.e("MAIN_JSON", "" + text.toString());
-
-            return text.toString();
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            formDownloadProgress.dismiss();
-            if (result != null) {
-                placesTypeJSONParser(result);
-                setSpinnerData();
-            }
-        }
-
-        public String POST(String myurl) {
-
-            URL url;
-            String response = "";
-            try {
-                url = new URL(myurl);
-
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(15000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-
-                convertDataToJson();
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("data", jsonToSend);
-                String query = builder.build().getEncodedQuery();
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-                int responseCode = conn.getResponseCode();
-
-                if (responseCode == HttpsURLConnection.HTTP_OK) {
-                    String line;
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    while ((line = br.readLine()) != null) {
-                        response += line;
-                    }
-                } else {
-                    response = "";
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return response;
-        }
-    }
+//    public class SpinnerPopulatorTask extends AsyncTask<String, Void, String> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//            formDownloadProgress = new ProgressDialog(AddYourBusinessActivity.this);
+//            formDownloadProgress.setMessage("कृपया पर्खनुहोस्...");
+//            formDownloadProgress.setIndeterminate(false);
+//            formDownloadProgress.show();
+//
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            // TODO Auto-generated method stub
+//            String text = null;
+//            text = POST(UrlClass.URL_DISTRICT_LIST);
+//
+//            Log.e("MAIN_JSON", "" + text.toString());
+//
+//            return text.toString();
+//        }
+//
+//
+//        private void showLog(String msg) {
+//            Log.d(TAG, msg);
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//
+//
+//            if (result.isEmpty()) {
+//                districtJsonParser("");
+//            } else {
+//                districtJsonParser(result);
+//            }
+//
+//            PlacesTypesSpinnerTask placesTypesSpinnerTask = new PlacesTypesSpinnerTask();
+//            placesTypesSpinnerTask.execute();
+//
+//        }
+//
+//        public String POST(String myurl) {
+//
+//            URL url;
+//            String response = "";
+//            try {
+//                url = new URL(myurl);
+//
+//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//                conn.setReadTimeout(15000);
+//                conn.setConnectTimeout(15000);
+//                conn.setRequestMethod("POST");
+//                conn.setDoInput(true);
+//                conn.setDoOutput(true);
+//
+//                OutputStream os = conn.getOutputStream();
+//                BufferedWriter writer = new BufferedWriter(
+//                        new OutputStreamWriter(os, "UTF-8"));
+//
+//                convertDataToJson();
+//                Uri.Builder builder = new Uri.Builder()
+//                        .appendQueryParameter("data", jsonToSend);
+//                String query = builder.build().getEncodedQuery();
+//                writer.write(query);
+//                writer.flush();
+//                writer.close();
+//                os.close();
+//                int responseCode = conn.getResponseCode();
+//
+//                if (responseCode == HttpsURLConnection.HTTP_OK) {
+//                    String line;
+//                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//                    while ((line = br.readLine()) != null) {
+//                        response += line;
+//                    }
+//                } else {
+//                    response = "";
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//            Log.e("Nishon", " resposnce returned " + response);
+//            return response;
+//        }
+//    }
+//
+//    public class PlacesTypesSpinnerTask extends AsyncTask<String, Void, String> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            // TODO Auto-generated method stub
+//            String text = null;
+//            text = POST(UrlClass.URL_PLACES_TYPE_LIST);
+//            Log.e("MAIN_JSON", "" + text.toString());
+//
+//            return text.toString();
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//            formDownloadProgress.dismiss();
+//            if (result != null) {
+//                placesTypeJSONParser(result);
+//                setSpinnerData();
+//            }
+//        }
+//
+//        public String POST(String myurl) {
+//
+//            URL url;
+//            String response = "";
+//            try {
+//                url = new URL(myurl);
+//
+//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//                conn.setReadTimeout(15000);
+//                conn.setConnectTimeout(15000);
+//                conn.setRequestMethod("POST");
+//                conn.setDoInput(true);
+//                conn.setDoOutput(true);
+//
+//
+//                OutputStream os = conn.getOutputStream();
+//                BufferedWriter writer = new BufferedWriter(
+//                        new OutputStreamWriter(os, "UTF-8"));
+//
+//                convertDataToJson();
+//                Uri.Builder builder = new Uri.Builder()
+//                        .appendQueryParameter("data", jsonToSend);
+//                String query = builder.build().getEncodedQuery();
+//                writer.write(query);
+//                writer.flush();
+//                writer.close();
+//                os.close();
+//                int responseCode = conn.getResponseCode();
+//
+//                if (responseCode == HttpsURLConnection.HTTP_OK) {
+//                    String line;
+//                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//                    while ((line = br.readLine()) != null) {
+//                        response += line;
+//                    }
+//                } else {
+//                    response = "";
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            return response;
+//        }
+//    }
 
     /**
      * @Author Susan
@@ -752,8 +753,8 @@ public class AddYourBusinessActivity extends AppCompatActivity {
             JSONObject header = new JSONObject();
             header.put("token", "bf5d483811");
             header.put("place_name_en", business_name);
-            header.put("place_type_id", spinnerBusiness_Id);
-            header.put("place_district_id", spinnerDist_Id);
+            header.put("place_type_id", bussinessType);
+            header.put("place_district_id", districtName);
             header.put("place_address_en", business_address);
             header.put("place_lat", final_latitude);
             header.put("place_lon", final_longitude);
@@ -771,8 +772,8 @@ public class AddYourBusinessActivity extends AppCompatActivity {
 
     public void sendDatToserver() {
 
-        if (jsonToSend.length() > 0) {
-            Log.e("Inside Send", "BeforeSending " + jsonToSend);
+        if (addBussinessSendJSON.length() > 0) {
+            Log.e("Inside Send", "BeforeSending " + addBussinessSendJSON);
 
             RestApii restApii = new RestApii();
             restApii.execute();
@@ -809,7 +810,7 @@ public class AddYourBusinessActivity extends AppCompatActivity {
             try {
                 text = POST(urll);
                 JSONObject jsonObject = new JSONObject(text);
-                dataSentStatus = jsonObject.getString("code");
+                dataSentStatus = jsonObject.getString("status");
                 Log.e("tagg", "Before parsing");
                 Log.e("error", "" + text);
 
@@ -824,12 +825,13 @@ public class AddYourBusinessActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             // TODO Auto-generated method stub
-            mProgressDlg.dismiss();
             if (result != null) {
 
                 //{"code":1,"status":200,"data":"ok"}
-                Toast.makeText(getApplicationContext(), dataSentStatus + "", Toast.LENGTH_SHORT).show();
-                if (dataSentStatus.equals("1")) {
+//                Toast.makeText(getApplicationContext(), dataSentStatus + "", Toast.LENGTH_SHORT).show();
+                if (dataSentStatus.equals("200")) {
+                    mProgressDlg.dismiss();
+
                     Toast.makeText(getApplicationContext(), getString(R.string.form_sent_np), Toast.LENGTH_SHORT).show();
 
                     previewImageSite.setVisibility(View.GONE);
