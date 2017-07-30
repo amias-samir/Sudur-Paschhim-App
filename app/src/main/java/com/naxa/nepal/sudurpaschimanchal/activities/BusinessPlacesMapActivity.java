@@ -43,7 +43,7 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
 
-        //tryToSetSpinner();
+        tryToSetSpinner();
     }
 
     @Override
@@ -91,7 +91,7 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
     private void tryToSetSpinner() {
         List<String> foodList = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
         if (foodList == null || foodList.size() == 0) {
-            showToast("Please refresh to get business categories");
+            showToast("Failed to load categories");
             return;
         }
 
