@@ -44,6 +44,6 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="light_balck">#616161</color>
     <color name="grey">#e9e8e8</color>
-    <color name="black_alpha_40">#66000000</color>
+    <color name="black_alpha_40">#BF000000</color>
 
 </resources>

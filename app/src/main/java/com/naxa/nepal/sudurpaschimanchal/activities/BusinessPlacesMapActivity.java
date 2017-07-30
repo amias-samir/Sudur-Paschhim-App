@@ -97,6 +97,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         this.map = map;
 
         map.setOnMarkerClickListener(this);
+        map.setPadding(0, 120, 0, 120);//to stop UI buttons to being overlapped and hidden
 
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
@@ -182,6 +183,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         myMap.getUiSettings().setZoomControlsEnabled(false);
         myMap.getUiSettings().setCompassEnabled(false);
         myMap.getUiSettings().setMyLocationButtonEnabled(true);
+        myMap.getUiSettings().setMapToolbarEnabled(false);
 
     }
 
