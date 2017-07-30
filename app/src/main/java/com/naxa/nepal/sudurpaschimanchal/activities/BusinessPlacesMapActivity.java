@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -16,12 +19,20 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.geojson.GeoJsonLayer;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.model.local.Bussiness;
 import com.naxa.nepal.sudurpaschimanchal.model.local.DatabaseHelper;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiClient;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiInterface;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.Data;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +44,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMapReadyCallback, AdapterView.OnItemSelectedListener, GoogleMap.OnMarkerClickListener {
 
     @BindView(R.id.business_list_spinner)
     Spinner businessListSpinner;
@@ -42,18 +53,24 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    private GoogleMap mMap;
+    private GoogleMap map;
+    private ArrayList<Marker> markersPresentOnMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_places_map);
         ButterKnife.bind(this);
+
+        markersPresentOnMap = new ArrayList<>();
+
+        initMap();
         setToolbar();
+
         tryToSetSpinner();
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
-
 
     }
 
@@ -64,27 +81,43 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public void onMapReady(GoogleMap map) {
-
-        String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
-        fetchMenuFromServer(lastSyncDate);
+    private void initMap() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
     }
 
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        // Add a marker in Sydney, Australia, and move the camera.
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//>>>>>>> d0cf99c097c0aa4db9abbdc724106a88ad306a66
-//    }
+    @Override
+    public void onMapReady(GoogleMap map) {
+
+        this.map = map;
+
+        String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
+        fetchMenuFromServer(lastSyncDate);
+
+        setSudurCamera(map);
+
+        try {
+            setDistrictGeoJSON(map);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    private void setDistrictGeoJSON(GoogleMap myMap) throws IOException, JSONException {
+
+
+        GeoJsonLayer districtLayer;
+
+        districtLayer = new GeoJsonLayer(myMap, R.raw.sudur,
+                getApplicationContext());
+
+        districtLayer.addLayerToMap();
+
+    }
 
     private void fetchMenuFromServer(String lastSyncDateTime) {
 
@@ -141,7 +174,9 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         myMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPositon), null);
 
-        myMap.getUiSettings().setZoomControlsEnabled(true);
+        myMap.getUiSettings().setZoomControlsEnabled(false);
+        myMap.getUiSettings().setCompassEnabled(false);
+        myMap.getUiSettings().setMyLocationButtonEnabled(true);
 
     }
 
@@ -154,13 +189,11 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
 
         ArrayList<String> bussinesscategorieslist = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
-
-
         String[] bussinesscategories = bussinesscategorieslist.toArray(new String[bussinesscategorieslist.size()]);
-
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bussinesscategories);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         businessListSpinner.setAdapter(spinnerArrayAdapter);
+        businessListSpinner.setOnItemSelectedListener(this);
 
 
     }
@@ -177,4 +210,78 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         startActivity(intent);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        tryToPopulateMap();
+    }
+
+    private void tryToPopulateMap() {
+        ArrayList<Bussiness> bussinesses = DatabaseHelper.getInstance(getApplicationContext()).getBusinessFromTypes(businessListSpinner.getSelectedItem().toString());
+
+        removeMarkersIfPresent();
+        placeMarkersOnMap(bussinesses);
+
+    }
+
+    private void removeMarkersIfPresent() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (Marker marker : markersPresentOnMap) {
+                    marker.remove();
+                }
+
+                markersPresentOnMap.clear();
+            }
+        }).run();
+    }
+
+
+    private void placeMarkersOnMap(final ArrayList<Bussiness> bussinesses) {
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+
+
+                    for (Bussiness bussiness : bussinesses) {
+                        Marker marker = map.addMarker(new MarkerOptions()
+                                .position(new LatLng(Double.parseDouble(bussiness.getLatitude()), Double.parseDouble(bussiness.getLongitude())))
+                                .title(bussiness.getBusinessName()));
+
+                        marker.setTag(bussiness);
+
+                        markersPresentOnMap.add(marker);
+                    }
+                } catch (NumberFormatException e) {
+                    showToast("Server sent bad data");
+                }
+
+
+            }
+        }).run();
+
+
+    }
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+
+
+        Bussiness bussiness = (Bussiness) marker.getTag();
+
+        showToast(bussiness.getBusinessName());
+
+        return false;
+    }
 }

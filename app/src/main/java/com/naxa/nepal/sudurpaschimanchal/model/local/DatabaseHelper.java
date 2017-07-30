@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.Sudur;
 
@@ -125,11 +127,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    private ArrayList<String> getBusinessFromTypes(String type) {
+    public ArrayList<Bussiness> getBusinessFromTypes(String type) {
 
-        ArrayList<String> categories = new ArrayList<>();
+        ArrayList<Bussiness> bussinesseslist = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_BUSINESS_PLACES, null, KEY_BUSINESS_TYPE + "=?", new String[]{type}, null, null, null, null);
+
+
 
         try {
 
@@ -147,12 +151,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 bussiness.setBusinessDescription(
                         cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_DESC)));
 
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LAT));
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LON));
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_PHOTO));
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_TYPE));
-                cursor.getString(cursor.getColumnIndex(KEY_LAST_MODIFIED_DATE_TIME));
+                bussiness.setLatitude(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LAT)));
 
+                bussiness.setLongitude(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LON)));
+
+
+                bussiness.setPhotoPath(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_PHOTO)));
+
+                bussiness.setBusinessType(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_TYPE)));
+
+                bussiness.setLastModifiedDate(
+                        cursor.getString(cursor.getColumnIndex(KEY_LAST_MODIFIED_DATE_TIME)));
+
+
+                bussinesseslist.add(bussiness);
 
             } while (cursor.moveToNext());
 
@@ -164,7 +180,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
 
-        return categories;
+        return bussinesseslist;
 
     }
 
