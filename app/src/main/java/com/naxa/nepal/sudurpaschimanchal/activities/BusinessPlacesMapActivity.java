@@ -2,6 +2,7 @@ package com.naxa.nepal.sudurpaschimanchal.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.geojson.GeoJsonLayer;
 import com.naxa.nepal.sudurpaschimanchal.R;
+import com.naxa.nepal.sudurpaschimanchal.fragment.PlaceDetailsBottomSheet;
 import com.naxa.nepal.sudurpaschimanchal.model.local.Bussiness;
 import com.naxa.nepal.sudurpaschimanchal.model.local.DatabaseHelper;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiClient;
@@ -86,12 +88,15 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
     }
 
     @Override
     public void onMapReady(GoogleMap map) {
 
         this.map = map;
+
+        map.setOnMarkerClickListener(this);
 
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
@@ -276,12 +281,26 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-
-
         Bussiness bussiness = (Bussiness) marker.getTag();
+        delayBeforeSheetOpen(bussiness);
 
-        showToast(bussiness.getBusinessName());
 
         return false;
     }
+
+    private void delayBeforeSheetOpen(final Bussiness bussiness) {
+
+
+        int ANIMATE_DELAY = 250;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                PlaceDetailsBottomSheet placeDetailsBottomSheet = PlaceDetailsBottomSheet.getInstance(bussiness);
+                placeDetailsBottomSheet.show(getSupportFragmentManager(), "a");
+
+
+            }
+        }, ANIMATE_DELAY);
+    }
+
 }

@@ -6,10 +6,6 @@ import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.naxa.nepal.sudurpaschimanchal.Sudur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_BUSINESS_PLACES = "BUSINESS";
 
     private static final String KEY_BUSINESS_ID = "business_id";
-    private static final String KEY_NAME = "business_name";
+    private static final String KEY_BUSINESS_NAME = "business_name";
     private static final String KEY_BUSINESS_TYPE = "business_type";
     private static final String KEY_BUSINESS_LAT = "business_lat";
     private static final String KEY_BUSINESS_LON = "business_lon";
@@ -57,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_BUSINESS_PLACES + "("
                 + KEY_BUSINESS_ID + " INTEGER PRIMARY KEY,"
-                + KEY_NAME + " TEXT,"
+                + KEY_BUSINESS_NAME + " TEXT,"
                 + KEY_BUSINESS_TYPE + " TEXT,"
                 + KEY_BUSINESS_LAT + " TEXT,"
                 + KEY_BUSINESS_LON + " TEXT,"
@@ -145,6 +141,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 bussiness.setBusinessId(
                         cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ID)));
 
+                bussiness.setBusinessName(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_NAME)));
+
                 bussiness.setBusinessAddress(
                         cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ADDRS)));
 
@@ -191,7 +190,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         for (Bussiness bussiness : bussinesses) {
 
             values.put(KEY_BUSINESS_ID, bussiness.getBusinessId());
-            values.put(KEY_NAME, bussiness.getBusinessName());
+            values.put(KEY_BUSINESS_NAME, bussiness.getBusinessName());
             values.put(KEY_BUSINESS_ADDRS, bussiness.getBusinessAddress());
 
             values.put(KEY_BUSINESS_DESC, bussiness.getBusinessDescription());
