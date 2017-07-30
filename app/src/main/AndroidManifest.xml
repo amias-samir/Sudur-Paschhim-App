@@ -61,7 +61,6 @@
         <activity
             android:name=".activities.AboutFWDCActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.IntroductionUpdateActivity" />
@@ -74,8 +73,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:exported="true"
             android:name=".activities.HamroSudurPaschimActivity"
+            android:exported="true"
             android:value=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -97,8 +96,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:exported="true"
             android:name=".activities.ReligiousPlacesActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:value=".HamroSudurPaschimActivity">
             <meta-data
@@ -179,12 +178,9 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
-
             android:name=".activities.AttractionDetailsActivity"
             android:screenOrientation="portrait"
-            android:value=".MainActivity">
-
-        </activity>
+            android:value=".MainActivity"></activity>
         <activity
             android:name=".activities.HistoricalPlacesActivity"
             android:screenOrientation="portrait"
@@ -194,7 +190,6 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
-            android:exported="true"
             android:name=".activities.CulturalPlacesActivity"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
@@ -203,8 +198,8 @@
                 android:value=".activities.HamroSudurPaschimActivity" />
         </activity>
         <activity
-            android:exported="true"
             android:name=".activities.NaturalPlacesActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:value=".MainActivity">
             <meta-data
@@ -365,7 +360,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MajorDevelopmentProjectsActivity" />
         </activity>
-
         <activity
             android:name=".activities.ProposedDevelopmentProjectsActivity"
             android:screenOrientation="portrait">
@@ -373,15 +367,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MajorDevelopmentProjectsActivity" />
         </activity>
-
         <activity
             android:name=".activities.NgoIngoDetailsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DevelopmentINGOsOrganizationActivity" />
-
         </activity>
+        <activity android:name=".activities.BusinessPlacesMapActivity"></activity>
     </application>
 
 </manifest>

@@ -72,6 +72,7 @@
                         android:layout_gravity="center_vertical"
                         android:gravity="right"
                         android:theme="@style/SpinnerDropDownItem"
+                        android:entries="@array/business_type"
                          />
                 </LinearLayout>
 
@@ -114,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="right"
-                    android:theme="@style/SpinnerDropDownItem" />
+                    android:theme="@style/SpinnerDropDownItem"
+                    android:entries="@array/district_name"/>
             </LinearLayout>
 
             <ImageView
@@ -196,7 +198,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="कार्यालय जिल्ला"
+                android:hint="नक्सामा स्थान छान्नुहोस्"
                 android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"

@@ -38,4 +38,29 @@
     <string name="main_works11">&#8226; स्वीकृत कार्यक्रम प्रभावकारी रुपमा कार्यान्वयन गर्न सम्बन्धित निकायलाई निर्देशन दिने ।</string>
 
 
+    <string-array name="business_type">
+        <item>"होटल व्यवसाय"</item>
+        <item>"खुद्रा व्यापार"</item>
+        <item>"होलसेल पसल"</item>
+        <item>"औषधि व्यवसाय"</item>
+        <item>"स्वास्थ्य केन्द्र"</item>
+        <item>"शैक्षिक संस्था"</item>
+        <item>"परामर्श सेवा केन्द्र"</item>
+        <item>"निर्माण व्यवसाय कार्यालय"</item>
+        <item>"अन्य"</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>"आछाम"</item>
+        <item>"कन्चनपुर"</item>
+        <item>"कैलाली"</item>
+        <item>"डडेल्धुरा"</item>
+        <item>"डोटी"</item>
+        <item>"दार्चुला"</item>
+        <item>"बझांग"</item>
+        <item>"बाजुरा"</item>
+        <item>"बैतडी"</item>
+    </string-array>
+
+
 </resources>

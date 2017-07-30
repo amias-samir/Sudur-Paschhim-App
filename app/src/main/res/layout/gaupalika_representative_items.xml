@@ -7,12 +7,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
 
         <ImageView
             android:id="@+id/img_thumbnail"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:src="@drawable/supa_splash"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -42,49 +44,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="नाम:"
+                        android:text="नाम"
                         android:textColor="@color/cardview_dark_background"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_representative"
+                        android:id="@+id/textView_representative_headname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_toEndOf="@+id/textview_label"
                         android:layout_toRightOf="@+id/textview_label"
-                        android:text=""
+                        android:text=":"
                         android:textColor="@color/cardview_dark_background" />
                 </RelativeLayout>
 
-                <!--<RelativeLayout-->
-                <!--android:id="@+id/party_name_layout"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@+id/name_layout"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<TextView-->
-                <!--android:id="@+id/textview_label2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:text="District:"-->
-                <!--android:textColor="@color/cardview_dark_background"-->
-                <!--android:textStyle="bold" />-->
-
-                <!--<TextView-->
-                <!--android:id="@+id/textView_district"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignParentTop="true"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:layout_toEndOf="@+id/textview_label2"-->
-                <!--android:layout_toRightOf="@+id/textview_label2"-->
-                <!--android:text=""-->
-                <!--android:textColor="@color/cardview_dark_background" />-->
-                <!--</RelativeLayout>-->
 
                 <RelativeLayout
                     android:id="@+id/poltician_election_area_layout"
@@ -96,51 +71,178 @@
                         android:id="@+id/textview_label_nagarpalika"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="गाउँपालिका:"
+                        android:layout_marginLeft="12dp"
+                        android:text="गाउँपालिका"
                         android:textColor="@color/cardview_dark_background"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_palika_name"
+                        android:id="@+id/textView_palika_name_head"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="5dp"
                         android:layout_toEndOf="@+id/textview_label_nagarpalika"
                         android:layout_toRightOf="@+id/textview_label_nagarpalika"
-                        android:text=""
+                        android:text=":"
                         android:textColor="@color/cardview_dark_background" />
 
                 </RelativeLayout>
 
-                <!--<RelativeLayout-->
-                <!--android:id="@+id/poltician_contact_layout"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@+id/poltician_election_area_layout"-->
-                <!--android:orientation="vertical">-->
+                <RelativeLayout
+                    android:id="@+id/party_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/poltician_election_area_layout"
+                    android:orientation="vertical">
 
-                <!--<TextView-->
-                <!--android:id="@+id/textview_label_contact"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:text="सम्पर्क नम्बर:"-->
-                <!--android:textColor="@color/cardview_dark_background"-->
-                <!--android:textStyle="bold" />-->
+                    <TextView
+                        android:id="@+id/textview_label2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="पद  "
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="bold" />
 
-                <!--<TextView-->
-                <!--android:id="@+id/textView_contact"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignParentTop="true"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:layout_toEndOf="@+id/textview_label_contact"-->
-                <!--android:layout_toRightOf="@+id/textview_label_contact"-->
-                <!--android:text=""-->
-                <!--android:textColor="@color/cardview_dark_background" />-->
-                <!--</RelativeLayout>-->
+                    <TextView
+                        android:id="@+id/textView_head_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toEndOf="@+id/textview_label2"
+                        android:layout_toRightOf="@+id/textview_label2"
+                        android:text=": अध्यक्ष"
+                        android:textColor="@color/cardview_dark_background" />
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:src="@color/divider_grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/img_thumbnail1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/supa_splash"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true">
+
+                <RelativeLayout
+                    android:id="@+id/name_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textview_label1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="नाम"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView_representative_subhead_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toEndOf="@+id/textview_label1"
+                        android:layout_toRightOf="@+id/textview_label1"
+                        android:text=":"
+                        android:textColor="@color/cardview_dark_background" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/poltician_election_area_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name_layout1">
+
+                    <TextView
+                        android:id="@+id/textview_label_nagarpalika1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="गाउँपालिका"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView_palika_name_subhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/textview_label_nagarpalika1"
+                        android:layout_toRightOf="@+id/textview_label_nagarpalika1"
+                        android:text=":"
+                        android:textColor="@color/cardview_dark_background" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/party_name_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/poltician_election_area_layout1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textview_label3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="पद  "
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView_subhead_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toEndOf="@+id/textview_label3"
+                        android:layout_toRightOf="@+id/textview_label3"
+                        android:text=": उपाध्यक्ष"
+                        android:textColor="@color/cardview_dark_background" />
+                </RelativeLayout>
+
+
 
             </RelativeLayout>
         </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.naxa.nepal.sudurpaschimanchal.fragment;
 
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,7 +9,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.activities.NameListOfRepresentativeActivity;
-import com.naxa.nepal.sudurpaschimanchal.adapter.GaunpalikaRepresentative_Adapter;
+import com.naxa.nepal.sudurpaschimanchal.adapter.JillaSamanwoyeSamitiAdapter;
 import com.naxa.nepal.sudurpaschimanchal.model.Local_Level_Representative_Model;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
 
@@ -47,11 +47,11 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * Created by susan on 6/26/2017.
+ * A simple {@link Fragment} subclass.
  */
+public class JillaSamanwoyeSamitiFrgment extends Fragment {
 
-public class Gaunpalika_RepresentativeFragment extends Fragment {
-
+    //Susan
     View view;
 
     //Susan
@@ -66,23 +66,27 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
 
     ProgressDialog mProgressDlg;
 
-    GaunpalikaRepresentative_Adapter ca;
+    JillaSamanwoyeSamitiAdapter ca;
     public static List<Local_Level_Representative_Model> resultCur = new ArrayList<>();
     public static List<Local_Level_Representative_Model> filteredList = new ArrayList<>();
 
-    public static final String MyPREFERENCES = "gaunpalika_representative";
+    public static final String MyPREFERENCES = "jilla_samanwoye";
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     String jsonToSend = null;
 
-    public Gaunpalika_RepresentativeFragment() {
+
+
+    public JillaSamanwoyeSamitiFrgment() {
         // Required empty public constructor
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.local_chief_member_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        view =  inflater.inflate(R.layout.fragment_jilla_samanwoye_samiti_frgment, container, false);
 
         sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         editor = sharedpreferences.edit();
@@ -99,7 +103,7 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        if (sharedpreferences.getString("gaunpalika_representative", "").trim().isEmpty()) {
+        if (sharedpreferences.getString("jilla_samanwoye", "").trim().isEmpty()) {
             if (networkInfo != null && networkInfo.isConnected()) {
 
                 mProgressDlg = new ProgressDialog(getActivity());
@@ -187,24 +191,23 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
                 android.R.color.holo_red_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_green_light);
-
-
     }
 
     private void refreshContent() {
-
         createList();
         fillTable();
-
     }
 
     // data convert
     public void convertDataToJson() {
         //function in the activity that corresponds to the layout button
+
         try {
             JSONObject header = new JSONObject();
+
             header.put("token", "bf5d483811");
             jsonToSend = header.toString();
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -212,12 +215,11 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
 
     private void createList() {
         resultCur.clear();
-        GaunpalikaAPI restApi = new GaunpalikaAPI();
+        JillaSamanwoyeAPI restApi = new JillaSamanwoyeAPI();
         restApi.execute();
     }
 
-
-    private class GaunpalikaAPI extends AsyncTask<String, Void, String> {
+    private class JillaSamanwoyeAPI extends AsyncTask<String, Void, String> {
         JSONArray data = null;
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
@@ -241,11 +243,11 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
             String text = "";
-            if (sharedpreferences.getString("gaunpalika_representative", "").trim().isEmpty()) {
+            if (sharedpreferences.getString("jilla_samanwoye", "").trim().isEmpty()) {
                 if (networkInfo != null && networkInfo.isConnected()) {
 
-                    text = POST(UrlClass.URL_POLTICIAN_LIST);
-                    editor.putString("gaunpalika_representative", text);
+                    text = POST(UrlClass.URL_JILLA_SAMANWAYE_SAMITI);
+                    editor.putString("jilla_samanwoye", text);
                     editor.commit();
                 } else {
                     try {
@@ -256,29 +258,32 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
                     }
                 }
             } else {
-                text = sharedpreferences.getString("gaunpalika_representative", "");
+                text = sharedpreferences.getString("jilla_samanwoye", "");
             }
 
             try {
                 JSONObject jsonObj = new JSONObject(text);
                 data = jsonObj.getJSONArray("data");
                 Log.e("DATA", "" + data.toString());
-
                 String district = NameListOfRepresentativeActivity.district_name ;
                 Log.e("Nagar", "doInBackground: "+ district );
 
+
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject c = data.getJSONObject(i);
+
+
 
                     Local_Level_Representative_Model newData = new Local_Level_Representative_Model();
 
                     if(district.equals(c.getString("district_name_np"))) {
 
-                        newData._palika_head_name_np = c.getString("head");
-                        newData._palika_subhead_name_np = c.getString("sub_head");
-                        newData._palika_name_np = c.getString("nagar_gau_palika_np");
+                        newData._palika_head_name_np = c.getString("represent_1");
+                        newData._palika_subhead_name_np = c.getString("represent_2");
+//                        newData._head_contact_no_np = c.getString("nagar_gau_palika_np");
+//                        newData._subhead_contact_no_np = c.getString("nagar_gau_palika_np");
 
-                        Log.e("Nagar", "doInBackground: inside loop "+ district );
+//                        Log.e("Nagar", "doInBackground: inside loop "+ district );
 
 
                         resultCur.add(newData);
@@ -347,15 +352,14 @@ public class Gaunpalika_RepresentativeFragment extends Fragment {
 
             return response;
         }
-
     }
-
 
 
     public void fillTable() {
         filteredList = resultCur;
-        ca = new GaunpalikaRepresentative_Adapter(getActivity(), filteredList);
+        ca = new JillaSamanwoyeSamitiAdapter(getActivity(), filteredList);
         recyclerView.setAdapter(ca);
         ca.notifyDataSetChanged();
     }
+
 }

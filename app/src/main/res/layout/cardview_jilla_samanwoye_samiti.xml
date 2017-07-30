@@ -68,22 +68,22 @@
                     android:layout_below="@+id/name_layout">
 
                     <TextView
-                        android:id="@+id/textview_label_nagarpalika"
+                        android:id="@+id/textview_label_contact_no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="नगरपालिका"
+                        android:layout_marginLeft="8dp"
+                        android:text="सम्पर्क नम्बर"
                         android:textColor="@color/cardview_dark_background"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_palika_name_head"
+                        android:id="@+id/textView_contact_no_head"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toEndOf="@+id/textview_label_nagarpalika"
-                        android:layout_toRightOf="@+id/textview_label_nagarpalika"
+                        android:layout_toEndOf="@+id/textview_label_contact_no"
+                        android:layout_toRightOf="@+id/textview_label_contact_no"
                         android:text=":"
                         android:textColor="@color/cardview_dark_background" />
 
@@ -113,7 +113,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_toEndOf="@+id/textview_label2"
                         android:layout_toRightOf="@+id/textview_label2"
-                        android:text=": मेयर"
+                        android:text=": प्रमुख"
                         android:textColor="@color/cardview_dark_background" />
                 </RelativeLayout>
 
@@ -193,22 +193,22 @@
                     android:layout_below="@+id/name_layout1">
 
                     <TextView
-                        android:id="@+id/textview_label_nagarpalika1"
+                        android:id="@+id/textview_label_contact_no1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="नगरपालिका"
+                        android:layout_marginLeft="8dp"
+                        android:text="सम्पर्क नम्बर"
                         android:textColor="@color/cardview_dark_background"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_palika_name_subhead"
+                        android:id="@+id/textView_contact_no_subhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toEndOf="@+id/textview_label_nagarpalika1"
-                        android:layout_toRightOf="@+id/textview_label_nagarpalika1"
+                        android:layout_toEndOf="@+id/textview_label_contact_no1"
+                        android:layout_toRightOf="@+id/textview_label_contact_no1"
                         android:text=":"
                         android:textColor="@color/cardview_dark_background" />
 
@@ -238,7 +238,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_toEndOf="@+id/textview_label3"
                         android:layout_toRightOf="@+id/textview_label3"
-                        android:text=": उपमेयर"
+                        android:text=": उपप्रमुख"
                         android:textColor="@color/cardview_dark_background" />
                 </RelativeLayout>
 
