@@ -76,18 +76,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ArrayList<String> categories = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(true, TABLE_BUSINESS_PLACES, new String[]{KEY_BUSINESS_TYPE}, null, null, null, null, null, null);
+        Cursor cursor = db.query(true, TABLE_BUSINESS_PLACES, new String[]{KEY_BUSINESS_TYPE}, null, null, KEY_BUSINESS_TYPE, null, null, null);
 
         try {
 
             cursor.moveToFirst();
 
             do {
-                cursor.moveToFirst();
+
                 categories.add(cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_TYPE)));
-
-
-                while (cursor.moveToNext()) ;
 
             } while (cursor.moveToNext());
 

@@ -4,12 +4,26 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.ArrayAdapter;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.model.local.DatabaseHelper;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiClient;
@@ -21,18 +35,22 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCallback {
+import butterknife.OnClick;
 
-    @BindView(R.id.map)
-    MapView map;
+
+public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+
     @BindView(R.id.business_list_spinner)
     Spinner businessListSpinner;
     @BindView(R.id.floatingActionButton)
     FloatingActionButton floatingActionButton;
+
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +58,11 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
         setContentView(R.layout.activity_business_places_map);
         ButterKnife.bind(this);
 
+        tryToSetSpinner();
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
 
-        tryToSetSpinner();
+
     }
 
     @Override
@@ -51,8 +70,22 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
 
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
     }
+
+//    @Override
+//    public void onMapReady(GoogleMap googleMap) {
+//        mMap = googleMap;
+//
+//        // Add a marker in Sydney, Australia, and move the camera.
+//        LatLng sydney = new LatLng(-34, 151);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//>>>>>>> d0cf99c097c0aa4db9abbdc724106a88ad306a66
+//    }
 
     private void fetchMenuFromServer(String lastSyncDateTime) {
 
@@ -66,7 +99,7 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
             }
 
             private void handleResponse(Response<Data> response) {
-                if (response.code() != 200 || response.body() == null) {
+                if (response.code() != 200 || response.body().getData() == null) {
                     showToast("Something went wrong");
                     return;
                 }
@@ -88,6 +121,31 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
 
     }
 
+
+    private void setSudurCamera(GoogleMap myMap) {
+
+        final LatLngBounds SUDUR = new LatLngBounds(new LatLng(28.248326, 80.046272), new LatLng(30.771248, 82.296098));
+
+
+        myMap.setLatLngBoundsForCameraTarget(SUDUR);
+        myMap.setMinZoomPreference(8f);
+
+        LatLng mCenterLocation = new LatLng(29.319998, 81.096780);
+
+        CameraPosition cameraPositon = CameraPosition.builder()
+                .target(mCenterLocation)
+                .zoom(8f)
+                .bearing(0.0f)
+                .tilt(20f)
+                .build();
+
+        myMap.animateCamera(CameraUpdateFactory
+                .newCameraPosition(cameraPositon), null);
+
+        myMap.getUiSettings().setZoomControlsEnabled(true);
+
+    }
+
     private void tryToSetSpinner() {
         List<String> foodList = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
         if (foodList == null || foodList.size() == 0) {
@@ -97,6 +155,9 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
 
 
         ArrayList<String> bussinesscategorieslist = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
+
+
+
         String[] bussinesscategories = bussinesscategorieslist.toArray(new String[bussinesscategorieslist.size()]);
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bussinesscategories);
@@ -111,5 +172,11 @@ public class BusinessPlacesMapActivity extends Activity implements OnMapReadyCal
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 
+    @OnClick(R.id.floatingActionButton)
+    public void toBusinessActivity() {
+
+        Intent intent = new Intent(BusinessPlacesMapActivity.this, AddYourBusinessActivity.class);
+        startActivity(intent);
+    }
 
 }
