@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import com.naxa.nepal.sudurpaschimanchal.activities.AskForHelpActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.BikashGatibitiActivity;
+import com.naxa.nepal.sudurpaschimanchal.activities.BusinessPlacesMapActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.IntroductionUpdateActivity;
 import com.naxa.nepal.sudurpaschimanchal.activities.SocioEconomicActivity;
@@ -199,7 +200,7 @@ public class HomeFragment extends Fragment {
                 break;
 
             case 5:
-                Intent intent5 = new Intent(getActivity(), AddYourBusinessActivity.class);
+                Intent intent5 = new Intent(getActivity(), BusinessPlacesMapActivity.class);
                 startActivity(intent5);
                 break;
             case 6:
