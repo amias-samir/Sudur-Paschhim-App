@@ -35,14 +35,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static DatabaseHelper databaseHelper;
 
 
-    public static DatabaseHelper getInstance() {
+    public static DatabaseHelper getInstance(Context context) {
 
 
         if (databaseHelper != null) {
             return databaseHelper;
         }
 
-        databaseHelper = new DatabaseHelper(Sudur.getAppContext());
+        databaseHelper = new DatabaseHelper(context);
         return databaseHelper;
     }
 
@@ -78,19 +78,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(true, TABLE_BUSINESS_PLACES, new String[]{KEY_BUSINESS_TYPE}, null, null, null, null, null, null);
 
-        do {
+        try {
 
-            try {
+            cursor.moveToFirst();
+
+            do {
                 cursor.moveToFirst();
                 categories.add(cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_TYPE)));
-            } catch (CursorIndexOutOfBoundsException | NullPointerException e) {
 
-            } finally {
-                cursor.close();
-                db.close();
-            }
 
-        } while (cursor.moveToNext());
+                while (cursor.moveToNext()) ;
+
+            } while (cursor.moveToNext());
+
+        } catch (CursorIndexOutOfBoundsException | NullPointerException e) {
+
+        } finally {
+            cursor.close();
+            db.close();
+        }
+
 
         return categories;
     }

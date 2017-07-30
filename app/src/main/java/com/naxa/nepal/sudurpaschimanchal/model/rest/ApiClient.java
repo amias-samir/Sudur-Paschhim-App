@@ -11,7 +11,7 @@ import rx.schedulers.Schedulers;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "http:/www.naxa.com.np/buildchange/ws/";
+    private static final String BASE_URL = "http://naxa.com.np/sudurapi/";
     private static Retrofit retrofit = null;
     private static RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
 

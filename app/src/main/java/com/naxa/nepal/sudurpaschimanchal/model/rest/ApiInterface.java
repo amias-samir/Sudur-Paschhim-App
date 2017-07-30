@@ -9,7 +9,7 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-    @POST("getmenu")
+    @POST("selectBusiness")
     Call<Data> getMenu(@Field("last_sync_date_time") String data);
 
 
