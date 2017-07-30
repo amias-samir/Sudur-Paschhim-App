@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FWDC.iml" filepath="$PROJECT_DIR$/FWDC.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hamro Sudur.iml" filepath="$PROJECT_DIR$/Hamro Sudur.iml" />
       <module fileurl="file://$PROJECT_DIR$/SudurPaschhim.iml" filepath="$PROJECT_DIR$/SudurPaschhim.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sudurpachim.iml" filepath="$PROJECT_DIR$/Sudurpachim.iml" />
