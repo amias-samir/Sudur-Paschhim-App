@@ -374,7 +374,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DevelopmentINGOsOrganizationActivity" />
         </activity>
-        <activity android:name=".activities.BusinessPlacesMapActivity"></activity>
+        <activity
+            android:exported="true"
+            android:name=".activities.BusinessPlacesMapActivity"></activity>
     </application>
 
 </manifest>
