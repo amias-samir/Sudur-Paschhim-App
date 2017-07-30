@@ -132,13 +132,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
             do {
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ID));
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ADDRS));
-                cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_DESC));
+                Bussiness bussiness = new Bussiness();
+
+                bussiness.setBusinessId(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ID)));
+
+                bussiness.setBusinessAddress(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ADDRS)));
+
+                bussiness.setBusinessDescription(
+                        cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_DESC)));
+
                 cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LAT));
                 cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_LON));
                 cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_PHOTO));
                 cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_TYPE));
+                cursor.getString(cursor.getColumnIndex(KEY_LAST_MODIFIED_DATE_TIME));
+
+
             } while (cursor.moveToNext());
 
         } catch (CursorIndexOutOfBoundsException | NullPointerException e) {
@@ -176,38 +187,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.close();
     }
-//
-//    public List<Food> getFoodList() {
-//
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        List<Food> foodList = new ArrayList<>();
-//
-//        Cursor cursor = db.query(TABLE_BUSINESS_PLACES, null
-//                , null, null, null, null, null, null);
-//        try {
-//
-//            cursor.moveToFirst();
-//            do {
-//                Food food = new Food();
-//                food.setFoodId(cursor.getString(cursor.getColumnIndex(KEY_BUSINESS_ID)));
-//                food.setFoodName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
-//                food.setLastModifiedDateTime(cursor.getString(cursor.getColumnIndex(KEY_LAST_MODIFIED_DATE_TIME)));
-//                foodList.add(food);
-//
-//            }
-//            while (cursor.moveToNext());
-//
-//        } catch (CursorIndexOutOfBoundsException | NullPointerException e) {
-//
-//
-//        } finally {
-//            cursor.close();
-//            db.close();
-//        }
-//
-//        return foodList;
-//    }
 
 
     public void clearTable(String tableName) {
