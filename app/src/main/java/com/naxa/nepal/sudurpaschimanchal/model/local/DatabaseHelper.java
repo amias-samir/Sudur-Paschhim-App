@@ -12,9 +12,6 @@ import com.naxa.nepal.sudurpaschimanchal.Sudur;
 import java.util.ArrayList;
 import java.util.List;
 
-import np.com.naxa.bettersync.BetterSync;
-import np.com.naxa.bettersync.model.rest.Food;
-
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -156,21 +153,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-//    public void addFoodItems(List<Bussiness> foodlist) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//
-//        for (Food food : foodlist) {
-//
-//            values.put(KEY_BUSINESS_ID, food.getFoodId());
-//            values.put(KEY_NAME, food.getFoodName());
-//            values.put(KEY_LAST_MODIFIED_DATE_TIME, food.getLastModifiedDateTime());
-//            db.replace(TABLE_BUSINESS_PLACES, null, values);
-//
-//        }
-//
-//        db.close();
-//    }
+    public void addBushinessList(List<Bussiness> bussinesses) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        for (Bussiness bussiness : bussinesses) {
+
+            values.put(KEY_BUSINESS_ID, bussiness.getBusinessId());
+            values.put(KEY_NAME, bussiness.getBusinessName());
+            values.put(KEY_BUSINESS_ADDRS, bussiness.getBusinessAddress());
+
+            values.put(KEY_BUSINESS_DESC, bussiness.getBusinessDescription());
+            values.put(KEY_BUSINESS_LAT, bussiness.getLatitude());
+            values.put(KEY_BUSINESS_LON, bussiness.getLongitude());
+            values.put(KEY_BUSINESS_PHOTO, bussiness.getPhotoPath());
+            values.put(KEY_BUSINESS_TYPE, bussiness.getBusinessType());
+
+            values.put(KEY_LAST_MODIFIED_DATE_TIME, bussiness.getLastModifiedDate());
+            db.replace(TABLE_BUSINESS_PLACES, null, values);
+
+        }
+
+        db.close();
+    }
 //
 //    public List<Food> getFoodList() {
 //

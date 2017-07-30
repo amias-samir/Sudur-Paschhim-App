@@ -3,6 +3,7 @@ package com.naxa.nepal.sudurpaschimanchal.model.rest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.naxa.nepal.sudurpaschimanchal.model.local.Bussiness;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Data {
     private Integer status;
     @SerializedName("data")
     @Expose
-    private List<Food> data = null;
+    private List<Bussiness> data = null;
 
     public Integer getCode() {
         return code;
@@ -34,11 +35,11 @@ public class Data {
         this.status = status;
     }
 
-    public List<Food> getData() {
+    public List<Bussiness> getData() {
         return data;
     }
 
-    public void setData(List<Food> data) {
+    public void setData(List<Bussiness> data) {
         this.data = data;
     }
 
