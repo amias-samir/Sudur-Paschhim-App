@@ -25,6 +25,10 @@ import android.widget.TextView;
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
+import com.naxa.nepal.sudurpaschimanchal.model.local.DatabaseHelper;
+import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiClient;
+import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiInterface;
+import com.naxa.nepal.sudurpaschimanchal.model.rest.Data;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +45,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -281,6 +289,10 @@ public class SplashScreenActivity extends Activity {
                 convertDataToJson();
                 DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
                 ngoIngoApi.execute();
+
+                fetchBussinesFromServer(
+                        DatabaseHelper.getInstance(
+                                getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES))
 
 
 //                        }
@@ -1689,6 +1701,38 @@ public class SplashScreenActivity extends Activity {
         else {
             restartActivity();
         }
+    }
+
+
+    private void fetchBussinesFromServer(String lastSyncDateTime) {
+
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<Data> call = apiService.getMenu(lastSyncDateTime);
+        call.enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(Call<Data> call, Response<Data> response) {
+                handleResponse(response);
+            }
+
+            private void handleResponse(Response<Data> response) {
+                if (response.code() != 200 || response.body().getData() == null) {
+
+                    return;
+                }
+
+                Data data = response.body();
+                DatabaseHelper.getInstance(getApplicationContext()).addBushinessList(data.getData());
+
+            }
+
+            @Override
+            public void onFailure(Call<Data> call, Throwable t) {
+
+
+            }
+        });
+
     }
 
     public void restartActivity(){

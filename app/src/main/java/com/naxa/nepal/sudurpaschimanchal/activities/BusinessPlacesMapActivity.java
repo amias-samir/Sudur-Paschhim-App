@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +33,6 @@ import com.naxa.nepal.sudurpaschimanchal.model.rest.Data;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +57,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
     private ArrayList<Marker> markersPresentOnMap;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +71,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
         tryToSetSpinner();
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
-        fetchMenuFromServer(lastSyncDate);
+        fetchBussinesFromServer(lastSyncDate);
 
     }
 
@@ -100,7 +99,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         map.setPadding(0, 120, 0, 120);//to stop UI buttons to being overlapped and hidden
 
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
-        fetchMenuFromServer(lastSyncDate);
+        fetchBussinesFromServer(lastSyncDate);
 
         setSudurCamera(map);
 
@@ -125,7 +124,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
     }
 
-    private void fetchMenuFromServer(String lastSyncDateTime) {
+    private void fetchBussinesFromServer(String lastSyncDateTime) {
 
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
