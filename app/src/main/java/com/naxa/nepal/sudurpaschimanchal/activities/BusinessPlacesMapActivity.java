@@ -1,29 +1,21 @@
 package com.naxa.nepal.sudurpaschimanchal.activities;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.widget.ArrayAdapter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
-
+import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.model.local.DatabaseHelper;
 import com.naxa.nepal.sudurpaschimanchal.model.rest.ApiClient;
@@ -35,12 +27,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import butterknife.OnClick;
 
 
 public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -49,6 +39,8 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
     Spinner businessListSpinner;
     @BindView(R.id.floatingActionButton)
     FloatingActionButton floatingActionButton;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     private GoogleMap mMap;
 
@@ -57,12 +49,19 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_places_map);
         ButterKnife.bind(this);
-
+        setToolbar();
         tryToSetSpinner();
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
         fetchMenuFromServer(lastSyncDate);
 
 
+    }
+
+    private void setToolbar() {
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -155,7 +154,6 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
 
         ArrayList<String> bussinesscategorieslist = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
-
 
 
         String[] bussinesscategories = bussinesscategorieslist.toArray(new String[bussinesscategorieslist.size()]);
