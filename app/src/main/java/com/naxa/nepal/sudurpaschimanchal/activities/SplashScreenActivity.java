@@ -114,7 +114,7 @@ public class SplashScreenActivity extends Activity {
     //=========================================NGO/INGO ==========================================================//
     public static final String NgoIngoPREFERENCES = "development_ingo_ngo";
     SharedPreferences ngosharedpreferences;
-    SharedPreferences.Editor ngoeditor ;
+    SharedPreferences.Editor ngoeditor;
 //=========================================end of NGO/INGO ==========================================================//
 
 
@@ -145,15 +145,15 @@ public class SplashScreenActivity extends Activity {
 
 
         textView3 = (TextView) findViewById(R.id.textView3);
-        Typeface face3= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face3 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView3.setTypeface(face3);
 
         textView4 = (TextView) findViewById(R.id.textView4);
-        Typeface face4= Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
+        Typeface face4 = Typeface.createFromAsset(getAssets(), "font/roboto_thin.ttf");
         textView4.setTypeface(face4);
 
-        firstBar = (ProgressBar)findViewById(R.id.firstBar);
-        secondBar = (ProgressBar)findViewById(R.id.secondBar);
+        firstBar = (ProgressBar) findViewById(R.id.firstBar);
+        secondBar = (ProgressBar) findViewById(R.id.secondBar);
 //================================== shared preferences initialization ==============================================//
 
         //SharedPreferences-DEV_ACTIVITIES
@@ -208,7 +208,7 @@ public class SplashScreenActivity extends Activity {
 //======================================================== end of shared preferences initialization ========================//
         try {
 
-            RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
             Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
             relativeLayout.startAnimation(relativeAnim);
 
@@ -230,7 +230,6 @@ public class SplashScreenActivity extends Activity {
                 convertDataToJson();
                 FWDCDEVApiCall fwdcdevApiCall = new FWDCDEVApiCall();
                 fwdcdevApiCall.execute();
-
 
 
                 //==============about fwdc call====================//
@@ -292,7 +291,7 @@ public class SplashScreenActivity extends Activity {
 
                 fetchBussinesFromServer(
                         DatabaseHelper.getInstance(
-                                getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES))
+                                getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES));
 
 
 //                        }
@@ -303,7 +302,7 @@ public class SplashScreenActivity extends Activity {
                     public void run() {
                         try {
 
-                            RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.splash_background);
+                            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.splash_background);
                             Animation relativeAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
                             relativeLayout.startAnimation(relativeAnim);
 
@@ -316,7 +315,7 @@ public class SplashScreenActivity extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } finally {
-                            Intent stuff = new Intent(SplashScreenActivity.this,MainActivity.class);
+                            Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
                             startActivity(stuff);
                         }
                         finish();
@@ -327,14 +326,10 @@ public class SplashScreenActivity extends Activity {
             }
 
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-
 
 
     // data convert
@@ -353,7 +348,6 @@ public class SplashScreenActivity extends Activity {
         }
 
     }
-
 
 
     //About fwdc dev
@@ -414,7 +408,7 @@ public class SplashScreenActivity extends Activity {
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -525,7 +519,6 @@ public class SplashScreenActivity extends Activity {
                 aboutfwdceditor.commit();
 
 
-
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -541,7 +534,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
 //                //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -654,7 +647,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -755,7 +748,7 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -869,7 +862,7 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -978,7 +971,7 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1095,11 +1088,10 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
-
 
 
             }
@@ -1189,7 +1181,6 @@ public class SplashScreenActivity extends Activity {
                 partieseditor.commit();
 
 
-
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -1202,8 +1193,8 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
 
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
-                downloadCount ++ ;
+                downloadCount++;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1292,8 +1283,6 @@ public class SplashScreenActivity extends Activity {
                 polticianeditor.commit();
 
 
-
-
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -1307,7 +1296,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1397,11 +1386,9 @@ public class SplashScreenActivity extends Activity {
 
             try {
                 text = POST(UrlClass.URL_NAGARPALIKA_REPRESENTATIVE);
-                Log.e("Nagar Represent LIST: ","Splash" + text.toString());
+                Log.e("Nagar Represent LIST: ", "Splash" + text.toString());
                 nagareditor.putString("nagarpalika_representative", text);
                 nagareditor.commit();
-
-
 
 
             } catch (Exception e) {
@@ -1417,7 +1404,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1506,11 +1493,9 @@ public class SplashScreenActivity extends Activity {
 
             try {
                 text = POST(UrlClass.URL_GAUNPALIKA_REPRESENTATIVE);
-                Log.e("Gaun Represent LIST: ","Splash" + text.toString());
+                Log.e("Gaun Represent LIST: ", "Splash" + text.toString());
                 gauneditor.putString("gaunpalika_representative", text);
                 gauneditor.commit();
-
-
 
 
             } catch (Exception e) {
@@ -1526,7 +1511,7 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
                 firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1619,8 +1604,7 @@ public class SplashScreenActivity extends Activity {
                 ngoeditor.putString("development_ingo_ngo", text);
                 Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
                 ngoeditor.commit();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
 
@@ -1633,7 +1617,7 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
-                downloadCount ++ ;
+                downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
 //                firstBar.setSecondaryProgress(downloadCount + 1);
@@ -1641,7 +1625,7 @@ public class SplashScreenActivity extends Activity {
 
                 Log.e("ProgressBar", "end " + downloadCount);
 
-            }else {
+            } else {
                 restartActivity();
             }
         }
@@ -1689,16 +1673,11 @@ public class SplashScreenActivity extends Activity {
     }
 
 
-
-
-
-
-    public  void  startMainActivity (int count){
-        if(count == 13){
+    public void startMainActivity(int count) {
+        if (count == 13) {
             Intent stuff = new Intent(SplashScreenActivity.this, MainActivity.class);
             startActivity(stuff);
-        }
-        else {
+        } else {
             restartActivity();
         }
     }
@@ -1735,7 +1714,7 @@ public class SplashScreenActivity extends Activity {
 
     }
 
-    public void restartActivity(){
+    public void restartActivity() {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;

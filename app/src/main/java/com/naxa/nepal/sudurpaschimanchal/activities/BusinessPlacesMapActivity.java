@@ -137,7 +137,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
             private void handleResponse(Response<Data> response) {
                 if (response.code() != 200 || response.body().getData() == null) {
-                    showToast("Something went wrong");
+
                     return;
                 }
 
@@ -146,7 +146,7 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
                 tryToSetSpinner();
 
 
-                showToast(data.getData().size() + " new places received");
+
             }
 
             @Override
