@@ -196,8 +196,8 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
         ArrayList<String> bussinesscategorieslist = DatabaseHelper.getInstance(getApplicationContext()).getBusinessCategories();
         String[] bussinesscategories = bussinesscategorieslist.toArray(new String[bussinesscategorieslist.size()]);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bussinesscategories);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.custom_simple_spinner_item, bussinesscategories);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.custom_simple_spinner_dropdown_item);
         businessListSpinner.setAdapter(spinnerArrayAdapter);
         businessListSpinner.setOnItemSelectedListener(this);
 
