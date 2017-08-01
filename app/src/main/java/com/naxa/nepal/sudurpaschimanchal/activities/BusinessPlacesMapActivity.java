@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,7 +58,6 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
     private ArrayList<Marker> markersPresentOnMap;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +71,8 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
 
         tryToSetSpinner();
         String lastSyncDate = DatabaseHelper.getInstance(getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES);
+
+
         fetchBussinesFromServer(lastSyncDate);
 
     }
@@ -131,21 +133,21 @@ public class BusinessPlacesMapActivity extends AppCompatActivity implements OnMa
         Call<Data> call = apiService.getMenu(lastSyncDateTime);
         call.enqueue(new Callback<Data>() {
             @Override
+
+
             public void onResponse(Call<Data> call, Response<Data> response) {
                 handleResponse(response);
             }
 
             private void handleResponse(Response<Data> response) {
                 if (response.code() != 200 || response.body().getData() == null) {
-
                     return;
                 }
 
+
                 Data data = response.body();
-                DatabaseHelper.getInstance(getApplicationContext()).addBushinessList(data.getData());
+                DatabaseHelper.getInstance(getApplicationContext()).saveSyncedBussinesses(data.getData());
                 tryToSetSpinner();
-
-
 
             }
 

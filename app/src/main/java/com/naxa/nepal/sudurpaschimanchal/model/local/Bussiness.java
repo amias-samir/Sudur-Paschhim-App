@@ -41,6 +41,11 @@ public class Bussiness {
     @Expose
     private String lastModifiedDate;
 
+    @SerializedName("is_deleted")
+    @Expose
+    private Integer isDeleted;
+
+
     public String getBusinessId() {
         return businessId;
     }
@@ -119,5 +124,13 @@ public class Bussiness {
 
     public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }

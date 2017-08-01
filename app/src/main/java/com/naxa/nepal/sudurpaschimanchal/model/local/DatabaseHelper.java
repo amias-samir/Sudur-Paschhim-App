@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import com.naxa.nepal.sudurpaschimanchal.Dump;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +133,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_BUSINESS_PLACES, null, KEY_BUSINESS_TYPE + "=?", new String[]{type}, null, null, null, null);
 
 
-
         try {
 
             cursor.moveToFirst();
@@ -183,11 +185,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addBushinessList(List<Bussiness> bussinesses) {
+    public void saveSyncedBussinesses(List<Bussiness> bussinesses) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         for (Bussiness bussiness : bussinesses) {
+
+
+            if (bussiness.getIsDeleted() == 1) {
+                db.delete(TABLE_BUSINESS_PLACES, KEY_BUSINESS_ID + "=?", new String[]{bussiness.getBusinessId()});
+                continue;
+            }
+
 
             values.put(KEY_BUSINESS_ID, bussiness.getBusinessId());
             values.put(KEY_BUSINESS_NAME, bussiness.getBusinessName());
