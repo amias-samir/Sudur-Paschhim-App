@@ -289,6 +289,7 @@ public class SplashScreenActivity extends Activity {
                 DevelopmentINGOAPI ngoIngoApi = new DevelopmentINGOAPI();
                 ngoIngoApi.execute();
 
+
                 fetchBussinesFromServer(
                         DatabaseHelper.getInstance(
                                 getApplicationContext()).getLastSyncDate(DatabaseHelper.TABLE_BUSINESS_PLACES));
@@ -353,6 +354,7 @@ public class SplashScreenActivity extends Activity {
     //About fwdc dev
     public class FWDCDEVApiCall extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
         String dev_status_id = null, dev_title_en = null, dev_title_np = null,
                 dev_desc_en = null, dev_desc_np = null, dev_contractor_en = null,
                 dev_contractor_np = null, dev_budget = null, district_name_en = null,
@@ -384,13 +386,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_DEV_ACTIVITIES);
-                Log.e("FWDCDEV ACTIVITIES", "Splash" + text.toString());
-                fwdcdeveditor.putString("dev_activities", text);
-                fwdcdeveditor.commit();
 
 
             } catch (Exception e) {
@@ -408,6 +407,10 @@ public class SplashScreenActivity extends Activity {
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
                 //Success
+                Log.e("FWDCDEV ACTIVITIES", "Splash" + text.toString());
+                fwdcdeveditor.putString("dev_activities", text);
+                fwdcdeveditor.commit();
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -478,6 +481,7 @@ public class SplashScreenActivity extends Activity {
 
     //About fwdc
     public class AboutFWDCApiCall extends AsyncTask<String, Void, String> {
+        String text1 = "";
         JSONArray data = null;
 
 
@@ -510,13 +514,11 @@ public class SplashScreenActivity extends Activity {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
 
-            String text1 = "";
+//            String text1 = "";
 
             try {
                 text1 = POST(UrlClass.URL_ABOUT_FWDC);
-                Log.e("ABOUT FWDC ", "Splash" + text1.toString());
-                aboutfwdceditor.putString("fwdc_json", text1);
-                aboutfwdceditor.commit();
+
 
 
             } catch (Exception e) {
@@ -534,6 +536,10 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
 //                //Success
+                Log.e("ABOUT FWDC ", "Splash" + text1.toString());
+                aboutfwdceditor.putString("fwdc_json", text1);
+                aboutfwdceditor.commit();
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -594,6 +600,8 @@ public class SplashScreenActivity extends Activity {
     //Intro Apicall
     public class IntroApiCall extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = null;
+
         String intro_title_en, intro_title_np, intro_desc_en = null, intro_area_en = null, intro_boundary_en = null,
                 intro_desc_np = null, intro_area_np = null, intro_boundary_np = null;
 
@@ -624,14 +632,12 @@ public class SplashScreenActivity extends Activity {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
 
-            String text = null;
+//            String text = null;
 //            introeditor.clear();
             try {
 
                 text = POST(UrlClass.URL_INTRODUCTION);
-                Log.e("INTRODUCTION FWDC :", "Splash" + text.toString());
-                introeditor.putString("intro_json", text);
-                introeditor.commit();
+
 
 
             } catch (Exception e) {
@@ -647,6 +653,11 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("INTRODUCTION FWDC :", "Splash" + text.toString());
+                introeditor.putString("intro_json", text);
+                introeditor.commit();
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -704,6 +715,8 @@ public class SplashScreenActivity extends Activity {
     //socio economic status
     private class SocioEconomicService extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -725,14 +738,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_SOCIO_ECONOMIC);
-                Log.e("FWDC SOCIO ECONOMIC :  ", "Splash" + text.toString());
-                socioeditor.putString("socio_economic", text);
-                socioeditor.commit();
-
 
             } catch (Exception e) {
                 return e.getLocalizedMessage();
@@ -748,6 +757,12 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("FWDC SOCIO ECONOMIC :  ", "Splash" + text.toString());
+                socioeditor.putString("socio_economic", text);
+                socioeditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -807,6 +822,8 @@ public class SplashScreenActivity extends Activity {
     // sudur dev
     public class SudurDevApiCall extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
         String dev_status_id = null, dev_title_en = null, dev_title_np = null,
                 dev_desc_en = null, dev_desc_np = null, dev_contractor_en = null,
                 dev_contractor_np = null, dev_budget = null, district_name_en = null,
@@ -837,15 +854,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_SUDURPASCHHIM_DEV_ACT);
-
-                Log.e("SUDURPASCHHIM DEV : ", "Splash" + text.toString());
-
-                sudurdeveditor.putString("hamro_sudurpaschhim", text);
-                sudurdeveditor.commit();
 
 
             } catch (Exception e) {
@@ -862,6 +874,12 @@ public class SplashScreenActivity extends Activity {
 
             if (result != null && !result.equals("")) {
                 //Success
+                Log.e("SUDURPASCHHIM DEV : ", "Splash" + text.toString());
+
+                sudurdeveditor.putString("hamro_sudurpaschhim", text);
+                sudurdeveditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -921,6 +939,8 @@ public class SplashScreenActivity extends Activity {
     //nagarpalika budget
     public class NagarpalikaBudgetApiCall extends AsyncTask<String, Void, String> {
         JSONArray data1 = null;
+        String text1 = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -947,14 +967,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text1 = "";
+//            String text1 = "";
 
             try {
                 text1 = POST(UrlClass.URL_NAGARPALIKA_BUDGET);
-
-                Log.e("nagar_budget", "Splash" + text1.toString());
-                nagarbudgeteditor.putString("nagar_budget", text1);
-                nagarbudgeteditor.commit();
 
 
             } catch (Exception e) {
@@ -971,6 +987,11 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
+                Log.e("nagar_budget", "Splash" + text1.toString());
+                nagarbudgeteditor.putString("nagar_budget", text1);
+                nagarbudgeteditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -1034,6 +1055,8 @@ public class SplashScreenActivity extends Activity {
     // sudur attract
     public class AttrractionApiCall extends AsyncTask<String, Void, String> {
         JSONArray data1 = null;
+        String text1 = "";
+
         String dev_status_id = null, dev_title_en = null, dev_title_np = null,
                 dev_desc_en = null, dev_desc_np = null, dev_contractor_en = null,
                 dev_contractor_np = null, dev_budget = null, district_name_en = null,
@@ -1064,14 +1087,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text1 = "";
+//            String text1 = "";
 
             try {
                 text1 = POST(UrlClass.URL_SUDURPASCHHIM_LOCAL_ATTR);
-
-                Log.e("SUDUR LOCAL ATTRACTION", "Splash" + text1.toString());
-                sudurattracteditor.putString("sudur_attract", text1);
-                sudurattracteditor.commit();
 
 
             } catch (Exception e) {
@@ -1088,6 +1107,11 @@ public class SplashScreenActivity extends Activity {
             if (result != null && !result.equals("")) {
 
                 //Success
+                Log.e("SUDUR LOCAL ATTRACTION", "Splash" + text1.toString());
+                sudurattracteditor.putString("sudur_attract", text1);
+                sudurattracteditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -1150,6 +1174,8 @@ public class SplashScreenActivity extends Activity {
     // poltical parties
     private class PoticalPartiesListService extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -1171,15 +1197,11 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
 
                 text = POST(UrlClass.URL_PARTY_LIST);
-                Log.e("POLTICAL PARTIES ", "Splash" + text.toString());
-                partieseditor.putString("poltical_parties_json", text);
-                partieseditor.commit();
-
 
             } catch (Exception e) {
                 return e.getLocalizedMessage();
@@ -1193,6 +1215,12 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
 
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("POLTICAL PARTIES ", "Splash" + text.toString());
+                partieseditor.putString("poltical_parties_json", text);
+                partieseditor.commit();
+
+
                 downloadCount++;
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
@@ -1253,6 +1281,8 @@ public class SplashScreenActivity extends Activity {
     // poltician list
     private class PoticianListService extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -1274,14 +1304,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_POLTICIAN_LIST);
-                Log.e("POLTICIAN LIST :  ", "Splash" + text.toString());
-                polticianeditor.putString("PolticianData", text);
-                polticianeditor.commit();
-
 
             } catch (Exception e) {
                 return e.getLocalizedMessage();
@@ -1296,6 +1322,12 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("POLTICIAN LIST :  ", "Splash" + text.toString());
+                polticianeditor.putString("PolticianData", text);
+                polticianeditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -1361,6 +1393,8 @@ public class SplashScreenActivity extends Activity {
     // NagarPalika representative list
     private class NagarRepresentativeListService extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -1382,13 +1416,11 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_NAGARPALIKA_REPRESENTATIVE);
-                Log.e("Nagar Represent LIST: ", "Splash" + text.toString());
-                nagareditor.putString("nagarpalika_representative", text);
-                nagareditor.commit();
+
 
 
             } catch (Exception e) {
@@ -1404,6 +1436,10 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("Nagar Represent LIST: ", "Splash" + text.toString());
+                nagareditor.putString("nagarpalika_representative", text);
+                nagareditor.commit();
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -1468,6 +1504,8 @@ public class SplashScreenActivity extends Activity {
     // Gaunpalika representative list
     private class GaunRepresentativeListService extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -1489,14 +1527,10 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_GAUNPALIKA_REPRESENTATIVE);
-                Log.e("Gaun Represent LIST: ", "Splash" + text.toString());
-                gauneditor.putString("gaunpalika_representative", text);
-                gauneditor.commit();
-
 
             } catch (Exception e) {
                 return e.getLocalizedMessage();
@@ -1511,6 +1545,12 @@ public class SplashScreenActivity extends Activity {
             // TODO Auto-generated method stub
             //Log.e("ONPOSTEXECUTE", "ONPOST");
             if (result != null && !result.equals("")) {
+//                success
+                Log.e("Gaun Represent LIST: ", "Splash" + text.toString());
+                gauneditor.putString("gaunpalika_representative", text);
+                gauneditor.commit();
+
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
@@ -1576,6 +1616,8 @@ public class SplashScreenActivity extends Activity {
     //  NGO/INGO
     private class DevelopmentINGOAPI extends AsyncTask<String, Void, String> {
         JSONArray data = null;
+        String text = "";
+
 
         protected String getASCIIContentFromEntity(HttpURLConnection entity)
                 throws IllegalStateException, IOException {
@@ -1596,14 +1638,11 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            String text = "";
+//            String text = "";
 
             try {
                 text = POST(UrlClass.URL_INGO_NGO_DEVELOPMENT);
-                ngoeditor = ngosharedpreferences.edit();
-                ngoeditor.putString("development_ingo_ngo", text);
-                Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
-                ngoeditor.commit();
+
             } catch (Exception e) {
                 return e.getLocalizedMessage();
             }
@@ -1617,6 +1656,12 @@ public class SplashScreenActivity extends Activity {
             //Log.e("ONPOSTEXECUTE", "ONPOST");
 //            mProgressDlg.dismiss();
             if (result != null && !result.equals("")) {
+//                success
+                ngoeditor = ngosharedpreferences.edit();
+                ngoeditor.putString("development_ingo_ngo", text);
+                Log.e("NGO/INGO LIST :  ", "Splash" + text.toString());
+                ngoeditor.commit();
+
                 downloadCount++;
                 firstBar.setProgress(downloadCount);
                 //Set the second progress bar value
