@@ -839,6 +839,17 @@ public class AddYourBusinessActivity extends AppCompatActivity {
                     etBusinessAddress.setText("");
                     etBusinessDesc.setText("");
                 }
+                if (!dataSentStatus.equals("200")) {
+                    mProgressDlg.dismiss();
+
+                    Toast.makeText(getApplicationContext(), getString(R.string.form_not_sent_np), Toast.LENGTH_SHORT).show();
+
+                    previewImageSite.setVisibility(View.VISIBLE);
+                    etBusinessName.setText(business_name);
+                    etBusinessAddress.setText(business_address);
+                    etBusinessDesc.setText(business_description);
+                }
+
             }
 
         }

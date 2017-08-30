@@ -11,6 +11,7 @@
     cheese caerphilly bavarian bergkase cheese and biscuits mascarpone. Cheeseburger swiss bavarian
     bergkase cream cheese fromage frais cheesy feet port-salut airedale.</string>
     <string name="form_sent_np">फारम पठाइयो</string>
+    <string name="form_not_sent_np">Unexpected error occured. </string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="about_us">About Us</string>
 
@@ -61,6 +62,14 @@
         <item>"बाजुरा"</item>
         <item>"बैतडी"</item>
     </string-array>
+
+
+
+
+    <string name="facebook_app_id">392524947816591</string>
+    <string name="fb_login_protocol_scheme">fb392524947816591</string>
+
+
 
 
 </resources>
