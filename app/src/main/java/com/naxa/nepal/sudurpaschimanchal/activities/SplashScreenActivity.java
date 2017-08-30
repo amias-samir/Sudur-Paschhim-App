@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.appevents.AppEventsLogger;
 import com.naxa.nepal.sudurpaschimanchal.MainActivity;
 import com.naxa.nepal.sudurpaschimanchal.R;
 import com.naxa.nepal.sudurpaschimanchal.model.UrlClass;
@@ -49,6 +50,8 @@ import javax.net.ssl.HttpsURLConnection;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.facebook.FacebookSdk;
+
 
 
 /**
@@ -59,6 +62,8 @@ public class SplashScreenActivity extends Activity {
     ConnectivityManager connectivityManager;
     NetworkInfo networkInfo;
 //    private ProgressBar downloadProgressBar;
+        AppEventsLogger logger;
+
 
     private ProgressBar firstBar = null;
     private ProgressBar secondBar = null;
@@ -154,6 +159,9 @@ public class SplashScreenActivity extends Activity {
 
         firstBar = (ProgressBar) findViewById(R.id.firstBar);
         secondBar = (ProgressBar) findViewById(R.id.secondBar);
+
+
+
 //================================== shared preferences initialization ==============================================//
 
         //SharedPreferences-DEV_ACTIVITIES
@@ -203,6 +211,11 @@ public class SplashScreenActivity extends Activity {
         // Nagarpalika Representative
         nagarpalikasharedpreferences = this.getSharedPreferences(nagarPREFERENCES, Context.MODE_PRIVATE);
         nagareditor = nagarpalikasharedpreferences.edit();
+
+//        logActivityVisible();
+
+
+
 
 
 //======================================================== end of shared preferences initialization ========================//
@@ -1794,6 +1807,11 @@ public class SplashScreenActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+
+    public void logActivityVisible () {
+        logger.logEvent("ActivityVisible");
     }
 
 }
