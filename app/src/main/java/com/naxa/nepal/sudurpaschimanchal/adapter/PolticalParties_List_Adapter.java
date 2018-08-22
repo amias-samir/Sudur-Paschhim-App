@@ -18,7 +18,7 @@ import com.naxa.nepal.sudurpaschimanchal.model.PolticalParties_List_Model;
 import java.util.List;
 
 /**
- * Created by User on 11/6/2016.
+ * Created by Samir on 11/6/2016.
  */
 
 public class PolticalParties_List_Adapter extends RecyclerView.Adapter<PolticalParties_List_Adapter.ContactViewHolder> {

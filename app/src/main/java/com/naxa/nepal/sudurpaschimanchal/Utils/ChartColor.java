@@ -3,7 +3,7 @@ package com.naxa.nepal.sudurpaschimanchal.Utils;
 import android.graphics.Color;
 
 /**
- * Created by User on 11/20/2016.
+ * Created by Samir on 11/20/2016.
  */
 
 public class ChartColor {

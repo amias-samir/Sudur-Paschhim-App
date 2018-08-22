@@ -210,7 +210,8 @@
         <activity
             android:name=".activities.AttractionDetailsActivity"
             android:screenOrientation="portrait"
-            android:value=".MainActivity"></activity>
+            android:value=".MainActivity">
+        </activity>
         <activity
             android:name=".activities.HistoricalPlacesActivity"
             android:screenOrientation="portrait"
